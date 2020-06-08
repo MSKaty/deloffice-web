@@ -16,46 +16,37 @@ const routes: Routes = [
     path: '',
     component: MainComponent,
     children:[
-      // {
-      //   path:'',
-      //   component:HeaderComponent,
-      // },
-      // {
-      //   path:'',
-      //   component:HomeComponent,
-      // },
+      
+      {
+        path:'search-results',
+        component:SearchResultsComponent,
+      },
 
-      // {
-      //   path:'',
-      //   component:SearchResultsComponent,
-      // },
-
-      // {
-      //   path:'',
-      //   component:SingleProductComponent
-      // },
-
-      // {
-      //   path:'',
-      //   component:FooterComponent
-      // },
+      {
+        path:'single-product',
+        component:SingleProductComponent
+      },     
 
       {
         path:'register',
         component:RegisterComponent
       },
 
-      // {
-      //   path:'',
-      //   component:LoginComponent
-      // }
+      {
+        path:'login',
+        component:LoginComponent
+      },
+      {
+        path: 'home',
+        component: HomeComponent
+      }
 
     ]
   }
 ];
 
 @NgModule({
-  declarations: [MainComponent, HeaderComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent, RegisterComponent],
+  declarations: [MainComponent, HeaderComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent, RegisterComponent, LoginComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)

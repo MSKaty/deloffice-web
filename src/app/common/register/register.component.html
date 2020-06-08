@@ -2,9 +2,7 @@
 	<div class="row" style="padding: 3em;">	
 
             <span>
-                <button type="button" (click)="type=1">
-                    Corporate
-                </button>
+                <button type="button" (click)="type=1">Corporate</button>
            </span>
 
            <span>
@@ -22,40 +20,139 @@
 
 <ng-container [ngSwitch]="type">
     <form id = "corporate" *ngSwitchCase="1">
-        Corporate Name:<br><input type="text"><br>
-        Address:<br><textarea></textarea><br>
-        VAT:<br><input type="text"><br>
-        BRN:<br><input type="text"><br>
-        Field of Activity:<br><input type="text"><br>
-        Contact Person:<br><input type="text"><br>
-        Telephone:<br><input type="tel"><br>
-        Fax:<br><input type="tel"><br>
-        Email Address:<br><input type="text"><br>
-        Password:<br><input type="password"><br>
-        Confirm Password:<br><input type="password"><br>
-    
-        <br>
-        <input type="checkbox"><b>Accept Terms and Conditions*</b>By checking the box above and clicking Create Account, you acknowledge you have read and agreed to our Terms and Conditions<br>
-        <button>Create Account</button>
+        <div>
+            <div class="form-group">
+                <label for="corporate">Corporate Name</label>
+                <input type="text" name="corporate" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" name="address" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="vat">VAT</label>
+                <input type="text" name="vat" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="brn">BRN</label>
+                <input type="text" name="brn" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="field_of_activity">Field of Activity</label>
+                <input type="text" name="field_of_activity" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="contact_person">Contact Person</label>
+                <input type="text" name="contact_person" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="telephone">Telephone</label>
+                <input type="tel" name="telephone" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="fax">Fax</label>
+                <input type="tel" name="fax" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="fax">Fax</label>
+                <input type="tel" name="fax" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="mail">Email Address</label>
+                <input type="tel" name="mail" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" name="confirm_password" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <button class="btn btn-primary">Send</button>
+            </div>
+        </div>
+
     </form>   
     
     <form id="reseller" *ngSwitchCase="2">
-        Registered Name:<br><input type="text"><br>
-        Trading Name:<br><input type="text"><br>
-        Address:<br><input type="textarea"><br>
-        VAT:<br><input type="text"><br>
-        BRN:<br><input type="text"><br>
-        Field of Activity:<br><input type="text"><br>
-        Contact Person:<br><input type="text"><br>
-        Telephone:<br><input type="tel"><br>
-        Fax:<br><input type="tel"><br>
-        Email Address:<br><input type="text"><br>
-        Password:<br><input type="password"><br>
-        Confirm Password:<br><input type="password"><br>
-    
-        <br>
-        <input type="checkbox"><b>Accept Terms and Conditions*</b>By checking the box above and clicking Create Account, you acknowledge you have read and agreed to our Terms and Conditions<br>
-        <button>Create Account</button>
+        <div>
+            <div class="form-group">
+                <label for="reseller">Reseller</label>
+                <input type="text" name="reseller" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" name="address" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="vat">VAT</label>
+                <input type="text" name="vat" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="brn">BRN</label>
+                <input type="text" name="brn" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="field_of_activity">Field of Activity</label>
+                <input type="text" name="field_of_activity" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="contact_person">Contact Person</label>
+                <input type="text" name="contact_person" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="telephone">Telephone</label>
+                <input type="tel" name="telephone" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="fax">Fax</label>
+                <input type="tel" name="fax" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="fax">Fax</label>
+                <input type="tel" name="fax" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="mail">Email Address</label>
+                <input type="tel" name="mail" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" name="confirm_password" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <button class="btn btn-primary">Send</button>
+            </div>
+        </div>
+
     </form>
     
     <form id="individual" *ngSwitchCase="3">
@@ -72,3 +169,4 @@
         <button>Create Account</button>
     </form>
 </ng-container>
+

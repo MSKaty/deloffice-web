@@ -1,0 +1,126 @@
+// .carousel {
+//     position: relative;
+// }
+// .carousel-inner {
+//     position: relative;
+//     width: 100%;
+//     overflow: hidden;
+// }
+
+// .carousel-control-prev {
+//     left: 0;
+// }
+// .carousel-control-next {
+//     right: 0;
+// }
+// .carousel-item-next, .carousel-item-prev, .carousel-item .active {
+//     display: block;
+//     transition: -webkit-transform .6s ease;
+//     transition: transform .6s ease;
+//     transition: transform .6s ease,-webkit-transform .6s ease;
+// }
+// .carousel-indicators {
+//     position: absolute;
+//     right: 0;
+//     bottom: 10px;
+//     left: 0;
+//     z-index: 15;
+//     display: -ms-flexbox;
+//     display: flex;
+//     -ms-flex-pack: center;
+//     justify-content: center;
+//     padding-left: 0;
+//     margin-right: 15%;
+//     margin-left: 15%;
+//     list-style: none;
+// }
+// .carousel-indicators li {
+//     position: relative;
+//     -ms-flex: 0 1 auto;
+//     flex: 0 1 auto;
+//     width: 30px;
+//     height: 3px;
+//     margin-right: 3px;
+//     margin-left: 3px;
+//     text-indent: -999px;
+//     cursor: pointer;
+//     background-color: rgba(255,255,255,.5);
+// }
+// .carousel-control-next, .carousel-control-prev {
+//     position: absolute;
+//     top: 0;
+//     bottom: 0;
+//     display: -ms-flexbox;
+//     display: flex;
+//     -ms-flex-align: center;
+//     align-items: center;
+//     -ms-flex-pack: center;
+//     justify-content: center;
+//     width: 15%;
+//     color: #fff;
+//     text-align: center;
+//     opacity: .5;
+// }
+// .sr-only {
+//     position: absolute;
+//     width: 1px;
+//     height: 1px;
+//     padding: 0;
+//     overflow: hidden;
+//     clip: rect(0,0,0,0);
+//     white-space: nowrap;
+//     border: 0;
+// }
+
+.main-content,.bannerCentral{
+    margin:4px 0px;
+}
+#f-products{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap
+}
+#f-products div{
+    flex: 1 1 50%;
+}
+@media only screen and (max-width: 600px) {
+    #f-products div{
+    flex: 1 0 50%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    #f-products div{
+    flex: 1 0 50%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    #f-products div{
+    flex: 1 0 33.333333%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    #f-products div{
+    flex: 1 0 25%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    #f-products div{
+    flex: 1 0 25%;
+    }
+}
+
+.imageF{
+    border-style: solid;
+    border-width: 1px;
+    margin: 1px 1px;
+}
