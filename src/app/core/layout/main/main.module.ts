@@ -10,35 +10,40 @@ import { SearchResultsComponent } from '../../../views/search-results/search-res
 import { SingleProductComponent } from 'src/app/views/single-product/single-product.component';
 import { RegisterComponent } from 'src/app/common/register/register.component';
 import { LoginComponent } from 'src/app/common/login/login.component';
+import { ProductListComponent } from '../../../product-list/product-list.component';
 
 const routes: Routes = [
   {
     path: '',
     component: MainComponent,
-    children:[
-      
+    children: [
+
       {
-        path:'search-results',
-        component:SearchResultsComponent,
+        path: 'search-results',
+        component: SearchResultsComponent,
       },
 
       {
-        path:'single-product',
-        component:SingleProductComponent
-      },     
-
-      {
-        path:'register',
-        component:RegisterComponent
+        path: 'single-product',
+        component: SingleProductComponent
       },
 
       {
-        path:'login',
-        component:LoginComponent
+        path: 'register',
+        component: RegisterComponent
+      },
+
+      {
+        path: 'login',
+        component: LoginComponent
       },
       {
         path: 'home',
         component: HomeComponent
+      },
+      {
+        path: 'category',
+        component: ProductListComponent
       }
 
     ]
@@ -46,7 +51,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [MainComponent, HeaderComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent, RegisterComponent, LoginComponent],
+  declarations: [MainComponent, HeaderComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent, RegisterComponent, LoginComponent, ProductListComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
