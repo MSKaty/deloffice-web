@@ -1,116 +1,186 @@
-.main-content{
-    margin: 4px 0;
-    padding-left:20px;
-    padding-right:20px
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
 }
-#f-products{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap
+
+a, a:focus, a:active, a:hover {
+    text-decoration: none;
 }
-#f-products div{
-    flex: 1 1 50%;
-}
-@media only screen and (max-width: 600px) {
-    #f-products div{
-    flex: 1 0 50%;
+
+h5 {
+    &.custom-heading {
+        text-transform: uppercase;
+        color: white;
+        margin: 0;
+        margin-bottom: 15px;
+        font-size: 18px;
+        display: block;
+        text-align: center;
+        padding: 7px;
+        background-image: url('/assets/img/banner.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-color: blue;
+        border: 1px solid rgb(11, 11, 88);
     }
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-    #f-products div{
-    flex: 1 0 50%;
+
+
+main#content {
+    padding: 20px 30px;
+}
+
+nav.card {
+    a {
+        display: block;
+        padding: 5px 25px;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-weight: 500;
+        li {
+            span {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 20px;
+                font-size: 16px;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+            ul.collapse {
+                list-style: none;
+                margin: 0;
+                
+                li {
+                    a {
+                    }
+                }
+            }
+        }
     }
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-    #f-products div{
-    flex: 1 0 33.333333%;
+footer#main-footer {
+    background-image: url('/assets/img/banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: blue;
+    color: white;
+
+    > * {
+        padding: 5px 30px;
+    }
+
+    #top-footer {
+        padding: 20px 30px;
+        .footer-link-section {
+            flex: 0 1 25%;
+            max-height: 200px;
+
+            h6 {
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            ul {
+                list-style: none;
+                li {
+                    a {
+                        display: block;
+                        padding: 3px 0px;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+
+    #bottom-footer {
+        padding: 10px 30px;
+        font-size: 13px;
+    }
+}
+.useful-links {
+    ul {
+        li {
+            background-image: url('/assets/img/banner.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-color: white;
+            color: white;
+            border-bottom: 1px;
+            border-color: white;
+
+            &:hover {
+                color: red;
+                cursor: pointer;
+            }
+
+            h6 {
+                font-size: 1.5rem;
+                
+            }
+
+            p {
+                font-size: .9rem;
+            }
+
+            img {
+                
+            }
+        }
     }
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-    #f-products div{
-    flex: 1 0 25%;
-    }
-}
+#products {
+    > div {
+        &:not(:nth-child(4)) {
+            border-right: 1px solid rgba(#000, 0.3);
+        }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-    #f-products div{
-    flex: 1 0 25%;
-    margin: auto;
-    }
-}
+        .card {
+            box-shadow: none;
+            border: 0px solid transparent;
+            border-radius: 0px;
 
-.imageF{
-    border-style: solid;
-    border-width: 1px;
-}
-.row div .imageF{
-    width:fit-content;
-}
-li> a{
-    color: #343a40 !important;
-}
-li{
-    margin-left: -10px;
-}
-.pull-right {
-    float: right!important;
-}
-.header {
-    text-align: center;
-    overflow: hidden;
-}
-.header h2, h2.header {
-    
-    text-align: center;
-    padding: 0 20px;
-    margin: 10px 0 20px;
-    text-transform: uppercase;
-    position: relative;
-    z-index: 1;
-   
-    span{
-        background: #ffffff; 
-        padding: 0 15px;
+            .card-img-top {
+                border-radius: 0px;
+            }
+
+            .card-body {
+                padding: 15px 0px;
+
+                h5.card-title {
+                    font-size: .90rem;
+                    line-height: 1.3rem;
+                }
+
+                p.card-text {
+                    font-size: .90rem;
+                }
+
+                span#cart {
+                    * {
+                        margin-right: 10px;
+                    }
+                    input[type=number] {
+                        width: 50px;
+                    }
+                    a {
+                        display: block;
+                    }
+                }
+            }
+        }
     }
-}
-.header h2:after, .header h2:before, h2.header:after, h2.header:before {
-    background: #ddd;
-    content: "";
-    display: block;
-    height: 1px;
-    margin: 0 auto;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 400%;
-    z-index: -1;
-}
-.singlebanner_wrapper {
-    margin: 0 0 10px 0;
-}
-.marginZ{
-    margin: 0px 0px 0px 0px;
-}
-.doublebanner_wrapper .banner_content, .singlebanner_wrapper .banner_content {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-ul{
-    display:block;
 }

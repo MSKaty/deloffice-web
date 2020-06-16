@@ -1,62 +1,49 @@
-  <header>
-    <div class= "container-fluid" >
-      <div>
-        <div class="row align-middle topbanner">
-          <div class="col-sm-12 col-md-12 col-lg-12 ">
-            <div class="pull-right classlink">
-              <li><i class="material-icons">local_phone</i>+230 249 3200</li>
-              <li><a href="mailto:sales@deloffice.mu"><span class="material-icons">mail</span>sales@deloffice.mu</a></li>
-            </div>
-          </div>
-        </div>
-          <div class="d-flex justify-content-between contentblock_container" >
-              <div class="col-sm-2 col-md-2 col-lg-2 navlogo">
-                <a href="#"><img src="assets/img/logo.svg" width="240px"></a>  
-              </div>
+<div id="wrapper" class="container-fluid">
+  <header id="main-header" class="row d-flex flex-column">
+    <div id="top-header" class="w-100 d-flex justify-content-between align-items-center">
+      <span class="d-none d-lg-block flex-fill"><i class="fas fa-map-marker-alt mr-2"></i>Le Hochet, Terre
+        Rouge, Mauritius</span>
+      <span class="d-none d-lg-block flex-fill"><i class="fas fa-phone-alt mr-2"></i>+230 249 3200</span>
+      <span class="d-block text-center flex-fill"><i class="fas fa-envelope mr-2"></i>sales@deloffice.mu</span>
+    </div>
+    <div id="bottom-header" class="w-100 d-flex justify-content-between align-items-center flex-column flex-lg-row">
+      <a href="#" id="logo">
+        <img src="\assets\img\logo.svg" alt="deloffice_logo" class="img-fluid">
+      </a>
 
-              <div class="d-flex justify-content-center col-sm-6 col-md-6 col-lg-6">
-                <div class="input-group">
-                 <input class="form-control" placeholder="Search" type="text">
-                    <div class="input-group-append">
-                      <span class="input-group-text">
-                        <i class="fas fa-search"></i>
-                      </span>
-                   </div>
-                </div>
-              </div>
+      <form id="search-form" class="d-flex">
+        <input type="search" name="search" id="search" placeholder="Type in to search...">
+        <button><i class="fas fa-search"></i></button>
+      </form>
 
-              <div class="col-sm-2 col-md-2 col-lg-2">
-                <a href="#">Login/Register</a>
-              </div>
+      <div id="items" class="d-flex justify-content-between">
+        <span id="account">
+          <i class="fas fa-user"></i>
+          <!-- <small>My Account</small> -->
+        </span>
 
-              <div class="col-sm-1 col-md-1 col-lg-1">
-                <a href="#"><span class="material-icons">favorite</span></a>
-              </div>
+        <span id="wishlist">
+          <i class="fas fa-heart"></i>
+        </span>
 
-              <div class="col-sm-1 col-md-1 col-lg-1">
-                <a href="#"><i class="material-icons">shopping_cart</i></a>
-              </div>
-          </div>
-          <div class="align-middle">
-            <div id="banner" class="d-flex justify-content-between align-items-center">
-                <nav>
-                  <ul>
-                      <li><a href="#">Paper</a></li>
-                      <li><a href="#">Office Supplies</a></li>
-                      <li><a href="#">Food</a></li>
-                      <li><a href="#">Beverages</a></li>
-                      <li><a href="#">Cleaning</a></li>
-                      <li><a href="#">Personal Hygiene</a></li>
-                      <li><a href="#">Ink & Toners</a></li>
-                      <li><a href="#">Printing</a></li>
-
-                      <li><a href="#"><img src="" width="240px"></a></li>
-                  </ul>
-              </nav>
-            </div>
-          </div>
+        <span id="cart">
+          <i class="fas fa-shopping-cart"></i>
+        </span>
       </div>
     </div>
-  
+    <nav id="main" class="d-flex justify-content-between align-items-center">
+      <ul class="d-none d-lg-block">
+        <li><a href="#">Paper</a></li>
+        <li><a href="#">Office Supplies</a></li>
+        <li><a href="#">Food</a></li>
+        <li><a href="#">Beverages</a></li>
+        <li><a href="#">Cleaning</a></li>
+        <li><a href="#">Personal Hygiene</a></li>
+        <li><a href="#">Ink & Toners</a></li>
+        <li><a href="#">Printing</a></li>
+      </ul>
 
+      <a href="#">Claro Goes Here</a>
+    </nav>
   </header>
+</div>

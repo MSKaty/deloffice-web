@@ -1,40 +1,41 @@
-body{
-    background-image: url('/assets/img/footer.jpg');
+footer#main-footer {
+    background-image: url('/assets/img/banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: blue;
+    color: white;
 
-}
-ul{ 
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    float: left;
-    font-size: 14.5px;
-    color:white;
-   
-    a{
-        &:hover{
+    > * {
+        padding: 5px 30px;
+    }
 
-            color:orange;
+    #top-footer {
+        padding: 20px 30px;
+        .footer-link-section {
+            flex: 0 1 25%;
+            max-height: 200px;
+
+            h6 {
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            ul {
+                list-style: none;
+                li {
+                    a {
+                        display: block;
+                        padding: 3px 0px;
+                        color: white;
+                    }
+                }
+            }
         }
-        
+    }
+
+    #bottom-footer {
+        padding: 10px 30px;
+        font-size: 13px;
     }
 }
-
-div{
-
-    padding-left:25px;
-    padding-top: 10px;
-   
-   
-    h5{
-        color:white;
-        text-align: left;
-    }
-    
-}
-
-footer{
-    color:white;
-    
-    
-}
-
