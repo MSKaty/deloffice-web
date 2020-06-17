@@ -27,36 +27,12 @@ h5 {
     }
 }
 
-h2.background {
-    margin-top: 20px;
-    text-align: center;
-    text-transform: uppercase;
-    position: relative;
-    z-index: 1;
-    
-    &:before {
-        border-top: 2px solid #dfdfdf;
-        content:"";
-        margin: 0 auto; /* this centers the line to the full width specified */
-        position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
-        top: 50%; left: 0; right: 0; bottom: 0;
-        width: 100%;
-        z-index: -1;
-    }
 
-    span { 
-        /* to hide the lines from behind the text, you have to set the background color the same as the container */ 
-        background: #fff; 
-        padding: 0 15px; 
-    }
-}
 
 main#content {
     padding: 20px 30px;
 }
-.fa, .far, .fas {
-    font-family: "Font Awesome 5 Free";
-}
+
 nav.card {
     a {
         display: block;
@@ -70,6 +46,8 @@ nav.card {
         margin: 0;
         padding: 0;
         font-weight: 500;
+        color:black;
+        
         li {
             span {
                 display: flex;
@@ -79,14 +57,15 @@ nav.card {
                 font-size: 16px;
                 font-weight: 600;
                 text-transform: uppercase;
-                color:black;                
+                color:black;
             }
             ul.collapse {
                 list-style: none;
                 margin: 0;
-                
+               
                 li {
                     a {
+                        color:black;
                     }
                 }
             }
@@ -94,6 +73,47 @@ nav.card {
     }
 }
 
+footer#main-footer {
+    background-image: url('/assets/img/banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: blue;
+    color: white;
+
+    > * {
+        padding: 5px 30px;
+    }
+
+    #top-footer {
+        padding: 20px 30px;
+        .footer-link-section {
+            flex: 0 1 25%;
+            max-height: 200px;
+
+            h6 {
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            ul {
+                list-style: none;
+                li {
+                    a {
+                        display: block;
+                        padding: 3px 0px;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+
+    #bottom-footer {
+        padding: 10px 30px;
+        font-size: 13px;
+    }
+}
 .useful-links {
     ul {
         li {
@@ -163,12 +183,6 @@ nav.card {
                     }
                     a {
                         display: block;
-                        i{
-                            margin:auto;
-                        }
-                    }
-                    .fa, .far, .fas {
-                        color:white;
                     }
                 }
             }

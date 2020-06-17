@@ -4,10 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './main.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { SlidebarComponent } from './slidebar/slidebar.component';
 import { HomeComponent } from '../../../views/home/home.component';
 
 import { SearchResultsComponent } from '../../../views/search-results/search-results.component';
-import { SingleProductComponent } from 'src/app/views/single-product/single-product.component';
+import { SingleProductComponent } from 'src/app/single-product/single-product.component';
 import { RegisterComponent } from 'src/app/common/register/register.component';
 import { LoginComponent } from 'src/app/common/login/login.component';
 import { ProductListComponent } from '../../../product-list/product-list.component';
@@ -44,6 +45,10 @@ const routes: Routes = [
       {
         path: 'category',
         component: ProductListComponent
+      },
+      {
+        path: 'slidebar',
+        component: SlidebarComponent
       }
 
     ]
@@ -51,7 +56,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [MainComponent, HeaderComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent, RegisterComponent, LoginComponent, ProductListComponent],
+  declarations: [MainComponent, HeaderComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent, RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)

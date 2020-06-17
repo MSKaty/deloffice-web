@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+a, a:focus, a:active, a:hover {
+    text-decoration: none;
+}
+
+
+main#content {
+    padding: 20px 30px;
+}
+.fa, .far, .fas {
+    font-family: "Font Awesome 5 Free";
+}

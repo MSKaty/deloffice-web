@@ -38,4 +38,43 @@ footer#main-footer {
         padding: 10px 30px;
         font-size: 13px;
     }
+    body{
+    background-image: url('/assets/img/footer.jpg');
+
+}
+ul{ 
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: left;
+    font-size: 14.5px;
+    color:white;
+   
+    a{
+        &:hover{
+
+            color:orange;
+        }
+        
+    }
+}
+
+div{
+
+    padding-left:60px;
+    padding-top: 10px;
+   
+   
+    h5{
+        color:white;
+        text-align: left;
+    }
+    
+}
+
+footer{
+    color:white;
+    
+    
+}
 }
