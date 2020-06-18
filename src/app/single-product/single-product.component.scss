@@ -8,10 +8,94 @@ a, a:focus, a:active, a:hover {
     text-decoration: none;
 }
 
-
-main#content {
-    padding: 20px 30px;
+div#bannerImage.container-fluid{
+    padding-right: 0px;
+    padding-left: 0px;
+    div{
+        background-color: gainsboro;
+        color: white;
+    }
 }
+main#content {    
+    padding: 20px 30px;
+    .product{
+        position:relative;
+        .wrap-sticky-content-block{
+            width: 100%;
+            display: inline-block;
+            .wrap-single-product-images{
+                float:left;
+                .product-video-button{
+                    position: absolute;
+                    z-index: 3;
+                    right: 15px;
+                    top: 55px;
+                    .wrap-product-video {
+                        margin-bottom: 5px;
+                        display: inline-block;
+                        a.button{
+                            letter-spacing: 1.3px;
+                            font-weight: 500;
+                            cursor: pointer;
+                            position: relative;
+                            text-decoration: none;
+                            overflow: visible;
+                            left: auto;
+                        }
+                        .button.video-lb-control{
+                            display: flex;
+                            align-items: center;
+                            width: 40px;
+                            justify-content: center;
+                            padding: 0 !important;
+                            height: 40px !important;
+                            border-radius: 50%;
+                            background: rgba(255,255,255,.5);
+                            box-shadow: 0 3px 3px rgba(0,0,0,.2);
+                            font-size: .8888888889rem;
+                            color: var(--black-color);
+                        }
+                        .mask-product-video {
+                            width: 100%;
+                            height: 100%;
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            background: rgba(0,0,0,.8);
+                            z-index: -1;
+                            visibility: hidden;
+                            opacity: 0;
+                            cursor: pointer;
+                        }
+                        .wrap-product-video iframe {
+                            position: fixed;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%,-50%);
+                            visibility: hidden;
+                            opacity: 0;
+                            z-index: -1;
+                        }
+                        visibility: hidden;
+                    }
+                }
+            }
+
+        }
+        .entry-summary{
+            float:right;
+        }
+    }
+}
+
 .fa, .far, .fas {
     font-family: "Font Awesome 5 Free";
+}
+
+@media (min-width: 768px){
+    .product.wrap-sticky-content-block.wrap-single-product-images,
+    .product.wrap-sticky-content-block.entry-summary{
+        width: calc(50% - 15px);
+        margin-bottom: 40px;
+    }
 }

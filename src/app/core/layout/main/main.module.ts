@@ -12,6 +12,7 @@ import { SingleProductComponent } from 'src/app/single-product/single-product.co
 import { RegisterComponent } from 'src/app/common/register/register.component';
 import { LoginComponent } from 'src/app/common/login/login.component';
 import { ProductListComponent } from '../../../product-list/product-list.component';
+import { CartComponent } from '../main/cart/cart.component';
 
 const routes: Routes = [
   {
@@ -49,14 +50,20 @@ const routes: Routes = [
       {
         path: 'slidebar',
         component: SlidebarComponent
-      }
+      },
+
+      {
+        path: 'cart',
+        component: CartComponent
+      },
+
 
     ]
   }
 ];
 
 @NgModule({
-  declarations: [MainComponent, HeaderComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent, RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent],
+  declarations: [MainComponent, HeaderComponent, CartComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent, RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
