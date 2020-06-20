@@ -7,12 +7,13 @@
 a, a:focus, a:active, a:hover {
     text-decoration: none;
 }
-
+.imageSelector .custom-control-label::before,
+.imageSelector .custom-control-label::after{
+    width: 1.25rem;
+    height: 1.25rem;
+}
 main#content {
     padding: 20px 30px;
-    .buttonTop{
-        text-align: right;
-    }
     .fa, .far, .fas {
         font-family: "Font Awesome 5 Free";
     }
@@ -20,7 +21,7 @@ main#content {
         font-weight: 700 !important;
         color:white;
     }
-    .cart-info table{
+    table .cart-info {        
         tbody{
             tr > td:nth-child(n+3){
                 vertical-align: middle !important;
@@ -41,18 +42,14 @@ main#content {
         background-color: lightblue;
         .cart-totals{
             td span{
-                right:0px;
+                right:0;
             }
             
             textarea #commentCart{
                 width:100%;
                 min-width:100%;
-                max-width: 100%;
+                max-width: 100%ng;
             }
-            .devider{
-                border-bottom: 2px solid black;
-            }
-            
             .cart-order-total{
                 font-size: x-large;
                 font-weight: 900 !important;
