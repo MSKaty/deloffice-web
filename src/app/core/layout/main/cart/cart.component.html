@@ -7,7 +7,7 @@
                 </div>
 
                 <div class="col-3 text-right ">
-                    <a href="#" class="btn btn-primary ml-2"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Clear
+                    <a href="#" class="btn btn-primary ml-2"><i class="fas fa-times"></i>&nbsp;&nbsp;Clear
                         Cart</a>
                     <a href="#" class="btn btn-primary ml-2"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Send
                         Order</a>
@@ -49,7 +49,7 @@
                             <div>Rs xxx</div>
                         </td>
                         <td class="cart_quantity align-middle">
-                            <input class="form-control text-center" type="number" value="1" id="example-number-input">
+                            <input class="form-control text-center" type="number" value="42" id="example-number-input">
                         </td>
                         <td class="cart_total align-middle text-center">
                             <p>Rs xxx </p>
@@ -83,7 +83,7 @@
                             <div>Rs xxx</div>
                         </td>
                         <td class="cart_quantity align-middle">
-                            <input class="form-control text-center" type="number" value="1" id="example-number-input">
+                            <input class="form-control text-center" type="number" value="42" id="example-number-input">
                         </td>
                         <td class="cart_total align-middle text-center">
                             <p>Rs xxx </p>
@@ -117,7 +117,7 @@
                             <div>Rs xxx</div>
                         </td>
                         <td class="cart_quantity align-middle">
-                            <input class="form-control text-center" type="number" value="1" id="example-number-input">
+                            <input class="form-control text-center" type="number" value="42" id="example-number-input">
                         </td>
                         <td class="cart_total align-middle text-center">
                             <p>Rs xxx </p>
@@ -240,140 +240,4 @@
             </div>
         </div>
     </main>
-
-    <div class="table-responsive cart_info">
-        <table class="table table-condensed">
-            <thead>
-                <tr class="cart_menu">
-                    <td class="image" width="160"></td>
-                    <td class="description" width="280">Name</td>
-                    <td class="price">Price</td>
-                    <td class="quantity" width="135">Quantity</td>
-                    <td class="total">Sub Total</td>
-                    <td class="vat">VAT</td>
-                    <td class="grandtotal">Total</td>
-                    <td class="empty"></td>							
-                </tr>
-            </thead>
-            <tbody>
-                
-                <tr>
-                    <td class="cart_product">
-                        <a href=""><img src="https://via.placeholder.com/1000x1000.png" class="d-block img-fluid" width="110" title="" alt="" /></a>
-                    </td>
-                    <td class="cart_description">
-                        <h4><a href=""></a></h4>
-                        <p>Description1</p>
-                        <p>Description2</p>
-                        <p>Brand</p>
-                        <p>Product Code:</p>
-                    </td>
-                    <td class="cart_price">
-                        <p>Rs xxx</p>
-                    </td>
-                    <td class="cart_quantity">
-                        <div class="cart_quantity_button">
-                            <!--<a class="cart_quantity_up" onClick="cartplus('<?php echo $getProductById[$selwishbox[$key]['prodid']]['id'];?>','<?php if(isset($_SESSION['session_customerid'])){echo $_SESSION['session_customerid'];}?>')"><i class="fa fa-plus"></i></a>-->
-                            <input class="cart_quantity_input" id="" type="num" name="quantity" value="1" autocomplete="off" onInput="showUpdate('')" size="3">
-                            <div style="display:none" id="updateCart">
-                                <a style="cursor:pointer;color:#F00;font-weight:bold" onClick="updatecart('')">Update</a>
-                            </div>
-                            <!--<a class="cart_quantity_down" onClick="cartminus('<?php echo $getProductById[$selwishbox[$key]['prodid']]['id'];?>','<?php if(isset($_SESSION['session_customerid'])){echo $_SESSION['session_customerid'];}?>')"><i class="fa fa-minus"></i></a>-->
-                        </div>
-                    </td>
-                    <td class="cart_total">
-                        <p>Rs xxx </p>
-                    </td>
-                    <td class="cart_vat">
-                        <p>Rs xxx</p>
-                    </td>
-                    <td class="cart_grandtotal">
-                        <p class="cart_total_price">Rs xxx</p>
-                    </td>
-                    <td class="cart_delete">
-                        <a class="cart_quantity_delete"><i class="fa fa-times">Remove</i></a>
-                    </td>							
-                </tr>
-
-                <tr>
-                    <td class="cart_product">
-                        <a href=""><img src="https://via.placeholder.com/1000x1000.png" class="d-block img-fluid" width="110" title="" alt="" /></a>
-                    </td>
-                    <td class="cart_description">
-                        <h4><a href=""></a></h4>
-                        <p>Description1</p>
-                        <p>Description2</p>
-                        <p>Brand</p>
-                        <p>Product Code:</p>
-                    </td>
-                    <td class="cart_price">
-                        <p>Rs xxx</p>
-                    </td>
-                    <td class="cart_quantity">
-                        <div class="cart_quantity_button">
-                            <!--<a class="cart_quantity_up" onClick="cartplus('<?php echo $getProductById[$selwishbox[$key]['prodid']]['id'];?>','<?php if(isset($_SESSION['session_customerid'])){echo $_SESSION['session_customerid'];}?>')"><i class="fa fa-plus"></i></a>-->
-                            <input class="cart_quantity_input" id="" type="num" name="quantity" value="1" autocomplete="off" onInput="showUpdate('')" size="3">
-                            <div style="display:none" id="updateCart">
-                                <a style="cursor:pointer;color:#F00;font-weight:bold" onClick="updatecart('')">Update</a>
-                            </div>
-                            <!--<a class="cart_quantity_down" onClick="cartminus('<?php echo $getProductById[$selwishbox[$key]['prodid']]['id'];?>','<?php if(isset($_SESSION['session_customerid'])){echo $_SESSION['session_customerid'];}?>')"><i class="fa fa-minus"></i></a>-->
-                        </div>
-                    </td>
-                    <td class="cart_total">
-                        <p>Rs xxx </p>
-                    </td>
-                    <td class="cart_vat">
-                        <p>Rs xxx</p>
-                    </td>
-                    <td class="cart_grandtotal">
-                        <p class="cart_total_price">Rs xxx</p>
-                    </td>
-                    <td class="cart_delete">
-                        <a class="cart_quantity_delete"><i class="fa fa-times">Remove</i></a>
-                    </td>							
-                </tr>            				
-            </tbody>
-        </table>
-
-        <div class="" col-lg-6 col-md-6 col-12 px-lg-0 >
-
-           <h3>Choose between Pick Up or Delivery</h3>
-           <input type="checkbox">Delivery
-           <p>-Minimum order of Rs 2500 (incl. VAT) <br>
-            -Free Delivery for order above Rs 5000</p>
-
-            <input type="checkbox" style="float:left;">Pickup
-
-        </div>
-        <div class="total_area" col-lg-6 col-md-6 col-12 px-lg-0 >
-            <ul>
-                <li>Sub Total <span>Rs </span></li>
-                <li>VAT <span>Rs</span></li>
-                <li>Delivery Cost <span>Rs</span></li>
-                <li>Handling Cost <span>Rs</span></li>
-                <li>Grand Total <span>Rs</span></li>
-                <br/>
-                Any Comment : 
-                <input type="text" name="commentCart" id="commentCart" />
-                
-            </ul>							
-                <a class="btn btn-default check_out">Send Order</a><br>
-
-                <img src="https://via.placeholder.com/350x350.png"><br><br>
-
-        </div>
-        <div class="" col-lg-6 col-md-6 col-12 px-lg-0 >
-            <img src="https://via.placeholder.com/400x400.png">
-        </div>
-
-        <div class="" col-lg-6 col-md-6 col-12 px-lg-0 >
-            <img src="https://via.placeholder.com/400x400.png">
-        </div>
-
-        <div class="" col-lg-6 col-md-6 col-12 px-lg-0 >
-            <img src="https://via.placeholder.com/1300x400.png">
-        </div>
-
-    </div>
-    
-					
+</div>
