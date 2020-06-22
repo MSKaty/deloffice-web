@@ -7,7 +7,6 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./core/layout/main/main.module').then(m =>m.MainModule)
   }
-
 ];
 
 @NgModule({

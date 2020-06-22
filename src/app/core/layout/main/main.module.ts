@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SlidebarComponent } from './slidebar/slidebar.component';
 import { HomeComponent } from '../../../views/home/home.component';
+import {HttpClientModule} from '@angular/common/http';
 
 import { SearchResultsComponent } from '../../../views/search-results/search-results.component';
 import { SingleProductComponent } from 'src/app/single-product/single-product.component';
@@ -19,7 +20,19 @@ const routes: Routes = [
     path: '',
     component: MainComponent,
     children: [
-
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'product',
+        children: [
+          {
+            path: ':id',
+            component: SingleProductComponent
+          }
+        ]
+      },
       {
         path: 'search-results',
         component: SearchResultsComponent,
@@ -39,10 +52,7 @@ const routes: Routes = [
         path: 'login',
         component: LoginComponent
       },
-      {
-        path: 'home',
-        component: HomeComponent
-      },
+      
       {
         path: 'category',
         component: ProductListComponent
@@ -59,6 +69,11 @@ const routes: Routes = [
 
 
     ]
+  },
+  {
+    path: '',
+    redirectTo: '/',
+    pathMatch: 'full'
   }
 ];
 
@@ -66,6 +81,7 @@ const routes: Routes = [
   declarations: [MainComponent, HeaderComponent, CartComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent, RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent],
   imports: [
     CommonModule,
+    HttpClientModule,
     RouterModule.forChild(routes)
   ]
 })
