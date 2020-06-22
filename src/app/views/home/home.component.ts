@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from '../../common/services/category.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  category$: Observable<any>;
 
-  constructor() { }
+  constructor(private _cat: CategoryService) { }
 
   ngOnInit() {
+    this.category$ = this._cat.getTree();
   }
 
 }

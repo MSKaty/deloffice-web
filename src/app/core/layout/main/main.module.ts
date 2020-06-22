@@ -6,7 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SlidebarComponent } from './slidebar/slidebar.component';
 import { HomeComponent } from '../../../views/home/home.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { SearchResultsComponent } from '../../../views/search-results/search-results.component';
 import { SingleProductComponent } from 'src/app/single-product/single-product.component';
@@ -25,7 +25,8 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
+        data: { title: 'Home' }
       },
       {
         path: 'product',
@@ -55,7 +56,7 @@ const routes: Routes = [
         path: 'login',
         component: LoginComponent
       },
-      
+
       {
         path: 'category',
         component: ProductListComponent

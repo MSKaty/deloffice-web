@@ -104,39 +104,35 @@
                 <nav class="card mb-3">
                     <div class="card-body p-0">
                         <ul>
-                            <li>
-                                <span data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false"
-                                    aria-controls="collapse1">
-                                    Personal Hygiene
-                                    <i class="fas fa-plus"></i>
+                            <li *ngFor="let cat of category$ | async; index as i;">
+                                <span data-toggle="collapse" [attr.href]="'#category1' + i" role="button"
+                                    aria-expanded="false" [attr.aria-controls]="'category1' + i">
+                                    {{cat.description}}
+                                    <i *ngIf="cat.subcategories.length > 0" class="fas fa-plus"></i>
                                 </span>
-                                <ul class="collapse" id="collapse1">
-                                    <li>
-                                        <a>Content</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <span data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false"
-                                    aria-controls="collapse2">
-                                    Paper
-                                    <i class="fas fa-plus"></i>
-                                </span>
-                                <ul class="collapse" id="collapse2">
-                                    <li>
-                                        <a>Content</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <span data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false"
-                                    aria-controls="collapse3">
-                                    Office Supplies
-                                    <i class="fas fa-plus"></i>
-                                </span>
-                                <ul class="collapse" id="collapse3">
-                                    <li>
-                                        <a>Content</a>
+                                <ul *ngIf="cat.subcategories.length > 0" class="collapse" id="category1{{i}}">
+                                    <li *ngFor="let subcat of cat.subcategories; index as j;">
+                                        <a data-toggle="collapse" [attr.href]="'#category2' + j" role="button"
+                                            aria-expanded="false" [attr.aria-controls]="'category2' + j">
+                                            {{subcat.description}}
+                                            <i *ngIf="subcat.subcategories.length > 0" class="fas fa-plus"></i>
+                                        </a>
+                                        <ul *ngIf="subcat.subcategories.length > 0" class="collapse"
+                                            id="category2{{j}}">
+                                            <li *ngFor="let subcat2 of subcat.subcategories; index as k;">
+                                                <a data-toggle="collapse" [attr.href]="'#category3' + k" role="button"
+                                                    aria-expanded="false" [attr.aria-controls]="'category3' + k">
+                                                    {{subcat2.description}}
+                                                    <i *ngIf="subcat2.subcategories.length > 0" class="fas fa-plus"></i>
+                                                </a>
+                                                <ul *ngIf="subcat2.subcategories.length > 0" class="collapse"
+                                                    id="category3{{k}}">
+                                                    <li *ngFor="let subcat3 of subcat2.subcategories; index as l;">
+                                                        <a>{{subcat3.description}}</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </li>

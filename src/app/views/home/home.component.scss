@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
-* {
-    font-family: 'Roboto', sans-serif;
-}
+// * {
+//     font-family: 'Roboto', sans-serif;
+// }
 
 a, a:focus, a:active, a:hover {
     text-decoration: none;
@@ -82,6 +82,10 @@ nav.card {
                 .fa, .far, .fas {
                     font-family: "Font Awesome 5 Free";
                 }
+            }
+            a {
+                display: flex;
+                justify-content: space-between`;
             }
             ul.collapse {
                 list-style: none;

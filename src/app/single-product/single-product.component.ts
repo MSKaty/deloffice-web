@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../common/services/product.service';
 
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
+import { TitleService } from '../common/services/title.service';
 
 @Component({
   selector: 'app-single-product',
@@ -15,11 +16,16 @@ export class SingleProductComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private _prod: ProductService
+    private _prod: ProductService,
+    private _title: TitleService
   ) { }
 
   ngOnInit() {
-    this.product$ = this.get();
+    this.product$ = this.get().pipe(
+      tap((product) => {
+        this._title.changeTitle(product.des1);
+      })
+    );
   }
 
   get() {
@@ -28,6 +34,10 @@ export class SingleProductComponent implements OnInit {
         return this._prod.findOne(param['id']);
       })
     )
+  }
+
+  getVideo() {
+
   }
 
 }
