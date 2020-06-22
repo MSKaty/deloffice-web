@@ -13,7 +13,6 @@ div#bannerImage.container-fluid{
     padding-left: 0px;
     div{
         background-color: gainsboro;
-        color: white;
     }
 }
 main#content {    
@@ -27,7 +26,7 @@ main#content {
                 float:left;
                 .product-video-button{
                     position: absolute;
-                    z-index: 3;
+                    z-index: 4;
                     right: 15px;
                     top: 55px;
                     .wrap-product-video {
@@ -79,13 +78,105 @@ main#content {
                         visibility: hidden;
                     }
                 }
+                .carousel-inner img {
+                    width: 80vh;
+                }
             }
 
         }
         .entry-summary{
             float:right;
+            .fa, .far, .fas {
+                        color:white;
+                    }
+            h1{
+                font-weight: 700 !important;
+            }
+            span#cart {
+                    * {
+                        margin-right: 10px;
+                    }
+                    input[type=number] {
+                        width: 50px;
+                    }
+                    a {
+                        display: block;
+                        i{
+                            margin:auto;
+                        }
+                    }
+                    
+            }
         }
     }
+    h2.background {
+        margin-top: 20px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 700 !important;
+        position: relative;
+        z-index: 1;
+        
+        &:before {
+            border-top: 2px solid #dfdfdf;
+            content:"";
+            margin: 0 auto; /* this centers the line to the full width specified */
+            position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
+            top: 50%; left: 0; right: 0; bottom: 0;
+            width: 100%;
+            z-index: -1;
+        }
+
+        span { 
+            /* to hide the lines from behind the text, you have to set the background color the same as the container */ 
+            background: #fff; 
+            padding: 0 15px; 
+        }
+    }
+    .card {
+            box-shadow: none;
+            border: 0px solid transparent;
+            border-radius: 0px;
+
+            .card-img-top {
+                border-radius: 0px;
+            }
+
+            .card-body {
+                padding: 15px 0px;
+
+                h5.card-title {
+                    font-size: .90rem;
+                    line-height: 1.3rem;
+                    text-align: center;
+                }
+                p.card-text {
+                    font-size: .90rem;
+                    text-align: center;
+                }
+
+                span#cart {
+                    -ms-flex-pack: distribute !important;
+                    justify-content: space-around !important;
+                    * {
+                        margin-right: 10px;
+                        
+                    }
+                    input[type=number] {
+                        width: 50px;
+                    }
+                    a {
+                        display: block;
+                        i{
+                            margin:auto;
+                        }
+                    }
+                    .fa, .far, .fas {
+                        color:white;
+                    }
+                }
+            }
+        }
 }
 
 .fa, .far, .fas {
