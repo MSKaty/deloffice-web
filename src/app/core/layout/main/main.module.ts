@@ -15,6 +15,7 @@ import { ProductListComponent } from '../../../product-list/product-list.compone
 import { CartComponent } from '../main/cart/cart.component';
 import { AboutComponent } from '../delinfo/about/about.component';
 import { WishlistComponent } from '../main/wishlist/wishlist.component';
+import { CorporateValuesComponent } from '../delinfo/corporate-values/corporate-values.component';
 
 const routes: Routes = [
   {
@@ -66,6 +67,10 @@ const routes: Routes = [
         path: 'about',
         component: AboutComponent
       },
+      {
+        path: 'our-corporate-values',
+        component: CorporateValuesComponent
+      },
 
 
     ]
@@ -74,7 +79,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [MainComponent, HeaderComponent, CartComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent,
-    RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent, AboutComponent, WishlistComponent],
+    RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent, AboutComponent, WishlistComponent, CorporateValuesComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
