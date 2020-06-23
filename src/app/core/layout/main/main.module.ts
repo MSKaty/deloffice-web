@@ -17,6 +17,7 @@ import { CartComponent } from '../main/cart/cart.component';
 import { AboutComponent } from '../../../views/delinfo/about/about.component';
 import { WishlistComponent } from '../main/wishlist/wishlist.component';
 import { CorporateValuesComponent } from 'src/app/views/delinfo/corporate-values/corporate-values.component';
+import { ContactUsComponent } from '../../../views/delinfo/contact-us/contact-us.component';
 
 
 const routes: Routes = [
@@ -83,6 +84,10 @@ const routes: Routes = [
         path: 'our-corporate-values',
         component: CorporateValuesComponent
       },
+      {
+        path: 'contact-us',
+        component: ContactUsComponent
+      },
 
 
     ]
@@ -96,7 +101,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [MainComponent, HeaderComponent, CartComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent,
-    RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent, AboutComponent, WishlistComponent, CorporateValuesComponent],
+    RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent, AboutComponent, WishlistComponent, CorporateValuesComponent, ContactUsComponent],
   imports: [
     CommonModule,
     HttpClientModule,

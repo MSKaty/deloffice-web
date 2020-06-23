@@ -1,12 +1,24 @@
 form{
-    padding:20px;
+    padding:70px;
 
     input{
         width: 30%;
     }
+   
+}
 
-    span{
+button{
+            padding:15px;
+            background-color:White;
+            size:25px;
+            
+        }
+        .btnSize{
+                min-width:200px;
+            }
 
-        padding:15px;
-    }
+.logosvg{
+    height: 50px;
+    padding-right: 15px;
+
 }

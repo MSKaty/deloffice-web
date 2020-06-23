@@ -1,25 +1,26 @@
-<div class="container-fluid">   
-	<div class="row" style="padding: 3em;">	
+<div class="container-fluid">
+    <div class="row" style="padding: 3em;">
 
-            <span>
-                <button type="button" (click)="type=1">Corporate</button>
-           </span>
 
-           <span>
-                <button type="button" (click)="type=2">Reseller</button>
-            </span>
-            
-            <span>
-                <button type="button" (click)="type=3">Individual</button>
-            </span>
-            
+        <button class="button btnSize p-3" type="button" (click)="type=1"><img src="\assets\img\corporate.svg"
+                class="logosvg">Corporate</button>
+
+
+
+        <button class="button btnSize p-3" type="button" (click)="type=2"><img src="\assets\img\reseller.svg"
+                class="logosvg">Reseller</button>
+
+        <button class=" button btnSize p-3" type="button" (click)="type=3"><img src="\assets\img\individual.svg"
+                class="logosvg">Individual</button>
+
+
 
     </div>
 
 </div>
 
 <ng-container [ngSwitch]="type">
-    <form id = "corporate" *ngSwitchCase="1">
+    <form id="corporate" *ngSwitchCase="1">
         <div>
             <div class="form-group">
                 <label for="corporate">Corporate Name</label>
@@ -49,12 +50,12 @@
                 <label for="contact_person">Contact Person</label>
                 <input type="text" name="contact_person" class="form-control">
             </div>
-            
+
             <div class="form-group">
                 <label for="telephone">Telephone</label>
                 <input type="tel" name="telephone" class="form-control">
             </div>
-            
+
             <div class="form-group">
                 <label for="fax">Fax</label>
                 <input type="tel" name="fax" class="form-control">
@@ -79,14 +80,14 @@
                 <label for="confirm_password">Confirm Password</label>
                 <input type="password" name="confirm_password" class="form-control">
             </div>
-            
+
             <div class="form-group">
                 <button class="btn btn-primary">Send</button>
             </div>
         </div>
 
-    </form>   
-    
+    </form>
+
     <form id="reseller" *ngSwitchCase="2">
         <div>
             <div class="form-group">
@@ -117,12 +118,12 @@
                 <label for="contact_person">Contact Person</label>
                 <input type="text" name="contact_person" class="form-control">
             </div>
-            
+
             <div class="form-group">
                 <label for="telephone">Telephone</label>
                 <input type="tel" name="telephone" class="form-control">
             </div>
-            
+
             <div class="form-group">
                 <label for="fax">Fax</label>
                 <input type="tel" name="fax" class="form-control">
@@ -147,14 +148,14 @@
                 <label for="confirm_password">Confirm Password</label>
                 <input type="password" name="confirm_password" class="form-control">
             </div>
-            
+
             <div class="form-group">
                 <button class="btn btn-primary">Send</button>
             </div>
         </div>
 
     </form>
-    
+
     <form id="individual" *ngSwitchCase="3">
         First Name:<br><input type="text"><br>
         Last Name:<br><input type="text"><br>
@@ -163,10 +164,10 @@
         Email Address:<br><input type="text"><br>
         Password:<br><input type="password"><br>
         Confirm Password:<br><input type="password"><br>
-    
+
         <br>
-        <input type="checkbox"><b>Accept Terms and Conditions*</b>By checking the box above and clicking Create Account, you acknowledge you have read and agreed to our Terms and Conditions<br>
+        <input type="checkbox"><b>Accept Terms and Conditions*</b>By checking the box above and clicking Create Account,
+        you acknowledge you have read and agreed to our Terms and Conditions<br>
         <button>Create Account</button>
     </form>
 </ng-container>
-
