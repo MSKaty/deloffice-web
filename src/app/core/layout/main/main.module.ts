@@ -9,14 +9,15 @@ import { HomeComponent } from '../../../views/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { SearchResultsComponent } from '../../../views/search-results/search-results.component';
-import { SingleProductComponent } from 'src/app/single-product/single-product.component';
-import { RegisterComponent } from 'src/app/common/register/register.component';
-import { LoginComponent } from 'src/app/common/login/login.component';
-import { ProductListComponent } from '../../../product-list/product-list.component';
+import { SingleProductComponent } from 'src/app/views/single-product/single-product.component';
+import { RegisterComponent } from 'src/app/views/register/register.component';
+import { LoginComponent } from 'src/app/views/login/login.component';
+import { ProductListComponent } from '../../../views/product-list/product-list.component';
 import { CartComponent } from '../main/cart/cart.component';
-import { AboutComponent } from '../delinfo/about/about.component';
+import { AboutComponent } from '../../../views/delinfo/about/about.component';
 import { WishlistComponent } from '../main/wishlist/wishlist.component';
-import { CorporateValuesComponent } from '../delinfo/corporate-values/corporate-values.component';
+import { CorporateValuesComponent } from 'src/app/views/delinfo/corporate-values/corporate-values.component';
+
 
 const routes: Routes = [
   {

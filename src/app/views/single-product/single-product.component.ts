@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../common/services/product.service';
+import { ProductService } from '../../common/services/product.service';
 
 import { Observable } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
-import { TitleService } from '../common/services/title.service';
+import { TitleService } from '../../common/services/title.service';
 
 @Component({
   selector: 'app-single-product',

@@ -107,19 +107,19 @@
                             <i class="fas fa-heart"></i>
                         </a>
                         <h1>{{product.des1}}</h1>
-                        <p><strong>{{product.des2}}</strong></p>
-                        <p><strong>Brand: {{product.des3}}</strong></p>
-                        <p><strong>Product Code: {{product.id}}</strong></p>
-                        <p><strong>Description</strong>
-                            <br>
-                            {{product.deslong1}}<br>
-                            {{product.deslong2}}<br>
-                            {{product.deslong3}}<br>
-                            {{product.deslong4}}
+                        <h3><strong>{{product.des2}}</strong></h3>
+                        <p><strong>Brand: </strong>{{product.des3}}</p>
+                        <p><strong>Product Code: </strong>{{product.id}}</p>
+                        <p><strong>Description:</strong></p>
+                        <p class="ml-5">
+                            {{product.des1}}<br>
+                            {{product.des2}}<br>
+                            {{product.des3}}
+                            <!-- {{product.des4}} -->
                         </p>
-                        <p class="mt-5">
+                        <h3 class="my-4 price">
                             <strong>Rs. {{product.puprice | number:'1.2-2'}}</strong>
-                        </p>
+                        </h3>
                         <span id="cart" class="d-flex">
                             <input type="number" name="qty" id="qty" value="1" class="text-center">
                             <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
