@@ -51,12 +51,14 @@ const routes: Routes = [
 
       {
         path: 'register',
-        component: RegisterComponent
+        component: RegisterComponent,
+        data: { title: 'Register' }
       },
 
       {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        data: { title: 'Login' }
       },
 
       {
@@ -70,23 +72,28 @@ const routes: Routes = [
 
       {
         path: 'wishlist',
-        component: WishlistComponent
+        component: WishlistComponent,
+        data: { title: 'Wishlist' }
       },
       {
         path: 'cart',
-        component: CartComponent
+        component: CartComponent,
+        data: { title: 'Cart' }
       },
       {
         path: 'about',
-        component: AboutComponent
+        component: AboutComponent,
+        data: { title: 'About' }
       },
       {
         path: 'our-corporate-values',
-        component: CorporateValuesComponent
+        component: CorporateValuesComponent,
+        data: { title: 'Our Corporate Values' }
       },
       {
         path: 'contact-us',
-        component: ContactUsComponent
+        component: ContactUsComponent,
+        data: { title: 'Contact Us' }
       },
 
 

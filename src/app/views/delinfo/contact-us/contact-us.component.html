@@ -1,7 +1,125 @@
 <div id="wrapper" class="container-fluid">
     <main id="content" class="row d-flex flex-column flex-nowrap">
-        <div class="row mb-3 mx-lg-0">
-            it works
+        <div class="row mb-3 mx-0 ">
+            <img src="assets\img\hello.svg" alt="" width="30%" class="d-block img-fluid mx-auto">
+        </div>
+        <div class="row mb-3 mx-0">
+            <div class="w-100">
+                <h2 class="background"><span>HOW WOULD YOU LIKE TO REACH US?</span></h2>
+            </div>
+        </div>
+        <div class="row mb-3 mx-0 d-flex">
+            <div class="col-6 text-center py-3">
+                <h2 class="contactTitle">Sales & General Inquiries</h2>
+                Any questions about DelOffice Ltd and our shopping system?<br>
+                Any special requests about our products and services?<br>
+                <p class="contactEmail my-3">sales@deloffice.mu</p>
+            </div>
+            <div class="col-6 text-center py-3">
+                <h2 class="contactTitle">Job Opportunities</h2>
+                Interested to work with us?<br>
+                Drop your application and CV directly to email below<br>
+                <p class="contactEmail my-3">hr@deloffice.mu</p>
+            </div>
+            <div class="col-6 text-center py-3">
+                <h2 class="contactTitle">Procurement</h2>
+                Interested in placing your products on our display store?<br>
+                Do you want to work with us as supplier?<br>
+                <p class="contactEmail my-3">procurement@deloffice.mu</p>
+            </div>
+            <div class="col-6 text-center py-3">
+                <h2 class="contactTitle">Marketing</h2>
+                Want to know more abour Reseller opportunities?<br>
+                <p class="contactEmail my-3">marketing@deloffice.mu</p>
+            </div>
+        </div>
+        <div class="row mb-3 mx-0">
+            <div class="col-4">
+                <h3><strong>DelOffice Ltd</strong></h3>
+                <h5>Ave Des Kerries,<br>
+                    Morc. Raffray<br>
+                    Le Hochet,<br>
+                    Mauritius<br>
+                </h5>
+            </div>
+            <div class="col-8 text-center">
+                <div class="pt-4">
+                    <h2><strong>We’d love to hear from you</strong></h2>
+                    <h5>
+                        Whether you have a question about products, pricing or anything else,<br>
+                        our team is ready to answer all your questions.
+                    </h5>
+                </div>
+
+            </div>
+        </div>
+        <div class="row py-3 mx-0">
+            <div class="w-100">
+                <h2 class="background"><span>FIND US</span></h2>
+            </div>
+        </div>
+        <div class="row mb-3 mx-0">
+            <div class="w-100">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3745.8803325641015!2d57.53059761546418!3d-20.139039450045598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217c51128da0dcf3%3A0x31de5ffbeeb8a1c0!2sDelOffice%20Ltd!5e0!3m2!1sen!2smu!4v1592905551112!5m2!1sen!2smu"
+                    width="100%" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                    tabindex="0">
+                </iframe>
+            </div>
+        </div>
+        <div class="row mb-3 mx-0">
+            <form class="w-100 p-4 border border-primary rounded d-flex flex-column">
+                <div class="">
+                    <h3 class="text-center font-weight-bold">Inquiry Form</h3>
+                </div>
+                <div class="form-group">
+                    <label for="FormToEmail">
+                        To:
+                    </label>
+                    <select class="form-control" id="FormToEmail">
+                        <option>hr@deloffice.mu</option>
+                        <option>marketing@deloffice.mu</option>
+                        <option>procurement@deloffice.mu</option>
+                        <option>sales@deloffice.mu</option>
+                    </select>
+                </div>
+                <div class="form-group row mx-0">
+                    <div class="col-6 pl-0">
+                        <label for="FormName">Name</label>
+                        <input type="text" class="form-control" id="FormName" placeholder="Enter Your Name">
+                    </div>
+                    <div class="col-6 px-0">
+                        <label for="FormEmailSender">E-Mail</label>
+                        <input type="email" class="form-control" id="FormEmailSender" aria-describedby="emailHelp"
+                            placeholder="Enter E-mail">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="FormPhone">Phone</label>
+                    <input type="number" class="form-control" id="FormPhone" aria-describedby="emailHelp"
+                        placeholder="Enter Phone">
+                </div>
+                <div class="form-group">
+                    <label for="FormSubject">Subject</label>
+                    <input type="text" class="form-control" id="FormSubject" placeholder="Enter Your Subject">
+                </div>
+                <div class="form-group">
+                    <label for="FormMsg">Message</label>
+                    <textarea class="form-control" id="FormMsg" rows="5"></textarea>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="CheckTermsCondition">
+                    <label class="form-check-label" for="CheckTermsCondition">
+                        <strong>T&C's *</strong>
+                        I agree that I have read and accept the
+                        <u><strong>Terms & Conditions</strong></u>
+                    </label>
+                </div>
+                <button type="button" class="btn btn-primary btn-sm my-3" name="show-save-cart" data-toggle="modal"
+                    data-target="#savecartmodal">
+                    <i class="fas fa-paper-plane pr-2"></i>Send Form
+                </button>
+            </form>
         </div>
     </main>
 </div>

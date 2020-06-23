@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from '../../../../common/services/category.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-slidebar',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slidebar.component.scss']
 })
 export class SlidebarComponent implements OnInit {
-
-  constructor() { }
+  category$: Observable<any>;
+  constructor(private _cat: CategoryService) { }
 
   ngOnInit() {
+    this.category$ = this._cat.getTree();
   }
 
 }

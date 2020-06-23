@@ -33,14 +33,21 @@
     </div>
     <nav id="main" class="d-flex justify-content-between align-items-center">
       <ul class="d-none d-lg-block">
-        <li><a href="#">Paper</a></li>
-        <li><a href="#">Office Supplies</a></li>
-        <li><a href="#">Food</a></li>
-        <li><a href="#">Beverages</a></li>
-        <li><a href="#">Cleaning</a></li>
-        <li><a href="#">Personal Hygiene</a></li>
-        <li><a href="#">Ink & Toners</a></li>
-        <li><a href="#">Printing</a></li>
+        <li *ngFor="let cat of category$ | async; index as i;">
+          <span data-toggle="collapse" [attr.href]="'#category1' + i" role="button" aria-expanded="false"
+            [attr.aria-controls]="'category1' + i">
+            {{cat.description}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          </span>
+          <ul *ngIf="cat.subcategories.length > 0" class="collapse" id="category1{{i}}">
+            <li *ngFor="let subcat of cat.subcategories; index as j;">
+              <a data-toggle="collapse" [attr.href]="'#category2' + j" role="button" aria-expanded="false"
+                [attr.aria-controls]="'category2' + j">
+                {{subcat.description}}
+              </a>
+            </li>
+          </ul>
+        </li>
       </ul>
 
       <a href="#"><img src="\assets\img\claro.gif"></a>

@@ -12,7 +12,7 @@
         <main id="content" class="row d-flex flex-column flex-nowrap">
             <div id="productID-{{product.id}}" class="product row">
                 <div class="wrap-sticky-content-block col-12">
-                    <div class="wrap-single-product-images col-6">
+                    <div class="wrap-single-product-images col-5">
                         <!-- <div class="product-video-button">
                             <div class="wrap-product-video youtube-embed">
                                 <a href="https://www.youtube.com/watch?v=t3tsMEhlvwM" class="button video-lb-control"
@@ -102,7 +102,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="entry-summary col-6">
+                    <div class="entry-summary col-7">
                         <a href="#" class="btn btn-primary float-right">
                             <i class="fas fa-heart"></i>
                         </a>
@@ -111,12 +111,19 @@
                         <p><strong>Brand: </strong>{{product.des3}}</p>
                         <p><strong>Product Code: </strong>{{product.id}}</p>
                         <p><strong>Description:</strong></p>
-                        <p class="ml-5">
+                        <p *ngIf="product.deslong1.length > 0; else elseBlock" class="ml-5">
+                            {{product.deslong1}}<br>
+                            {{product.deslong2}}<br>
+                            {{product.deslong3}}<br>
+                            {{product.deslong4}}<br>
+                            {{product.deslong5}}<br>
+                            {{product.deslong6}}
+                        </p>
+                        <ng-template #elseBlock class="ml-5">
                             {{product.des1}}<br>
                             {{product.des2}}<br>
                             {{product.des3}}
-                            <!-- {{product.des4}} -->
-                        </p>
+                        </ng-template>
                         <h3 class="my-4 price">
                             <strong>Rs. {{product.puprice | number:'1.2-2'}}</strong>
                         </h3>
