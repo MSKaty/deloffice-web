@@ -18,6 +18,9 @@ import { AboutComponent } from '../../../views/delinfo/about/about.component';
 import { WishlistComponent } from '../main/wishlist/wishlist.component';
 import { CorporateValuesComponent } from 'src/app/views/delinfo/corporate-values/corporate-values.component';
 import { ContactUsComponent } from '../../../views/delinfo/contact-us/contact-us.component';
+import { JobOpportunitiesComponent } from '../../../views/delinfo/job-opportunities/job-opportunities.component';
+import { AntiBriberyPolicyComponent } from '../../../views/delinfo/anti-bribery-policy/anti-bribery-policy.component';
+import { FAQComponent } from '../../../views/delinfo/faq/faq.component';
 
 
 const routes: Routes = [
@@ -95,6 +98,21 @@ const routes: Routes = [
         component: ContactUsComponent,
         data: { title: 'Contact Us' }
       },
+      {
+        path: 'job-opportunities',
+        component: JobOpportunitiesComponent,
+        data: { title: 'Job Opportunities' }
+      },
+      {
+        path: 'anti-bribery-policy',
+        component: AntiBriberyPolicyComponent,
+        data: { title: 'Anti-Bribery Policy' }
+      },
+      {
+        path: 'faq',
+        component: FAQComponent,
+        data: { title: 'FAQ' }
+      },
 
 
     ]
@@ -108,7 +126,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [MainComponent, HeaderComponent, CartComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent,
-    RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent, AboutComponent, WishlistComponent, CorporateValuesComponent, ContactUsComponent],
+    RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent, AboutComponent, WishlistComponent, CorporateValuesComponent, ContactUsComponent, JobOpportunitiesComponent, AntiBriberyPolicyComponent, FAQComponent],
   imports: [
     CommonModule,
     HttpClientModule,
