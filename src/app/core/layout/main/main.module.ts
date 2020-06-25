@@ -21,6 +21,7 @@ import { ContactUsComponent } from '../../../views/delinfo/contact-us/contact-us
 import { JobOpportunitiesComponent } from '../../../views/delinfo/job-opportunities/job-opportunities.component';
 import { AntiBriberyPolicyComponent } from '../../../views/delinfo/anti-bribery-policy/anti-bribery-policy.component';
 import { FAQComponent } from '../../../views/delinfo/faq/faq.component';
+import { DeliveryPolicyComponent } from '../../../views/delinfo/delivery-policy/delivery-policy.component';
 
 
 const routes: Routes = [
@@ -113,6 +114,11 @@ const routes: Routes = [
         component: FAQComponent,
         data: { title: 'FAQ' }
       },
+      {
+        path: 'delivery-policy',
+        component: DeliveryPolicyComponent,
+        data: { title: 'Delivery Policy' }
+      },
 
 
     ]
@@ -126,7 +132,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [MainComponent, HeaderComponent, CartComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent,
-    RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent, AboutComponent, WishlistComponent, CorporateValuesComponent, ContactUsComponent, JobOpportunitiesComponent, AntiBriberyPolicyComponent, FAQComponent],
+    RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent, AboutComponent, WishlistComponent, CorporateValuesComponent, ContactUsComponent, JobOpportunitiesComponent, AntiBriberyPolicyComponent, FAQComponent, DeliveryPolicyComponent],
   imports: [
     CommonModule,
     HttpClientModule,
