@@ -1,1 +1,78 @@
-<p>search-results works!</p>
+<ng-container *ngIf="result$ | async as result">
+    <div id="wrapper" class="container-fluid">
+        <main id="content" class="row d-flex flex-column flex-nowrap">
+            <div class="row mb-3 ">
+                <section class="col-12">
+                    <img src="https://via.placeholder.com/1600x250.png" alt="" class="img-fluid w-100">
+                </section>
+            </div>
+            <div class="row mb-3">
+                <div class="col-lg-3 col-md-3 d-none d-md-block">
+                    <app-slidebar></app-slidebar>
+                </div>
+
+                <div class="col-lg-9 col-md-9 col-12" style="overflow: hidden;">
+                    <h5 class="custom-heading">Search Results: {{result.length}}</h5>
+                    <div id="products" class="row ">
+                        <ng-container *ngIf="result.length > 0">
+                            <ng-container *ngFor="let res of result; index as i;">
+                                <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
+                                    <div class="card">
+                                        <img src="https://deloffice.mu/imgdir/{{res.id}}.jpg"
+                                            class="card-img-top img-fluid" alt="...">
+                                        <div class="card-body">
+                                            <strong>Rs. {{res.puprice | number:'1.2-2'}}</strong>
+                                            <h5 class="card-title">
+                                                {{res.des1}}<br>
+                                                {{res.des2}}<br>
+                                                {{res.des3}}<br>
+                                                Product code: {{res.id}}
+                                            </h5>
+
+
+
+
+
+
+                                            <span id="cart" class="d-flex">
+                                                <input type="number" name="qty" id="qty" value="1" class="text-center">
+                                                <a href="#" class="btn btn-primary"><i
+                                                        class="fas fa-shopping-cart"></i></a>
+                                                <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr *ngIf="(i+1)%4==0 && i+1 < result.length" class="col-12">
+                            </ng-container>
+                        </ng-container>
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mb-3 mx-n1">
+                <div class="col-lg-6 px-2">
+                    <img src="https://via.placeholder.com/1500x600.png" class="img-fluid">
+                </div>
+                <div class="col-lg-6 px-2">
+                    <img src="https://via.placeholder.com/1500x600.png" class="img-fluid">
+                </div>
+            </div>
+            <div class="row mb-3 mx-n1">
+                <div class="col-lg-4 px-2">
+                    <img src="https://via.placeholder.com/1000x300.png" class="img-fluid">
+                </div>
+                <div class="col-lg-4 px-2">
+                    <img src="https://via.placeholder.com/1000x300.png" class="img-fluid">
+                </div>
+                <div class="col-lg-4 px-2">
+                    <img src="https://via.placeholder.com/1000x300.png" class="img-fluid">
+                </div>
+            </div>
+        </main>
+    </div>
+</ng-container>

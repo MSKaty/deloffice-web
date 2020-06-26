@@ -18,14 +18,15 @@ export class ProductListComponent implements OnInit {
   constructor(
     private _route: ActivatedRoute,
     private _prod: ProductService,
-    private _cat:CategoryService,
-    private _title: TitleService){ }
+    private _cat: CategoryService,
+    private _title: TitleService
+  ) { }
 
   ngOnInit() {
     this.category$ = this.get().pipe(
       map(([category, products]) => {
         this._title.changeTitle(category.description);
-        return {category, products};
+        return { category, products };
       }),
       tap((data) => {
         console.log(data);

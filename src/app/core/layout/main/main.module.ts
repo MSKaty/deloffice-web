@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './main.component';
 import { HeaderComponent } from './header/header.component';
@@ -46,18 +47,18 @@ const routes: Routes = [
 
       },
       {
-        path:'category',
-        children:[
+        path: 'category',
+        children: [
           {
-            path:':id',
-            component:ProductListComponent
+            path: ':id',
+            component: ProductListComponent
           }
         ]
-        
+
       },
 
       {
-        path: 'search-results',
+        path: 'search',
         component: SearchResultsComponent,
       },
 
@@ -144,7 +145,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     HttpClientModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class MainModule { }

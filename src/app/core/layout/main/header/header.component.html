@@ -7,13 +7,14 @@
       <span class="d-block text-center flex-fill"><i class="fas fa-envelope mr-2"></i>sales@deloffice.mu</span>
     </div>
     <div id="bottom-header" class="w-100 d-flex justify-content-between align-items-center flex-column flex-lg-row">
-      <a href="#" id="logo">
+      <a routerLink="/" id="logo">
         <img src="\assets\img\logo.svg" alt="deloffice_logo" class="img-fluid">
       </a>
 
       <form id="search-form" class="d-flex">
-        <input type="search" name="search" id="search" placeholder="Type in to search...">
-        <button><i class="fas fa-search"></i></button>
+        <input (keyup.enter)="search()" type="search" name="search" id="search" placeholder="Type in to search..."
+          [(ngModel)]="searchKeyword">
+        <button (click)="search()"><i class="fas fa-search"></i></button>
       </form>
 
       <div id="items" class="d-flex justify-content-between">

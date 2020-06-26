@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+a, a:focus, a:active, a:hover {
+    text-decoration: none;
+}
+
+h5 {
+    &.custom-heading {
+        text-transform: uppercase;
+        color: white;
+        margin: 0;
+        margin-bottom: 15px;
+        font-size: 18px;
+        display: block;
+        text-align: center;
+        padding: 7px;
+        background-image: url('/assets/img/banner.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-color: blue;
+        border: 1px solid rgb(11, 11, 88);
+    }
+}
+
+h2.background {
+    margin-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+    
+    &:before {
+        border-top: 2px solid #dfdfdf;
+        content:"";
+        margin: 0 auto; /* this centers the line to the full width specified */
+        position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
+        top: 50%; left: 0; right: 0; bottom: 0;
+        width: 100%;
+        z-index: -1;
+    }
+
+    span { 
+        /* to hide the lines from behind the text, you have to set the background color the same as the container */ 
+        background: #fff; 
+        padding: 0 15px; 
+    }
+}
+
+main#content {
+    padding: 20px 30px;
+}
+.fa, .far, .fas {
+    font-family: "Font Awesome 5 Free";
+}
+nav.card {
+    a {
+        display: block;
+        padding: 5px 25px;
+        font-size: 14px;
+        text-transform: uppercase;
+        color:black;
+    }
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-weight: 500;
+        li {
+            span {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 20px;
+                font-size: 16px;
+                font-weight: 600;
+                text-transform: uppercase;
+                color:black;                
+            }
+            ul.collapse {
+                list-style: none;
+                margin: 0;
+                
+                li {
+                    a {
+                    }
+                }
+            }
+        }
+    }
+}
+
+.useful-links {
+    ul {
+        li {
+            background-image: url('/assets/img/banner.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-color: white;
+            color: white;
+            border-bottom: 1px;
+            border-color: white;
+
+            &:hover {
+                color: red;
+                cursor: pointer;
+            }
+
+            h6 {
+                font-size: 1.5rem;
+                
+            }
+
+            p {
+                font-size: .9rem;
+            }
+
+            img {
+                
+            }
+        }
+    }
+}
+
+#products {
+    > hr {
+        border-color: rgba(black, 0.3);
+    }
+    > div {
+        &.col-lg-3 {
+            &:not(:nth-of-type(4n)) {
+                border-right: 1px solid rgba(black, 0.3);
+            }
+        }
+
+        .card {
+            box-shadow: none;
+            border: 0px solid transparent;
+            border-radius: 0px;
+
+            .card-img-top {
+                border-radius: 0px;
+            }
+
+            .card-body {
+                padding: 15px 0px;
+
+                h5.card-title {
+                    font-size: .90rem;
+                    line-height: 1.3rem;
+                }
+
+                p.card-text {
+                    font-size: .90rem;
+                }
+
+                span#cart {
+                    * {
+                        margin-right: 10px;
+                    }
+                    input[type=number] {
+                        width: 50px;
+                    }
+                    a {
+                        display: block;
+                        i{
+                            margin:auto;
+                        }
+                    }
+                    .fa, .far, .fas {
+                        color:white;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CategoryService } from '../../../../common/services/category.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,10 +11,18 @@ import { CategoryService } from '../../../../common/services/category.service';
 })
 export class HeaderComponent implements OnInit {
   category$: Observable<any>;
+  searchKeyword: string;
 
-  constructor(private _cat: CategoryService) { }
+  constructor(
+    private _cat: CategoryService,
+    private _router: Router
+  ) { }
   ngOnInit() {
     this.category$ = this._cat.getTree();
+  }
+
+  search() {
+    this._router.navigate(['/search'], { queryParams: { s: this.searchKeyword } })
   }
 
 }
