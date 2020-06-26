@@ -135,126 +135,47 @@
                 </div>
                 <div></div>
             </div>
-            <div class="row my-3 mx-0">
-                <div class="w-100">
-                    <h2 class="background"><span>YOU MAY ALSO LIKE...</span></h2>
+            <ng-container *ngIf="product.related_products.length > 0">
+                <div class="row my-3 mx-0">
+                    <div class="w-100">
+                        <h2 class="background"><span>YOU MAY ALSO LIKE...</span></h2>
+                    </div>
                 </div>
-            </div>
-            <div class="row my-3 mx-0">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/1000x1000.png" class="card-img-top img-fluid" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                Multi-Purpose White Copy Paper<br>
-                                A4 White- 80gsm [Ream: 500 Sheets]<br>
-                                Brand: HP Everyday HW
-                            </h5>
-                            <p class="card-text">
-                                <strong>
-                                    Product Code:
-                                </strong>
-                                OA021126
-                            </p>
-                            <h3 class="card-price text-center">
-                                <strong>Rs 30.00</strong>
-                            </h3>
+                <div class="row my-3 mx-0">
+                    <div *ngFor="let related of product.related_products; index as i;"
+                        class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
+                        <div class="card">
+                            <img src="https://deloffice.mu/imgdir/{{related.id}}.jpg" class="card-img-top img-fluid"
+                                alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">
+
+                                    {{related.des1}}<br>
+                                    {{related.des2}}<br>
+                                    {{related.des3}}
+
+                                </h5>
+                                <p class="card-text">
+                                    <strong>
+                                        Product Code
+                                    </strong>
+                                    {{related.id}}
+                                </p>
+                                <h3 class="card-price text-center">
+                                    <strong>Rs {{related.puprice | number:'1.2-2'}}</strong>
+                                </h3>
 
 
-                            <span id="cart" class="d-flex">
-                                <input type="number" name="qty" id="qty" value="1" class="text-center">
-                                <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
-                                <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                            </span>
+                                <span id="cart" class="d-flex">
+                                    <input type="number" name="qty" id="qty" value="1" class="text-center">
+                                    <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
+                                    <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/1000x1000.png" class="card-img-top img-fluid" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                Multi-Purpose White Copy Paper<br>
-                                A4 White- 80gsm [Ream: 500 Sheets]<br>
-                                Brand: HP Everyday HW
-                            </h5>
-                            <p class="card-text">
-                                <strong>
-                                    Product Code:
-                                </strong>
-                                OA021126
-                            </p>
-                            <h3 class="card-price text-center">
-                                <strong>Rs 30.00</strong>
-                            </h3>
-
-
-                            <span id="cart" class="d-flex">
-                                <input type="number" name="qty" id="qty" value="1" class="text-center">
-                                <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
-                                <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/1000x1000.png" class="card-img-top img-fluid" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                Multi-Purpose White Copy Paper<br>
-                                A4 White- 80gsm [Ream: 500 Sheets]<br>
-                                Brand: HP Everyday HW
-                            </h5>
-                            <p class="card-text">
-                                <strong>
-                                    Product Code:
-                                </strong>
-                                OA021126
-                            </p>
-                            <h3 class="card-price text-center">
-                                <strong>Rs 30.00</strong>
-                            </h3>
-
-
-                            <span id="cart" class="d-flex">
-                                <input type="number" name="qty" id="qty" value="1" class="text-center">
-                                <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
-                                <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/1000x1000.png" class="card-img-top img-fluid" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                Multi-Purpose White Copy Paper<br>
-                                A4 White- 80gsm [Ream: 500 Sheets]<br>
-                                Brand: HP Everyday HW
-                            </h5>
-                            <p class="card-text">
-                                <strong>
-                                    Product Code:
-                                </strong>
-                                OA021126
-                            </p>
-                            <h3 class="card-price text-center">
-                                <strong>Rs 30.00</strong>
-                            </h3>
-
-
-                            <span id="cart" class="d-flex">
-                                <input type="number" name="qty" id="qty" value="1" class="text-center">
-                                <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
-                                <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            </ng-container>
         </main>
     </div>
 </ng-container>
