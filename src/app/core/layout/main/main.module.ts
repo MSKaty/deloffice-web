@@ -41,8 +41,21 @@ const routes: Routes = [
             path: ':id',
             component: SingleProductComponent
           }
+
         ]
+
       },
+      {
+        path:'category',
+        children:[
+          {
+            path:':id',
+            component:ProductListComponent
+          }
+        ]
+        
+      },
+
       {
         path: 'search-results',
         component: SearchResultsComponent,
@@ -63,11 +76,6 @@ const routes: Routes = [
         path: 'login',
         component: LoginComponent,
         data: { title: 'Login' }
-      },
-
-      {
-        path: 'category',
-        component: ProductListComponent
       },
       {
         path: 'slidebar',

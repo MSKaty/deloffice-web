@@ -1,4 +1,4 @@
-<ng-container *ngIf="category$ | async as category"></ng-container>
+<ng-container *ngIf="category$ | async as data">
 <div id="wrapper" class="container-fluid">
     <main id="content" class="row d-flex flex-column flex-nowrap">
         <div class="row mb-3 ">
@@ -12,172 +12,36 @@
             </div>
 
             <div class="col-lg-9 col-md-9 col-12">
-                <h5 class="custom-heading">Category Name</h5>
+                <h5 class="custom-heading">{{data.category.description}}</h5>
                 <div id="products" class="row ">
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
-                        <div class="card">
-                            <img src="assets\img\addis.jpg" class="card-img-top img-fluid" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    Multi-Purpose White Copy Paper<br>
-                                    A4 White- 80gsm [Ream: 500 Sheets]<br>
-                                    Brand: HP Everyday HW
-                                </h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of the card's content.</p>
-                                <span id="cart" class="d-flex">
-                                    <input type="number" name="qty" id="qty" value="1" class="text-center">
-                                    <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
-                                    <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                </span>
+                    <ng-container *ngIf="data.products.length > 0">
+                        <div *ngFor="let cat of data.products; index as i;" class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
+                            <div class="card">
+                                <img src="https://deloffice.mu/imgdir/{{cat.id}}.jpg" class="card-img-top img-fluid" alt="...">
+                                <div class="card-body">
+                                    <strong>Rs. {{cat.puprice | number:'1.2-2'}}</strong>
+                                    <h5 class="card-title">
+                                        {{cat.des1}}<br>
+                                        {{cat.des2}}<br>
+                                        {{cat.des3}}<br>
+                                        Product code: {{cat.id}}
+                                        </h5>
+
+                                        
+
+
+                                        
+                            
+                                    <span id="cart" class="d-flex">
+                                        <input type="number" name="qty" id="qty" value="1" class="text-center">
+                                        <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
+                                        <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
-                        <div class="card">
-                            <img src="assets\img\red.jpg" class="card-img-top img-fluid" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    Multi-Purpose White Copy Paper<br>
-                                    A4 White- 80gsm [Ream: 500 Sheets]<br>
-                                    Brand: HP Everyday HW
-                                </h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of the card's content.</p>
-                                <span id="cart" class="d-flex">
-                                    <input type="number" name="qty" id="qty" value="1" class="text-center">
-                                    <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
-                                    <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
-                        <div class="card">
-                            <img src="assets\img\broom.jpg" class="card-img-top img-fluid" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    Multi-Purpose White Copy Paper<br>
-                                    A4 White- 80gsm [Ream: 500 Sheets]<br>
-                                    Brand: HP Everyday HW
-                                </h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of the card's content.</p>
-                                <span id="cart" class="d-flex">
-                                    <input type="number" name="qty" id="qty" value="1" class="text-center">
-                                    <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
-                                    <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
-                        <div class="card">
-                            <img src="assets\img\chalk.jpg" class="card-img-top img-fluid" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    Multi-Purpose White Copy Paper<br>
-                                    A4 White- 80gsm [Ream: 500 Sheets]<br>
-                                    Brand: HP Everyday HW
-                                </h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of the card's content.</p>
-                                <span id="cart" class="d-flex">
-                                    <input type="number" name="qty" id="qty" value="1" class="text-center">
-                                    <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
-                                    <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/1000x1000.png" class="card-img-top img-fluid"
-                                alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    Multi-Purpose White Copy Paper<br>
-                                    A4 White- 80gsm [Ream: 500 Sheets]<br>
-                                    Brand: HP Everyday HW
-                                </h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of the card's content.</p>
-                                <span id="cart" class="d-flex">
-                                    <input type="number" name="qty" id="qty" value="1" class="text-center">
-                                    <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
-                                    <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/1000x1000.png" class="card-img-top img-fluid"
-                                alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    Multi-Purpose White Copy Paper<br>
-                                    A4 White- 80gsm [Ream: 500 Sheets]<br>
-                                    Brand: HP Everyday HW
-                                </h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of the card's content.</p>
-                                <span id="cart" class="d-flex">
-                                    <input type="number" name="qty" id="qty" value="1" class="text-center">
-                                    <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
-                                    <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/1000x1000.png" class="card-img-top img-fluid"
-                                alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    Multi-Purpose White Copy Paper<br>
-                                    A4 White- 80gsm [Ream: 500 Sheets]<br>
-                                    Brand: HP Everyday HW
-                                </h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of the card's content.</p>
-                                <span id="cart" class="d-flex">
-                                    <input type="number" name="qty" id="qty" value="1" class="text-center">
-                                    <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
-                                    <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/1000x1000.png" class="card-img-top img-fluid"
-                                alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    Multi-Purpose White Copy Paper<br>
-                                    A4 White- 80gsm [Ream: 500 Sheets]<br>
-                                    Brand: HP Everyday HW
-                                </h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of the card's content.</p>
-                                <span id="cart" class="d-flex">
-                                    <input type="number" name="qty" id="qty" value="1" class="text-center">
-                                    <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
-                                    <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                    </ng-container>
+                    
 
 
 
@@ -206,3 +70,4 @@
         </div>
     </main>
 </div>
+</ng-container>

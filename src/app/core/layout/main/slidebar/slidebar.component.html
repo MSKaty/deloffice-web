@@ -12,26 +12,41 @@
                         </span>
                         <ul *ngIf="cat.subcategories.length > 0" class="collapse" id="category1{{i}}">
                             <li *ngFor="let subcat of cat.subcategories; index as j;">
-                                <a data-toggle="collapse" [attr.href]="'#category2' + j" role="button"
-                                    aria-expanded="false" [attr.aria-controls]="'category2' + j">
+                                <ng-container *ngIf="subcat.subcategories.length > 0; else noCat">
+                                    <a data-toggle="collapse" [attr.href]="'#category2' + j" role="button"
+                                        aria-expanded="false" [attr.aria-controls]="'category2' + j">
+                                        {{subcat.description}}
+                                        <i *ngIf="subcat.subcategories.length > 0" class="fas fa-plus"></i>
+                                    </a>
+                                    <ul *ngIf="subcat.subcategories.length > 0" class="collapse" id="category2{{j}}">
+                                        <li *ngFor="let subcat2 of subcat.subcategories; index as k;">
+                                            <ng-container *ngIf="subcat2.subcategories.length > 0; else noSubCat">
+                                                <a data-toggle="collapse" [attr.href]="'#category3' + k" role="button"
+                                                aria-expanded="false" [attr.aria-controls]="'category3' + k">
+                                                {{subcat2.description}}
+                                                    <i class="fas fa-plus"></i>
+                                                </a>
+                                                <ul *ngIf="subcat2.subcategories.length > 0" class="collapse"
+                                                    id="category3{{k}}">
+                                                    <li *ngFor="let subcat3 of subcat2.subcategories; index as l;">
+                                                        <a routerLink="/category/{{subcat3.id}}">{{subcat3.description}}</a>
+                                                    </li>
+                                                </ul>
+                                            </ng-container>
+                                            <ng-template #noSubCat>
+                                                <a routerLink="/category/{{subcat2.id}}">
+                                                {{subcat2.description}}
+                                                </a>
+                                            </ng-template>
+                                            
+                                        </li>
+                                    </ul>
+                                </ng-container>
+                                <ng-template #noCat>
+                                    <a routerLink="/category/{{subcat.id}}">
                                     {{subcat.description}}
-                                    <i *ngIf="subcat.subcategories.length > 0" class="fas fa-plus"></i>
-                                </a>
-                                <ul *ngIf="subcat.subcategories.length > 0" class="collapse" id="category2{{j}}">
-                                    <li *ngFor="let subcat2 of subcat.subcategories; index as k;">
-                                        <a data-toggle="collapse" [attr.href]="'#category3' + k" role="button"
-                                            aria-expanded="false" [attr.aria-controls]="'category3' + k">
-                                            {{subcat2.description}}
-                                            <i *ngIf="subcat2.subcategories.length > 0" class="fas fa-plus"></i>
-                                        </a>
-                                        <ul *ngIf="subcat2.subcategories.length > 0" class="collapse"
-                                            id="category3{{k}}">
-                                            <li *ngFor="let subcat3 of subcat2.subcategories; index as l;">
-                                                <a>{{subcat3.description}}</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                                    </a>
+                                </ng-template>
                             </li>
                         </ul>
                     </li>
