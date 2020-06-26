@@ -12,7 +12,7 @@ export class ProductcategoryService {
   constructor(private http:HttpClient) {}
 
     public catfind(catId:string){
-      return this.http.get(this.apiUrl + '/category/' + catId);
+      return this.http.get(this.apiUrl + '/product/' + catId);
     }
 
   }

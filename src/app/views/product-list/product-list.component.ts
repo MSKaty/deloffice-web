@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductcategoryService } from '../../common/services/productcategory.service';
-
-import { Observable } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { ProductService } from '../../common/services/product.service';
+import { CategoryService } from '../../common/services/category.service';
 import { TitleService } from '../../common/services/title.service';
+
+import { Observable, combineLatest } from 'rxjs';
+import { switchMap, tap, map } from 'rxjs/operators';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -16,18 +17,29 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private _cat: ProductcategoryService,
-    private _title: TitleService) { }
+    private _prod: ProductService,
+    private _cat:CategoryService,
+    private _title: TitleService){ }
 
   ngOnInit() {
     this.category$ = this.get().pipe(
-      tap((category) => { this._title.changeTitle(category.des1) })
+      map(([category, products]) => {
+        this._title.changeTitle(category.description);
+        return {category, products};
+      }),
+      tap((data) => {
+        console.log(data);
+      })
+      // tap((category) => { this._title.changeTitle(category.des1) })
     )
   }
   get() {
     return this._route.params.pipe(
       switchMap(param => {
-        return this._cat.catfind(param['id']);
+        return combineLatest(
+          this._cat.getCat(param['id']),
+          this._prod.findAll(param['id'])
+        )
       })
     )
   }

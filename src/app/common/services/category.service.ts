@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -11,8 +12,12 @@ export class CategoryService {
 
     constructor(private http: HttpClient) { }
 
-    public getTree() {
+    public getTree(): Observable<any> {
         return this.http.get(this.apiUrl + '/category');
+    }
+
+    public getCat(catId:any): Observable<any> {
+        return this.http.get(this.apiUrl + '/category/' + catId );
     }
 }
 

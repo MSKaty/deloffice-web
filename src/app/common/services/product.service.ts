@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {environment} from '../../../environments/environment';
+import { Observable } from 'rxjs';
                 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,16 @@ export class ProductService {
 
   constructor(private http:HttpClient) {}
 
-  public findOne(productId:string){
+  public findAll(category?: any, page = 1, keyword?: string): Observable<any> {
+    let url = this.apiUrl + '/product?p=' + page;
+  
+    if (category) {
+      url = url + '&c=' + category
+    }
+    return this.http.get(url);
+  }
+
+  public findOne(productId:string): Observable<any> {
     return this.http.get(this.apiUrl + '/product/' + productId);
   }
 }
