@@ -1,73 +1,75 @@
 <ng-container *ngIf="category$ | async as data">
-<div id="wrapper" class="container-fluid">
-    <main id="content" class="row d-flex flex-column flex-nowrap">
-        <div class="row mb-3 ">
-            <section class="col-12">
-                <img src="https://via.placeholder.com/1600x250.png" alt="" class="img-fluid w-100">
-            </section>
-        </div>
-        <div class="row mb-3">
-            <div class="col-lg-3 col-md-3 d-none d-md-block">
-                <app-slidebar></app-slidebar>
+    <div id="wrapper" class="container-fluid">
+        <main id="content" class="row d-flex flex-column flex-nowrap">
+            <div class="row mb-3 ">
+                <section class="col-12">
+                    <img src="https://via.placeholder.com/1600x250.png" alt="" class="img-fluid w-100">
+                </section>
             </div>
+            <div class="row mb-3">
+                <div class="col-lg-3 col-md-3 d-none d-md-block">
+                    <app-slidebar></app-slidebar>
+                </div>
 
-            <div class="col-lg-9 col-md-9 col-12">
-                <h5 class="custom-heading">{{data.category.description}}</h5>
-                <div id="products" class="row ">
-                    <ng-container *ngIf="data.products.length > 0">
-                        <div *ngFor="let cat of data.products; index as i;" class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
-                            <div class="card">
-                                <img src="https://deloffice.mu/imgdir/{{cat.id}}.jpg" class="card-img-top img-fluid" alt="...">
-                                <div class="card-body">
-                                    <strong>Rs. {{cat.puprice | number:'1.2-2'}}</strong>
-                                    <h5 class="card-title">
-                                        {{cat.des1}}<br>
-                                        {{cat.des2}}<br>
-                                        {{cat.des3}}<br>
-                                        Product code: {{cat.id}}
+                <div class="col-lg-9 col-md-9 col-12">
+                    <h5 class="custom-heading">
+                        {{data.category.description}}
+                    </h5>
+                    <div id="products" class="row ">
+                        <ng-container *ngIf="data.productdata.count > 0">
+                            <div *ngFor="let cat of data.productdata.products; index as i;"
+                                class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
+                                <div class="card">
+                                    <img src="https://deloffice.mu/imgdir/{{cat.id}}.jpg" class="card-img-top
+                        img-fluid" alt="...">
+                                    <div class="card-body">
+                                        <h3 class="text-center">
+                                            <strong>Rs.
+                                                {{cat.puprice | number:'1.2-2'}}
+                                            </strong>
+                                        </h3>
+                                        <h5 class="card-title text-center">
+                                            {{cat.des1}}<br>
+                                            {{cat.des2}}<br>
+                                            {{cat.des3}}<br>
+                                            <b>Product code:</b> {{cat.id}}
                                         </h5>
-
-                                        
-
-
-                                        
-                            
-                                    <span id="cart" class="d-flex">
-                                        <input type="number" name="qty" id="qty" value="1" class="text-center">
-                                        <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
-                                        <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                    </span>
+                                        <span id="cart" class="d-flex">
+                                            <input type="number" name="qty" id="qty" value="1" class="text-center">
+                                            <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
+                                            <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </ng-container>
-                    
+                        </ng-container>
 
 
 
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mb-3 mx-n1">
+                <div class="col-lg-6 px-2">
+                    <img src="https://via.placeholder.com/1500x600.png" class="img-fluid">
+                </div>
+                <div class="col-lg-6 px-2">
+                    <img src="https://via.placeholder.com/1500x600.png" class="img-fluid">
                 </div>
             </div>
-
-        </div>
-        <div class="row mb-3 mx-n1">
-            <div class="col-lg-6 px-2">
-                <img src="https://via.placeholder.com/1500x600.png" class="img-fluid">
+            <div class="row mb-3 mx-n1">
+                <div class="col-lg-4 px-2">
+                    <img src="https://via.placeholder.com/1000x300.png" class="img-fluid">
+                </div>
+                <div class="col-lg-4 px-2">
+                    <img src="https://via.placeholder.com/1000x300.png" class="img-fluid">
+                </div>
+                <div class="col-lg-4 px-2">
+                    <img src="https://via.placeholder.com/1000x300.png" class="img-fluid">
+                </div>
             </div>
-            <div class="col-lg-6 px-2">
-                <img src="https://via.placeholder.com/1500x600.png" class="img-fluid">
-            </div>
-        </div>
-        <div class="row mb-3 mx-n1">
-            <div class="col-lg-4 px-2">
-                <img src="https://via.placeholder.com/1000x300.png" class="img-fluid">
-            </div>
-            <div class="col-lg-4 px-2">
-                <img src="https://via.placeholder.com/1000x300.png" class="img-fluid">
-            </div>
-            <div class="col-lg-4 px-2">
-                <img src="https://via.placeholder.com/1000x300.png" class="img-fluid">
-            </div>
-        </div>
-    </main>
-</div>
+        </main>
+    </div>
 </ng-container>

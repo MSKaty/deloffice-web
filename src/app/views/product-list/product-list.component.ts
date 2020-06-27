@@ -24,9 +24,9 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     this.category$ = this.get().pipe(
-      map(([category, products]) => {
+      map(([category, productdata]) => {
         this._title.changeTitle(category.description);
-        return { category, products };
+        return { category, productdata: productdata[0] };
       }),
       tap((data) => {
         console.log(data);

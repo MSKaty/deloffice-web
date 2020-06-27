@@ -12,28 +12,26 @@
                 </div>
 
                 <div class="col-lg-9 col-md-9 col-12" style="overflow: hidden;">
-                    <h5 class="custom-heading">Search Results: {{result.length}}</h5>
+                    <h5 class="custom-heading">Search Results: Page {{currentPage}} of {{result.count}}</h5>
                     <div id="products" class="row ">
-                        <ng-container *ngIf="result.length > 0">
-                            <ng-container *ngFor="let res of result; index as i;">
+                        <ng-container *ngIf="result.count > 0">
+                            <ng-container *ngFor="let res of result.products; index as i;">
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
                                     <div class="card">
                                         <img src="https://deloffice.mu/imgdir/{{res.id}}.jpg"
                                             class="card-img-top img-fluid" alt="...">
                                         <div class="card-body">
-                                            <strong>Rs. {{res.puprice | number:'1.2-2'}}</strong>
-                                            <h5 class="card-title">
+
+                                            <h3 class="text-center"><strong>Rs.
+                                                    {{res.puprice | number:'1.2-2'}}</strong>
+                                            </h3>
+
+                                            <h5 class="card-title text-center">
                                                 {{res.des1}}<br>
                                                 {{res.des2}}<br>
                                                 {{res.des3}}<br>
-                                                Product code: {{res.id}}
+                                                Product code: <b>{{res.id}}</b>
                                             </h5>
-
-
-
-
-
-
                                             <span id="cart" class="d-flex">
                                                 <input type="number" name="qty" id="qty" value="1" class="text-center">
                                                 <a href="#" class="btn btn-primary"><i
@@ -43,22 +41,26 @@
                                         </div>
                                     </div>
                                 </div>
-                                <hr *ngIf="(i+1)%4==0 && i+1 < result.length" class="col-12">
+                                <hr *ngIf="(i+1)%4==0 && i+1 < result.products.length" class="col-12">
                             </ng-container>
                         </ng-container>
                     </div>
-                    <nav aria-label="...">
+                    <nav aria-label="pagination-search">
                         <ul class="pagination">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            <li class="page-item" [class.disabled]="currentPage - 1 == 0">
+                                <a (click)="currentPage=currentPage-1;get()" class="page-link" style="cursor: pointer;"
+                                    tabindex="-1">Previous</a>
                             </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
+                            <ng-container *ngFor="let pageNum of tempArray(result.count); index as i;">
+                                <li class="page-item" [class.active]="currentPage == pageNum">
+                                    <a (click)="currentPage=pageNum;get()" class="page-link text-dark"
+                                        style="cursor: pointer;">{{pageNum}} <span *ngIf="currentPage == pageNum"
+                                            class="sr-only">(current)</span></a>
+                                </li>
+                            </ng-container>
+                            <li class="page-item" [class.disabled]="currentPage + 1 > (result.count / 20)">
+                                <a (click)="currentPage=currentPage+1;get()" class="page-link"
+                                    style="cursor: pointer;">Next</a>
                             </li>
                         </ul>
                     </nav>
