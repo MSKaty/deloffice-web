@@ -93,27 +93,80 @@ header#main-header {
     }
 
     nav#main {
-        padding: 12px 30px;
-        ul {
+        padding: 0px 30px;
+        position: relative;
+        > ul {
             list-style: none;
             margin: 0px;
             padding: 0px;
 
-            li {
+            > li {
                 float: left;
 
-                a {
-                    display: block;
-                    padding: 3px 20px;
-                    color: white;
-                    
+                &.disabled {
+                    a {
+                        cursor: not-allowed;
+                        color: rgba(#fff, 0.7);
+                    }
                 }
-                &:first-child {
+                > a {
+                    display: block;
+                    padding: 15px 20px;
+                    color: white;
+                    cursor: pointer;
+                
+                }
+                > .dropdown-menu-del {
+                    position: absolute;
+                    top: 51px;
+                    z-index: 25;
+                    left: 0;
+                    display: none;
+                    width: 100%;
+                    padding: 10px 0;
+                    background-color: white;
+                    justify-content: space-between;
+                    box-shadow: 0 0 5px rgba(#000, 0.3);
+                    
+
+                    ul {
+                        color: black;
+                        flex: 0 0 60%;
+                        columns: 3;
+                        min-height: 300px;
+                        max-height: 300px;
+                        // display: flex;
+                        // flex-wrap: wrap;
+                        // align-items: flex-start;
+                        // justify-content: flex-start;
+                    
+                        li {
+                            // flex: 0 0 33.3333333%;
+                            min-height: 41px;
+                            max-height: 41px;
+                            a {
+                                display: block;
+                                padding: 10px 0;
+                                color: black;
+                            }
+                        }
+                    }
+
+                    img {
+                        flex: 0 0 25%;
+                    }
+                }
+                &:not(.disabled):hover {
+                    .dropdown-menu-del {
+                        display: flex;
+                    }
+                }
+                > &:first-child {
                     a {
                         padding-left:5px;
                     }
                 }
-                &:not(:last-child) {
+                > &:not(:last-child) {
                     a {
                         border-right: 1px solid rgba(#fff, 0.7);
                     }
