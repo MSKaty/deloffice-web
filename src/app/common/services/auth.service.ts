@@ -10,27 +10,27 @@ import { map } from 'rxjs/operators';
 export class AuthService {
   private apiUrl = environment.apiUrl;
 
-  private currentUserSubject : BehaviorSubject<user>;
-  public currentUser : Observable<user>;
-  
-  constructor(private http:HttpClient) { 
-    
+  // private currentUserSubject : BehaviorSubject<user>;
+  // public currentUser : Observable<user>;
+
+  constructor(private http: HttpClient) {
+
   }
 
 
 
-  login(uname:string, pword:string): Observable<any>{
-      return this.http.post<user>(this.apiUrl + '', {uname,pword})
-        .pipe(map(user=>{ 
+  // login(uname:string, pword:string): Observable<any>{
+  //     return this.http.post<user>(this.apiUrl + '', {uname,pword})
+  //       .pipe(map(user=>{ 
 
-          if(){
-            localStorage.setItem()
-          }
+  //         if(){
+  //           localStorage.setItem()
+  //         }
 
-        }))
-  }
+  //       }))
+  // }
 
-  public register(): Observable<any>{
-      return
+  public register(): Observable<any> {
+    return
   }
 }
