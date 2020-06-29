@@ -20,9 +20,10 @@
                     <div id="products" class="row ">
                         <ng-container *ngIf="data.productdata.count > 0">
                             <ng-container *ngFor="let cat of data.productdata.products; index as i;">
+
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
                                     <div class="card">
-                                        <img src="https://deloffice.mu/imgdir/{{cat.id}}.jpg" class="card-img-top
+                                        <img src="https://api.deloffice.mu/images/product/{{cat.id}}.jpg" class="card-img-top
                         img-fluid" alt="...">
                                         <div class="card-body">
                                             <h3 class="text-center">
