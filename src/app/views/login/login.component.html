@@ -1,12 +1,23 @@
 <div class="container-fluid">   
 	<div class="row" style="padding: 3em;">		
         <div class="col-sm-6 col-sm-offset-1">
-        <form>
-            <h4>Login to your account</h4>
-            <input type="text" placeholder="Email Address" name="uname" required><br>
-            <input type="password" placeholder="Password" name="psw" required><br>
+        <h4>Login to your account</h4><br><br>
+        
+            <form [formGroup]="form" >
+            <div class="form-group">
+                
+                <input type="email" class="form-control" placeholder="Email Address" formControlName="uname" required>
+            </div>
+
+            <div class="form-group">
+                
+                <input type="password" class="form-control" placeholder="Password" formControlName="psw" required><br>
+            </div>
+            
+            <br>
+            
       
-            <button type="submit">Login</button><br>
+            <button type="submit" class="btn btn-success">Login</button><br>
 
             <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember me<br>

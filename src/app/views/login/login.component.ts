@@ -1,10 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { UserService } from '../../common/services/user.service';
-import { TitleService } from '../../common/services/title.service';
-
-import { Observable, Subscription} from 'rxjs';
-import { switchMap, tap, map } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -13,9 +8,15 @@ import { switchMap, tap, map } from 'rxjs/operators';
 })
 export class LoginComponent implements OnInit {
 
-  user$: Observable<any>
+  form: FormGroup;
 
-  constructor() { }
+  constructor(private fb:FormBuilder) { 
+    this.form = this.fb.group({
+      uname: new FormControl('', Validators.required),
+      pswd: new FormControl('', Validators.required)
+      
+    });
+  }
 
   ngOnInit() {
   }

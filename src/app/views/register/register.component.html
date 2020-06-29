@@ -27,7 +27,7 @@
         <div class="row mb-3">
             <div class="col-12 p-auto">
                 <ng-container [ngSwitch]="type">
-                    <form id="corporate" *ngSwitchCase="1">
+                    <form [formGroup]="form" id="corporate" *ngSwitchCase="1">
                         <div class="col-12">
                             <h2 class="text-center font-weight-bold mb-3">
                                 Corporate Form
@@ -36,57 +36,57 @@
                         <div class="offset-1 col-5 float-left">
                             <div class="form-group">
                                 <label for="corporate">Corporate Name</label>
-                                <input type="text" name="corporate" class="form-control">
+                                <input type="text" formControlName="corporate" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="address">Address</label>
-                                <textarea type="text" name="address" class="form-control" rows="3"></textarea>
+                                <textarea type="text" formControlName="address" class="form-control" rows="3"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="vat">VAT</label>
-                                <input type="text" name="vat" class="form-control">
+                                <input type="text" formControlName="vat" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="brn">BRN</label>
-                                <input type="text" name="brn" class="form-control">
+                                <input type="text" formControlName="brn" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="field_of_activity">Field of Activity</label>
-                                <input type="text" name="field_of_activity" class="form-control">
+                                <input type="text" formControlName="field_of_activity" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="contact_person">Contact Person</label>
-                                <input type="text" name="contact_person" class="form-control">
+                                <input type="text" formControlName="contact_person" class="form-control">
                             </div>
                         </div>
                         <div class="offset-1 col-5 float-right">
                             <div class="form-group">
                                 <label for="telephone">Telephone</label>
-                                <input type="number" name="telephone" class="form-control">
+                                <input type="number" formControlName="telephone" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="fax">Fax</label>
-                                <input type="number" name="fax" class="form-control">
+                                <input type="number" formControlName="fax" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="email">Email Address</label>
-                                <input type="tel" name="mail" class="form-control">
+                                <input type="tel" formControlName="mail" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" name="password" class="form-control">
+                                <input type="password" formControlName="password" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="confirm_password">Confirm Password</label>
-                                <input type="password" name="confirm_password" class="form-control">
+                                <input type="password" formControlName="confirm_password" class="form-control">
                             </div>
                             <div class="custom-control custom-checkbox checkbox-lg">
                                 <label class="custom-control-label" for="chkbxTermsCorporate">
@@ -106,7 +106,7 @@
 
                     </form>
 
-                    <form id="reseller" *ngSwitchCase="2">
+                    <form [formGroup]="form" id="reseller" *ngSwitchCase="2">
                         <div class="col-12">
                             <h2 class="text-center font-weight-bold mb-3">
                                 Reseller Form
@@ -115,57 +115,57 @@
                         <div class="offset-1 col-5 float-left">
                             <div class="form-group">
                                 <label for="reseller">Reseller</label>
-                                <input type="text" name="reseller" class="form-control">
+                                <input type="text" formControlName="reseller" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="address">Address</label>
-                                <textarea type="text" name="address" class="form-control" rows="3"></textarea>
+                                <textarea type="text" formControlName="address" class="form-control" rows="3"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="vat">VAT</label>
-                                <input type="text" name="vat" class="form-control">
+                                <input type="text" formControlName="vat" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="brn">BRN</label>
-                                <input type="text" name="brn" class="form-control">
+                                <input type="text" formControlName="brn" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="field_of_activity">Field of Activity</label>
-                                <input type="text" name="field_of_activity" class="form-control">
+                                <input type="text" formControlName="field_of_activity" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="contact_person">Contact Person</label>
-                                <input type="text" name="contact_person" class="form-control">
+                                <input type="text" formControlName="contact_person" class="form-control">
                             </div>
                         </div>
                         <div class="offset-1 col-5 float-right">
                             <div class="form-group">
                                 <label for="telephone">Telephone</label>
-                                <input type="number" name="telephone" class="form-control">
+                                <input type="number" formControlName="telephone" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="fax">Fax</label>
-                                <input type="number" name="fax" class="form-control">
+                                <input type="number" formControlName="fax" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="mail">Email Address</label>
-                                <input type="email" name="mail" class="form-control">
+                                <input type="email" formControlName="mail" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" name="password" class="form-control">
+                                <input type="password" formControlName="password" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="confirm_password">Confirm Password</label>
-                                <input type="password" name="confirm_password" class="form-control">
+                                <input type="password" formControlName="confirm_password" class="form-control">
                             </div>
                             <div class="custom-control custom-checkbox checkbox-lg">
                                 <label class="custom-control-label" for="chkbxTermsReseller">
@@ -184,7 +184,7 @@
                         </div>
                     </form>
 
-                    <form id="individual" *ngSwitchCase="3">
+                    <form [formGroup]="form" id="individual" *ngSwitchCase="3">
                         <div class="col-12">
                             <h2 class="text-center font-weight-bold mb-3">
                                 Individual Form
@@ -193,40 +193,40 @@
                         <div class="offset-1 col-5 float-left">
                             <div class="form-group">
                                 <label for="FName">First Name</label>
-                                <input type="text" name="FName" class="form-control">
+                                <input type="text" formControlName="FName" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="LName">Last Name</label>
-                                <input type="text" name="LName" class="form-control">
+                                <input type="text" formControlName="LName" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="telephone">Telephone</label>
-                                <input type="number" name="telephone" class="form-control">
+                                <input type="number" formControlName="telephone" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="mobile">Mobile</label>
-                                <input type="number" name="mobile" class="form-control">
+                                <input type="number" formControlName="mobile" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="address">Address</label>
-                                <textarea type="text" name="address" class="form-control" rows="3"></textarea>
+                                <textarea type="text" formControlName="address" class="form-control" rows="3"></textarea>
                             </div>
                         </div>
                         <div class="offset-1 col-5 float-right">
                             <div class="form-group">
                                 <label for="email">Email Address</label>
-                                <input type="tel" name="mail" class="form-control">
+                                <input type="tel" formControlName="mail" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" name="password" class="form-control">
+                                <input type="password" formControlName="password" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="confirm_password">Confirm Password</label>
-                                <input type="password" name="confirm_password" class="form-control">
+                                <input type="password" formControlName="confirm_password" class="form-control">
                             </div>
                             <div class="custom-control custom-checkbox checkbox-lg">
                                 <label class="custom-control-label" for="chkbxTermsIndividual">
