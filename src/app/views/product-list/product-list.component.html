@@ -4,7 +4,9 @@
             <div class="row mb-3 ">
                 <section class="col-12">
                     <!-- <ng-container *ngIf="let banner of data.productdata.products> -->
-                    <img src=" \assets\img\category-banner-2.jpg" alt="" class="img-fluid w-100">
+                    <img onerror="this.src='/assets/img/category-not-found.jpg'"
+                        src="https://api.deloffice.mu/images/category/{{data?.category?.categoryImg?.imgid}}" alt=""
+                        class="img-fluid w-100">
                     <!-- </ng-container> -->
                 </section>
             </div>
@@ -23,7 +25,8 @@
 
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
                                     <div class="card">
-                                        <img src="https://api.deloffice.mu/images/product/{{cat.id}}.jpg" class="card-img-top
+                                        <img onerror="this.src='/assets/img/product-not-found.jpg'"
+                                            src="https://api.deloffice.mu/images/product/{{cat.id}}.jpg" class="card-img-top
                         img-fluid" alt="...">
                                         <div class="card-body">
                                             <h3 class="text-center">

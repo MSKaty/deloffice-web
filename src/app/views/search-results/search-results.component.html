@@ -12,13 +12,14 @@
                 </div>
 
                 <div class="col-lg-9 col-md-9 col-12" style="overflow: hidden;">
-                    <h5 class="custom-heading">Search Results: Page {{currentPage}} of {{pagecount$}}</h5>
+                    <h5 class="custom-heading">Search Results: Page {{currentPage}} of {{pagecount(result)}}</h5>
                     <div id="products" class="row ">
                         <ng-container *ngIf="result.count > 0">
                             <ng-container *ngFor="let res of result.products; index as i;">
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
                                     <div class="card">
-                                        <img src="https://api.deloffice.mu/images/product/{{res.id}}.jpg"
+                                        <img onerror="this.src='/assets/img/product-not-found.jpg'"
+                                            src="https://api.deloffice.mu/images/product/{{res.id}}.jpg"
                                             class="card-img-top img-fluid" alt="...">
                                         <div class="card-body">
 
@@ -47,20 +48,20 @@
                     </div>
                     <nav aria-label="pagination-search">
                         <ul class="pagination">
-                            <li class="page-item" [class.disabled]="currentPage - 1 == 0">
-                                <a (click)="currentPage=currentPage-1;get()" class="page-link" style="cursor: pointer;"
-                                    tabindex="-1">Previous</a>
+                            <li class="page-item text-dark" [class.disabled]="+currentPage - 1 == 0">
+                                <a routerLink="/search" [queryParams]="{s: searchQuery, p: +currentPage - 1}"
+                                    class="page-link" style="cursor: pointer;" tabindex="-1">Previous</a>
                             </li>
                             <ng-container *ngFor="let pageNum of tempArray(result.count); index as i;">
                                 <li class="page-item" [class.active]="currentPage == pageNum">
-                                    <a (click)="currentPage=pageNum;get()" class="page-link text-dark"
-                                        style="cursor: pointer;">{{pageNum}} <span *ngIf="currentPage == pageNum"
-                                            class="sr-only">(current)</span></a>
+                                    <a routerLink="/search" [queryParams]="{s: searchQuery, p: +pageNum}"
+                                        class="page-link text-dark" style="cursor: pointer;">{{pageNum}} <span
+                                            *ngIf="+currentPage == +pageNum" class="sr-only">(current)</span></a>
                                 </li>
                             </ng-container>
-                            <li class="page-item" [class.disabled]="currentPage + 1 > (result.count / 20)">
-                                <a (click)="currentPage=currentPage+1;get()" class="page-link"
-                                    style="cursor: pointer;">Next</a>
+                            <li class="page-item text-dark" [class.disabled]="+currentPage + 1 > pagecount(result)">
+                                <a routerLink="/search" [queryParams]="{s: searchQuery, p: +currentPage + 1}"
+                                    class="page-link" style="cursor: pointer;">Next</a>
                             </li>
                         </ul>
                     </nav>

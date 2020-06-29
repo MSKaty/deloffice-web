@@ -82,12 +82,14 @@
                                     </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="https://api.deloffice.mu/images/product/{{product.id}}.jpg" class="d-block w-100"
-                                        alt="...">
+                                    <img onerror="this.src='/assets/img/product-not-found.jpg'"
+                                        src="https://api.deloffice.mu/images/product/{{product.id}}.jpg"
+                                        class="d-block w-100" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="https://api.deloffice.mu/images/product/{{product.id}}.jpg" class="d-block w-100"
-                                        alt="...">
+                                    <img onerror="this.src='/assets/img/product-not-found.jpg'"
+                                        src="https://api.deloffice.mu/images/product/{{product.id}}.jpg"
+                                        class="d-block w-100" alt="...">
                                 </div>
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
@@ -145,8 +147,9 @@
                     <div *ngFor="let related of product.related_products; index as i;"
                         class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
                         <div class="card">
-                            <img src="https://api.deloffice.mu/images/product/{{related.id}}.jpg" class="card-img-top img-fluid"
-                                alt="...">
+                            <img onerror="this.src='/assets/img/product-not-found.jpg'"
+                                src="https://api.deloffice.mu/images/product/{{related.id}}.jpg"
+                                class="card-img-top img-fluid" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">
 

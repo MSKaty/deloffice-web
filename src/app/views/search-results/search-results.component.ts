@@ -14,9 +14,9 @@ import { switchMap, tap, map } from 'rxjs/operators';
 })
 export class SearchResultsComponent implements OnInit {
   currentPage = 1;
+  searchQuery = null;
 
   result$: Observable<any>;
-  pagecount$: number;
 
   constructor(
     private _route: ActivatedRoute,
@@ -27,14 +27,16 @@ export class SearchResultsComponent implements OnInit {
 
   ngOnInit() {
     this.result$ = this.get();
-    this.pagecount$ = this.pagecount(this.result$);
   }
 
   get() {
     return this._route.queryParams.pipe(
       switchMap(query => {
         this._title.changeTitle(`Search results for: ${query['s']}`);
-        return this._prod.findAll(null, this.currentPage, query['s']);
+        const page = query['p'] ? query['p'] : 1;
+        this.currentPage = page;
+        this.searchQuery = query['s'];
+        return this._prod.findAll(null, page, query['s']);
       }),
       map((data) => {
         return data[0];
@@ -42,7 +44,6 @@ export class SearchResultsComponent implements OnInit {
     )
   }
   pagecount(result) {
-
     return Math.ceil(result.count / 20)
   }
 
