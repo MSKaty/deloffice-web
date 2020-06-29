@@ -3,7 +3,9 @@
         <main id="content" class="row d-flex flex-column flex-nowrap">
             <div class="row mb-3 ">
                 <section class="col-12">
-                    <img src="https://via.placeholder.com/1600x250.png" alt="" class="img-fluid w-100">
+                    <!-- <ng-container *ngIf="let banner of data.productdata.products> -->
+                    <img src=" \assets\img\category-banner-2.jpg" alt="" class="img-fluid w-100">
+                    <!-- </ng-container> -->
                 </section>
             </div>
             <div class="row mb-3">
@@ -11,37 +13,40 @@
                     <app-slidebar></app-slidebar>
                 </div>
 
-                <div class="col-lg-9 col-md-9 col-12">
+                <div class="col-lg-9 col-md-9 col-12" style="overflow: hidden;">
                     <h5 class="custom-heading">
                         {{data.category.description}}
                     </h5>
                     <div id="products" class="row ">
                         <ng-container *ngIf="data.productdata.count > 0">
-                            <div *ngFor="let cat of data.productdata.products; index as i;"
-                                class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
-                                <div class="card">
-                                    <img src="https://deloffice.mu/imgdir/{{cat.id}}.jpg" class="card-img-top
+                            <ng-container *ngFor="let cat of data.productdata.products; index as i;">
+                                <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
+                                    <div class="card">
+                                        <img src="https://deloffice.mu/imgdir/{{cat.id}}.jpg" class="card-img-top
                         img-fluid" alt="...">
-                                    <div class="card-body">
-                                        <h3 class="text-center">
-                                            <strong>Rs.
-                                                {{cat.puprice | number:'1.2-2'}}
-                                            </strong>
-                                        </h3>
-                                        <h5 class="card-title text-center">
-                                            {{cat.des1}}<br>
-                                            {{cat.des2}}<br>
-                                            {{cat.des3}}<br>
-                                            <b>Product code:</b> {{cat.id}}
-                                        </h5>
-                                        <span id="cart" class="d-flex">
-                                            <input type="number" name="qty" id="qty" value="1" class="text-center">
-                                            <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
-                                            <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
-                                        </span>
+                                        <div class="card-body">
+                                            <h3 class="text-center">
+                                                <strong>Rs.
+                                                    {{cat.puprice | number:'1.2-2'}}
+                                                </strong>
+                                            </h3>
+                                            <h5 class="card-title text-center">
+                                                {{cat.des1}}<br>
+                                                {{cat.des2}}<br>
+                                                {{cat.des3}}<br>
+                                                <b>Product code:</b> {{cat.id}}
+                                            </h5>
+                                            <span id="cart" class="d-flex">
+                                                <input type="number" name="qty" id="qty" value="1" class="text-center">
+                                                <a href="#" class="btn btn-primary"><i
+                                                        class="fas fa-shopping-cart"></i></a>
+                                                <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                                <hr *ngIf="(i+1)%4==0 && i+1 < data.productdata.products.length" class="col-12">
+                            </ng-container>
                         </ng-container>
 
 

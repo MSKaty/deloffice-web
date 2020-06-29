@@ -16,6 +16,7 @@ export class SearchResultsComponent implements OnInit {
   currentPage = 1;
 
   result$: Observable<any>;
+  pagecount$: number;
 
   constructor(
     private _route: ActivatedRoute,
@@ -26,6 +27,7 @@ export class SearchResultsComponent implements OnInit {
 
   ngOnInit() {
     this.result$ = this.get();
+    this.pagecount$ = this.pagecount(this.result$);
   }
 
   get() {
@@ -38,6 +40,10 @@ export class SearchResultsComponent implements OnInit {
         return data[0];
       })
     )
+  }
+  pagecount(result) {
+
+    return Math.ceil(result.count / 20)
   }
 
   tempArray(num) {

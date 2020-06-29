@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="col-lg-9 col-md-9 col-12" style="overflow: hidden;">
-                    <h5 class="custom-heading">Search Results: Page {{currentPage}} of {{result.count}}</h5>
+                    <h5 class="custom-heading">Search Results: Page {{currentPage}} of {{pagecount$}}</h5>
                     <div id="products" class="row ">
                         <ng-container *ngIf="result.count > 0">
                             <ng-container *ngFor="let res of result.products; index as i;">
