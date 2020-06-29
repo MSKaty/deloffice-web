@@ -9,9 +9,6 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 export class MyaccountsComponent implements OnInit {
   form: FormGroup
   constructor() {
-    FormGroup
-    FormBuilder
-    FormControl
   }
 
   ngOnInit() {
