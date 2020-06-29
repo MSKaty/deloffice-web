@@ -52,7 +52,25 @@
                                 <hr *ngIf="(i+1)%4==0 && i+1 < data.productdata.products.length" class="col-12">
                             </ng-container>
                         </ng-container>
-
+                        <!-- <nav aria-label="pagination-search">
+                            <ul class="pagination">
+                                <li class="page-item text-dark" [class.disabled]="+currentPage - 1 == 0">
+                                    <a routerLink="/search" [queryParams]="{s: searchQuery, p: +currentPage - 1}"
+                                        class="page-link" style="cursor: pointer;" tabindex="-1">Previous</a>
+                                </li>
+                                <ng-container *ngFor="let pageNum of tempArray(result.count); index as i;">
+                                    <li class="page-item" [class.active]="currentPage == pageNum">
+                                        <a routerLink="/search" [queryParams]="{s: searchQuery, p: +pageNum}"
+                                            class="page-link text-dark" style="cursor: pointer;">{{pageNum}} <span
+                                                *ngIf="+currentPage == +pageNum" class="sr-only">(current)</span></a>
+                                    </li>
+                                </ng-container>
+                                <li class="page-item text-dark" [class.disabled]="+currentPage + 1 > pagecount(result)">
+                                    <a routerLink="/search" [queryParams]="{s: searchQuery, p: +currentPage + 1}"
+                                        class="page-link" style="cursor: pointer;">Next</a>
+                                </li>
+                            </ul>
+                        </nav> -->
 
 
 

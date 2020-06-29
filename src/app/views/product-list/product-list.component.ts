@@ -12,7 +12,7 @@ import { switchMap, tap, map } from 'rxjs/operators';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
-
+  currentPage = 1;
   category$: Observable<any>;
 
   constructor(
@@ -36,6 +36,11 @@ export class ProductListComponent implements OnInit {
   }
   get() {
     return this._route.params.pipe(
+      // switchMap(query => {
+      //   const page = query['p'] ? query['p'] : 1;
+      //   this.currentPage = page;
+      //   return this._prod.findAll(null, page, query['s']);
+      // }),
       switchMap(param => {
         return combineLatest(
           this._cat.getCat(param['id']),
@@ -44,5 +49,15 @@ export class ProductListComponent implements OnInit {
       })
     )
   }
-
+  tempArray(num) {
+    const baseArr = Array.from(
+      Array(Math.ceil(num / 20)),
+      (_, i) => i + 1
+    );
+    return baseArr.filter(item => {
+      if (item < this.currentPage + 3 || item > this.currentPage - 3) {
+        return item;
+      }
+    })
+  }
 }
