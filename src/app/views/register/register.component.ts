@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
-=======
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
->>>>>>> 5d91357bb01df1c980d223b14b3effeb09440cfc
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-register',
@@ -12,17 +8,10 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class RegisterComponent implements OnInit {
   type = 1;
-<<<<<<< HEAD
-  form: FormGroup
-  constructor() {
-    FormGroup
-    FormBuilder
-    FormControl
-=======
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       fname: new FormControl('', Validators.required),
       lname: new FormControl('', Validators.required),
@@ -36,7 +25,7 @@ export class RegisterComponent implements OnInit {
       mail: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
       confirm_password: new FormControl('', Validators.required),
-     
+
       // 	email	password	active	utype	
       // pricelist			tel	fax	
       // address	billingaddress	activity	director	
@@ -44,7 +33,6 @@ export class RegisterComponent implements OnInit {
 
 
     });
->>>>>>> 5d91357bb01df1c980d223b14b3effeb09440cfc
   }
 
   ngOnInit() {
