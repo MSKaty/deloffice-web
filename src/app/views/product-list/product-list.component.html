@@ -52,49 +52,48 @@
                                 <hr *ngIf="(i+1)%4==0 && i+1 < data.productdata.products.length" class="col-12">
                             </ng-container>
                         </ng-container>
-                        <!-- <nav aria-label="pagination-search">
-                            <ul class="pagination">
-                                <li class="page-item text-dark" [class.disabled]="+currentPage - 1 == 0">
-                                    <a routerLink="/search" [queryParams]="{s: searchQuery, p: +currentPage - 1}"
-                                        class="page-link" style="cursor: pointer;" tabindex="-1">Previous</a>
-                                </li>
-                                <ng-container *ngFor="let pageNum of tempArray(result.count); index as i;">
-                                    <li class="page-item" [class.active]="currentPage == pageNum">
-                                        <a routerLink="/search" [queryParams]="{s: searchQuery, p: +pageNum}"
-                                            class="page-link text-dark" style="cursor: pointer;">{{pageNum}} <span
-                                                *ngIf="+currentPage == +pageNum" class="sr-only">(current)</span></a>
-                                    </li>
-                                </ng-container>
-                                <li class="page-item text-dark" [class.disabled]="+currentPage + 1 > pagecount(result)">
-                                    <a routerLink="/search" [queryParams]="{s: searchQuery, p: +currentPage + 1}"
-                                        class="page-link" style="cursor: pointer;">Next</a>
-                                </li>
-                            </ul>
-                        </nav> -->
-
-
-
                     </div>
+                    <nav aria-label="pagination-search">
+                        <ul class="pagination">
+                            <li class="page-item text-dark" [class.disabled]="+currentPage - 1 == 0">
+                                <a routerLink="/category/" [queryParams]="{id: +data.category, p: +currentPage - 1}"
+                                    class="page-link" style="cursor: pointer;" tabindex="-1">Previous</a>
+                            </li>
+                            <ng-container
+                                *ngFor="let pageNum of tempArray(data.productdata.products.count); index as i;">
+                                <li class="page-item" [class.active]="currentPage == pageNum">
+                                    <a routerLink="/category/" [queryParams]="{id: +data.category, p: +pageNum}"
+                                        class="page-link text-dark" style="cursor: pointer;">{{pageNum}} <span
+                                            *ngIf="+currentPage == +pageNum" class="sr-only">(current)</span></a>
+                                </li>
+                            </ng-container>
+                            <li class="page-item text-dark"
+                                [class.disabled]="+currentPage + 1 > pagecount(data.productdata.products)">
+                                <a routerLink="/category/" [queryParams]="{id: +data.category, p: +currentPage + 1}"
+                                    class="page-link" style="cursor: pointer;">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
 
             </div>
             <div class="row mb-3 mx-n1">
                 <div class="col-lg-6 px-2">
-                    <img src="https://via.placeholder.com/1500x600.png" class="img-fluid">
+                    <img id="Category-Banner-A" src="https://via.placeholder.com/1500x600.png" class="img-fluid">
                 </div>
                 <div class="col-lg-6 px-2">
-                    <img src="https://via.placeholder.com/1500x600.png" class="img-fluid">
+                    <img id="Category-Banner-B" src="https://via.placeholder.com/1500x600.png" class="img-fluid">
                 </div>
             </div>
             <div class="row mb-3 mx-n1">
                 <div class="col-lg-4 px-2">
-                    <img src="https://via.placeholder.com/1000x300.png" class="img-fluid">
+                    <img id="Category-Banner-C" src="https://via.placeholder.com/1000x300.png" class="img-fluid">
                 </div>
                 <div class="col-lg-4 px-2">
-                    <img src="https://via.placeholder.com/1000x300.png" class="img-fluid">
+                    <img id="Category-Banner-D" src="https://via.placeholder.com/1000x300.png" class="img-fluid">
                 </div>
                 <div class="col-lg-4 px-2">
-                    <img src="https://via.placeholder.com/1000x300.png" class="img-fluid">
+                    <img id="Category-Banner-E" src="https://via.placeholder.com/1000x300.png" class="img-fluid">
                 </div>
             </div>
         </main>

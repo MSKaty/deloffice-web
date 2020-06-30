@@ -28,7 +28,10 @@
         </span>
 
         <span id="cart">
-          <i class="fas fa-shopping-cart"></i>
+          <button id="modalActivate" type="button" class="btn" data-toggle="modal" data-target="#exampleModalPreview">
+            <i class="fas fa-shopping-cart"></i>
+          </button>
+
         </span>
       </div>
     </div>
@@ -51,5 +54,32 @@
 
       <a href="#"><img src="\assets\img\claro.gif"></a>
     </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalPreview" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-slideout" role="document">
+
+        <ng-container>
+          <div class="modal-content p-3">
+            <div class="modal-header">
+              Cart (<span class="cart-count">0</span> Item(s))
+              <i class="fas fa-shopping-cart"></i>
+              <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
+                <i class="fas fa-times"></i>Close
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">To Cart</button>
+            </div>
+          </div>
+        </ng-container>
+
+      </div>
+    </div>
   </header>
 </div>

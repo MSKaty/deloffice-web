@@ -24,6 +24,7 @@ import { AntiBriberyPolicyComponent } from '../../../views/delinfo/anti-bribery-
 import { FAQComponent } from '../../../views/delinfo/faq/faq.component';
 import { DeliveryPolicyComponent } from '../../../views/delinfo/delivery-policy/delivery-policy.component';
 import { MyaccountsComponent } from '../../../views/myaccounts/myaccounts.component';
+import { UpdatePassComponent } from '../../../views/update-pass/update-pass.component';
 
 
 const routes: Routes = [
@@ -134,6 +135,11 @@ const routes: Routes = [
         component: MyaccountsComponent,
         data: { title: 'My Account' }
       },
+      {
+        path: 'pass-update',
+        component: UpdatePassComponent,
+        data: { title: 'Update Password' }
+      },
 
 
     ]
@@ -148,7 +154,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [MainComponent, HeaderComponent, CartComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent,
     RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent, AboutComponent, WishlistComponent, CorporateValuesComponent,
-    ContactUsComponent, JobOpportunitiesComponent, AntiBriberyPolicyComponent, FAQComponent, DeliveryPolicyComponent, MyaccountsComponent],
+    ContactUsComponent, JobOpportunitiesComponent, AntiBriberyPolicyComponent, FAQComponent, DeliveryPolicyComponent, MyaccountsComponent, UpdatePassComponent],
   imports: [
     CommonModule,
     HttpClientModule,

@@ -22,29 +22,30 @@
                                         <li *ngFor="let subcat2 of subcat.subcategories; index as k;">
                                             <ng-container *ngIf="subcat2.subcategories.length > 0; else noSubCat">
                                                 <a data-toggle="collapse" [attr.href]="'#category3' + k" role="button"
-                                                aria-expanded="false" [attr.aria-controls]="'category3' + k">
-                                                {{subcat2.description}}
+                                                    aria-expanded="false" [attr.aria-controls]="'category3' + k">
+                                                    {{subcat2.description}}
                                                     <i class="fas fa-plus"></i>
                                                 </a>
                                                 <ul *ngIf="subcat2.subcategories.length > 0" class="collapse"
                                                     id="category3{{k}}">
                                                     <li *ngFor="let subcat3 of subcat2.subcategories; index as l;">
-                                                        <a routerLink="/category/{{subcat3.id}}">{{subcat3.description}}</a>
+                                                        <a
+                                                            routerLink="/category/{{subcat3.id}}">{{subcat3.description}}</a>
                                                     </li>
                                                 </ul>
                                             </ng-container>
                                             <ng-template #noSubCat>
                                                 <a routerLink="/category/{{subcat2.id}}">
-                                                {{subcat2.description}}
+                                                    {{subcat2.description}}
                                                 </a>
                                             </ng-template>
-                                            
+
                                         </li>
                                     </ul>
                                 </ng-container>
                                 <ng-template #noCat>
                                     <a routerLink="/category/{{subcat.id}}">
-                                    {{subcat.description}}
+                                        {{subcat.description}}
                                     </a>
                                 </ng-template>
                             </li>
@@ -56,13 +57,13 @@
         </nav>
 
         <a href="#" class="d-block mb-3">
-            <img src="\assets\img\summer fresh.jpg" alt="" class="img-fluid w-100">
+            <img id="RotateA" src="\assets\img\summer fresh.jpg" alt="" class="img-fluid w-100">
         </a>
         <a href="#" class="d-block mb-3">
-            <img src="\assets\img\Smooth-the-Fruit-Ad-Poster-Download.jpg" alt="" class="img-fluid w-100">
+            <img id="RotateB" src="\assets\img\Smooth-the-Fruit-Ad-Poster-Download.jpg" alt="" class="img-fluid w-100">
         </a>
         <a href="#" class="d-block mb-3">
-            <img src="\assets\img\unnamed.jpg" alt="" class="img-fluid w-100">
+            <img id="RotateC" src="\assets\img\unnamed.jpg" alt="" class="img-fluid w-100">
         </a>
     </div>
 
