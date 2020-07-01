@@ -1,39 +1,42 @@
-<div class="container-fluid">   
-	<div class="row" style="padding: 3em;">		
-        <div class="col-sm-6 col-sm-offset-1">
-        <h4>Login to your account</h4><br><br>
-        
-            <form [formGroup]="form" >
-            <div class="form-group">
-                
-                <input type="email" class="form-control" placeholder="Email Address" formControlName="uname" required>
+<div id="wrapper" class="container-fluid">
+    <main id="content" class="row d-flex flex-column flex-nowrap mx-0">
+        <div class="row my-3">
+            <div class="col-sm-6">
+                <h4>Login to your account</h4>
+                <form [formGroup]="form">
+                    <div class="form-group">
+
+                        <input type="email" class="form-control" placeholder="Email Address" formControlName="uname"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Password" formControlName="psw"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Login</button>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me<br>
+                            <span class="psw">Forgot <a href="#">password?</a></span>
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <div class="signup-form">
+                    <!--sign up form-->
+                    <h2><b>New User Signup!</b></h2>
+                    <form action="register.php">
+                        <p>Benefit from offers and save time & money by being a member of the
+                            DelOffice community.</p>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
             </div>
 
-            <div class="form-group">
-                
-                <input type="password" class="form-control" placeholder="Password" formControlName="psw" required><br>
-            </div>
-            
-            <br>
-            
-      
-            <button type="submit" class="btn btn-success">Login</button><br>
-
-            <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me<br>
-                <span class="psw">Forgot <a href="#">password?</a></span>
-            </label>
-        </form>
         </div>
- 
-        
-        <div class="col-sm-6">
-            <div class="signup-form"><!--sign up form-->
-            <h2 style="font-size:22px"><b>New User Signup!</b></h2>
-                <form action="register.php">
-                    <span style="font-size:15px">Benefit from offers and save time & money by being a member of the DelOffice community.</span>
-                <br><br><br>
-                <button type="submit" class="btn btn-default">Register</button>
-        </form>
-    </div><!--/sign up form-->
+    </main>
 </div>

@@ -35,12 +35,9 @@ export class ProductListComponent implements OnInit {
     )
   }
   get() {
+
     return this._route.params.pipe(
-      // switchMap(query => {
-      //   const page = query['p'] ? query['p'] : 1;
-      //   this.currentPage = page;
-      //   return this._prod.findAll(null, page, query['s']);
-      // }),
+
       switchMap(param => {
         return combineLatest(
           this._cat.getCat(param['id']),
@@ -49,6 +46,11 @@ export class ProductListComponent implements OnInit {
       })
     )
   }
+
+  pagecount(data1) {
+    return Math.ceil(data1.count / 20)
+  }
+
   tempArray(num) {
     const baseArr = Array.from(
       Array(Math.ceil(num / 20)),

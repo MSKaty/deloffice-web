@@ -1,9 +1,17 @@
 main#content {
     padding: 20px 30px;
+    .btnSize{
+        >img{
+            filter: invert(1);
+        }
+    }
 }
 form{
     padding:70px;
 
+    h2{
+        color: darkblue;
+    }
     input{
         width: 100%;
     }
@@ -14,16 +22,14 @@ form{
 }
 
 button{
-            padding:15px;
-            size:25px;
-            
-        }
-        .btnSize{
-                min-width:200px;
-            }
+    padding:15px;
+    size:25px;        
+}
+.btnSize{
+    min-width:200px;
+}
 
 .logosvg{
     height: 50px;
     padding-right: 15px;
-
 }

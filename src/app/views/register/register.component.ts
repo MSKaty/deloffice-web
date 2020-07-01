@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+=======
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+>>>>>>> 89efc3cd8d3230969c92faa2f5ad28a99207ca4c
 
 @Component({
   selector: 'app-register',
@@ -11,7 +15,7 @@ export class RegisterComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       fname: new FormControl('', Validators.required),
       lname: new FormControl('', Validators.required),
@@ -25,7 +29,7 @@ export class RegisterComponent implements OnInit {
       mail: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
       confirm_password: new FormControl('', Validators.required),
-     
+
       // 	email	password	active	utype	
       // pricelist			tel	fax	
       // address	billingaddress	activity	director	

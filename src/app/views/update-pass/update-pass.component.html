@@ -1,0 +1,70 @@
+<ng-container>
+    <div id="wrapper" class="container-fluid">
+        <main id="content" class="row d-flex flex-column flex-nowrap">
+            <div class="row mb-3 mx-0">
+                <div class="col-12">
+                    <h5 class="custom-heading">
+                        Hello user (ID 588888)
+                    </h5>
+                </div>
+            </div>
+            <div class="row mb-3 mx-0">
+                <div class="col-3">
+                    <img class="float-right" src="\assets\img\UserSetting.svg" alt="" width="40%">
+                </div>
+                <form [formGroup]="form" class="col-9 row mx-0">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="CurrentPass" class="col-4 col-form-label">Current Password</label>
+                            <div class="col-8">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-key"></i>
+                                        </div>
+                                    </div>
+                                    <input id="CurrentPass" name="CurrentPass" type="text" required="required"
+                                        class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="NewPass" class="col-4 col-form-label">New Password</label>
+                            <div class="col-8">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-key"></i>
+                                        </div>
+                                    </div>
+                                    <input id="NewPass" name="NewPass" type="text" required="required"
+                                        class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ConfirmPass" class="col-4 col-form-label">Confirm Password</label>
+                            <div class="col-8">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-key"></i>
+                                        </div>
+                                    </div>
+                                    <input id="ConfirmPass" name="ConfirmPass" type="text" required="required"
+                                        class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-8">
+                                <button name="submit" type="submit" class="float-right btn btn-primary">Save</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</ng-container>
