@@ -10,27 +10,37 @@ import { map } from 'rxjs/operators';
 export class AuthService {
   private apiUrl = environment.apiUrl;
 
-  // private currentUserSubject : BehaviorSubject<user>;
-  // public currentUser : Observable<user>;
+  private currentUserSubject : BehaviorSubject<any>;
+  public currentUser : Observable<any>;
 
   constructor(private http: HttpClient) {
 
+      this.currentUserSubject = new BehaviorSubject(localStorage.getItem('currentUser'));
+      this.currentUser = this.currentUserSubject.asObservable();
   }
 
-
-
-  // login(uname:string, pword:string): Observable<any>{
-  //     return this.http.post<user>(this.apiUrl + '', {uname,pword})
+  public get currentUserValue():Observable<any>{
+    return this.currentUserSubject.value;
+}
+  //  public login(uname:string, pword:string): Observable<any>{
+  //     return this.http.post<>(this.apiUrl + '', {uname,pword})
   //       .pipe(map(user=>{ 
-
-  //         if(){
-  //           localStorage.setItem()
-  //         }
 
   //       }))
   // }
 
-  public register(): Observable<any> {
-    return
-  }
+  
+  logout() {
+   
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
+}
+
+  // public register(): Observable<any> {
+  //   return this.http.post<>(this.apiUrl + '', {})
+  // }
+
+  // public profile(): Observable<any>{
+  //   return this.http.get<>(this.apiUrl + '', {})
+  // }
 }
