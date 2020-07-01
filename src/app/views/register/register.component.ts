@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { ɵangular_packages_platform_browser_dynamic_platform_browser_dynamic_a } from '@angular/platform-browser-dynamic';
 
 @Component({
   selector: 'app-register',
@@ -7,6 +8,21 @@ import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms"
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
+  uid: number;
+  fname: string;
+  lname: string;
+  address: string;
+  vat: string;
+  brn: string;
+  field_of_activity: string;
+  contact_person:string;
+  mob: number;
+  fax: number;
+  mail: string;
+  password: string;
+  confirm_password: string;
+
   type = 1;
 
   form: FormGroup;
