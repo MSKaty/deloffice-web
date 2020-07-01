@@ -33,113 +33,58 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <ng-container>
-                            <tr>
-                                <td class="cart_product ">
-                                    <a href=""><img src="https://via.placeholder.com/1000x1000.png"
-                                            class="d-block img-fluid" width="110" title="" alt="" /></a>
-                                </td>
-                                <td class="cart_description">
-                                    <h4><a href=""></a></h4>
-                                    <p>Description1<br>
-                                        Description2<br>
-                                        Brand<br>
-                                        Product Code:
-                                    </p>
-                                </td>
-                                <td class="cart_price align-middle text-center">
-                                    <div>Rs xxx</div>
-                                </td>
-                                <td class="cart_quantity align-middle">
-                                    <input class="form-control text-center" type="number" value="42"
-                                        id="example-number-input">
-                                </td>
-                                <td class="cart_total align-middle text-center">
-                                    <p>Rs xxx </p>
-                                </td>
-                                <td class="cart_vat align-middle text-center">
-                                    <p>Rs xxx</p>
-                                </td>
-                                <td class="cart_grandtotal align-middle text-center">
-                                    <p class="cart_total_price">Rs xxx</p>
-                                </td>
-                                <td class="cart_delete align-middle text-center">
-                                    <a class="btn btn-primary cart_quantity_delete">
-                                        <i class="far fa-trash-alt">&nbsp;&nbsp;Remove</i>
-                                    </a>
-                                </td>
-                            </tr>
-                        </ng-container>
-                        <tr>
-                            <td class="cart_product ">
-                                <a href=""><img src="https://via.placeholder.com/1000x1000.png"
-                                        class="d-block img-fluid" width="110" title="" alt="" /></a>
-                            </td>
-                            <td class="cart_description">
-                                <h4><a href=""></a></h4>
-                                <p>Description1<br>
-                                    Description2<br>
-                                    Brand<br>
-                                    Product Code:
-                                </p>
-                            </td>
-                            <td class="cart_price align-middle text-center">
-                                <div>Rs xxx</div>
-                            </td>
-                            <td class="cart_quantity align-middle">
-                                <input class="form-control text-center" type="number" value="42"
-                                    id="example-number-input">
-                            </td>
-                            <td class="cart_total align-middle text-center">
-                                <p>Rs xxx </p>
-                            </td>
-                            <td class="cart_vat align-middle text-center">
-                                <p>Rs xxx</p>
-                            </td>
-                            <td class="cart_grandtotal align-middle text-center">
-                                <p class="cart_total_price">Rs xxx</p>
-                            </td>
-                            <td class="cart_delete align-middle text-center">
-                                <a class="btn btn-primary cart_quantity_delete">
-                                    <i class="far fa-trash-alt">&nbsp;&nbsp;Remove</i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="cart_product ">
-                                <a href=""><img src="https://via.placeholder.com/1000x1000.png"
-                                        class="d-block img-fluid" width="110" title="" alt="" /></a>
-                            </td>
-                            <td class="cart_description">
-                                <h4><a href=""></a></h4>
-                                <p>Description1<br>
-                                    Description2<br>
-                                    Brand<br>
-                                    Product Code:
-                                </p>
-                            </td>
-                            <td class="cart_price align-middle text-center">
-                                <div>Rs xxx</div>
-                            </td>
-                            <td class="cart_quantity align-middle">
-                                <input class="form-control text-center" type="number" value="42"
-                                    id="example-number-input">
-                            </td>
-                            <td class="cart_total align-middle text-center">
-                                <p>Rs xxx </p>
-                            </td>
-                            <td class="cart_vat align-middle text-center">
-                                <p>Rs xxx</p>
-                            </td>
-                            <td class="cart_grandtotal align-middle text-center">
-                                <p class="cart_total_price">Rs xxx</p>
-                            </td>
-                            <td class="cart_delete align-middle text-center">
-                                <a class="btn btn-primary cart_quantity_delete">
-                                    <i class="far fa-trash-alt">&nbsp;&nbsp;Remove</i>
-                                </a>
-                            </td>
-                        </tr>
+                        <form [formGroup]="cartTable">
+                            <div formArrayName="unitsCart">
+                                <ng-container>
+                                    <div *ngFor="let unit of cartTable.controls.unitsCart.controls; let i=index">
+                                        <div [formGroupName]="i">
+                                            <tr>
+                                                <td class="cart_product ">
+                                                    <a href=""><img src="https://via.placeholder.com/1000x1000.png"
+                                                            class="d-block img-fluid" width="110" title="" alt=""
+                                                            formControlName="prodPhoto" /></a>
+                                                </td>
+                                                <td class="cart_description">
+                                                    <h4><a href=""><span
+                                                                formControlName="prodName">ProductName</span></a>
+                                                    </h4>
+                                                    <p formControlName="prodDes">Description1<br>
+                                                        Description2<br>
+                                                        Brand<br>
+                                                        Product Code:
+                                                    </p>
+                                                </td>
+                                                <td class="cart_price align-middle text-center">
+                                                    <div formControlName="prodPrice">Rs xxx</div>
+                                                </td>
+                                                <td class="cart_quantity align-middle">
+                                                    <input formControlName="prodQty" class="form-control text-center"
+                                                        type="number" value="42" id="example-number-input">
+                                                </td>
+                                                <td class="cart_total align-middle text-center">
+                                                    <p formControlName="prodSubTotal">Rs xxx </p>
+                                                </td>
+                                                <td class="cart_vat align-middle text-center">
+                                                    <p formControlName="prodVAT">Rs xxx</p>
+                                                </td>
+                                                <td class="cart_grandtotal align-middle text-center">
+                                                    <p formControlName="prodGrandTotal" class="cart_total_price">Rs xxx
+                                                    </p>
+                                                </td>
+                                                <td class="cart_delete align-middle text-center">
+                                                    <a class="btn btn-primary cart_quantity_delete"
+                                                        *ngIf="cartTable.controls.units.controls.length > 1"
+                                                        (click)="removeUnit(i)">
+                                                        <i class="far fa-trash-alt">&nbsp;&nbsp;Remove</i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+
+                        </form>
                     </tbody>
                 </table>
             </div>
