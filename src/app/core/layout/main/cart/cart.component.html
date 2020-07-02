@@ -33,7 +33,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <form [formGroup]="cartTable" (ngSubmit)="onSubmit()">
+                        <form [formGroup]="cartTable" novalidate (ngSubmit)="onSubmit()">
                             <!-- Start form unitsCart array with first row must and dynamically add more -->
                             <div formArrayName="unitsCart">
 
