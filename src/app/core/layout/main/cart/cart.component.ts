@@ -20,6 +20,9 @@ export class CartComponent implements OnInit {
     // private currencyPipe: CurrencyPipe
   ) { }
 
+  /**
+   * Form initialization
+   */
   ngOnInit() {
     // create form with validators and dynamic rows array
     this.cartTable = this.formbuilder.group({
@@ -30,12 +33,15 @@ export class CartComponent implements OnInit {
     });
 
     // initialize stream on units
-    this.myFormValueChanges$ = this.cartTable.controls['units'].valueChanges;
+    this.myFormValueChanges$ = this.cartTable.controls['unitsCart'].valueChanges;
     // subscribe to the stream so listen to changes on units
-    this.myFormValueChanges$.subscribe(units => this.updateTotalUnitPrice(units));
+    this.myFormValueChanges$.subscribe(unitsCart => this.updateTotalUnitPrice(unitsCart));
 
   }
 
+  /**
+   * Create form unit
+   */
   private getUnit() {
     const numberPatern = '^[0-9.,]+$';
     return this.formbuilder.group({
@@ -43,10 +49,13 @@ export class CartComponent implements OnInit {
       prodQty: [1, [Validators.required, Validators.pattern(numberPatern)]],
       prodSubTotal: ['', [Validators.required, Validators.pattern(numberPatern)]],
       prodVAT: ['', [Validators.required, Validators.pattern(numberPatern)]],
-      prodGrandTotal: ['', [Validators.required, Validators.pattern(numberPatern)]]
+      prodGrandTotal: [{ value: '', disabled: true }]
     });
   }
 
+  /**
+   * Remove unit row from form on click delete button
+   */
   removeUnit(i: number) {
     const control = <FormArray>this.cartTable.controls['units'];
     control.removeAt(i);
@@ -76,6 +85,11 @@ export class CartComponent implements OnInit {
   }
   grandTotalcal(subtotal: number) {
     return 1.15 * subtotal + 200
+  }
+
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.cartTable.value);
   }
 
 }
