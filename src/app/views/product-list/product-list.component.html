@@ -62,7 +62,7 @@
                                     class="page-link" style="cursor: pointer;" tabindex="-1">Previous</a>
                             </li>
                             <ng-container
-                                *ngFor="let pageNum of tempArray(data.productdata.products.count); index as i;">
+                                *ngFor="let pageNum of tempArray(data.productdata.count); index as i;">
                                 <li class="page-item" [class.active]="currentPage == pageNum">
                                     <a routerLink="/category/" [queryParams]="{id: +data.category, p: +pageNum}"
                                         class="page-link text-dark" style="cursor: pointer;">{{pageNum}} <span

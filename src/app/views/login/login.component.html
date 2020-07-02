@@ -3,32 +3,32 @@
         <div class="row my-3">
             <div class="col-sm-6">
                 <h4>Login to your account</h4>
-                <form [formGroup]="form">
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
                     <div class="form-group">
-
-                        <input type="email" class="form-control" placeholder="Email Address" formControlName="uname"
+                        <input type="email" class="form-control" placeholder="Email Address" formControlName="email"
                             required>
                     </div>
 
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Password" formControlName="psw"
+                        <input type="password" class="form-control" placeholder="Password" formControlName="password"
                             required>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-success">Login</button>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>
                             <input type="checkbox" checked="checked" name="remember"> Remember me<br>
                             <span class="psw">Forgot <a href="#">password?</a></span>
                         </label>
-                    </div>
+                    </div> -->
                 </form>
             </div>
             <div class="col-sm-6">
                 <div class="signup-form">
                     <!--sign up form-->
                     <h2><b>New User Signup!</b></h2>
+                    <!-- Really ? register.php ? alors ki nou lor enn projet angular ? o.O -->
                     <form action="register.php">
                         <p>Benefit from offers and save time & money by being a member of the
                             DelOffice community.</p>

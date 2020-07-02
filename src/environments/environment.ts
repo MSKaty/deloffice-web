@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl:'https://api.deloffice.mu'
+  apiUrl: 'https://api.deloffice.mu'
 };
 
 /*
