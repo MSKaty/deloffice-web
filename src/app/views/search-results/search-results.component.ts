@@ -4,7 +4,8 @@ import { ProductService } from '../../common/services/product.service';
 import { CategoryService } from '../../common/services/category.service';
 import { TitleService } from '../../common/services/title.service';
 
-import { Observable, combineLatest } from 'rxjs';
+import { OrderService } from 'src/app/common/services/order.service';
+import { Observable, combineLatest, BehaviorSubject } from 'rxjs';
 import { switchMap, tap, map } from 'rxjs/operators';
 
 @Component({
@@ -13,6 +14,13 @@ import { switchMap, tap, map } from 'rxjs/operators';
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent implements OnInit {
+  private _prodList$ = new BehaviorSubject<any[]>([]);
+  public prodList$: Observable<any[]> = this._prodList$.asObservable();
+
+  public userdata: any = JSON.parse(window.localStorage.getItem('user'));
+
+  public cartList$;
+
   currentPage = 1;
   searchQuery = null;
 
@@ -22,7 +30,8 @@ export class SearchResultsComponent implements OnInit {
     private _route: ActivatedRoute,
     private _prod: ProductService,
     private _cat: CategoryService,
-    private _title: TitleService
+    private _title: TitleService,
+    private _order: OrderService
   ) { }
 
   ngOnInit() {
@@ -57,6 +66,12 @@ export class SearchResultsComponent implements OnInit {
         return item;
       }
     })
+  }
+
+  public addToCart(item) {
+    let tempArray = this._prodList$.value;
+    tempArray.push(item);
+    this._prodList$.next(tempArray);
   }
 
 }
