@@ -15,12 +15,13 @@ export class AuthGuard implements CanActivate {
   constructor(
     private _auth: AuthService,
     private _router: Router
-  ) {}
+  ) { }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
     return this._auth.getProfile()
       .pipe(
         map(user => {
+          console.log(user);
           return !!user;
         }),
         tap((loggedIn) => {

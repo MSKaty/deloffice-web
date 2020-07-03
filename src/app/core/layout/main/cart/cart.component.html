@@ -33,69 +33,54 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <form [formGroup]="cartTable" novalidate (ngSubmit)="onSubmit()">
-                            <!-- Start form unitsCart array with first row must and dynamically add more -->
-                            <div formArrayName="unitsCart">
-
-                                <!-- loop through units -->
-                                <div *ngFor="let unit of cartTable.get('unitsCart')['controls']; let i=index">
-
-                                    <!-- group name in this case row index -->
-                                    <tr [formGroupName]="i">
-
-                                        <!-- units cart product images -->
-                                        <td class="cart_product ">
-                                            <a href=""><img src="https://via.placeholder.com/1000x1000.png"
-                                                    class="d-block img-fluid" width="110" title="" alt=""
-                                                    formControlName="prodPhoto" /></a>
-                                        </td>
-                                        <!-- units cart product description -->
-                                        <td class="cart_description">
-                                            <h4><a href=""><span formControlName="prodName">ProductName</span></a>
-                                            </h4>
-                                            <p formControlName="prodDes">Description1<br>
-                                                Description2<br>
-                                                Brand<br>
-                                                Product Code:
-                                            </p>
-                                        </td>
-                                        <!-- units cart product price -->
-                                        <td class="cart_price align-middle text-center">
-                                            <div formControlName="prodPrice">Rs xxx</div>
-                                        </td>
-                                        <!-- units cart product qty -->
-                                        <td class="cart_quantity align-middle">
-                                            <input formControlName="prodQty" class="form-control text-center"
-                                                type="number" value="42" id="example-number-input">
-                                        </td>
-                                        <!-- units cart product subtotal(price * qty)  -->
-                                        <td class="cart_total align-middle text-center">
-                                            <p formControlName="prodSubTotal">Rs xxx </p>
-                                        </td>
-                                        <!-- units cart product vat (subtotal *15% ) -->
-                                        <td class="cart_vat align-middle text-center">
-                                            <p formControlName="prodVAT">Rs xxx</p>
-                                        </td>
-                                        <!-- units cart product grandtotal (subtotal *115% ) -->
-                                        <td class="cart_grandtotal align-middle text-center">
-                                            <p formControlName="prodGrandTotal" class="cart_total_price">Rs xxx
-                                            </p>
-                                        </td>
-                                        <!-- units cart product Delete button current item -->
-                                        <td class="cart_delete align-middle text-center">
-                                            <a class="btn btn-primary cart_quantity_delete"
-                                                *ngIf="cartTable.get('unitsCart')['controls'].length > 1"
-                                                (click)="removeUnit(i)">
-                                                <i class="far fa-trash-alt">&nbsp;&nbsp;Remove</i>
-                                            </a>
-                                        </td>
-                                    </tr>
-
-                                </div><!-- loop through units END-->
-
-                            </div>
-
-                        </form>
+                        <ng-container *ngFor="let prod of prodList$ | async; index as i;">
+                            <tr>
+                                <!-- units cart product images -->
+                                <td class="cart_product ">
+                                    <a href=""><img src="https://via.placeholder.com/1000x1000.png"
+                                            class="d-block img-fluid" width="110" title="" alt="" /></a>
+                                </td>
+                                <!-- units cart product description -->
+                                <td class="cart_description">
+                                    <h4><a href="">{{prod.product.des1}}</a>
+                                    </h4>
+                                    <p>
+                                        {{prod.product.des2}}<br>
+                                        {{prod.product.des3}}<br>
+                                        Product Code:{{prod.product.id}}
+                                    </p>
+                                </td>
+                                <!-- units cart product price -->
+                                <td class="cart_price align-middle text-center">
+                                    <div>Rs {{prod.product.puprice | number: '1.2-2'}}</div>
+                                </td>
+                                <!-- units cart product qty -->
+                                <td class="cart_quantity align-middle">
+                                    <input (change)="updateQtyInCart($event, i)" class="form-control text-center"
+                                        type="number" value="{{prod.quantity}}">
+                                </td>
+                                <!-- units cart product subtotal(price * qty)  -->
+                                <td class="cart_total align-middle text-center">
+                                    <p>Rs {{prod.product.puprice*prod.quantity | number: '1.2-2'}} </p>
+                                </td>
+                                <!-- units cart product vat (subtotal *15% ) -->
+                                <td class="cart_vat align-middle text-center">
+                                    <p>Rs {{(prod.product.puprice*prod.quantity) * .15 | number: '1.2-2'}}</p>
+                                </td>
+                                <!-- units cart product grandtotal (subtotal *115% ) -->
+                                <td class="cart_grandtotal align-middle text-center">
+                                    <p class="cart_total_price">Rs
+                                        {{(prod.product.puprice*prod.quantity) * 1.15 | number: '1.2-2'}}
+                                    </p>
+                                </td>
+                                <!-- units cart product Delete button current item -->
+                                <td class="cart_delete align-middle text-center">
+                                    <a (click)="removeFromCart(i)" class="btn btn-primary cart_quantity_delete">
+                                        <i class="far fa-trash-alt">&nbsp;&nbsp;Remove</i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </ng-container>
                     </tbody>
                 </table>
             </div>
@@ -136,7 +121,7 @@
                 </div>
 
                 <div class="total_area col-lg-3 col-md-6 col-xs-12">
-                    <div class="softgraybackground table-responsive">
+                    <div class="softgraybackground table-respon sive">
                         <form class="cart-sidebar" method="post">
                             <div class="cart-totals">
                                 <!--fragment-start-->
@@ -149,7 +134,8 @@
                                     <tbody width="100%">
                                         <tr>
                                             <td>Purchase Total (excl. VAT)</td>
-                                            <td class="total text-right"><span class="cart_sub_total">Rs14.29
+                                            <td class="total text-right"><span class="cart_sub_total">Rs.
+                                                    {{purchaseTotal | number:'1.2-2'}}
                                                     <!--v-html--></span></td>
                                         </tr>
                                         <!--v-if-->
@@ -157,17 +143,23 @@
                                         <!--v-if-->
                                         <tr>
                                             <td>Delivery Fee</td>
-                                            <td class="total text-right"><span class="cart_tax">Rs200.86
+                                            <td class="total text-right"><span class="cart_tax">Rs.
+                                                    {{deliveryFee | number:'1.2-2'}}
                                                     <!--v-html--></span></td>
+                                        </tr>
+                                        <tr class="devider">
+                                            <td colspan="2"></td>
                                         </tr>
                                         <tr>
                                             <td>Order Total (excl. VAT)</td>
-                                            <td class="total text-right"><span class="cart_tax">Rs200.86
+                                            <td class="total text-right"><span class="cart_tax">Rs.
+                                                    {{orderTotalExcl | number:'1.2-2'}}
                                                     <!--v-html--></span></td>
                                         </tr>
                                         <tr>
                                             <td>VAT</td>
-                                            <td class="total text-right"><span class="cart_tax">Rs200.86
+                                            <td class="total text-right"><span class="cart_tax">Rs.
+                                                    {{vatTotal | number:'1.2-2'}}
                                                     <!--v-html--></span></td>
                                         </tr>
 
@@ -176,7 +168,8 @@
                                         </tr>
                                         <tr class="cart-order-total">
                                             <td class="pr-4">Order Total (incl. VAT)</td>
-                                            <td class="total text-right"><span class="cart_total">Rs17.15
+                                            <td class="total text-right"><span class="cart_total">Rs.
+                                                    {{orderTotalIncl | number:'1.2-2'}}
                                                     <!--v-html--></span></td>
                                         </tr>
                                     </tbody>
@@ -205,3 +198,5 @@
         </main>
     </div>
 </ng-container>
+
+<span *ngIf="cartList$ | async"></span>

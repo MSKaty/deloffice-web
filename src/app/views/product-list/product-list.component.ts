@@ -35,13 +35,19 @@ export class ProductListComponent implements OnInit {
     )
   }
   get() {
-
-    return this._route.params.pipe(
-
-      switchMap(param => {
+    return combineLatest(
+      this._route.params,
+      this._route.queryParams
+    ).pipe(
+      switchMap(([param, query]) => {
+        if (query['p']) {
+          this.currentPage = +query['p'];
+        } else {
+          this.currentPage = 1;
+        }
         return combineLatest(
           this._cat.getCat(param['id']),
-          this._prod.findAll(param['id'])
+          this._prod.findAll(param['id'], this.currentPage)
         )
       })
     )
@@ -52,14 +58,24 @@ export class ProductListComponent implements OnInit {
   }
 
   tempArray(num) {
-    const baseArr = Array.from(
+    let baseArr = Array.from(
       Array(Math.ceil(num / 20)),
       (_, i) => i + 1
     );
-    return baseArr.filter(item => {
-      if (item < this.currentPage + 3 || item > this.currentPage - 3) {
+    baseArr = baseArr.filter(item => {
+      if (+item < +this.currentPage + 3 && +item > +this.currentPage - 3) {
+        console.log(item);
         return item;
       }
     })
+    return baseArr;
+  }
+
+  isIncluded(num: number, array: number[]) {
+    if (array.includes(num)) {
+      return true;
+    }
+
+    return false;
   }
 }

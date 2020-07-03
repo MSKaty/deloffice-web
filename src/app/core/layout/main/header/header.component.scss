@@ -78,6 +78,7 @@ header#main-header {
             span {
                 display: flex;
                 align-items: center;
+                outline: none !important;
                 &:hover {
                     cursor: pointer;
                 }
@@ -183,6 +184,8 @@ header#main-header {
             }
         }
     }
+
+    // sidebar cart menu START
     .modal{
         .modal-body{
             input[type=number] {
@@ -226,4 +229,5 @@ header#main-header {
     .modal-dialog-slideout .modal-header h5 {
         float:left;
     }
+    // sidebar cart menu END
 }

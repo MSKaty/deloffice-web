@@ -18,7 +18,8 @@
       </form>
 
       <div id="items" class="d-flex justify-content-between">
-        <span routerLink="/login" id="account">
+        <span [routerLink]="userdata ? '/account' : '/login'" id="account"
+          [title]="userdata ? 'View My Account' : 'Login'">
           <i class="fas fa-user"></i>
           <!-- <small>My Account</small> -->
         </span>
@@ -29,7 +30,7 @@
 
         <span routerLink="/cart" id="cart">
           <!-- <button id="modalActivate" type="button" class="btn" data-toggle="modal" data-target="#exampleModalPreview"> -->
-            <i class="fas fa-shopping-cart"></i>
+          <i class="fas fa-shopping-cart"></i>
           <!-- </button> -->
 
         </span>

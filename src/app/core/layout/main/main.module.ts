@@ -25,6 +25,7 @@ import { FAQComponent } from '../../../views/delinfo/faq/faq.component';
 import { DeliveryPolicyComponent } from '../../../views/delinfo/delivery-policy/delivery-policy.component';
 import { MyaccountsComponent } from '../../../views/myaccounts/myaccounts.component';
 import { UpdatePassComponent } from '../../../views/update-pass/update-pass.component';
+import { AuthGuard } from 'src/app/common/services/auth.guard';
 
 
 const routes: Routes = [
@@ -88,12 +89,14 @@ const routes: Routes = [
       {
         path: 'wishlist',
         component: WishlistComponent,
-        data: { title: 'Wishlist' }
+        data: { title: 'Wishlist' },
+        canActivate: [AuthGuard]
       },
       {
         path: 'cart',
         component: CartComponent,
-        data: { title: 'Cart' }
+        data: { title: 'Cart' },
+        canActivate: [AuthGuard]
       },
       {
         path: 'about',
@@ -133,12 +136,14 @@ const routes: Routes = [
       {
         path: 'account',
         component: MyaccountsComponent,
-        data: { title: 'My Account' }
+        data: { title: 'My Account' },
+        canActivate: [AuthGuard]
       },
       {
         path: 'pass-update',
         component: UpdatePassComponent,
-        data: { title: 'Update Password' }
+        data: { title: 'Update Password' },
+        canActivate: [AuthGuard]
       },
 
 

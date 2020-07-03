@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
-// import { CurrencyPipe } from '@angular/common';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { OrderService } from 'src/app/common/services/order.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cart',
@@ -9,87 +11,73 @@ import { Validators, FormBuilder, FormGroup, FormControl, FormArray } from '@ang
 })
 
 export class CartComponent implements OnInit {
-  cartTable: FormGroup;
-  subtotal: number = 0;
-  totalSum: number = 0;
-  myFormValueChanges$;
+  private _prodList$ = new BehaviorSubject<any[]>([]);
+  public prodList$: Observable<any[]> = this._prodList$.asObservable();
 
+  public userdata: any = JSON.parse(window.localStorage.getItem('user'));
+
+  public cartList$;
 
   constructor(
-    private formbuilder: FormBuilder,
-    // private currencyPipe: CurrencyPipe
+    private _fb: FormBuilder,
+    private _order: OrderService
   ) { }
 
-  /**
-   * Form initialization
-   */
   ngOnInit() {
-    // create form with validators and dynamic rows array
-    this.cartTable = this.formbuilder.group({
-      unitsCart: this.formbuilder.array([
-        // load first row at start
-        this.getUnit()
-      ])
-    });
+    this.cartList$ = this._order.getCartContents().pipe(
+      tap((items: any) => {
+        this._prodList$.next(items);
+      })
+    );
+  }
 
-    // initialize stream on units
-    this.myFormValueChanges$ = this.cartTable.controls['unitsCart'].valueChanges;
-    // subscribe to the stream so listen to changes on units
-    this.myFormValueChanges$.subscribe(unitsCart => this.updateTotalUnitPrice(unitsCart));
+  // Utils functions
+
+  public addToCart(item) {
+    let tempArray = this._prodList$.value;
+    tempArray.push(item);
+    this._prodList$.next(tempArray);
+  }
+
+  public updateQtyInCart(event, index) {
+    let tempArray = this._prodList$.value;
+    tempArray[index].quantity = event.target.value;
+    this._prodList$.next(tempArray);
+    this._order.updateQty(tempArray[index].wishboxid, tempArray[index]).subscribe()
 
   }
 
-  /**
-   * Create form unit
-   */
-  private getUnit() {
-    const numberPatern = '^[0-9.,]+$';
-    return this.formbuilder.group({
-      prodPrice: ['', [Validators.required, Validators.pattern(numberPatern)]],
-      prodQty: [1, [Validators.required, Validators.pattern(numberPatern)]],
-      prodSubTotal: ['', [Validators.required, Validators.pattern(numberPatern)]],
-      prodVAT: ['', [Validators.required, Validators.pattern(numberPatern)]],
-      prodGrandTotal: [{ value: '', disabled: true }]
-    });
+  public removeFromCart(index) {
+    let tempArray = this._prodList$.value;
+    tempArray.splice(index, 1);
+    this._prodList$.next(tempArray);
   }
 
-  /**
-   * Remove unit row from form on click delete button
-   */
-  removeUnit(i: number) {
-    const control = <FormArray>this.cartTable.controls['units'];
-    control.removeAt(i);
+  // Getter functions
+
+  public get purchaseTotal() {
+    let tempArray = this._prodList$.value;
+    return tempArray.reduce((acc, curr) => {
+      return acc + (+curr.product.puprice * +curr.quantity);
+    }, 0);
   }
 
-  private updateTotalUnitPrice(units: any) {
-    // get our units group controll
-    const control = <FormArray>this.cartTable.controls['units'];
-    // before recount total price need to be reset. 
-    this.totalSum = 0;
-    for (let i in units) {
-      let totalUnitPrice = (units[i].prodQty * units[i].prodPrice);
-      // now format total price with angular currency pipe
-      // let totalUnitPriceFormatted = this.currencyPipe.transform(totalUnitPrice, 'MUR', 'symbol-narrow', '1.2-2');
-      // update total sum field on unit and do not emit event myFormValueChanges$ in this case on units
-      control.at(+i).get('unitTotalPrice').setValue(totalUnitPrice, { onlySelf: true, emitEvent: false });
-      // update total price for all units
-      this.totalSum += totalUnitPrice;
+  public get deliveryFee() {
+    if (this.purchaseTotal > 5000) {
+      return 0;
     }
+    return +this.userdata.deliveryfee;
   }
 
-  subtotalCal(prodQty: number, prodPrice: number) {
-    return this.subtotal = prodQty * prodPrice
-  }
-  vatCal(subtotal: number) {
-    return 0.15 * subtotal
-  }
-  grandTotalcal(subtotal: number) {
-    return 1.15 * subtotal + 200
+  public get orderTotalExcl() {
+    return this.purchaseTotal + this.deliveryFee;
   }
 
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.cartTable.value);
+  public get vatTotal() {
+    return this.orderTotalExcl * .15;
   }
 
+  public get orderTotalIncl() {
+    return this.orderTotalExcl * 1.15;
+  }
 }

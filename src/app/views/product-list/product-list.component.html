@@ -58,20 +58,31 @@
                     <nav aria-label="pagination-search">
                         <ul class="pagination">
                             <li class="page-item text-dark" [class.disabled]="+currentPage - 1 == 0">
-                                <a routerLink="/category/" [queryParams]="{id: +data.category, p: +currentPage - 1}"
+                                <a routerLink="/category/{{data.category.id}}" [queryParams]="{p: +currentPage - 1}"
                                     class="page-link" style="cursor: pointer;" tabindex="-1">Previous</a>
                             </li>
-                            <ng-container
-                                *ngFor="let pageNum of tempArray(data.productdata.count); index as i;">
+                            <ng-container *ngFor="let pageNum of tempArray(data.productdata.count); index as i;">
                                 <li class="page-item" [class.active]="currentPage == pageNum">
-                                    <a routerLink="/category/" [queryParams]="{id: +data.category, p: +pageNum}"
-                                        class="page-link text-dark" style="cursor: pointer;">{{pageNum}} <span
+                                    <a routerLink="/category/{{data.category.id}}" [queryParams]="{p: +pageNum}"
+                                        class="page-link" style="cursor: pointer;"
+                                        [class.text-white]="currentPage == pageNum"
+                                        [class.text-dark]="currentPage != pageNum">{{pageNum}} <span
                                             *ngIf="+currentPage == +pageNum" class="sr-only">(current)</span></a>
                                 </li>
                             </ng-container>
+                            <ng-container
+                                *ngIf="!isIncluded(pagecount(data.productdata), tempArray(data.productdata.count))">
+                                <li class="page-item disabled">
+                                    <a class="page-link">...</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link text-dark" routerLink="/category/{{data.category.id}}"
+                                        [queryParams]="{p: pagecount(data.productdata)}">{{pagecount(data.productdata)}}</a>
+                                </li>
+                            </ng-container>
                             <li class="page-item text-dark"
-                                [class.disabled]="+currentPage + 1 > pagecount(data.productdata.products)">
-                                <a routerLink="/category/" [queryParams]="{id: +data.category, p: +currentPage + 1}"
+                                [class.disabled]="+currentPage + 1 > pagecount(data.productdata)">
+                                <a routerLink="/category/{{data.category.id}}" [queryParams]="{p: +currentPage + 1}"
                                     class="page-link" style="cursor: pointer;">Next</a>
                             </li>
                         </ul>
