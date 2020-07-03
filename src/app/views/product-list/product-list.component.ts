@@ -4,7 +4,8 @@ import { ProductService } from '../../common/services/product.service';
 import { CategoryService } from '../../common/services/category.service';
 import { TitleService } from '../../common/services/title.service';
 
-import { Observable, combineLatest } from 'rxjs';
+import { Observable, combineLatest, BehaviorSubject } from 'rxjs';
+import { OrderService } from 'src/app/common/services/order.service';
 import { switchMap, tap, map } from 'rxjs/operators';
 @Component({
   selector: 'app-product-list',
@@ -12,6 +13,13 @@ import { switchMap, tap, map } from 'rxjs/operators';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
+  private _prodList$ = new BehaviorSubject<any[]>([]);
+  public prodList$: Observable<any[]> = this._prodList$.asObservable();
+  
+  public userdata: any = JSON.parse(window.localStorage.getItem('user'));
+
+  public cartList$;
+
   currentPage = 1;
   category$: Observable<any>;
 
@@ -19,7 +27,8 @@ export class ProductListComponent implements OnInit {
     private _route: ActivatedRoute,
     private _prod: ProductService,
     private _cat: CategoryService,
-    private _title: TitleService
+    private _title: TitleService,
+    private _order: OrderService
   ) { }
 
   ngOnInit() {
@@ -33,6 +42,11 @@ export class ProductListComponent implements OnInit {
       })
       // tap((category) => { this._title.changeTitle(category.des1) })
     )
+    this.cartList$ = this._order.getCartContents().pipe(
+      tap((items: any) => {
+        this._prodList$.next(items);
+      })
+    );
   }
   get() {
     return combineLatest(
@@ -52,6 +66,11 @@ export class ProductListComponent implements OnInit {
       })
     )
   }
+  public addToCart(item) {
+    let tempArray = this._prodList$.value;
+    tempArray.push(item);
+    this._prodList$.next(tempArray);
+  }
 
   pagecount(data1) {
     return Math.ceil(data1.count / 20)
@@ -64,7 +83,7 @@ export class ProductListComponent implements OnInit {
     );
     baseArr = baseArr.filter(item => {
       if (+item < +this.currentPage + 3 && +item > +this.currentPage - 3) {
-        console.log(item);
+        // console.log(item);
         return item;
       }
     })
