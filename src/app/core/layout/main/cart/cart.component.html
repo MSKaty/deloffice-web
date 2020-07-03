@@ -37,12 +37,17 @@
                             <tr>
                                 <!-- units cart product images -->
                                 <td class="cart_product ">
-                                    <a href=""><img src="https://via.placeholder.com/1000x1000.png"
-                                            class="d-block img-fluid" width="110" title="" alt="" /></a>
+                                    <a routerLink="/product/{{prod.product.id}}">
+                                        <img onerror="this.src='/assets/img/product-not-found.jpg'"
+                                            src="https://api.deloffice.mu/images/product/{{prod.product.id}}.jpg"
+                                            class="d-block img-fluid" width="110" title="" alt="" />
+                                    </a>
                                 </td>
                                 <!-- units cart product description -->
                                 <td class="cart_description">
-                                    <h4><a href="">{{prod.product.des1}}</a>
+                                    <h4>
+                                        <a routerLink="/product/{{prod.product.id}}">
+                                            {{prod.product.des1}}</a>
                                     </h4>
                                     <p>
                                         {{prod.product.des2}}<br>

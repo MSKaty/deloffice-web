@@ -37,131 +37,51 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <ng-container>
+                        <ng-container *ngFor="let wish of WishList$ | async; index as i;">
                             <tr>
                                 <td class="imageSelector align-middle" width="40">
                                     <div class="custom-control custom-checkbox checkbox-lg">
-                                        <input type="checkbox" class="custom-control-input" id="prodID">
-                                        <label class="custom-control-label" for="prodID"></label>
+                                        <input type="checkbox" class="custom-control-input" id="{{wish.product.id}}">
+                                        <label class="custom-control-label" for="{{wish.product.id}}"></label>
                                     </div>
                                 </td>
                                 <td class="cart_product ">
-                                    <a href=""><img src="https://via.placeholder.com/1000x1000.png"
-                                            class="d-block img-fluid" width="110" title="" alt="" /></a>
+                                    <a routerLink="/product/{{wish.product.id}}">
+                                        <img onerror="this.src='/assets/img/product-not-found.jpg'"
+                                            src="https://api.deloffice.mu/images/product/{{wish.product.id}}.jpg"
+                                            class="d-block img-fluid" width="110" title="" alt="" />
+                                    </a>
                                 </td>
                                 <td class="cart_description">
-                                    <h4><a href=""></a></h4>
+                                    <h4>{{wish.product.des1}}</h4>
                                     <p>
-                                        <strong>Multi-Purpose White Copy Paper<br></strong>
-                                        A4 White- 80gsm [Ream: 500 Sheets]<br>
-                                        <strong>Brand:</strong> Paperline<br>
-                                        <strong>Product Code:</strong> OA023990
+                                        {{wish.product.des2}}<br>
+                                        {{wish.product.des3}}<br>
+                                        <strong>Product Code:</strong> {{wish.product.id}}
                                     </p>
                                 </td>
                                 <td class="cart_price align-middle text-center">
-                                    <div>Rs xxx</div>
+                                    <div>Rs {{wish.product.puprice | number: '1.2-2'}}</div>
                                 </td>
                                 <td class="cart_quantity align-middle">
-                                    <input class="form-control text-center" type="number" value="1"
-                                        id="example-number-input">
+                                    <input (change)="updateQtyInCart($event, i)" class="form-control text-center"
+                                        type="number" value="{{wish.quantity}}">
                                 </td>
                                 <td class="cart_total align-middle text-center">
-                                    <p>Rs xxx </p>
+                                    <p>Rs {{wish.product.puprice*wish.quantity | number: '1.2-2'}} </p>
                                 </td>
                                 <td class="cart_delete align-middle text-center">
-                                    <a class="btn btn-primary cart_quantity_delete">
+                                    <a (click)="addToCart(i)" class="btn btn-primary cart_quantity_delete">
                                         <i class="fas fa-cart-arrow-down">&nbsp;&nbsp;Add to Cart</i>
                                     </a>
                                 </td>
                                 <td class="cart_delete align-middle text-center">
-                                    <a class="btn btn-primary cart_quantity_delete">
+                                    <a (click)="removeFromCart(i)" class="btn btn-primary cart_quantity_delete">
                                         <i class="far fa-trash-alt">&nbsp;&nbsp;Remove</i>
                                     </a>
                                 </td>
                             </tr>
                         </ng-container>
-                        <tr>
-                            <td class="imageSelector align-middle" width="40">
-                                <div class="custom-control custom-checkbox checkbox-lg">
-                                    <input type="checkbox" class="custom-control-input" id="prodID">
-                                    <label class="custom-control-label" for="prodID"></label>
-                                </div>
-                            </td>
-                            <td class="cart_product ">
-                                <a href=""><img src="https://via.placeholder.com/1000x1000.png"
-                                        class="d-block img-fluid" width="110" title="" alt="" /></a>
-                            </td>
-                            <td class="cart_description">
-                                <h4><a href=""></a></h4>
-                                <p>
-                                    <strong>Multi-Purpose White Copy Paper<br></strong>
-                                    A4 White- 80gsm [Ream: 500 Sheets]<br>
-                                    <strong>Brand:</strong> Paperline<br>
-                                    <strong>Product Code:</strong> OA023990
-                                </p>
-                            </td>
-                            <td class="cart_price align-middle text-center">
-                                <div>Rs xxx</div>
-                            </td>
-                            <td class="cart_quantity align-middle">
-                                <input class="form-control text-center" type="number" value="1"
-                                    id="example-number-input">
-                            </td>
-                            <td class="cart_total align-middle text-center">
-                                <p>Rs xxx </p>
-                            </td>
-                            <td class="cart_delete align-middle text-center">
-                                <a class="btn btn-primary cart_quantity_delete">
-                                    <i class="fas fa-cart-arrow-down">&nbsp;&nbsp;Add to Cart</i>
-                                </a>
-                            </td>
-                            <td class="cart_delete align-middle text-center">
-                                <a class="btn btn-primary cart_quantity_delete">
-                                    <i class="far fa-trash-alt">&nbsp;&nbsp;Remove</i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="imageSelector align-middle" width="40">
-                                <div class="custom-control custom-checkbox checkbox-lg">
-                                    <input type="checkbox" class="custom-control-input" id="prodID">
-                                    <label class="custom-control-label" for="prodID"></label>
-                                </div>
-                            </td>
-                            <td class="cart_product ">
-                                <a href=""><img src="https://via.placeholder.com/1000x1000.png"
-                                        class="d-block img-fluid" width="110" title="" alt="" /></a>
-                            </td>
-                            <td class="cart_description">
-                                <h4><a href=""></a></h4>
-                                <p>
-                                    <strong>Multi-Purpose White Copy Paper<br></strong>
-                                    A4 White- 80gsm [Ream: 500 Sheets]<br>
-                                    <strong>Brand:</strong> Paperline<br>
-                                    <strong>Product Code:</strong> OA023990
-                                </p>
-                            </td>
-                            <td class="cart_price align-middle text-center">
-                                <div>Rs xxx</div>
-                            </td>
-                            <td class="cart_quantity align-middle">
-                                <input class="form-control text-center" type="number" value="1"
-                                    id="example-number-input">
-                            </td>
-                            <td class="cart_total align-middle text-center">
-                                <p>Rs xxx </p>
-                            </td>
-                            <td class="cart_delete align-middle text-center">
-                                <a class="btn btn-primary cart_quantity_delete">
-                                    <i class="fas fa-cart-arrow-down">&nbsp;&nbsp;Add to Cart</i>
-                                </a>
-                            </td>
-                            <td class="cart_delete align-middle text-center">
-                                <a class="btn btn-primary cart_quantity_delete">
-                                    <i class="far fa-trash-alt">&nbsp;&nbsp;Remove</i>
-                                </a>
-                            </td>
-                        </tr>
                     </tbody>
                     <tfoot>
                         <tr>

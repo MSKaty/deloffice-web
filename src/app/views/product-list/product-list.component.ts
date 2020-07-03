@@ -64,7 +64,7 @@ export class ProductListComponent implements OnInit {
     );
     baseArr = baseArr.filter(item => {
       if (+item < +this.currentPage + 3 && +item > +this.currentPage - 3) {
-        console.log(item);
+        // console.log(item);
         return item;
       }
     })
