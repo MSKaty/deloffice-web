@@ -32,10 +32,9 @@ export class HeaderComponent implements OnInit {
     setInterval(() => {
       this.userdata = JSON.parse(window.localStorage.getItem('user'))
     }, 5000);
+
+     
   }
 
-  // displayname{
-
-  // }
-
+ 
 }
