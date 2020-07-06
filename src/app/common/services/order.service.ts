@@ -18,4 +18,8 @@ export class OrderService {
     public updateQty(id, body) {
         return this._http.put(this.apiUrl + '/order/cart/' + id, body);
     }
+
+    public addToCart(item:any){
+        return this._http.post(this.apiUrl + '/order/cart/', item);
+    }
 }

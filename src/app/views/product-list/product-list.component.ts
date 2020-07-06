@@ -66,10 +66,11 @@ export class ProductListComponent implements OnInit {
       })
     )
   }
-  public addToCart(item) {
+  public addToCart(event,item) {
     let tempArray = this._prodList$.value;
     tempArray.push(item);
     this._prodList$.next(tempArray);
+    this._order.addToCart(tempArray[item]).subscribe()
   }
 
   pagecount(data1) {

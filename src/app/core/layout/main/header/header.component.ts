@@ -34,4 +34,8 @@ export class HeaderComponent implements OnInit {
     }, 5000);
   }
 
+  // displayname{
+
+  // }
+
 }
