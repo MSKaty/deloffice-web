@@ -145,6 +145,7 @@ footer#main-footer {
             color: white;
             border-bottom: 1px;
             border-color: white;
+            flex: 1;
 
             &:hover {
                 color: red;
@@ -208,4 +209,10 @@ footer#main-footer {
             }
         }
     }
+}
+
+.aspect-ratio-93 {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
 }
