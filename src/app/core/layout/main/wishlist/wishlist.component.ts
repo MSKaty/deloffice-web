@@ -20,7 +20,7 @@ export class WishlistComponent implements OnInit {
   constructor(private _order: OrderService) { }
 
   ngOnInit() {
-    this.WishList$ = this._order.getCartContents().pipe(
+    this.WishList$ = this._order.getWishlistContents().pipe(
       tap((items: any) => {
         this._wishList$.next(items);
       })
