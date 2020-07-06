@@ -1,0 +1,32 @@
+export class Customer {
+    id: string;
+    name: string;
+    contact: string;
+    address1: string;
+    address2: string;
+    address3: string;
+    address4: string;
+    address5: string;
+    post1: string;
+    post2: string;
+    post3: string;
+    post4: string;
+    post5: string;
+    deliveredto: string;
+    telephone: number;
+    fax: number;
+    country: string;
+    taxno: string;
+    regno: string;
+    creditlimit: number;
+    balance: number;
+    email: string;
+    datecreated: Date;
+    vatstatus: string;
+    minorder: number;
+    deliveryfee: number;
+    handlingfee: number;
+    blockaccess: string;
+    memo: string;
+    priceset: string;
+}

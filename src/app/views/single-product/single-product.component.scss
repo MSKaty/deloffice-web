@@ -180,16 +180,16 @@ main#content {
                 }
             }
         }
-}
+    }
 
-.fa, .far, .fas {
-    font-family: "Font Awesome 5 Free";
-}
+    .fa, .far, .fas {
+        font-family: "Font Awesome 5 Free";
+    }
 
-@media (min-width: 768px){
-    .product.wrap-sticky-content-block.wrap-single-product-images,
-    .product.wrap-sticky-content-block.entry-summary{
-        width: calc(50% - 15px);
-        margin-bottom: 40px;
+    @media (min-width: 768px){
+        .product.wrap-sticky-content-block.wrap-single-product-images,
+        .product.wrap-sticky-content-block.entry-summary{
+            width: calc(50% - 15px);
+            margin-bottom: 40px;
     }
 }

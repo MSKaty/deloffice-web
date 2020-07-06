@@ -33,23 +33,41 @@ export class CartComponent implements OnInit {
 
   // Utils functions
 
-  public addToCart(item) {
-    let tempArray = this._prodList$.value;
-    tempArray.push(item);
-    this._prodList$.next(tempArray);
-  }
-
   public updateQtyInCart(event, index) {
     let tempArray = this._prodList$.value;
     tempArray[index].quantity = event.target.value;
-    this._prodList$.next(tempArray);
-    this._order.updateQty(tempArray[index].wishboxid, tempArray[index]).subscribe()
-
+    this._order.updateQty(tempArray[index].wishboxid, tempArray[index]).subscribe(
+      (data) => {
+        console.log(data)
+      },
+      (err) => {
+        console.log(err)
+      },
+      () => {
+        this._prodList$.next(tempArray);
+      }
+    )
   }
 
   public removeFromCart(index) {
     let tempArray = this._prodList$.value;
-    tempArray.splice(index, 1);
+    this._order.deleteCartItem(tempArray[index].wishboxid).subscribe(
+      (data) => {
+        console.log(data)
+      },
+      (err) => {
+        console.log(err)
+      },
+      () => {
+        tempArray.splice(index, 1);
+        this._prodList$.next(tempArray);
+      }
+    )
+  }
+
+  public clearCart() {
+    let tempArray = this._prodList$.value;
+    tempArray = [];
     this._prodList$.next(tempArray);
   }
 
@@ -58,7 +76,7 @@ export class CartComponent implements OnInit {
   public get purchaseTotal() {
     let tempArray = this._prodList$.value;
     return tempArray.reduce((acc, curr) => {
-      return acc + (+curr.product.puprice * +curr.quantity);
+      return acc + (+curr.product.mainprice * +curr.quantity);
     }, 0);
   }
 
