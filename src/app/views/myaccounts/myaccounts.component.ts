@@ -12,7 +12,7 @@ export class MyaccountsComponent implements OnInit {
   fname:string;
   lname:string;
   address:string;
-  
+    
 
   form: FormGroup
   

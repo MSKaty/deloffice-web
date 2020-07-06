@@ -88,8 +88,8 @@
                             <strong>Rs. {{product.mainprice | number:'1.2-2'}}</strong>
                         </h3>
                         <span id="cart" class="d-flex">
-                            <input type="number" name="qty" id="qty" value="1" class="text-center">
-                            <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
+                            <input type="number" #qty name="qty{{product.id}}" id="qty" value="1" class="text-center">
+                            <a (click)="addToCart(product, qty.value)" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
                         </span>
                     </div>
 
