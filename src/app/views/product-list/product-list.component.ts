@@ -18,8 +18,6 @@ export class ProductListComponent implements OnInit {
   
   public userdata: any = JSON.parse(window.localStorage.getItem('user'));
 
-  public cartList$;
-
   currentPage = 1;
   category$: Observable<any>;
 
@@ -42,11 +40,6 @@ export class ProductListComponent implements OnInit {
       })
       // tap((category) => { this._title.changeTitle(category.des1) })
     )
-    this.cartList$ = this._order.getCartContents().pipe(
-      tap((items: any) => {
-        this._prodList$.next(items);
-      })
-    );
   }
   get() {
     return combineLatest(
@@ -66,11 +59,27 @@ export class ProductListComponent implements OnInit {
       })
     )
   }
-  public addToCart(event,item) {
-    let tempArray = this._prodList$.value;
-    tempArray.push(item);
-    this._prodList$.next(tempArray);
-    this._order.addToCart(tempArray[item]).subscribe()
+  public addToCart(item, qty) {
+    const postData = {
+      cusid: this.userdata.uid,
+      depid: 0,
+      level: '',
+      proid: item.id,
+      quantity: +qty
+    };
+    // console.log(postData)
+    this._order.addToCart(postData)
+      .subscribe(
+        (data) => {
+          console.log(data)
+        },
+        (err) => {
+          console.log(err)
+        },
+        () => {
+          console.log('done')
+        }
+      )
   }
 
   pagecount(data1) {

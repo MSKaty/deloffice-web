@@ -47,8 +47,9 @@
                                                 <b>Product code:</b> {{cat.id}}
                                             </h5>
                                             <span id="cart" class="d-flex justify-content-around">
-                                                <input type="number" name="qty" id="qty" value="1" class="text-center">
-                                                <a href="#" class="btn btn-primary"><i
+                                                <input type="number" #qty name="qty{{cat.id}}" id="qty" value="1"
+                                                    class="text-center">
+                                                <a (click)="addToCart(cat, qty.value)" class="btn btn-primary"><i
                                                         class="fas fa-shopping-cart"></i></a>
                                                 <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
                                             </span>
