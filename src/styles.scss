@@ -20,3 +20,37 @@ li{
         
     }
 }
+
+.aspect-ratio-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    &.A33-7 {
+        padding-top: 21.212121212%;
+    }
+    &.A653-234 {
+        padding-top: 35.8346094946%;
+    }
+    &.R-Advert{
+        padding-top: 66.6666666667;
+    }
+    .frame {
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+
+        -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+        align-items: center !important;
+
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: fit-content;
+
+    }
+}
