@@ -5,6 +5,7 @@ import { ProductService } from '../../common/services/product.service';
 import { Observable } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 import { TitleService } from '../../common/services/title.service';
+import { OrderService } from '../../common/services/order.service';
 
 @Component({
   selector: 'app-single-product',
@@ -13,11 +14,13 @@ import { TitleService } from '../../common/services/title.service';
 })
 export class SingleProductComponent implements OnInit {
   product$: Observable<any>;
+  public userdata: any = JSON.parse(window.localStorage.getItem('user'));
 
   constructor(
     private _route: ActivatedRoute,
     private _prod: ProductService,
-    private _title: TitleService
+    private _title: TitleService,
+    private _order: OrderService
   ) { }
 
   ngOnInit() {
@@ -38,6 +41,28 @@ export class SingleProductComponent implements OnInit {
 
   getVideo() {
 
+  }
+  public addToCart(item, qty) {
+    const postData = {
+      cusid: this.userdata.uid,
+      depid: 0,
+      level: '',
+      proid: item.id,
+      quantity: +qty
+    };
+    // console.log(postData)
+    this._order.addToCart(postData)
+      .subscribe(
+        (data) => {
+          console.log(data)
+        },
+        (err) => {
+          console.log(err)
+        },
+        () => {
+          console.log('done')
+        }
+      )
   }
 
 }

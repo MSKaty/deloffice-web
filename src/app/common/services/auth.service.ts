@@ -16,10 +16,10 @@ export class AuthService {
     return this._http.post<any>(this.apiUrl + '/auth/login', credentials).pipe(
       switchMap(data => {
         if (data && data.access_token) {
-            window.localStorage.setItem('token', JSON.stringify(data));
-            return of(data);
+          window.localStorage.setItem('token', JSON.stringify(data));
+          return of(data);
         } else {
-            return throwError(data);
+          return throwError(data);
         }
       })
     );
@@ -31,6 +31,15 @@ export class AuthService {
 
   public getProfile() {
     return this._http.get(this.apiUrl + '/auth/profile');
+  }
+
+  public getAccount() {
+    return this._http.get(this.apiUrl + '/user/account');
+  }
+
+  public updateUser(body) {
+    const userdata = window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null;
+    return this._http.put(this.apiUrl + '/user/account' + userdata.uid, body);
   }
 
 }

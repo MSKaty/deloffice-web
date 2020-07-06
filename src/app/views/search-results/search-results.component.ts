@@ -5,8 +5,8 @@ import { CategoryService } from '../../common/services/category.service';
 import { TitleService } from '../../common/services/title.service';
 
 import { OrderService } from 'src/app/common/services/order.service';
-import { Observable, combineLatest, BehaviorSubject } from 'rxjs';
-import { switchMap, tap, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { switchMap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search-results',
@@ -14,8 +14,6 @@ import { switchMap, tap, map } from 'rxjs/operators';
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent implements OnInit {
-  private _prodList$ = new BehaviorSubject<any[]>([]);
-  public prodList$: Observable<any[]> = this._prodList$.asObservable();
 
   public userdata: any = JSON.parse(window.localStorage.getItem('user'));
 
@@ -68,10 +66,26 @@ export class SearchResultsComponent implements OnInit {
     })
   }
 
-  public addToCart(item) {
-    let tempArray = this._prodList$.value;
-    tempArray.push(item);
-    this._prodList$.next(tempArray);
+  public addToCart(item, qty) {
+    const postData = {
+      cusid: this.userdata.uid,
+      depid: 0,
+      level: '',
+      proid: item.id,
+      quantity: +qty
+    };
+    // console.log(postData)
+    this._order.addToCart(postData)
+      .subscribe(
+        (data) => {
+          console.log(data)
+        },
+        (err) => {
+          console.log(err)
+        },
+        () => {
+          console.log('done')
+        }
+      )
   }
-
 }
