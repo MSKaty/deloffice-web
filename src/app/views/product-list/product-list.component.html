@@ -4,9 +4,13 @@
             <div class="row mb-3 ">
                 <section class="col-12">
                     <!-- <ng-container *ngIf="let banner of data.productdata.products> -->
-                    <img onerror="this.src='/assets/img/category-not-found.jpg'"
-                        src="https://api.deloffice.mu/images/category/{{data?.category?.categoryImg?.imgid}}" alt=""
-                        class="img-fluid w-100">
+                    <div class="aspect-ratio-container catBanner-R">
+                        <div class="frame">
+                            <img onerror="this.src='/assets/img/category-not-found.jpg'"
+                                src="https://api.deloffice.mu/images/category/{{data?.category?.categoryImg?.imgid}}"
+                                alt="" class="img-fluid w-100">
+                        </div>
+                    </div>
                     <!-- </ng-container> -->
                 </section>
             </div>
@@ -42,7 +46,7 @@
                                                 {{cat.des3}}<br>
                                                 <b>Product code:</b> {{cat.id}}
                                             </h5>
-                                            <span id="cart" class="d-flex">
+                                            <span id="cart" class="d-flex justify-content-around">
                                                 <input type="number" name="qty" id="qty" value="1" class="text-center">
                                                 <a href="#" class="btn btn-primary"><i
                                                         class="fas fa-shopping-cart"></i></a>
