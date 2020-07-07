@@ -17,34 +17,101 @@ export class WishlistComponent implements OnInit {
 
   public WishList$;
 
-  constructor(private _order: OrderService) { }
+  constructor(
+    private _order: OrderService
+  ) { }
 
   ngOnInit() {
     this.WishList$ = this._order.getWishlistContents().pipe(
       tap((items: any) => {
         this._wishList$.next(items);
+        console.log(items);
       })
     );
   }
 
-  public addToCart(item) {
+  public addToCart(item, qty, i) {
+    const postData = {
+      cusid: this.userdata.uid,
+      depid: 0,
+      level: '',
+      proid: item.product.id,
+      quantity: +qty
+    };
+    // console.log(postData)
+    this._order.addToCart(postData)
+      .subscribe(
+        (data) => {
+          console.log(data)
+        },
+        (err) => {
+          console.log(err)
+        },
+        () => {
+          console.log('done')
+        }
+      )
+    //delete wishlist item after adding to cart
     let tempArray = this._wishList$.value;
-    tempArray.push(item);
-    this._wishList$.next(tempArray);
+    this._order.deleteWishlistItem(tempArray[i].wishlistId).subscribe(
+      (data) => {
+        console.log(data)
+      },
+      (err) => {
+        console.log(err)
+      },
+      () => {
+        tempArray.splice(item, 1);
+        this._wishList$.next(tempArray);
+      }
+    )
   }
 
-  public updateQtyInCart(event, index) {
+  public updateQtyInWishlist(event, index) {
     let tempArray = this._wishList$.value;
     tempArray[index].quantity = event.target.value;
-    this._wishList$.next(tempArray);
-    this._order.updateQty(tempArray[index].wishboxid, tempArray[index]).subscribe()
+    this._order.updateQty(tempArray[index].wishlistId, tempArray[index]).subscribe(
+      (data) => {
+        console.log(data)
+      },
+      (err) => {
+        console.log(err)
+      },
+      () => {
+        this._wishList$.next(tempArray);
+      }
+    )
 
   }
 
-  public removeFromCart(index) {
+  public removeFromWishlist(index) {
     let tempArray = this._wishList$.value;
-    tempArray.splice(index, 1);
+    this._order.deleteWishlistItem(tempArray[index].wishlistId).subscribe(
+      (data) => {
+        console.log(data)
+      },
+      (err) => {
+        console.log(err)
+      },
+      () => {
+        tempArray.splice(index, 1);
+        this._wishList$.next(tempArray);
+      }
+    )
+  }
+  ///clear wishlist items
+  public clearWish() {
+    let tempArray = this._wishList$.value;
+    tempArray = [];
     this._wishList$.next(tempArray);
+  }
+
+  public addSelected() {
+
+  }
+
+  public removeSelected() {
+
   }
 
 }

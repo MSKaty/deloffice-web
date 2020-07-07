@@ -34,6 +34,13 @@
                                                 src="https://api.deloffice.mu/images/product/{{cat.id}}.jpg" class="card-img-top
                         img-fluid" alt="...">
                                         </a>
+                                        <button (click)="addToWishlist(cat, qty.value)" type="button"
+                                            class="btn btn-danger btn-circle btn-lg">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                        <!-- <a (click)="addToWishlist(cat, qty.value)" class="">
+                                            <i class="fas fa-heart"></i>
+                                        </a> -->
                                         <div class="card-body">
                                             <h3 class="text-center">
                                                 <strong>Rs.
@@ -44,14 +51,15 @@
                                                 {{cat.des1}}<br>
                                                 {{cat.des2}}<br>
                                                 {{cat.des3}}<br>
-                                                <b>Product code:</b> {{cat.id}}
+                                                <b>Product code :</b> {{cat.id}}
                                             </h5>
                                             <span id="cart" class="d-flex justify-content-around">
                                                 <input type="number" #qty name="qty{{cat.id}}" id="qty" value="1"
                                                     class="text-center">
                                                 <a (click)="addToCart(cat, qty.value)" class="btn btn-primary"><i
-                                                        class="fas fa-shopping-cart"></i></a>
-                                                <a href="#" class="btn btn-primary"><i class="fas fa-heart"></i></a>
+                                                        class="fas fa-shopping-cart"></i>
+                                                </a>
+
                                             </span>
                                         </div>
                                     </div>
@@ -97,21 +105,46 @@
             </div>
             <div class="row mb-3 mx-n1">
                 <div class="col-lg-6 px-2">
-                    <img id="Category-Banner-A" src="https://via.placeholder.com/1500x600.png" class="img-fluid">
+                    <div class="aspect-ratio-container A2-5">
+                        <div class="frame">
+                            <img id="Category-Banner-A" src="https://via.placeholder.com/1500x600.png"
+                                class="img-fluid">
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-6 px-2">
-                    <img id="Category-Banner-B" src="https://via.placeholder.com/1500x600.png" class="img-fluid">
+                    <div class="aspect-ratio-container A2-5">
+                        <div class="frame">
+                            <img id="Category-Banner-B" src="https://via.placeholder.com/1500x600.png"
+                                class="img-fluid">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row mb-3 mx-n1">
                 <div class="col-lg-4 px-2">
-                    <img id="Category-Banner-C" src="https://via.placeholder.com/1000x300.png" class="img-fluid">
+                    <div class="aspect-ratio-container HB-C3">
+                        <div class="frame">
+                            <img id="Category-Banner-C" src="https://via.placeholder.com/1000x300.png"
+                                class="img-fluid">
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-4 px-2">
-                    <img id="Category-Banner-D" src="https://via.placeholder.com/1000x300.png" class="img-fluid">
+                    <div class="aspect-ratio-container HB-C3">
+                        <div class="frame">
+                            <img id="Category-Banner-D" src="https://via.placeholder.com/1000x300.png"
+                                class="img-fluid">
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-4 px-2">
-                    <img id="Category-Banner-E" src="https://via.placeholder.com/1000x300.png" class="img-fluid">
+                    <div class="aspect-ratio-container HB-C3">
+                        <div class="frame">
+                            <img id="Category-Banner-E" src="https://via.placeholder.com/1000x300.png"
+                                class="img-fluid">
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>

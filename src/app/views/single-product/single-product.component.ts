@@ -65,4 +65,26 @@ export class SingleProductComponent implements OnInit {
       )
   }
 
+  public addToWishlist(item, qty) {
+    const postWishData = {
+      custId: this.userdata.uid,
+      productId: item.id,
+      quantity: +qty
+    };
+    // console.log(postData)
+    this._order.addToWishlist(postWishData)
+      .subscribe(
+        (data) => {
+          console.log(data)
+        },
+        (err) => {
+          console.log(err)
+        },
+        () => {
+          console.log('done')
+          console.log(postWishData)
+        }
+      )
+  }
+
 }

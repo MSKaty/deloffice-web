@@ -8,7 +8,7 @@
                     </div>
 
                     <div class="col-6 text-right ">
-                        <a href="#" class="btn btn-primary ml-2"><i class="fas fa-times"></i>
+                        <a (click)="clearWish()" class="btn btn-primary ml-2"><i class="fas fa-times"></i>
                             &nbsp;&nbsp;Clear Wishlist</a>
                         <a href="#" class="btn btn-primary ml-2"><i class="fas fa-shopping-cart"></i>
                             &nbsp;&nbsp;Add all to cart</a>
@@ -57,26 +57,27 @@
                                     <p>
                                         {{wish.product.des2}}<br>
                                         {{wish.product.des3}}<br>
-                                        <strong>Product Code:</strong> {{wish.product.id}}
+                                        <strong>Product Code :</strong> {{wish.product.id}}
                                     </p>
                                 </td>
                                 <td class="cart_price align-middle text-center">
-                                    <div>Rs {{wish.product.puprice | number: '1.2-2'}}</div>
+                                    <div>Rs {{wish.product.mainprice | number: '1.2-2'}}</div>
                                 </td>
                                 <td class="cart_quantity align-middle">
-                                    <input (change)="updateQtyInCart($event, i)" class="form-control text-center"
-                                        type="number" value="{{wish.quantity}}">
+                                    <input (change)="updateQtyInWishlist($event, i)" #qty
+                                        class="form-control text-center" type="number" value="{{wish.quantity}}">
                                 </td>
                                 <td class="cart_total align-middle text-center">
-                                    <p>Rs {{wish.product.puprice*wish.quantity | number: '1.2-2'}} </p>
+                                    <p>Rs {{wish.product.mainprice*wish.quantity | number: '1.2-2'}} </p>
                                 </td>
                                 <td class="cart_delete align-middle text-center">
-                                    <a (click)="addToCart(i)" class="btn btn-primary cart_quantity_delete">
+                                    <a (click)="addToCart(wish, qty.value, i)"
+                                        class="btn btn-primary cart_quantity_delete">
                                         <i class="fas fa-cart-arrow-down">&nbsp;&nbsp;Add to Cart</i>
                                     </a>
                                 </td>
                                 <td class="cart_delete align-middle text-center">
-                                    <a (click)="removeFromCart(i)" class="btn btn-primary cart_quantity_delete">
+                                    <a (click)="removeFromWishlist(i)" class="btn btn-primary cart_quantity_delete">
                                         <i class="far fa-trash-alt">&nbsp;&nbsp;Remove</i>
                                     </a>
                                 </td>

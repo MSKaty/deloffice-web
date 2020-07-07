@@ -108,7 +108,7 @@ export class OrderService {
      * Delete item from wishlist
     */
     public deleteWishlistItem(id) {
-        return this._http.delete(this.apiUrl + '/order/cart/' + id);
+        return this._http.delete(this.apiUrl + '/order/wishlist/' + id);
     }
 
 }
