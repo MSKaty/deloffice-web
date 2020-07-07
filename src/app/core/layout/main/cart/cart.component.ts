@@ -19,7 +19,6 @@ export class CartComponent implements OnInit {
   public cartList$;
 
   constructor(
-    private _fb: FormBuilder,
     private _order: OrderService
   ) { }
 

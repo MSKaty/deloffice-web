@@ -36,9 +36,24 @@ main#content {
         
 
     }
-    .softgraybackground{
+    .deliveryOption{
+        color: orange;
+    }
+    .textRed{
+        color: red;
+        font-weight: 700;
+    }
+    .textGray{
+        color: gray;
+    }
+    .custom-control-label ,input[type="radio"] {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
+    transform: scale(1.5);
+}
+    .softbackground{
         padding: 15px 15px;
-        background-color: lightblue;
+        background-color: orange;
         .cart-totals{
             td span{
                 right:0px;

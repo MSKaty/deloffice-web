@@ -15,7 +15,7 @@ import { switchMap, tap, map } from 'rxjs/operators';
 export class ProductListComponent implements OnInit {
   private _prodList$ = new BehaviorSubject<any[]>([]);
   public prodList$: Observable<any[]> = this._prodList$.asObservable();
-  
+
   public userdata: any = JSON.parse(window.localStorage.getItem('user'));
 
   currentPage = 1;
@@ -78,6 +78,28 @@ export class ProductListComponent implements OnInit {
         },
         () => {
           console.log('done')
+        }
+      )
+  }
+
+  public addToWishlist(item, qty) {
+    const postWishData = {
+      custId: this.userdata.uid,
+      productId: item.id,
+      quantity: +qty
+    };
+    // console.log(postData)
+    this._order.addToWishlist(postWishData)
+      .subscribe(
+        (data) => {
+          console.log(data)
+        },
+        (err) => {
+          console.log(err)
+        },
+        () => {
+          console.log('done')
+          console.log(postWishData)
         }
       )
   }
