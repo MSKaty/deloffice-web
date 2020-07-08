@@ -1,6 +1,13 @@
 <ng-container *ngIf="product$ | async as product">
     <div id="bannerImage" class="container-fluid">
-        <img id="category_banner" src="https://via.placeholder.com/1600x250.png" alt="" class="img-fluid w-100">
+        <div class="aspect-ratio-container catBanner-R">
+            <div class="frame">
+                <img onerror="this.src='/assets/img/category-not-found.jpg'" id="category_banner"
+                    src="https://api.deloffice.mu/images/category/{{product?.category?.categoryImg?.imgid}}.jpg" alt=""
+                    class="img-fluid w-100">
+            </div>
+        </div>
+        <!-- <img id="category_banner" src="https://via.placeholder.com/1600x250.png" alt="" class="img-fluid w-100"> -->
 
         <div class="py-1 text-center">
             <h2 class="font-weight-bold">{{product.des1}}</h2>
@@ -123,7 +130,7 @@
                                         </h5>
                                         <p class="card-text">
                                             <strong>
-                                                Product Code
+                                                Product Code :
                                             </strong>
                                             {{related.id}}
                                         </p>
