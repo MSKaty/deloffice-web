@@ -58,13 +58,7 @@ export class MyaccountsComponent implements OnInit {
 
   ngOnInit() {
     this.userAccount$ = this.get().pipe(
-      tap((user) => {
-        this._title.changeTitle(user);
-        return(user);
-
-      }),
-
-      tap((data) =>{console.log(data)})
+           tap((data) =>{console.log(data)})
     )
   }
 

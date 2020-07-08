@@ -34,7 +34,7 @@
         <div class="row mb-3">
             <div class="col-12 p-auto">
                 <ng-container [ngSwitch]="type">
-                    <form [formGroup]="form" id="corporate" *ngSwitchCase="1">
+                    <form [formGroup]="registerForm" (ngSubmit)="register()" id="corporate" *ngSwitchCase="1">
                         <div class="row mb-3">
                             <div class="col-12">
                                 <h2 class="text-center font-weight-bold mb-3">
@@ -45,8 +45,8 @@
                         <div class="row mb-3">
                             <div class="col-6 float-left">
                                 <div class="form-group">
-                                    <label for="corporate">Corporate Name</label>
-                                    <input type="text" formControlName="corporate" class="form-control">
+                                    <label for="fname">Corporate Name</label>
+                                    <input type="text" formControlName="fname" class="form-control">
                                 </div>
 
                                 <div class="form-group">
@@ -60,13 +60,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="field_of_activity">Field of Activity</label>
-                                    <input type="text" formControlName="field_of_activity" class="form-control">
+                                    <label for="activity">Field of Activity</label>
+                                    <input type="text" formControlName="activity" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="contact_person">Contact Person</label>
-                                    <input type="text" formControlName="contact_person" class="form-control">
+                                    <label for="cperson">Contact Person</label>
+                                    <input type="text" formControlName="cperson" class="form-control">
                                 </div>
 
                                 <div class="form-group">
@@ -77,8 +77,8 @@
                             </div>
                             <div class="col-6 float-right">
                                 <div class="form-group">
-                                    <label for="telephone">Telephone</label>
-                                    <input type="number" formControlName="telephone" class="form-control">
+                                    <label for="tel">Telephone</label>
+                                    <input type="number" formControlName="tel" class="form-control">
                                 </div>
 
                                 <div class="form-group">
@@ -88,7 +88,7 @@
 
                                 <div class="form-group">
                                     <label for="email">Email Address</label>
-                                    <input type="email" formControlName="mail" class="form-control">
+                                    <input type="email" formControlName="email" class="form-control">
                                 </div>
 
                                 <div class="form-group">
@@ -96,10 +96,10 @@
                                     <input type="password" formControlName="password" class="form-control">
                                 </div>
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="confirm_password">Confirm Password</label>
                                     <input type="password" formControlName="confirm_password" class="form-control">
-                                </div>
+                                </div> -->
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="chkbxTermsCorporate">
                                     <label class="custom-control-label" for="chkbxTermsCorporate">
@@ -112,14 +112,14 @@
                                     <a routerLink=""><u>Terms and Conditions</u></a>.
                                 </p>
                                 <div class="form-group">
-                                    <button class="btn btn-primary">Create Account
+                                    <button type="submit" class="btn btn-primary">Create Account
                                         <i class="fas fa-user-plus ml-2"></i></button>
                                 </div>
                             </div>
                         </div>
                     </form>
 
-                    <form [formGroup]="form" id="reseller" *ngSwitchCase="2">
+                    <form [formGroup]="registerForm" (ngSubmit)="register()" id="reseller" *ngSwitchCase="2">
                         <div class="row mb-3">
                             <div class="col-12">
                                 <h2 class="text-center font-weight-bold mb-3">
@@ -145,13 +145,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="field_of_activity">Field of Activity</label>
-                                    <input type="text" formControlName="field_of_activity" class="form-control">
+                                    <label for="activity">Field of Activity</label>
+                                    <input type="text" formControlName="activity" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="contact_person">Contact Person</label>
-                                    <input type="text" formControlName="contact_person" class="form-control">
+                                    <label for="cperson">Contact Person</label>
+                                    <input type="text" formControlName="cperson" class="form-control">
                                 </div>
 
                                 <div class="form-group">
@@ -162,8 +162,8 @@
                             </div>
                             <div class="col-6 float-right">
                                 <div class="form-group">
-                                    <label for="telephone">Telephone</label>
-                                    <input type="number" formControlName="telephone" class="form-control">
+                                    <label for="tel">Telephone</label>
+                                    <input type="number" formControlName="tel" class="form-control">
                                 </div>
 
                                 <div class="form-group">
@@ -172,8 +172,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="mail">Email Address</label>
-                                    <input type="email" formControlName="mail" class="form-control">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" formControlName="email" class="form-control">
                                 </div>
 
                                 <div class="form-group">
@@ -181,10 +181,10 @@
                                     <input type="password" formControlName="password" class="form-control">
                                 </div>
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="confirm_password">Confirm Password</label>
                                     <input type="password" formControlName="confirm_password" class="form-control">
-                                </div>
+                                </div> -->
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="chkbxTermsReseller">
                                     <label class="custom-control-label" for="chkbxTermsReseller">
@@ -197,14 +197,14 @@
                                     <a routerLink=""><u>Terms and Conditions</u></a>.
                                 </p>
                                 <div class="form-group">
-                                    <button class="btn btn-primary">Create Account
+                                    <button type="submit" class="btn btn-primary">Create Account
                                         <i class="fas fa-user-plus ml-2"></i></button>
                                 </div>
                             </div>
                         </div>
                     </form>
 
-                    <form [formGroup]="form" id="individual" *ngSwitchCase="3">
+                    <form [formGroup]="registerForm" (ngSubmit)="register()" id="individual" *ngSwitchCase="3">
                         <div class="row mb-3">
                             <div class="col-12">
                                 <h2 class="text-center font-weight-bold mb-3">
@@ -215,21 +215,21 @@
                         <div class="row mb-3">
                             <div class="col-6 float-left">
                                 <div class="form-group">
-                                    <label for="FName">First Name</label>
-                                    <input type="text" formControlName="FName" class="form-control">
+                                    <label for="fname">First Name</label>
+                                    <input type="text" formControlName="fname" class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="LName">Last Name</label>
-                                    <input type="text" formControlName="LName" class="form-control">
+                                    <label for="lname">Last Name</label>
+                                    <input type="text" formControlName="lname" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="telephone">Telephone</label>
-                                    <input type="number" formControlName="telephone" class="form-control">
+                                    <label for="tel">Telephone</label>
+                                    <input type="number" formControlName="tel" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="mobile">Mobile</label>
-                                    <input type="number" formControlName="mobile" class="form-control">
+                                    <label for="mob">Mobile</label>
+                                    <input type="number" formControlName="mob" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="address">Address</label>
@@ -240,7 +240,7 @@
                             <div class="col-6 float-right">
                                 <div class="form-group">
                                     <label for="email">Email Address</label>
-                                    <input type="email" formControlName="mail" class="form-control">
+                                    <input type="email" formControlName="email" class="form-control">
                                 </div>
 
                                 <div class="form-group">
@@ -248,10 +248,10 @@
                                     <input type="password" formControlName="password" class="form-control">
                                 </div>
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="confirm_password">Confirm Password</label>
                                     <input type="password" formControlName="confirm_password" class="form-control">
-                                </div>
+                                </div> -->
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="chkbxTermsIndividual">
                                     <label class="custom-control-label" for="chkbxTermsIndividual">
