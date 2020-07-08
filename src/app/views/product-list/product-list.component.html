@@ -18,7 +18,6 @@
                 <div class="col-lg-3 col-md-3 d-none d-md-block">
                     <app-slidebar></app-slidebar>
                 </div>
-
                 <div class="col-lg-9 col-md-9 col-12" style="overflow: hidden;">
                     <h5 class="custom-heading">
                         {{data.category.description}}
@@ -26,7 +25,6 @@
                     <div id="products" class="row ">
                         <ng-container *ngIf="data.productdata.count > 0">
                             <ng-container *ngFor="let cat of data.productdata.products; index as i;">
-
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
                                     <div class="card">
                                         <a routerLink="/product/{{cat.id}}">
@@ -59,7 +57,6 @@
                                                 <a (click)="addToCart(cat, qty.value)" class="btn btn-primary"><i
                                                         class="fas fa-shopping-cart"></i>
                                                 </a>
-
                                             </span>
                                         </div>
                                     </div>
