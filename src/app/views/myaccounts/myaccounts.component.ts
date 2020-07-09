@@ -70,6 +70,20 @@ export class MyaccountsComponent implements OnInit {
     )
   }
 
+  public updateuser(event){
+    this._user.updateUser(this.userdata.value).subscribe(
+      (data)=>{
+        console.log(data)
+      },
+      (err) => {
+        console.log(err)
+      },
+      () => {
+        console.log('done');
+      }
+    )
+  }
+
 
 
 }

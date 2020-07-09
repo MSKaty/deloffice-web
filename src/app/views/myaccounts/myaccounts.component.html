@@ -24,7 +24,7 @@
                                             <i class="fa fa-address-card"></i>
                                         </div>
                                     </div>
-                                    <input id="fname" formControlName="fname" type="text" class="form-control" value="{{user.fname}}">
+                                    <input (change)="updateuser()" id="fname" formControlName="fname" type="text" class="form-control" value="{{user.fname}}">
                                 </div>
                             </div>
                         </div>
