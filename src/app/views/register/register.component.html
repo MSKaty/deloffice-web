@@ -36,6 +36,7 @@
                 <ng-container [ngSwitch]="type">
                     <form [formGroup]="registerForm" (ngSubmit)="register()" id="corporate" *ngSwitchCase="1">
                         <div class="row mb-3">
+                            <input type="hidden" fornControlName="utype" value="1" disabled>
                             <div class="col-12">
                                 <h2 class="text-center font-weight-bold mb-3">
                                     Corporate Form
@@ -112,15 +113,16 @@
                                     <a routerLink=""><u>Terms and Conditions</u></a>.
                                 </p>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Create Account
+                                    <button type="submit" form="corporate" class="btn btn-primary">Create Account
                                         <i class="fas fa-user-plus ml-2"></i></button>
                                 </div>
                             </div>
                         </div>
                     </form>
 
-                    <form [formGroup]="registerForm" (ngSubmit)="register()" id="reseller" *ngSwitchCase="2">
+                    <form [formGroup]="registerForm" (ngSubmit)="register()" id="reseller" *ngSwitchCase="2" #utype value="2">
                         <div class="row mb-3">
+                            <input type="hidden" fornControlName="utype" value="2" disabled>
                             <div class="col-12">
                                 <h2 class="text-center font-weight-bold mb-3">
                                     Reseller Form
@@ -197,15 +199,16 @@
                                     <a routerLink=""><u>Terms and Conditions</u></a>.
                                 </p>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Create Account
+                                    <button type="submit" form="reseller" class="btn btn-primary">Create Account
                                         <i class="fas fa-user-plus ml-2"></i></button>
                                 </div>
                             </div>
                         </div>
                     </form>
 
-                    <form [formGroup]="registerForm" (ngSubmit)="register()" id="individual" *ngSwitchCase="3">
+                    <form [formGroup]="registerForm" (ngSubmit)="register()" id="individual" *ngSwitchCase="3" #utype value="3">
                         <div class="row mb-3">
+                            <input type="hidden" fornControlName="utype" value="3" disabled>
                             <div class="col-12">
                                 <h2 class="text-center font-weight-bold mb-3">
                                     Individual Form
@@ -264,7 +267,7 @@
                                     <a routerLink=""><u>Terms and Conditions</u></a>.
                                 </p>
                                 <div class="form-group">
-                                    <button class="btn btn-primary">Create Account
+                                    <button type="submit" id="individual" class="btn btn-primary">Create Account
                                         <i class="fas fa-user-plus ml-2"></i>
                                     </button>
                                 </div>
