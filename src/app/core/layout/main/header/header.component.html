@@ -22,9 +22,9 @@
           [title]="userdata ? 'View My Account' : 'Login'">
           <i class="fas fa-user"></i>
           <!-- <small>My Account</small> -->
-          <!-- <ng-container *ngIf="userAccount$ | async as user">
-           
-          </ng-container> -->
+          <ng-container *ngIf="userAccount$ | async as user ">
+            Hello {{user.fname + ' ' + user.lname}}
+          </ng-container>
         </span>
 
         <span routerLink="/wishlist" id="wishlist">

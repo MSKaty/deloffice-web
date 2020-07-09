@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CategoryService } from '../../../../common/services/category.service';
 import { Router } from '@angular/router';
-
+import { AuthService } from 'src/app/common/services/auth.service';
+import { switchMap, tap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,13 +16,33 @@ export class HeaderComponent implements OnInit {
   category$: Observable<any>;
   searchKeyword: string;
 
+  userAccount$: Observable<any>;
+
   constructor(
     private _cat: CategoryService,
-    private _router: Router
+    private _router: Router,
+    private user: AuthService,
+    private _route: ActivatedRoute,
+
   ) { }
   ngOnInit() {
     this.category$ = this._cat.getTree();
     this.checkUserdata();
+
+
+    this.userAccount$ = this.get().pipe(
+      tap((data) => { console.log(data) })
+    )
+
+
+  }
+
+  get() {
+    return this._route.params.pipe(
+      switchMap(param => {
+        return this.user.getAccount();
+      })
+    )
   }
 
   search() {

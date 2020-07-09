@@ -16,6 +16,9 @@ export class SingleProductComponent implements OnInit {
   product$: Observable<any>;
   public userdata: any = JSON.parse(window.localStorage.getItem('user'));
 
+  prevCount: number = 1;
+  nextCount: number = 4;
+
   constructor(
     private _route: ActivatedRoute,
     private _prod: ProductService,
@@ -29,6 +32,15 @@ export class SingleProductComponent implements OnInit {
         this._title.changeTitle(product.des1);
       })
     );
+  }
+
+  increasePrev() {
+    this.prevCount--;
+    this.nextCount--;
+  }
+  increaseNext() {
+    this.prevCount++;
+    this.nextCount++;
   }
 
   get() {
