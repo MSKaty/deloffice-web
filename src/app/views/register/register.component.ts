@@ -41,11 +41,11 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit(){
       this.registerForm = this.fb.group({
-        fname: [null, Validators.required],
-        lname: [null, Validators.required],
-        address: [null, Validators.required],
-        vat: [null, Validators.required],
-        brn: [null, Validators.required],
+        fname: ['', Validators.required],
+        lname: ['', Validators.required],
+        address: ['', Validators.required],
+        vat: ['', Validators.required],
+        brn: ['', Validators.required],
         activity: [null, Validators.required],
         tel: [null, Validators.required],
         cperson: [null, Validators.required],
@@ -58,28 +58,31 @@ export class RegisterComponent implements OnInit {
     
     })
     }
-    public register(userdata){
+    public register(form){
+     
+      console.log(form);
+      
+      this.submitted = true;
       const postData ={
   
         // cusid: this.registerForm.value,
-        email: this.email, 
-        password: this.password,
-        fname: this.fname,
-        lname: this.lname,
-        mob: this.mob,
-        tel: this.tel,
-        fax: this.fax,
-        address: this.address,
-        activity: this.activity,
-        cperson: this.cperson,
-        brn: this.brn,
-        vat: this.vat,
-        utype: this.utype
+        email: form['email'], 
+        password: form['password'],
+        fname: form['fname'],
+        lname: form['lname'],
+        mob: form['mob'],
+        tel: form['tel'],
+        fax: form['fax'],
+        address: form['address'],
+        activity: form['activity'],
+        cperson:form['cperson'],
+        brn: form['brn'],
+        vat: form['vat'],
+        utype: form['utype']
   
       };
-      this._auth.register(this.registerForm.value,)
-     
-      .subscribe(
+      console.log(postData);
+      this._auth.register(form).subscribe(
         data  =>{
           console.log(data);
           this._router.navigate['/login']
