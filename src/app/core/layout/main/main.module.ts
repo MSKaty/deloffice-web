@@ -115,19 +115,19 @@ const routes: Routes = [
         data: { title: 'Our Corporate Values' }
       },
       {
-        path:'MembershipPolicy',
+        path: 'Membership-Policy',
         component: MembershipPolicyComponent,
-        data: { title:'MemberShip Policy'}
+        data: { title: 'MemberShip Policy' }
       },
       {
-        path:'Terms-n-conditions',
+        path: 'Terms-and-conditions',
         component: TermsnconditionsComponent,
-        data: { title:'Terms n Conditions'}
+        data: { title: 'Terms & Conditions' }
       },
       {
-        path:'Privacy-n-Security',
+        path: 'Privacy-and-Security',
         component: PrivacynsecurityComponent,
-        data: { title:'Privacy n Security'}
+        data: { title: 'Privacy & Security' }
       },
 
       {
@@ -186,7 +186,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [MainComponent, HeaderComponent, CartComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent,
     RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent, AboutComponent, WishlistComponent, CorporateValuesComponent,
-    ContactUsComponent, JobOpportunitiesComponent, AntiBriberyPolicyComponent, FAQComponent, DeliveryPolicyComponent, MyaccountsComponent, 
+    ContactUsComponent, JobOpportunitiesComponent, AntiBriberyPolicyComponent, FAQComponent, DeliveryPolicyComponent, MyaccountsComponent,
     UpdatePassComponent, ReturnsPolicyComponent, MembershipPolicyComponent, TermsnconditionsComponent, PrivacynsecurityComponent],
 
   imports: [

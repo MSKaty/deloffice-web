@@ -2,9 +2,9 @@
     <div id="bannerImage" class="container-fluid">
         <div class="aspect-ratio-container catBanner-R">
             <div class="frame">
-                <img onerror="this.src='/assets/img/category-not-found.jpg'" id="category_banner"
-                    src="https://api.deloffice.mu/images/category/{{product?.products?.categoryImg?.imgid}}.jpg" alt=""
-                    class="img-fluid w-100">
+                <!-- <img onerror="this.src='/assets/img/category-not-found.jpg'" id="category_banner"
+                    src="https://api.deloffice.mu/images/category/{{data?.category?.categoryImg?.imgid}}" alt=""
+                    class="img-fluid w-100"> -->
             </div>
         </div>
         <!-- <img id="category_banner" src="https://via.placeholder.com/1600x250.png" alt="" class="img-fluid w-100"> -->
@@ -82,7 +82,8 @@
                             {{product.deslong3}}<br>
                             {{product.deslong4}}<br>
                             {{product.deslong5}}<br>
-                            {{product.deslong6}}
+                            {{product.deslong6}}<br>
+                            {{product.deslong7}}
                         </p>
                         <ng-template #elseBlock class="ml-5">
                             {{product.des1}}<br>
