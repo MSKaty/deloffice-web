@@ -115,10 +115,21 @@ const routes: Routes = [
         data: { title: 'Our Corporate Values' }
       },
       {
-        path:'',
+        path:'MembershipPolicy',
         component: MembershipPolicyComponent,
         data: { title:'MemberShip Policy'}
       },
+      {
+        path:'Terms-n-conditions',
+        component: TermsnconditionsComponent,
+        data: { title:'Terms n Conditions'}
+      },
+      {
+        path:'Privacy-n-Security',
+        component: PrivacynsecurityComponent,
+        data: { title:'Privacy n Security'}
+      },
+
       {
         path: 'contact-us',
         component: ContactUsComponent,
