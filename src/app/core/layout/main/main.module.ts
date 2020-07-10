@@ -26,6 +26,7 @@ import { DeliveryPolicyComponent } from '../../../views/delinfo/delivery-policy/
 import { MyaccountsComponent } from '../../../views/myaccounts/myaccounts.component';
 import { UpdatePassComponent } from '../../../views/update-pass/update-pass.component';
 import { AuthGuard } from 'src/app/common/services/auth.guard';
+import { ReturnsPolicyComponent } from '../../../views/delinfo/returns-policy/returns-policy.component';
 
 
 const routes: Routes = [
@@ -134,6 +135,11 @@ const routes: Routes = [
         data: { title: 'Delivery Policy' }
       },
       {
+        path: 'returns-policy',
+        component: ReturnsPolicyComponent,
+        data: { title: 'Returns Policy' }
+      },
+      {
         path: 'account',
         component: MyaccountsComponent,
         data: { title: 'My Account' },
@@ -159,7 +165,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [MainComponent, HeaderComponent, CartComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent,
     RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent, AboutComponent, WishlistComponent, CorporateValuesComponent,
-    ContactUsComponent, JobOpportunitiesComponent, AntiBriberyPolicyComponent, FAQComponent, DeliveryPolicyComponent, MyaccountsComponent, UpdatePassComponent],
+    ContactUsComponent, JobOpportunitiesComponent, AntiBriberyPolicyComponent, FAQComponent, DeliveryPolicyComponent, MyaccountsComponent, UpdatePassComponent, ReturnsPolicyComponent],
   imports: [
     CommonModule,
     HttpClientModule,
