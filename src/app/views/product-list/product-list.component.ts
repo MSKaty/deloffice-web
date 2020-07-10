@@ -7,6 +7,7 @@ import { TitleService } from '../../common/services/title.service';
 import { Observable, combineLatest, BehaviorSubject } from 'rxjs';
 import { OrderService } from 'src/app/common/services/order.service';
 import { switchMap, tap, map } from 'rxjs/operators';
+import { AlertService } from 'src/app/common/services/alert.service';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -26,7 +27,8 @@ export class ProductListComponent implements OnInit {
     private _prod: ProductService,
     private _cat: CategoryService,
     private _title: TitleService,
-    private _order: OrderService
+    private _order: OrderService,
+    private _alert: AlertService
   ) { }
 
   ngOnInit() {
@@ -72,9 +74,11 @@ export class ProductListComponent implements OnInit {
       .subscribe(
         (data) => {
           console.log(data)
+          this._alert.success('Product Added To Cart!');
         },
         (err) => {
           console.log(err)
+          this._alert.error('Product NOT Added To Cart!');
         },
         () => {
           console.log('done')
@@ -92,10 +96,12 @@ export class ProductListComponent implements OnInit {
     this._order.addToWishlist(postWishData)
       .subscribe(
         (data) => {
-          console.log(data)
+          console.log(data);
+          this._alert.success('Product Added To Wishlist!');
         },
         (err) => {
-          console.log(err)
+          console.log(err);
+          this._alert.error('Product NOT Added To Wishlist!');
         },
         () => {
           console.log('done')

@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms"
 
 import { AuthService } from '../../common/services/auth.service';
 import { Router } from '@angular/router';
+import { AlertService } from 'src/app/common/services/alert.service';
 
 @Component({
   selector: 'app-register',
@@ -33,6 +34,7 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder,
     private _auth: AuthService,
     private _router: Router,
+    private _alert: AlertService
   ) { }
 
   ngOnInit(): void { }
@@ -45,10 +47,12 @@ export class RegisterComponent implements OnInit {
       data => {
         console.log(data);
         this._router.navigate['/login']
+        this._alert.success('Registration Done');
       },
       err => {
         console.log(err);
         this.registerForm.reset();
+        this._alert.error('Please input your details correctly');
       },
       () => {
         console.log('done');

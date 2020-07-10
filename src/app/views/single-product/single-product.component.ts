@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 import { TitleService } from '../../common/services/title.service';
 import { OrderService } from '../../common/services/order.service';
+import { AlertService } from 'src/app/common/services/alert.service';
 
 @Component({
   selector: 'app-single-product',
@@ -23,7 +24,8 @@ export class SingleProductComponent implements OnInit {
     private _route: ActivatedRoute,
     private _prod: ProductService,
     private _title: TitleService,
-    private _order: OrderService
+    private _order: OrderService,
+    private _alert: AlertService
   ) { }
 
   ngOnInit() {
@@ -67,12 +69,14 @@ export class SingleProductComponent implements OnInit {
       .subscribe(
         (data) => {
           console.log(data)
+          this._alert.success('Product Added To Cart!');
         },
         (err) => {
           console.log(err)
+          this._alert.error('Product NOT Added To Cart!');
         },
         () => {
-          console.log('done')
+          console.log('done');
         }
       )
   }
@@ -87,10 +91,12 @@ export class SingleProductComponent implements OnInit {
     this._order.addToWishlist(postWishData)
       .subscribe(
         (data) => {
-          console.log(data)
+          console.log(data);
+          this._alert.success('Product Added To Wishlist!');
         },
         (err) => {
-          console.log(err)
+          console.log(err);
+          this._alert.error('Product NOT Added To Wishlist!');
         },
         () => {
           console.log('done')
