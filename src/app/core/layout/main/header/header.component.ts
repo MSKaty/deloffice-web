@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/common/services/auth.service';
 import { switchMap, tap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
+import { AlertService } from 'src/app/common/services/alert.service';
 
 @Component({
   selector: 'app-header',
@@ -23,6 +24,7 @@ export class HeaderComponent implements OnInit {
     private _router: Router,
     private user: AuthService,
     private _route: ActivatedRoute,
+    private _alert: AlertService
 
   ) { }
   ngOnInit() {
@@ -54,6 +56,10 @@ export class HeaderComponent implements OnInit {
     setInterval(() => {
       this.userdata = JSON.parse(window.localStorage.getItem('user'))
     }, 5000);
+  }
+
+  testBtn() {
+    this._alert.success('Yooooooooo!!!!');
   }
 
 }

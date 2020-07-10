@@ -22,14 +22,17 @@
           [title]="userdata ? 'View My Account' : 'Login'">
           <i class="fas fa-user"></i>
           <!-- <small>My Account</small> -->
-          <ng-container *ngIf="userAccount$ | async as user ">
-            Hello {{user.fname + ' ' + user.lname}}
+          <ng-container *ngIf="userdata">
+            <ng-container *ngIf="userAccount$ | async as user ">
+              Hello {{user.fname + ' ' + user.lname}}
+            </ng-container>
           </ng-container>
         </span>
 
         <span routerLink="/wishlist" id="wishlist">
           <i class="fas fa-heart"></i>
         </span>
+
 
         <span routerLink="/cart" id="cart">
           <!-- <button id="modalActivate" type="button" class="btn" data-toggle="modal" data-target="#exampleModalPreview"> -->
