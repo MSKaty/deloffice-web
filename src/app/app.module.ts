@@ -13,6 +13,7 @@ import { AlertModule } from './core/modules/alert/alert.module';
 @NgModule({
   declarations: [
     AppComponent,
+    
   ],
 
   imports: [
