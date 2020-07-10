@@ -27,6 +27,11 @@ import { MyaccountsComponent } from '../../../views/myaccounts/myaccounts.compon
 import { UpdatePassComponent } from '../../../views/update-pass/update-pass.component';
 import { AuthGuard } from 'src/app/common/services/auth.guard';
 import { ReturnsPolicyComponent } from '../../../views/delinfo/returns-policy/returns-policy.component';
+import { MembershipPolicyComponent } from '../../../views/delinfo/membership-policy/membership-policy.component';
+import { TermsnconditionsComponent } from '../../../views/delinfo/termsnconditions/termsnconditions.component';
+import { PrivacynsecurityComponent } from '../../../views/delinfo/privacynsecurity/privacynsecurity.component';
+
+
 
 
 const routes: Routes = [
@@ -110,6 +115,11 @@ const routes: Routes = [
         data: { title: 'Our Corporate Values' }
       },
       {
+        path:'',
+        component: MembershipPolicyComponent,
+        data: { title:'MemberShip Policy'}
+      },
+      {
         path: 'contact-us',
         component: ContactUsComponent,
         data: { title: 'Contact Us' }
@@ -165,7 +175,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [MainComponent, HeaderComponent, CartComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent,
     RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent, AboutComponent, WishlistComponent, CorporateValuesComponent,
-    ContactUsComponent, JobOpportunitiesComponent, AntiBriberyPolicyComponent, FAQComponent, DeliveryPolicyComponent, MyaccountsComponent, UpdatePassComponent, ReturnsPolicyComponent],
+    ContactUsComponent, JobOpportunitiesComponent, AntiBriberyPolicyComponent, FAQComponent, DeliveryPolicyComponent, MyaccountsComponent, 
+    UpdatePassComponent, ReturnsPolicyComponent, MembershipPolicyComponent, TermsnconditionsComponent, PrivacynsecurityComponent],
+
   imports: [
     CommonModule,
     HttpClientModule,

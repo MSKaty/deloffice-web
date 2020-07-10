@@ -8,10 +8,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RequestInterceptorService } from './common/utils/request.interceptor';
 
-
 @NgModule({
   declarations: [
     AppComponent,
+    
   ],
 
   imports: [
