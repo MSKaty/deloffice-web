@@ -34,9 +34,9 @@
         <div class="row mb-3">
             <div class="col-12 p-auto">
                 <ng-container [ngSwitch]="type">
-                    <form [formGroup]="registerForm" (ngSubmit)="register()" id="corporate" *ngSwitchCase="1">
+                    <form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)" id="corporate" *ngSwitchCase="1">
                         <div class="row mb-3">
-                            <input type="hidden" fornControlName="utype" value="1" disabled>
+                            <input type="hidden" fornControlName="utype" value="1" class="invisible">
                             <div class="col-12">
                                 <h2 class="text-center font-weight-bold mb-3">
                                     Corporate Form
