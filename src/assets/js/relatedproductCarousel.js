@@ -25,10 +25,10 @@ $('#carousel-example').on('slide.bs.carousel', function (e) {
     }
 });
 
-$('#carousel-example').carousel('pause')
-$('#carousel-example').carousel({
-    interval: 5000
-})
+// $('#carousel-example').carousel('pause')
+// $('#carousel-example').carousel({
+//     interval: 5000
+// })
 
 // $('#carousel-example').carousel({
 //     wrap: false
