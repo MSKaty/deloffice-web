@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { AuthService } from '../../common/services/auth.service';
 import { Router } from '@angular/router';
 import { tap, switchMap } from 'rxjs/operators';
+import { AlertService } from 'src/app/common/services/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
     private _fb: FormBuilder,
     private _auth: AuthService,
     private _router: Router,
+    private _alert: AlertService
   ) { }
 
   ngOnInit(): void { }
@@ -45,11 +47,13 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
-          this._router.navigate(['/'])
+          this._router.navigate(['/']);
+          this._alert.success('Welcome Back');
         },
         err => {
           console.log(err);
           this.loginForm.reset();
+          this._alert.error('Login Error');
         },
         () => {
           console.log('done');
