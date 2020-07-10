@@ -17,7 +17,7 @@
         <div class="row mb-3">
             <div class="col-12 d-flex justify-content-around">
                 <button class="btn btn-primary border btnSize p-3 active" data-toggle="button" aria-pressed="true"
-                    type="button" (click)="type=1">
+                    type="button" (click)="type=3">
                     <img src="\assets\img\corporate.svg" class="logosvg"><b>Corporate</b>
                 </button>
                 <button class="btn btn-primary border btnSize p-3 active" data-toggle="button" aria-pressed="false"
@@ -25,7 +25,7 @@
                     <img src="\assets\img\reseller.svg" class="logosvg"><b>Reseller</b>
                 </button>
                 <button class="btn btn-primary border btnSize p-3 active" data-toggle="button" aria-pressed="false"
-                    type="button" (click)="type=3">
+                    type="button" (click)="type=1">
                     <img src="\assets\img\individual.svg" class="logosvg"><b>Individual</b>
                 </button>
             </div>
@@ -34,7 +34,7 @@
         <div class="row mb-3">
             <div class="col-12 p-auto">
                 <ng-container [ngSwitch]="type">
-                    <form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)" id="corporate" *ngSwitchCase="1">
+                    <form [formGroup]="registerForm" (ngSubmit)="register()" id="corporate" *ngSwitchCase="1">
                         <div class="row mb-3">
                             <input type="hidden" fornControlName="utype" value="1" class="invisible">
                             <div class="col-12">
@@ -120,7 +120,8 @@
                         </div>
                     </form>
 
-                    <form [formGroup]="registerForm" (ngSubmit)="register()" id="reseller" *ngSwitchCase="2" #utype value="2">
+                    <form [formGroup]="registerForm" (ngSubmit)="register()" id="reseller" *ngSwitchCase="2" #utype
+                        value="2">
                         <div class="row mb-3">
                             <input type="hidden" fornControlName="utype" value="2" disabled>
                             <div class="col-12">
@@ -135,7 +136,7 @@
                                     <label for="reseller">Reseller</label>
                                     <input type="text" formControlName="reseller" class="form-control">
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="vat">VAT</label>
                                     <input type="text" formControlName="vat" class="form-control">
@@ -206,7 +207,8 @@
                         </div>
                     </form>
 
-                    <form [formGroup]="registerForm" (ngSubmit)="register()" id="individual" *ngSwitchCase="3" #utype value="3">
+                    <form [formGroup]="registerForm" (ngSubmit)="register()" id="individual" *ngSwitchCase="3" #utype
+                        value="3">
                         <div class="row mb-3">
                             <input type="hidden" fornControlName="utype" value="3" disabled>
                             <div class="col-12">
