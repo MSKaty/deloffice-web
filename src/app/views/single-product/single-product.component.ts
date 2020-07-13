@@ -77,7 +77,10 @@ export class SingleProductComponent implements OnInit {
       quantity: +qty
     };
     // console.log(postData)
-    this._order.addToCart(postData)
+
+    if (this.userdata != null)
+    {
+      this._order.addToCart(postData)
       .subscribe(
         (data) => {
           console.log(data)
@@ -90,7 +93,11 @@ export class SingleProductComponent implements OnInit {
         () => {
           console.log('done');
         }
-      )
+      )}
+
+      else{
+      return ;
+      }
   }
 
   public addToWishlist(item, qty) {
