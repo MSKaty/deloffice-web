@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { OrderService } from 'src/app/common/services/order.service';
 import { tap } from 'rxjs/operators';
+import { AlertService } from 'src/app/common/services/alert.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -18,7 +19,8 @@ export class WishlistComponent implements OnInit {
   public WishList$;
 
   constructor(
-    private _order: OrderService
+    private _order: OrderService,
+    private _alert: AlertService
   ) { }
 
   ngOnInit() {
@@ -42,10 +44,12 @@ export class WishlistComponent implements OnInit {
     this._order.addToCart(postData)
       .subscribe(
         (data) => {
-          console.log(data)
+          console.log(data);
+          this._alert.success('Wishlist Product added To Cart')
         },
         (err) => {
-          console.log(err)
+          console.log(err);
+          this._alert.error('Wishlist Product NOT added To Cart!');
         },
         () => {
           console.log('done')
@@ -88,10 +92,12 @@ export class WishlistComponent implements OnInit {
     let tempArray = this._wishList$.value;
     this._order.deleteWishlistItem(tempArray[index].wishlistId).subscribe(
       (data) => {
-        console.log(data)
+        console.log(data);
+        this._alert.success('Wishlist Product Removed');
       },
       (err) => {
         console.log(err)
+        this._alert.error('Wishlist Product NOT Removed');
       },
       () => {
         tempArray.splice(index, 1);
@@ -107,11 +113,11 @@ export class WishlistComponent implements OnInit {
   }
 
   public addSelected() {
-
+    let tempArray = this._wishList$.value;
   }
 
   public removeSelected() {
-
+    let tempArray = this._wishList$.value;
   }
 
 }
