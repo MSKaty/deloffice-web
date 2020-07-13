@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../common/services/product.service';
-
-import { Observable } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { CategoryService } from '../../common/services/category.service';
 import { TitleService } from '../../common/services/title.service';
+
+import { Observable, combineLatest, of} from 'rxjs';
+import { switchMap, tap, map } from 'rxjs/operators';
 import { OrderService } from '../../common/services/order.service';
 import { AlertService } from 'src/app/common/services/alert.service';
 
@@ -15,6 +16,7 @@ import { AlertService } from 'src/app/common/services/alert.service';
 })
 export class SingleProductComponent implements OnInit {
   product$: Observable<any>;
+  category$: Observable<any>;
   public userdata: any = JSON.parse(window.localStorage.getItem('user'));
 
   prevCount: number = 1;
@@ -23,6 +25,7 @@ export class SingleProductComponent implements OnInit {
   constructor(
     private _route: ActivatedRoute,
     private _prod: ProductService,
+    private _cat: CategoryService,
     private _title: TitleService,
     private _order: OrderService,
     private _alert: AlertService
@@ -49,7 +52,16 @@ export class SingleProductComponent implements OnInit {
     return this._route.params.pipe(
       switchMap(param => {
         return this._prod.findOne(param['id']);
-      })
+      }),
+      switchMap(productdata => {
+        const catData = this._cat.getCat(productdata.category2)
+        return combineLatest(of(productdata), catData)
+      }),
+      map(([productdata, catData]) => {
+        const { categoryImg } = catData;
+        return { ...productdata, categoryImg }
+      }),
+      tap(console.log)
     )
   }
 

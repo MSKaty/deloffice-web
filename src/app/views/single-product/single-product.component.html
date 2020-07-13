@@ -2,9 +2,9 @@
     <div id="bannerImage" class="container-fluid">
         <div class="aspect-ratio-container catBanner-R">
             <div class="frame">
-                <!-- <img onerror="this.src='/assets/img/category-not-found.jpg'" id="category_banner"
-                    src="https://api.deloffice.mu/images/category/{{data?.category?.categoryImg?.imgid}}" alt=""
-                    class="img-fluid w-100"> -->
+                <img onerror="this.src='/assets/img/category-not-found.jpg'" id="category_banner"
+                    src="https://api.deloffice.mu/images/category/{{product?.categoryImg?.imgid}}" alt=""
+                    class="img-fluid w-100">
             </div>
         </div>
         <!-- <img id="category_banner" src="https://via.placeholder.com/1600x250.png" alt="" class="img-fluid w-100"> -->
@@ -116,11 +116,11 @@
                             <div *ngFor="let related of product.related_products; index as i;"
                                 class="carousel-item col-lg-3 col-md-6 col-sm-6 col-6" [class.active]="i==0">
                                 <div class="card">
-                                    <!-- <a routerLink="/product/{{related.id}}"> -->
+                                    <a routerLink="/product/{{related.id}}">
                                     <img onerror="this.src='/assets/img/product-not-found.jpg'"
                                         src="https://api.deloffice.mu/images/product/{{related.id}}.jpg"
                                         class="card-img-top img-fluid" alt="...">
-                                    <!-- </a > -->
+                                    </a >
                                     <div class="card-body">
                                         <h5 class="card-title">
                                             {{related.des1}}<br>
