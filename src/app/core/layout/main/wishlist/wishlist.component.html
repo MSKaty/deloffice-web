@@ -41,7 +41,7 @@
                             <tr>
                                 <td class="imageSelector align-middle" width="40">
                                     <div class="custom-control custom-checkbox checkbox-lg">
-                                        <input (change)="checkboxTick()" [checked]="wish.checked" type="checkbox"
+                                        <input (change)="checkboxTick($event)" [checked]="wish.checked" type="checkbox"
                                             class="custom-control-input" id="{{wish.product.id}}">
                                         <label class="custom-control-label" for="{{wish.product.id}}"></label>
                                     </div>

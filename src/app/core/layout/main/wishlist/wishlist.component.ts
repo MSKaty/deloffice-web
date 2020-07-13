@@ -97,7 +97,7 @@ export class WishlistComponent implements OnInit {
       },
       (err) => {
         console.log(err)
-        this._alert.error('Wishlist Product NOT Removed');
+        this._alert.error('Wishlist Product NOT Removed ');
       },
       () => {
         tempArray.splice(index, 1);
@@ -112,8 +112,18 @@ export class WishlistComponent implements OnInit {
     this._wishList$.next(tempArray);
   }
 
+  public checkboxTick(e) {
+    let tempArray = this._wishList$.value;
+    if (e.target.checked) {
+      // do something here
+      tempArray.push(e.target.id);
+    }
+    return tempArray;
+  }
+
   public addSelected() {
     let tempArray = this._wishList$.value;
+    //this.checkboxTick()
   }
 
   public removeSelected() {
