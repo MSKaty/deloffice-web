@@ -77,11 +77,11 @@
                     <label for="FormToEmail">
                         To:
                     </label>
-                    <select class="form-control" id="FormToEmail" formControlName="emailTo">
-                        <option>hr@deloffice.mu</option>
-                        <option>marketing@deloffice.mu</option>
-                        <option>procurement@deloffice.mu</option>
-                        <option>sales@deloffice.mu</option>
+                    <select class="form-control" id="FormToEmail" formControlName="to">
+                        <option value="HR Department <hr@deloffice.mu>">hr@deloffice.mu</option>
+                        <option value="HR Department <hr@deloffice.mu>">marketing@deloffice.mu</option>
+                        <option value="HR Department <hr@deloffice.mu>">procurement@deloffice.mu</option>
+                        <option value="HR Department <hr@deloffice.mu>">sales@deloffice.mu</option>
                     </select>
                 </div>
                 <div class="form-group row mx-0">
@@ -92,7 +92,7 @@
                     </div>
                     <div class="col-6 px-0">
                         <label for="FormEmailSender">E-Mail</label>
-                        <input type="email" formControlName="emailSender" class="form-control" id="FormEmailSender"
+                        <input type="email" formControlName="from" class="form-control" id="FormEmailSender"
                             aria-describedby="emailHelp" placeholder="Enter E-mail">
                     </div>
                 </div>
@@ -108,7 +108,7 @@
                 </div>
                 <div class="form-group">
                     <label for="FormMsg">Message</label>
-                    <textarea class="form-control" formControlName="msg" id="FormMsg" rows="5"></textarea>
+                    <textarea class="form-control" formControlName="text" id="FormMsg" rows="5"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary btn-sm my-3" name="sendForm">
                     <i class="fas fa-paper-plane pr-2"></i>Send Form

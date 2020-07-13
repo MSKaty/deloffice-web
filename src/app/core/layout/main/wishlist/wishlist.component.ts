@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { OrderService } from 'src/app/common/services/order.service';
 import { tap } from 'rxjs/operators';
 import { AlertService } from 'src/app/common/services/alert.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-wishlist',
@@ -14,13 +15,16 @@ export class WishlistComponent implements OnInit {
   private _wishList$ = new BehaviorSubject<any[]>([]);
   public wishList$: Observable<any[]> = this._wishList$.asObservable();
 
+  private _selectedItems = [];
+
   public userdata: any = JSON.parse(window.localStorage.getItem('user'));
 
   public WishList$;
 
   constructor(
     private _order: OrderService,
-    private _alert: AlertService
+    private _alert: AlertService,
+    private _router: Router
   ) { }
 
   ngOnInit() {
@@ -97,7 +101,7 @@ export class WishlistComponent implements OnInit {
       },
       (err) => {
         console.log(err)
-        this._alert.error('Wishlist Product NOT Removed ');
+        this._alert.error('Wishlist Product NOT Removed!');
       },
       () => {
         tempArray.splice(index, 1);
@@ -112,22 +116,56 @@ export class WishlistComponent implements OnInit {
     this._wishList$.next(tempArray);
   }
 
-  public checkboxTick(e) {
+  public removeSelected() {
     let tempArray = this._wishList$.value;
-    if (e.target.checked) {
-      // do something here
-      tempArray.push(e.target.id);
+  }
+
+
+  // Selective modification on wishlist
+  public addToArray(item) {
+    const index = this.findItemInArray(item.wishlistId);
+    if (index == -1) {
+      this._selectedItems.push(item.wishlistId);
+    } else {
+      this._selectedItems.splice(index, 1);
     }
-    return tempArray;
+    console.log(this._selectedItems);
+  }
+
+  public findItemInArray(wishlistId) {
+    return this._selectedItems.findIndex((id) => {
+      return id == wishlistId;
+    })
+  }
+
+  public clearArray() {
+    this._selectedItems = [];
+  }
+
+  public addAllItems(array: any[]) {
+    this._selectedItems = [];
+    array.forEach(item => {
+      this._selectedItems.push(item.wishlistId);
+    })
+    this._order.batchAddToCart(this._selectedItems).subscribe(
+      (data) => {
+        console.log(data);
+        this._alert.success('All Wishlist Items Added to Cart');
+      },
+      (err) => {
+        console.log(err)
+        this._alert.error('All Wishlist Items NOT Added to Cart!');
+      },
+      () => {
+        this._selectedItems = [];
+      }
+    );
+    this._router.navigate(['/cart'])
   }
 
   public addSelected() {
-    let tempArray = this._wishList$.value;
-    //this.checkboxTick()
-  }
 
-  public removeSelected() {
-    let tempArray = this._wishList$.value;
+
   }
 
 }
