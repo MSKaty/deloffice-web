@@ -111,4 +111,8 @@ export class OrderService {
         return this._http.delete(this.apiUrl + '/order/wishlist/' + id);
     }
 
+    public batchAddToCart(body) {
+        return this._http.post(this.apiUrl + '/order/wishlist/batch', body);
+    }
+
 }
