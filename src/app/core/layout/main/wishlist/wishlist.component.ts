@@ -143,7 +143,7 @@ export class WishlistComponent implements OnInit {
   }
 
   public addAllItems(array: any[]) {
-    this._selectedItems = [];
+    this._selectedItems = []; //empty selected item array
     array.forEach(item => {
       this._selectedItems.push(item.wishlistId);
     })
@@ -163,8 +163,14 @@ export class WishlistComponent implements OnInit {
     this._router.navigate(['/cart'])
   }
 
-  public addSelected() {
+  public selectAll() {
+    var container = document.querySelector(".cart_info");
+    var matches = container.querySelectorAll("td > .custom-checkbox");
 
+    // matches.forEach(function () {
+    //   setAttribute(matches, checked);  
+    // });
+    //matches.attr('checked', 'true');
 
   }
 

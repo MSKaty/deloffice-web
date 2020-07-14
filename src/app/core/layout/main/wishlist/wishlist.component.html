@@ -24,7 +24,8 @@
                         <tr class="cart_menu text-center">
                             <th class="imageSelector" width="40">
                                 <div class="custom-control custom-checkbox checkbox-lg">
-                                    <input type="checkbox" class="custom-control-input" id="selectAll">
+                                    <input type="checkbox" (click)="selectAll()" class="custom-control-input"
+                                        id="selectAll">
                                     <label class="custom-control-label" for="selectAll"></label>
                                 </div>
                             </th>
@@ -96,7 +97,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 text-right">
-                        <a (click)="addSelected()" class="btn btn-primary ml-2"><i class="fas fa-shopping-cart"></i>
+                        <a class="btn btn-primary ml-2"><i class="fas fa-shopping-cart"></i>
                             &nbsp;&nbsp;Add Selected to cart</a>
                     </div>
 
