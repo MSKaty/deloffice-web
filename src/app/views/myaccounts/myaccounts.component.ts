@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/common/services/auth.service';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap, tap } from 'rxjs/operators';
-
+import { AlertService } from 'src/app/common/services/alert.service';
 
 @Component({
   selector: 'app-myaccounts',
@@ -18,8 +18,6 @@ export class MyaccountsComponent implements OnInit {
   public userdata: any = JSON.parse(window.localStorage.getItem('user'));
 
   userAccount$: Observable<any>;
-
-
   uid: number
   email: string
   fname: string
@@ -32,7 +30,7 @@ export class MyaccountsComponent implements OnInit {
   brn: string
   vat: string
 
-  public form: FormGroup = this.fb.group({
+  public userForm: FormGroup = this.fb.group({
     uid: [null, Validators.required],
     email: [null, Validators.required],
     fname: [null, Validators.required],
@@ -52,7 +50,8 @@ export class MyaccountsComponent implements OnInit {
     private _route: ActivatedRoute,
     private fb: FormBuilder,
     private _user: AuthService,
-
+    private _alert: AlertService,
+    private _router: Router
 
   ) { }
 
@@ -70,20 +69,20 @@ export class MyaccountsComponent implements OnInit {
     )
   }
 
-  public updateuser(event){
-    this._user.updateUser(this.userdata.value).subscribe(
-      (data)=>{
-        console.log(data)
+  public updateuser() {
+    this._user.updateUser(this.userForm.value).subscribe(
+      (data) => {
+        console.log(data);
+        this._alert.success('Your New Information has been Updated.');
       },
       (err) => {
-        console.log(err)
+        console.log(err);
+        this._alert.error('Your New Information has NOT been Updated!');
       },
       () => {
         console.log('done');
       }
     )
   }
-
-
 
 }

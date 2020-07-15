@@ -39,7 +39,7 @@ export class AuthService {
 
   public updateUser(body) {
     const userdata = window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null;
-    return this._http.put(this.apiUrl + '/user/account' + userdata.uid, body);
+    return this._http.put(this.apiUrl + '/user/account/' + userdata.uid, body);
   }
 
 }

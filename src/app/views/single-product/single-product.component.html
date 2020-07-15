@@ -68,7 +68,8 @@
                         </div>
                     </div>
                     <div class="entry-summary col-7">
-                        <a (click)="addToWishlist(product, qty.value)" class="btn btn-primary float-right">
+                        <a (click)="addToWishlist(product, qty.value)"
+                            class="btn btn-gray btn-circle btn-lg float-right">
                             <i class="fas fa-heart"></i>
                         </a>
                         <h1>{{product.des1}}</h1>
@@ -117,10 +118,10 @@
                                 class="carousel-item col-lg-3 col-md-6 col-sm-6 col-6" [class.active]="i==0">
                                 <div class="card">
                                     <a routerLink="/product/{{related.id}}">
-                                    <img onerror="this.src='/assets/img/product-not-found.jpg'"
-                                        src="https://api.deloffice.mu/images/product/{{related.id}}.jpg"
-                                        class="card-img-top img-fluid" alt="...">
-                                    </a >
+                                        <img onerror="this.src='/assets/img/product-not-found.jpg'"
+                                            src="https://api.deloffice.mu/images/product/{{related.id}}.jpg"
+                                            class="card-img-top img-fluid" alt="...">
+                                    </a>
                                     <div class="card-body">
                                         <h5 class="card-title">
                                             {{related.des1}}<br>
