@@ -1,26 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { filter, map, mergeMap, tap } from 'rxjs/operators';
+import { filter, map, mergeMap, tap, delay } from 'rxjs/operators';
 import { TitleService } from './common/services/title.service';
 import { Observable } from 'rxjs';
+import { LoadingService } from './common/services/loading.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'deloffice';
   title$: Observable<any>;
+  loading: boolean = false;
 
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
-    private _title: TitleService
+    private _title: TitleService,
+    private _loading: LoadingService
   ) {
     this.title$ = this.setTitle();
   }
 
+  ngOnInit() {
+    this.listenToLoading();
+  }
+
+  /**
+   * Listen to the loadingSub property in the LoadingService class. This drives the
+   * display of the loading spinner.
+   */
+  listenToLoading(): void {
+    this._loading.loadingSub
+      .pipe(delay(0)) // This prevents a ExpressionChangedAfterItHasBeenCheckedError for subsequent requests
+      .subscribe((loading) => {
+        this.loading = loading;
+      });
+  }
 
   setTitle() {
     return this._router.events.pipe(
