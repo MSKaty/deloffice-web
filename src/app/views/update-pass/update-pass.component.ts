@@ -59,11 +59,10 @@ export class UpdatePassComponent implements OnInit {
     )
   }
 
-  //  Property declaration
+  //  Property declaration for hide/show password
   fieldTextType: boolean;
   fieldTextTypeNew: boolean;
   fieldTextTypeCon: boolean;
-
   // Switching method
   toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;
@@ -76,7 +75,8 @@ export class UpdatePassComponent implements OnInit {
   }
 
   updatePass() {
-
+    let newpassVal = this.userForm.get('newPass');
+    this.userForm.get('password').setValue(newpassVal);
     this._user.updateUser(this.userForm.value).subscribe(
       (data) => {
         console.log(data);

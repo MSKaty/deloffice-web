@@ -19,7 +19,7 @@
 
       <div id="items" class="d-flex justify-content-between">
         <span [routerLink]="userdata ? '/account' : '/login'" id="account"
-          [title]="userdata ? 'View My Account' : 'Login'">
+          [title]="userdata ? 'View My Account' : 'Login or Register'">
           <i class="fas fa-user"></i>
           <!-- <small>My Account</small> -->
           <ng-container *ngIf="userdata; else elseBlockLogin">
@@ -30,8 +30,9 @@
                     Hello {{user.fname + ' ' + user.lname}}
                     <b class="caret"></b></a>
                   <ul class="dropdown-menu px-2">
-                    <li class="py-2"><a routerLink="/account">Account Settings</a></li>
-                    <li class="py-2"><a (click)="logOut()">Log Out</a></li>
+                    <li class="py-2"><a routerLink="/account" title="View My Account">Account Settings</a></li>
+                    <li class="py-2"><a (click)="logOut()">Log Out<i class="pl-3 fas fa-sign-out-alt fa-xs"></i></a>
+                    </li>
                   </ul>
                 </li>
               </div>
