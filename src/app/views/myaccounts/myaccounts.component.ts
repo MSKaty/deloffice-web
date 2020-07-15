@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap, tap } from 'rxjs/operators';
 import { AlertService } from 'src/app/common/services/alert.service';
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-myaccounts',
@@ -56,6 +57,7 @@ export class MyaccountsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    ///get user data from DB upon loading
     this.userAccount$ = this.get().pipe(
       tap((data) => { console.log(data) })
     )
@@ -65,7 +67,11 @@ export class MyaccountsComponent implements OnInit {
     return this._route.params.pipe(
       switchMap(param => {
         return this._user.getAccount();
+      }),
+      tap((v) => {
+        this.userForm.patchValue(v)
       })
+
     )
   }
 
