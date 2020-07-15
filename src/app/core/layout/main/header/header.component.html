@@ -22,11 +22,24 @@
           [title]="userdata ? 'View My Account' : 'Login'">
           <i class="fas fa-user"></i>
           <!-- <small>My Account</small> -->
-          <ng-container *ngIf="userdata">
+          <ng-container *ngIf="userdata; else elseBlockLogin">
             <ng-container *ngIf="userAccount$ | async as user ">
-              Hello {{user.fname + ' ' + user.lname}}
+              <div>
+                <li class="dropdown">
+                  <a ref="#" class="dropdown-toggle text-dark" data-toggle="dropdown">
+                    Hello {{user.fname + ' ' + user.lname}}
+                    <b class="caret"></b></a>
+                  <ul class="dropdown-menu px-2">
+                    <li class="py-2"><a routerLink="/account">Account Settings</a></li>
+                    <li class="py-2"><a (click)="logOut()">Log Out</a></li>
+                  </ul>
+                </li>
+              </div>
             </ng-container>
           </ng-container>
+          <ng-template #elseBlockLogin>
+            Login / Register
+          </ng-template>
         </span>
 
         <span routerLink="/wishlist" id="wishlist">

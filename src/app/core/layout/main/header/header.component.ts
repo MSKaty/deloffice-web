@@ -58,8 +58,10 @@ export class HeaderComponent implements OnInit {
     }, 5000);
   }
 
-  testBtn() {
-    this._alert.success('Yooooooooo!!!!');
+  logOut() {
+    ///clear user token
+    localStorage.clear();
+    window.location.reload();
   }
 
 }

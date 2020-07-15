@@ -52,7 +52,6 @@ export class MyaccountsComponent implements OnInit {
     private fb: FormBuilder,
     private _user: AuthService,
     private _alert: AlertService,
-    private _router: Router
 
   ) { }
 
@@ -69,6 +68,7 @@ export class MyaccountsComponent implements OnInit {
         return this._user.getAccount();
       }),
       tap((v) => {
+        //fill in the reactive form with patchValue
         this.userForm.patchValue(v)
       })
 

@@ -39,6 +39,18 @@ header#main-header {
         padding: 0 30px;
     }
 
+    .navbar-default .navbar-nav > li.dropdown:hover > a, 
+    .navbar-default .navbar-nav > li.dropdown:hover > a:hover,
+    .navbar-default .navbar-nav > li.dropdown:hover > a:focus {
+        background-color: rgb(231, 231, 231);
+        color: rgb(85, 85, 85);
+    }
+    li.dropdown:hover > .dropdown-menu {
+        a{
+            color: black !important;
+        }
+        display: block;
+    }
 
     #top-header {
         padding: 7px 30px;
@@ -95,9 +107,9 @@ header#main-header {
                 font-size: 1rem;
                 font-weight: bold;
             }
-            #account {
+            // #account {
                 
-            }
+            // }
         }
 
     }

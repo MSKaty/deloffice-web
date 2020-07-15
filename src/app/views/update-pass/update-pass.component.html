@@ -1,10 +1,10 @@
-<ng-container>
+<ng-container *ngIf="userAccount$ | async as user">
     <div id="wrapper" class="container-fluid">
         <main id="content" class="row d-flex flex-column flex-nowrap">
             <div class="row mb-3 mx-0">
                 <div class="col-12">
                     <h5 class="custom-heading">
-                        Hello user (ID 588888)
+                        Hello {{user.fname + ' ' + user.lname + ' ' + '(Id: ' + user.uid + ')'}}
                     </h5>
                 </div>
             </div>
@@ -12,7 +12,7 @@
                 <div class="col-3">
                     <img class="float-right" src="\assets\img\UserSetting.svg" alt="" width="40%">
                 </div>
-                <form [formGroup]="form" class="col-9 row mx-0">
+                <form [formGroup]="userForm" (submit)="updatePass()" class="col-9 row mx-0">
                     <div class="col-12">
                         <div class="form-group">
                             <label for="CurrentPass" class="col-4 col-form-label">Current Password</label>
@@ -23,8 +23,17 @@
                                             <i class="fas fa-key"></i>
                                         </div>
                                     </div>
-                                    <input id="CurrentPass" name="CurrentPass" type="text" required="required"
-                                        class="form-control">
+                                    <input id="CurrentPass" name="CurrentPass"
+                                        [type]="fieldTextType ? 'text' : 'password'" required="required"
+                                        class="form-control" formControlName="password" value="{{user.password}}">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <i class="fa" [ngClass]="{
+                                                  'fa-eye-slash': !fieldTextType,
+                                                  'fa-eye': fieldTextType
+                                                }" (click)="toggleFieldTextType()"></i>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -37,8 +46,16 @@
                                             <i class="fas fa-key"></i>
                                         </div>
                                     </div>
-                                    <input id="NewPass" name="NewPass" type="text" required="required"
-                                        class="form-control">
+                                    <input id="NewPass" name="NewPass" [type]="fieldTextTypeNew ? 'text' : 'password'"
+                                        required="required" class="form-control" formControlName="newPass">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <i class="fa" [ngClass]="{
+                                                'fa-eye-slash': !fieldTextTypeNew,
+                                                'fa-eye': fieldTextTypeNew
+                                            }" (click)="toggleFieldTextTypeNew()"></i>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -51,8 +68,17 @@
                                             <i class="fas fa-key"></i>
                                         </div>
                                     </div>
-                                    <input id="ConfirmPass" name="ConfirmPass" type="text" required="required"
-                                        class="form-control">
+                                    <input id="ConfirmPass" name="ConfirmPass"
+                                        [type]="fieldTextTypeCon ? 'text' : 'password'" required="required"
+                                        class="form-control" formControlName="confrmPass">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <i class="fa" [ngClass]="{
+                                            'fa-eye-slash': !fieldTextTypeCon,
+                                            'fa-eye': fieldTextTypeCon
+                                        }" (click)="toggleFieldTextTypeCon()"></i>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
