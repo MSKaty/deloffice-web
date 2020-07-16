@@ -27,10 +27,13 @@ export class RegisterComponent implements OnInit {
     cperson: ['', Validators.required],
     mob: ['', Validators.required],
     fax: ['', Validators.required],
-    email: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
     password: [null, [Validators.required, Validators.minLength(6)]],
     confirmPassword: [null, Validators.required],
-    utype: [null, Validators.required]
+    utype: [null, Validators.required],
+    acceptTermsR: [false, Validators.requiredTrue],
+    acceptTermsC: [false, Validators.requiredTrue],
+    acceptTermsI: [false, Validators.requiredTrue],
   }, {
     validator: MustMatch('password', 'confirmPassword')
   })
@@ -46,6 +49,11 @@ export class RegisterComponent implements OnInit {
 
   public register() {
     this.submitted = true;
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
+
     this.registerForm.controls['utype'].setValue(this.type);
     console.log(this.registerForm.value);
     this._auth.register(this.registerForm.value).subscribe(
@@ -64,5 +72,14 @@ export class RegisterComponent implements OnInit {
       }
     );
   }
+
+  onReset() {
+    this.submitted = false;
+    this.registerForm.reset();
+  }
+
+  // convenience getter for easy access to form fields
+  get f() { return this.registerForm.controls; }
+
 
 }
