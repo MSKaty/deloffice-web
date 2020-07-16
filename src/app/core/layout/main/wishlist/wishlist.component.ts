@@ -49,7 +49,7 @@ export class WishlistComponent implements OnInit {
       .subscribe(
         (data) => {
           console.log(data);
-          this._alert.success('Wishlist Product added To Cart')
+          this._alert.success('Wishlist Product added To Cart');
         },
         (err) => {
           console.log(err);
@@ -80,10 +80,12 @@ export class WishlistComponent implements OnInit {
     tempArray[index].quantity = event.target.value;
     this._order.updateQty(tempArray[index].wishlistId, tempArray[index]).subscribe(
       (data) => {
-        console.log(data)
+        console.log(data);
+        this._alert.success('Wishlist Product has been Updated');
       },
       (err) => {
         console.log(err)
+        this._alert.error('Wishlist Product has NOT been Updated!');
       },
       () => {
         this._wishList$.next(tempArray);
@@ -114,6 +116,7 @@ export class WishlistComponent implements OnInit {
     let tempArray = this._wishList$.value;
     tempArray = [];
     this._wishList$.next(tempArray);
+    this._alert.success('Wishlist Has been CLEARED!');
   }
 
   public removeSelected() {
