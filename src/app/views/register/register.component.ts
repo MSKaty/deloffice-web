@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
     lname: ['', Validators.required],
     address: ['', Validators.required],
     vat: ['', Validators.required],
-    brn: ['', Validators.required],
+    brn: [''],
     activity: ['', Validators.required],
     tel: ['', Validators.required],
     cperson: ['', Validators.required],
