@@ -21,7 +21,6 @@ export class UpdatePassComponent implements OnInit {
   userAccount$: Observable<any>;
 
   public userForm: FormGroup = this.fb.group({
-    'password': [null, Validators.required],
     'newPass': [null, Validators.required],
     'confrmPass': [null, Validators.required],
   }
@@ -60,13 +59,10 @@ export class UpdatePassComponent implements OnInit {
   }
 
   //  Property declaration for hide/show password
-  fieldTextType: boolean;
+
   fieldTextTypeNew: boolean;
   fieldTextTypeCon: boolean;
   // Switching method
-  toggleFieldTextType() {
-    this.fieldTextType = !this.fieldTextType;
-  }
   toggleFieldTextTypeNew() {
     this.fieldTextTypeNew = !this.fieldTextTypeNew;
   }
@@ -75,9 +71,7 @@ export class UpdatePassComponent implements OnInit {
   }
 
   updatePass() {
-    let newpassVal = this.userForm.get('newPass');
-    this.userForm.get('password').setValue(newpassVal);
-    this._user.updateUser(this.userForm.value).subscribe(
+    this._user.updateUser({ password: this.userForm.value.newPass }).subscribe(
       (data) => {
         console.log(data);
         this._alert.success('Your New Password has been Updated.');

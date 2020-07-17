@@ -18,22 +18,20 @@ export class RegisterComponent implements OnInit {
 
   public registerForm: FormGroup = this.fb.group({
     fname: ['', Validators.required],
-    lname: ['', Validators.required],
+    lname: [''],
     address: ['', Validators.required],
     vat: ['', Validators.required],
     brn: [''],
     activity: ['', Validators.required],
     tel: ['', Validators.required],
     cperson: ['', Validators.required],
-    mob: ['', Validators.required],
+    mob: [''],
     fax: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     password: [null, [Validators.required, Validators.minLength(6)]],
     confirmPassword: [null, Validators.required],
-    utype: [null, Validators.required],
-    acceptTermsR: [false, Validators.requiredTrue],
-    acceptTermsC: [false, Validators.requiredTrue],
-    acceptTermsI: [false, Validators.requiredTrue],
+    utype: [null],
+    acceptTerms: [false, Validators.requiredTrue]
   }, {
     validator: MustMatch('password', 'confirmPassword')
   })
@@ -81,5 +79,15 @@ export class RegisterComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.registerForm.controls; }
 
+  public findInvalidControls() {
+    const invalid = [];
+    const controls = this.registerForm.controls;
+    for (const name in controls) {
+      if (controls[name].invalid) {
+        invalid.push(name);
+      }
+    }
+    return invalid;
+  }
 
 }

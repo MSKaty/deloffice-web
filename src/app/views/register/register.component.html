@@ -30,6 +30,7 @@
                 </button>
             </div>
         </div>
+        <!-- Type {{ findInvalidControls() | json }} -->
 
         <div class="row mb-3">
             <div class="col-12 p-auto">
@@ -151,13 +152,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group form-check ">
-                                    <input type="checkbox" formControlName="acceptTermsC" class="form-check-input"
+                                    <input type="checkbox" formControlName="acceptTerms" class="form-check-input"
                                         id="acceptTermsCorporate"
-                                        [ngClass]="{ 'is-invalid': submitted && f.acceptTermsC.errors }">
-                                    <label class="form-check-label" for="acceptTermsC">
+                                        [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }">
+                                    <label class="form-check-label" for="acceptTerms">
                                         <b>Accept Terms and Conditions *</b>
                                     </label>
-                                    <div *ngIf="submitted && f.acceptTermsC.errors" class="invalid-feedback">Accept Ts &
+                                    <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts &
                                         Cs is required</div>
                                 </div>
                                 <p class="text-justify">
@@ -166,7 +167,10 @@
                                     <a routerLink="/Terms-and-conditions"><u>Terms and Conditions</u></a>.
                                 </p>
                                 <div class="form-group">
-                                    <button type="submit" form="corporate" class="btn btn-primary">Create Account
+                                    <div class="g-recaptcha" data-sitekey="6LfewmwUAAAAADfCuS1MzYnP0MSfMgxKfBT2d3D9">
+                                    </div>
+                                    <button type="submit" form="corporate" class="btn btn-primary"
+                                        [disabled]="!registerForm.valid">Create Account
                                         <i class="fas fa-user-plus ml-2"></i></button>
                                 </div>
                             </div>
@@ -292,13 +296,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group form-check ">
-                                    <input type="checkbox" formControlName="acceptTermsR" class="form-check-input"
+                                    <input type="checkbox" formControlName="acceptTerms" class="form-check-input"
                                         id="acceptTermsReseller"
-                                        [ngClass]="{ 'is-invalid': submitted && f.acceptTermsR.errors }">
-                                    <label class="form-check-label" for="acceptTermsR">
+                                        [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }">
+                                    <label class="form-check-label" for="acceptTerms">
                                         <b>Accept Terms and Conditions *</b>
                                     </label>
-                                    <div *ngIf="submitted && f.acceptTermsR.errors" class="invalid-feedback">Accept Ts &
+                                    <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts &
                                         Cs is required</div>
                                 </div>
                                 <p class="text-justify">
@@ -307,7 +311,10 @@
                                     <a routerLink="/Terms-and-conditions"><u>Terms and Conditions</u></a>.
                                 </p>
                                 <div class="form-group">
-                                    <button type="submit" form="reseller" class="btn btn-primary">Create Account
+                                    <div class="g-recaptcha" data-sitekey="6LfewmwUAAAAADfCuS1MzYnP0MSfMgxKfBT2d3D9">
+                                    </div>
+                                    <button type="submit" form="reseller" class="btn btn-primary"
+                                        [disabled]="!registerForm.valid">Create Account
                                         <i class="fas fa-user-plus ml-2"></i></button>
                                 </div>
                             </div>
@@ -402,13 +409,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group form-check ">
-                                    <input type="checkbox" formControlName="acceptTermsI" class="form-check-input"
+                                    <input type="checkbox" formControlName="acceptTerms" class="form-check-input"
                                         id="acceptTermsIndividual"
-                                        [ngClass]="{ 'is-invalid': submitted && f.acceptTermsI.errors }">
-                                    <label class="form-check-label" for="acceptTermsI">
+                                        [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }">
+                                    <label class="form-check-label" for="acceptTerms">
                                         <b>Accept Terms and Conditions *</b>
                                     </label>
-                                    <div *ngIf="submitted && f.acceptTermsI.errors" class="invalid-feedback">Accept Ts &
+                                    <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts &
                                         Cs is required</div>
                                 </div>
                                 <p class="text-justify">
@@ -417,7 +424,10 @@
                                     <a routerLink="/Terms-and-conditions"><u>Terms and Conditions</u></a>.
                                 </p>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Create Account
+                                    <div class="g-recaptcha" data-sitekey="6LfewmwUAAAAADfCuS1MzYnP0MSfMgxKfBT2d3D9">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary"
+                                        [disabled]="!registerForm.valid">Create Account
                                         <i class="fas fa-user-plus ml-2"></i>
                                     </button>
                                 </div>

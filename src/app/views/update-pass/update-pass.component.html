@@ -15,29 +15,6 @@
                 <form [formGroup]="userForm" (submit)="updatePass()" class="col-9 row mx-0">
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="CurrentPass" class="col-4 col-form-label">Current Password</label>
-                            <div class="col-8">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <i class="fas fa-key"></i>
-                                        </div>
-                                    </div>
-                                    <input id="CurrentPass" name="CurrentPass"
-                                        [type]="fieldTextType ? 'text' : 'password'" required="required"
-                                        class="form-control" formControlName="password" value="{{user.password}}">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">
-                                            <i class="fa" [ngClass]="{
-                                                  'fa-eye-slash': !fieldTextType,
-                                                  'fa-eye': fieldTextType
-                                                }" (click)="toggleFieldTextType()"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label for="NewPass" class="col-4 col-form-label">New Password</label>
                             <div class="col-8">
                                 <div class="input-group">
