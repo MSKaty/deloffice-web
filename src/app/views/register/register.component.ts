@@ -20,13 +20,13 @@ export class RegisterComponent implements OnInit {
     fname: ['', Validators.required],
     lname: [''],
     address: ['', Validators.required],
-    vat: ['', Validators.required],
+    vat: [''],
     brn: [''],
-    activity: ['', Validators.required],
+    activity: [''],
     tel: ['', Validators.required],
-    cperson: ['', Validators.required],
+    cperson: [''],
     mob: [''],
-    fax: ['', Validators.required],
+    fax: [''],
     email: ['', [Validators.required, Validators.email]],
     password: [null, [Validators.required, Validators.minLength(6)]],
     confirmPassword: [null, Validators.required],
@@ -45,8 +45,26 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  public register() {
+  public register(typeN: number) {
     this.submitted = true;
+    switch (typeN) {
+      case 1:
+        ///individual
+
+        break;
+      case 2:
+        ///reseller
+        this.registerForm.controls['cperson'].setValidators([Validators.required]);
+        this.registerForm.controls['activity'].setValidators([Validators.required]);
+        break;
+      case 3:
+        ///corporate
+        this.registerForm.controls['brn'].setValidators([Validators.required]);
+        this.registerForm.controls['cperson'].setValidators([Validators.required]);
+        this.registerForm.controls['activity'].setValidators([Validators.required]);
+        break;
+    }
+
     // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
@@ -88,6 +106,13 @@ export class RegisterComponent implements OnInit {
       }
     }
     return invalid;
+  }
+
+  public removeValidators(form: FormGroup) {
+    for (const key in form.controls) {
+      form.get(key).clearValidators();
+      form.get(key).updateValueAndValidity();
+    }
   }
 
 }

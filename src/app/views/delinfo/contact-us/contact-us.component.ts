@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from 'src/app/common/services/contact.service';
+import { AlertService } from 'src/app/common/services/alert.service';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class ContactUsComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private contactF: AuthService
+    private contactF: AuthService,
+    private _alert: AlertService,
   ) { }
 
   ngOnInit() {
@@ -38,10 +40,10 @@ export class ContactUsComponent implements OnInit {
     this.contactF.sendMail(postObject)
       .subscribe(
         (data) => {
-
+          this._alert.success('Inquiry has been Sent !');
         },
         (err) => {
-
+          this._alert.error('Inquiry has NOT been Sent !');
         },
         () => {
 

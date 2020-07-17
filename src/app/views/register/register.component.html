@@ -35,7 +35,7 @@
         <div class="row mb-3">
             <div class="col-12 p-auto">
                 <ng-container [ngSwitch]="type">
-                    <form [formGroup]="registerForm" (ngSubmit)="register()" id="corporate" *ngSwitchCase="3">
+                    <form [formGroup]="registerForm" (ngSubmit)="register(3)" id="corporate" *ngSwitchCase="3">
                         <div class="row mb-3">
                             <input type="hidden" fornControlName="utype" value="1" class="invisible">
                             <div class="col-12">
@@ -177,7 +177,7 @@
                         </div>
                     </form>
 
-                    <form [formGroup]="registerForm" (ngSubmit)="register()" id="reseller" *ngSwitchCase="2" #utype
+                    <form [formGroup]="registerForm" (ngSubmit)="register(2)" id="reseller" *ngSwitchCase="2" #utype
                         value="2">
                         <div class="row mb-3">
                             <input type="hidden" fornControlName="utype" value="2" disabled>
@@ -321,7 +321,7 @@
                         </div>
                     </form>
 
-                    <form [formGroup]="registerForm" (ngSubmit)="register()" id="individual" *ngSwitchCase="1" #utype
+                    <form [formGroup]="registerForm" (ngSubmit)="register(1)" id="individual" *ngSwitchCase="1" #utype
                         value="3">
                         <div class="row mb-3">
                             <input type="hidden" fornControlName="utype" value="3" disabled>
