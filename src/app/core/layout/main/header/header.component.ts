@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/common/services/auth.service';
 import { switchMap, tap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { AlertService } from 'src/app/common/services/alert.service';
+import { PlatformService } from 'src/app/common/services/platform.service';
 
 @Component({
   selector: 'app-header',
@@ -24,7 +25,8 @@ export class HeaderComponent implements OnInit {
     private _router: Router,
     private user: AuthService,
     private _route: ActivatedRoute,
-    private _alert: AlertService
+    private _alert: AlertService,
+    private _platform: PlatformService
 
   ) { }
   ngOnInit() {
@@ -52,10 +54,12 @@ export class HeaderComponent implements OnInit {
   }
 
   checkUserdata() {
-    this.userdata = JSON.parse(window.localStorage.getItem('user'))
-    setInterval(() => {
+    if (this._platform.isBrowser) {
       this.userdata = JSON.parse(window.localStorage.getItem('user'))
-    }, 5000);
+      setInterval(() => {
+        this.userdata = JSON.parse(window.localStorage.getItem('user'))
+      }, 5000);
+    }
   }
 
   logOut() {

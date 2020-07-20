@@ -4,6 +4,7 @@ import { filter, map, mergeMap, tap, delay, switchMap } from 'rxjs/operators';
 import { TitleService } from './common/services/title.service';
 import { Observable } from 'rxjs';
 import { LoadingService } from './common/services/loading.service';
+import { SEOService } from './common/services/seo.service';
 
 @Component({
   selector: 'app-root',
@@ -19,13 +20,15 @@ export class AppComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router,
     private _title: TitleService,
-    private _loading: LoadingService
+    private _loading: LoadingService,
+    private _seo: SEOService
   ) {
     this.title$ = this.setTitle();
   }
 
   ngOnInit() {
     this.listenToLoading();
+    this.getMetadata().subscribe();
   }
 
   /**
@@ -75,8 +78,8 @@ export class AppComponent implements OnInit {
       filter(route => route.outlet === 'primary'),
       mergeMap(route => route.data),
       switchMap((event: Data) => {
-        if (event && event.state) {
-          return this._seo.ssrFirestoreDoc(event.state)
+        if (event) {
+          return this._seo.ssrFirestoreDoc('home')
         }
       })
     )

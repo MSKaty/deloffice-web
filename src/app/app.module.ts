@@ -1,4 +1,4 @@
-import { BrowserModule, Title } from '@angular/platform-browser';
+import { BrowserModule, Title, BrowserTransferStateModule, Meta } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,23 +10,33 @@ import { RequestInterceptorService } from './common/utils/request.interceptor';
 
 import { AlertModule } from './core/modules/alert/alert.module';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
-    
+
   ],
 
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule.withServerTransition({ appId: 'deloffice-ltd' }),
+    BrowserTransferStateModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    AlertModule
+    AlertModule,
+    AngularFireModule.initializeApp(environment.firebase, 'deloffice-ltd'),
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
 
   providers: [
     Title,
+    Meta,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: RequestInterceptorService,

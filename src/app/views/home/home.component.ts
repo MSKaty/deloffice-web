@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../common/services/category.service';
 import { Observable } from 'rxjs';
+import { AdvertService } from 'src/app/common/services/advert.service';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +11,19 @@ import { Observable } from 'rxjs';
 export class HomeComponent implements OnInit {
   category$: Observable<any>;
 
-  constructor(private _cat: CategoryService) { }
+  home1$: Observable<any>;
+
+  constructor(
+    private _ads: AdvertService,
+    private _cat: CategoryService
+  ) { }
 
   ngOnInit() {
     this.category$ = this._cat.getTree();
+  }
+
+  getAdvertsByPage(id: string) {
+    return this._ads.getAdvertsByPage(id).valueChanges();
   }
 
 }

@@ -9,9 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
-    "serve:ssr": "node dist/server",
-    "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run deloffice:server:production --bundleDependencies all"
+    "serve:ssr": "node dist/deloffice/server.js",
+    "build:ssr": "ng build --prod && ng run deloffice:server && npm run webpack:server",
+    "webpack:server": "webpack --config webpack.server.config.js"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +19,7 @@
     "@angular/common": "~8.2.14",
     "@angular/compiler": "~8.2.14",
     "@angular/core": "~8.2.14",
+    "@angular/fire": "^5.4.2",
     "@angular/forms": "~8.2.14",
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
@@ -29,6 +30,8 @@
     "@nguniversal/module-map-ngfactory-loader": "v8.2.6",
     "bootstrap": "^4.4.1",
     "express": "^4.15.2",
+    "firebase": "^6.3.0",
+    "firebase-tools": "^7.0.2",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
@@ -61,7 +64,9 @@
     "typescript": "~3.5.3",
     "utf-8-validate": "^5.0.2",
     "webpack-cli": "^3.1.0",
-    "ws": "^7.3.1",
-    "xhr2": "^0.2.0"
+    "ws": "^5.2.2",
+    "xhr2": "^0.2.0",
+    "xmlhttprequest": "^1.8.0",
+    "yamlparser": "0.0.2"
   }
 }
