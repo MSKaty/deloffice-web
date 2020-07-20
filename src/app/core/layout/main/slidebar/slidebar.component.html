@@ -59,23 +59,17 @@
             <div id="Rotate-A-Group" class="carousel slide d-block mb-3" data-ride="carousel">
                 <div class="carousel-inner">
                     <ng-container *ngFor="let advert1 of sliderbar['RotateA']; index as i;">
+                        {{advert1.i}}
                         <div class="carousel-item" [class.active]="i === 0">
                             <img id="RA-1" src="https://api.deloffice.mu/images/product/{{advert1[i]}}"
                                 class="d-block w-100" alt="...">
                         </div>
                     </ng-container>
-
-                    <!-- <div class="carousel-item">
-                        <img id="RA-2" src="\assets\img\advertising casousel 600 x 900 px\cleaning supplies.jpg"
-                            class="d-block w-100" alt="...">
-                    </div> -->
                 </div>
                 <ol class="carousel-indicators">
                     <ng-container *ngFor="let advert1 of sliderbar['RotateA']; index as i;">
                         <li data-target="#Rotate-A-Group" [attr.data-slide-to]="i" [class.active]="i === 0"></li>
                     </ng-container>
-
-                    <!-- <li data-target="#Rotate-A-Group" data-slide-to="1"></li> -->
                 </ol>
             </div>
 
@@ -87,10 +81,6 @@
                                 alt="...">
                         </div>
                     </ng-container>
-                    <!-- <div class="carousel-item">
-                        <img id="RB-2" src="\assets\img\advertising casousel 600 x 900 px\ink&Toner.jpg"
-                            class="d-block w-100" alt="...">
-                    </div> -->
                 </div>
                 <ol class="carousel-indicators">
                     <ng-container *ngFor="let advert2 of sliderbar['RotateB']; index as i;">
@@ -101,22 +91,20 @@
 
             <div id="Rotate-C-Group" class="carousel slide d-block mb-3" data-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img id="RC-1" src="\assets\img\advertising casousel 600 x 900 px\cleaning supplies.jpg"
-                            class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img id="RC-2" src="\assets\img\advertising casousel 600 x 900 px\stationery.jpg"
-                            class="d-block w-100" alt="...">
-                    </div>
+                    <ng-container *ngFor="let advert3 of sliderbar['RotateC']; index as i;">
+                        <div class="carousel-item" [class.active]="i === 0">
+                            <img src="https://api.deloffice.mu/images/product/{{advert3[i]}}" class="d-block w-100"
+                                alt="...">
+                        </div>
+                    </ng-container>
                 </div>
                 <ol class="carousel-indicators">
-                    <li data-target="#Rotate-C-Group" data-slide-to="0" class="active"></li>
-                    <li data-target="#Rotate-C-Group" data-slide-to="1"></li>
+                    <ng-container *ngFor="let advert3 of sliderbar['RotateC']; index as i;">
+                        <li data-target="#Rotate-C-Group" [attr.data-slide-to]="i" [class.active]="i === 0"></li>
+                    </ng-container>
                 </ol>
             </div>
         </ng-container>
-
 
     </div>
 

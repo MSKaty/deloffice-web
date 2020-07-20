@@ -1,387 +1,401 @@
-<div id="wrapper" class="container-fluid">
-    <main id="content" class="row d-flex flex-column flex-nowrap">
-        <div class="aspect-ratio-container A653-234 mb-3">
-            <div class="frame">
-                <div class="row  w-100 mx-0 h-100">
-                    <div class="col-lg-9 col-md-9 col-12 px-lg-0">
-                        <div id="sliderElement" class="carousel slide h-100" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#sliderElement" data-slide-to="0" class="active"></li>
-                                <li data-target="#sliderElement" data-slide-to="1"></li>
-                                <li data-target="#sliderElement" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner h-100">
-                                <div class="carousel-item  h-100  active">
-                                    <img src="https://via.placeholder.com/1500x717.png"
-                                        class="d-block w-100 h-100 img-fluid" alt="...">
+<ng-container *ngIf="home1$ | async as sliderbar;">
+    <div id="wrapper" class="container-fluid">
+        <main id="content" class="row d-flex flex-column flex-nowrap">
+            <div class="aspect-ratio-container A653-234 mb-3">
+                <div class="frame">
+                    <div class="row  w-100 mx-0 h-100">
+                        <div class="col-lg-9 col-md-9 col-12 px-lg-0">
+
+                            <div id="sliderElement" class="carousel slide h-100" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#sliderElement" data-slide-to="0" class="active"></li>
+                                    <li data-target="#sliderElement" data-slide-to="1"></li>
+                                    <li data-target="#sliderElement" data-slide-to="2"></li>
+                                </ol>
+                                <div class="carousel-inner h-100">
+                                    <div class="carousel-item  h-100  active">
+                                        <img src="https://via.placeholder.com/1500x717.png"
+                                            class="d-block w-100 h-100 img-fluid" alt="...">
+                                    </div>
+                                    <div class="carousel-item  h-100 ">
+                                        <img src="https://via.placeholder.com/1500x717.png"
+                                            class="d-block w-100 h-100 img-fluid" alt="...">
+                                    </div>
+                                    <div class="carousel-item  h-100 ">
+                                        <img src="https://via.placeholder.com/1500x717.png"
+                                            class="d-block w-100 h-100 img-fluid" alt="...">
+                                    </div>
                                 </div>
-                                <div class="carousel-item  h-100 ">
-                                    <img src="https://via.placeholder.com/1500x717.png"
-                                        class="d-block w-100 h-100 img-fluid" alt="...">
-                                </div>
-                                <div class="carousel-item  h-100 ">
-                                    <img src="https://via.placeholder.com/1500x717.png"
-                                        class="d-block w-100 h-100 img-fluid" alt="...">
-                                </div>
+                                <a class="carousel-control-prev" href="#sliderElement" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#sliderElement" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
                             </div>
-                            <a class="carousel-control-prev" href="#sliderElement" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#sliderElement" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
+
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 d-none d-md-block px-lg-0">
-                        <div class="useful-links card h-100">
-                            <ul class="list-group list-group-flush h-100">
-                                <li class="list-group-item p-0 d-flex justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                        <div class="span p-3">
-                                            <h6>New Arrivals</h6>
-                                            <p class="m-0">Discover them all year round</p>
+                        <div class="col-lg-3 col-md-3 d-none d-md-block px-lg-0">
+                            <div class="useful-links card h-100">
+                                <ul class="list-group list-group-flush h-100">
+                                    <li class="list-group-item p-0 d-flex justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <div class="span p-3">
+                                                <h6>New Arrivals</h6>
+                                                <p class="m-0">Discover them all year round</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <img style="width: 80px;" src="https://via.placeholder.com/300x200.png" alt=""
-                                        class="img-fluid">
-                                </li>
-                                <li class="list-group-item p-0 d-flex justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                        <div class="span p-3">
-                                            <h6>Special Offers</h6>
-                                            <p class="m-0">All our super deals in one place</p>
+                                        <img style="width: 80px;" src="https://via.placeholder.com/300x200.png" alt=""
+                                            class="img-fluid">
+                                    </li>
+                                    <li class="list-group-item p-0 d-flex justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <div class="span p-3">
+                                                <h6>Special Offers</h6>
+                                                <p class="m-0">All our super deals in one place</p>
 
+                                            </div>
                                         </div>
-                                    </div>
-                                    <img style="width: 80px;" src="https://via.placeholder.com/300x200.png" alt=""
-                                        class="img-fluid">
-                                </li>
-                                <li class="list-group-item p-0 d-flex justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                        <div class="span p-3">
-                                            <h6>Clearance Sales</h6>
-                                            <p class="m-0">End of series. All must go.</p>
+                                        <img style="width: 80px;" src="https://via.placeholder.com/300x200.png" alt=""
+                                            class="img-fluid">
+                                    </li>
+                                    <li class="list-group-item p-0 d-flex justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <div class="span p-3">
+                                                <h6>Clearance Sales</h6>
+                                                <p class="m-0">End of series. All must go.</p>
 
+                                            </div>
                                         </div>
-                                    </div>
-                                    <img style="width: 80px;" src="https://via.placeholder.com/300x200.png" alt=""
-                                        class="img-fluid">
-                                </li>
-                                <li class="list-group-item p-0 d-flex justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                        <div class="span p-3">
-                                            <h6>Best Sellers</h6>
-                                            <p class="m-0">Spotlight on our top selling products</p>
+                                        <img style="width: 80px;" src="https://via.placeholder.com/300x200.png" alt=""
+                                            class="img-fluid">
+                                    </li>
+                                    <li class="list-group-item p-0 d-flex justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <div class="span p-3">
+                                                <h6>Best Sellers</h6>
+                                                <p class="m-0">Spotlight on our top selling products</p>
 
+                                            </div>
                                         </div>
-                                    </div>
-                                    <img style="width: 80px;" src="https://via.placeholder.com/300x200.png" alt=""
-                                        class="img-fluid">
-                                </li>
-                                <li class="list-group-item p-0 d-flex justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                        <div class="span p-3">
-                                            <h6>Something Else</h6>
-                                            <p class="m-0">Fast track. Tell us what you need.</p>
+                                        <img style="width: 80px;" src="https://via.placeholder.com/300x200.png" alt=""
+                                            class="img-fluid">
+                                    </li>
+                                    <li class="list-group-item p-0 d-flex justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <div class="span p-3">
+                                                <h6>Something Else</h6>
+                                                <p class="m-0">Fast track. Tell us what you need.</p>
 
+                                            </div>
                                         </div>
-                                    </div>
-                                    <img style="width: 80px;" src="https://via.placeholder.com/300x200.png" alt=""
-                                        class="img-fluid">
-                                </li>
-                            </ul>
+                                        <img style="width: 80px;" src="https://via.placeholder.com/300x200.png" alt=""
+                                            class="img-fluid">
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-12">
-                <!-- 1500x180px -->
-                <div class="" style="width: 100%; position: relative; overflow: hidden; padding-top: 12%;">
-                    <div class="d-flex align-items-center"
-                        style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
-                        <img id="Full-Width-Banner" src="\assets\img\products.jpg" alt="" class="img-fluid w-100 ">
+            <div class="row mb-3">
+                <div class="col-12">
+                    <!-- 1500x180px -->
+                    <div class="" style="width: 100%; position: relative; overflow: hidden; padding-top: 12%;">
+                        <div class="d-flex align-items-center"
+                            style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
+                            <img id="Full-Width-Banner" src="\assets\img\products.jpg" alt="" class="img-fluid w-100 ">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-lg-3 col-md-3 d-none d-md-block">
-                <app-slidebar></app-slidebar>
-            </div>
-
-            <div class="col-lg-9 col-md-9 col-12">
-                <h5 class="custom-heading">Featured Products</h5>
-                <div class="row mx-lg-n2">
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/1003">
-                            <img src="\assets\img\features\1003.jpg" alt="paper" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/21">
-                            <img src="\assets\img\features\21.jpg" alt="envelopes" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/130">
-                            <img src="\assets\img\features\130.jpg" alt="pens" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/23">
-                            <img src="\assets\img\features\23.jpg" alt="files" class="img-fluid border w-100">
-                        </a>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/167">
-                            <img src="\assets\img\features\167.jpg" alt="staplers" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/168">
-                            <img src="\assets\img\features\168.jpg" alt="punches" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/143">
-                            <img src="\assets\img\features\143.jpg" alt="calculators" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/92">
-                            <img src="\assets\img\features\92.jpg" alt="ringfiles" class="img-fluid border w-100">
-                        </a>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/146">
-                            <img src="\assets\img\features\146.jpg" alt="papertrimmer" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/114">
-                            <img src="\assets\img\features\114.jpg" alt="shredders" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/48">
-                            <img src="\assets\img\features\48.jpg" alt="laminators" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/46">
-                            <img src="\assets\img\features\46.jpg" alt="bindingmachine" class="img-fluid border w-100">
-                        </a>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/57">
-                            <img src="\assets\img\features\57.jpg" alt="flipcharts" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/83">
-                            <img src="\assets\img\features\83.jpg" alt="displaybooks" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/308">
-                            <img src="\assets\img\features\308.jpg" alt="notebooks" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/99">
-                            <img src="\assets\img\features\99.jpg" alt="index" class="img-fluid border w-100">
-                        </a>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/180">
-                            <img src="\assets\img\features\180.jpg" alt="tape" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/139">
-                            <img src="\assets\img\features\139.jpg" alt="rulers" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/186">
-                            <img src="\assets\img\features\186.jpg" alt="trays" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/279">
-                            <img src="\assets\img\features\279.jpg" alt="bins" class="img-fluid border w-100">
-                        </a>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/198">
-                            <img src="\assets\img\features\198.jpg" alt="coffee" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/200">
-                            <img src="\assets\img\features\200.jpg" alt="sugar" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/204">
-                            <img src="\assets\img\features\204.jpg" alt="biscuits" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/268">
-                            <img src="\assets\img\features\268.jpg" alt="facial" class="img-fluid border w-100">
-                        </a>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/276">
-                            <img src="\assets\img\features\276.jpg" alt="handwashers" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/233">
-                            <img src="\assets\img\features\233.jpg" alt="bleach" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/237">
-                            <img src="\assets\img\features\237.jpg" alt="dishcleaners" class="img-fluid border w-100">
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
-                        <a routerLink="/category/258">
-                            <img src="\assets\img\features\258.jpg" alt="mps" class="img-fluid border w-100">
-                        </a>
-                    </div>
-
-
-
+            <div class="row mb-3">
+                <div class="col-lg-3 col-md-3 d-none d-md-block">
+                    <app-slidebar></app-slidebar>
                 </div>
-            </div>
 
-        </div>
-        <div class="row mb-3 mx-0">
-            <div class="w-100">
-                <h2 class="background"><span>Buying Guide</span></h2>
-            </div>
-        </div>
-        <div class="row mb-3 mx-n1">
-            <div class="col-lg-9 px-2">
-                <div class="aspect-ratio-container HB-A">
-                    <div class="frame">
-                        <img id="Home-Banner-A" src="\assets\img\One-stop-solution-2200x600px.jpg" class=" img-fluid">
+                <div class="col-lg-9 col-md-9 col-12">
+                    <h5 class="custom-heading">Featured Products</h5>
+                    <div class="row mx-lg-n2">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/1003">
+                                <img src="\assets\img\features\1003.jpg" alt="paper" class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/21">
+                                <img src="\assets\img\features\21.jpg" alt="envelopes" class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/130">
+                                <img src="\assets\img\features\130.jpg" alt="pens" class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/23">
+                                <img src="\assets\img\features\23.jpg" alt="files" class="img-fluid border w-100">
+                            </a>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/167">
+                                <img src="\assets\img\features\167.jpg" alt="staplers" class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/168">
+                                <img src="\assets\img\features\168.jpg" alt="punches" class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/143">
+                                <img src="\assets\img\features\143.jpg" alt="calculators"
+                                    class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/92">
+                                <img src="\assets\img\features\92.jpg" alt="ringfiles" class="img-fluid border w-100">
+                            </a>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/146">
+                                <img src="\assets\img\features\146.jpg" alt="papertrimmer"
+                                    class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/114">
+                                <img src="\assets\img\features\114.jpg" alt="shredders" class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/48">
+                                <img src="\assets\img\features\48.jpg" alt="laminators" class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/46">
+                                <img src="\assets\img\features\46.jpg" alt="bindingmachine"
+                                    class="img-fluid border w-100">
+                            </a>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/57">
+                                <img src="\assets\img\features\57.jpg" alt="flipcharts" class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/83">
+                                <img src="\assets\img\features\83.jpg" alt="displaybooks"
+                                    class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/308">
+                                <img src="\assets\img\features\308.jpg" alt="notebooks" class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/99">
+                                <img src="\assets\img\features\99.jpg" alt="index" class="img-fluid border w-100">
+                            </a>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/180">
+                                <img src="\assets\img\features\180.jpg" alt="tape" class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/139">
+                                <img src="\assets\img\features\139.jpg" alt="rulers" class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/186">
+                                <img src="\assets\img\features\186.jpg" alt="trays" class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/279">
+                                <img src="\assets\img\features\279.jpg" alt="bins" class="img-fluid border w-100">
+                            </a>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/198">
+                                <img src="\assets\img\features\198.jpg" alt="coffee" class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/200">
+                                <img src="\assets\img\features\200.jpg" alt="sugar" class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/204">
+                                <img src="\assets\img\features\204.jpg" alt="biscuits" class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/268">
+                                <img src="\assets\img\features\268.jpg" alt="facial" class="img-fluid border w-100">
+                            </a>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/276">
+                                <img src="\assets\img\features\276.jpg" alt="handwashers"
+                                    class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/233">
+                                <img src="\assets\img\features\233.jpg" alt="bleach" class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/237">
+                                <img src="\assets\img\features\237.jpg" alt="dishcleaners"
+                                    class="img-fluid border w-100">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
+                            <a routerLink="/category/258">
+                                <img src="\assets\img\features\258.jpg" alt="mps" class="img-fluid border w-100">
+                            </a>
+                        </div>
+
+
+
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 px-2">
-                <div class="aspect-ratio-container HB-B">
-                    <div class="frame">
-                        <img id="Home-Banner-B" src="\assets\img\DELOFFICE-730X609PX.jpg" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mb-3 mx-n1">
-            <div class="col-lg-4 px-2 h-100">
-                <img id="Home-Banner-C" src="\assets\img\printnpack 1000 x 300 px.jpg" class="img-fluid">
 
             </div>
-            <div class="col-lg-4 px-2">
-                <div class="aspect-ratio-container HB-C3">
-                    <div class="frame">
-                        <img id="Home-Banner-D" src="\assets\img\printnpack 1000 x 300 px.jpg" class="img-fluid">
+            <div class="row mb-3 mx-0">
+
+                <div class="w-100">
+                    <h2 class="background"><span>Buying Guide</span></h2>
+                </div>
+            </div>
+            <div class="row mb-3 mx-n1">
+                <div class="col-lg-9 px-2">
+                    <div class="aspect-ratio-container HB-A">
+                        <div class="frame">
+                            <img id="Home-Banner-A" src="\assets\img\One-stop-solution-2200x600px.jpg"
+                                class=" img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 px-2">
+                    <div class="aspect-ratio-container HB-B">
+                        <div class="frame">
+                            <img id="Home-Banner-B" src="\assets\img\DELOFFICE-730X609PX.jpg" class="img-fluid">
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 px-2">
-                <div class="aspect-ratio-container HB-C3">
-                    <div class="frame">
-                        <img id="Home-Banner-E" src="\assets\img\printnpack 1000 x 300 px.jpg" class="img-fluid">
+            <div class="row mb-3 mx-n1">
+                <div class="col-lg-4 px-2 h-100">
+                    <img id="Home-Banner-C" src="\assets\img\printnpack 1000 x 300 px.jpg" class="img-fluid">
+
+                </div>
+                <div class="col-lg-4 px-2">
+                    <div class="aspect-ratio-container HB-C3">
+                        <div class="frame">
+                            <img id="Home-Banner-D" src="\assets\img\printnpack 1000 x 300 px.jpg" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 px-2">
+                    <div class="aspect-ratio-container HB-C3">
+                        <div class="frame">
+                            <img id="Home-Banner-E" src="\assets\img\printnpack 1000 x 300 px.jpg" class="img-fluid">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row mb-3 mx-n1">
-            <div class="col-lg-6 px-2">
-                <div class="aspect-ratio-container HB-C3">
-                    <div class="frame">
-                        <img id="Home-Banner-F" src="\assets\img\1500 x 450 px.jpg" class="img-fluid">
+            <div class="row mb-3 mx-n1">
+                <div class="col-lg-6 px-2">
+                    <div class="aspect-ratio-container HB-C3">
+                        <div class="frame">
+                            <img id="Home-Banner-F" src="\assets\img\1500 x 450 px.jpg" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 px-2">
+                    <img id="Home-Banner-G" src="\assets\img\1500 x 450 px.jpg" class="img-fluid">
+                </div>
+            </div>
+            <div class="row mb-3 mx-0">
+                <div class="w-100">
+                    <h2 class="background"><span>WE STOCK ALL LEADING STATIONERY BRANDS</span></h2>
+                </div>
+            </div>
+            <div class="row mb-3 mx-0">
+                <div class="w-100 text-justify">
+                    <p>Fruebatur ha ut cupientem ingeniosi re inscitiae ac formantur. Ex re quomodo punctum ignotae
+                        quisnam
+                        de ii. Quem at quod
+                        du quam suam modo de solo. Societati at de ea persuasus dubitarem. Invenit majorem quiddam ad et
+                        at
+                        ac. Dissimilem ne ei
+                        ad utilitatis perfectius re durationis affirmabam. Assumere iii cap loquebar physicae.
+                    </p>
+                    <p>
+                        Atra ob sola quam spem ergo ii co ei. His perfecti mentibus rei habentem originem cui. Suo
+                        defectibus potentiale
+                        scripturis hoc vul appellatur. Inveniant accepisse videbatur dem pro opinionis. Contrarium
+                        exhibentur affectibus hac imo
+                        seu. Punctum infusum hic ubi rei membris scripti. Ope nam veat nul aër dura plus.
+                    </p>
+                </div>
+            </div>
+            <div class="row mb-3 mx-n1">
+                <div class="col-lg-6 px-2">
+                    <div class="aspect-ratio-container A1-5">
+                        <div class="frame">
+                            <img id="Home-Banner-H" src="https://via.placeholder.com/1500x300.png" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 px-2">
+                    <div class="aspect-ratio-container A1-5">
+                        <div class="frame">
+                            <img id="Home-Banner-I" src="https://via.placeholder.com/1500x300.png" class="img-fluid">
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 px-2">
-                <img id="Home-Banner-G" src="\assets\img\1500 x 450 px.jpg" class="img-fluid">
-            </div>
-        </div>
-        <div class="row mb-3 mx-0">
-            <div class="w-100">
-                <h2 class="background"><span>WE STOCK ALL LEADING STATIONERY BRANDS</span></h2>
-            </div>
-        </div>
-        <div class="row mb-3 mx-0">
-            <div class="w-100 text-justify">
-                <p>Fruebatur ha ut cupientem ingeniosi re inscitiae ac formantur. Ex re quomodo punctum ignotae quisnam
-                    de ii. Quem at quod
-                    du quam suam modo de solo. Societati at de ea persuasus dubitarem. Invenit majorem quiddam ad et at
-                    ac. Dissimilem ne ei
-                    ad utilitatis perfectius re durationis affirmabam. Assumere iii cap loquebar physicae.
-                </p>
-                <p>
-                    Atra ob sola quam spem ergo ii co ei. His perfecti mentibus rei habentem originem cui. Suo
-                    defectibus potentiale
-                    scripturis hoc vul appellatur. Inveniant accepisse videbatur dem pro opinionis. Contrarium
-                    exhibentur affectibus hac imo
-                    seu. Punctum infusum hic ubi rei membris scripti. Ope nam veat nul aër dura plus.
-                </p>
-            </div>
-        </div>
-        <div class="row mb-3 mx-n1">
-            <div class="col-lg-6 px-2">
-                <div class="aspect-ratio-container A1-5">
-                    <div class="frame">
-                        <img id="Home-Banner-H" src="https://via.placeholder.com/1500x300.png" class="img-fluid">
+            <div class="row mb-3 mx-n1">
+                <div class="col-lg-4 px-2">
+                    <div class="aspect-ratio-container A9-20">
+                        <div class="frame">
+                            <img id="Home-Banner-J" src="https://via.placeholder.com/1000x450.png" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 px-2">
+                    <div class="aspect-ratio-container A9-20">
+                        <div class="frame">
+                            <img id="Home-Banner-K" src="https://via.placeholder.com/1000x450.png" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 px-2">
+                    <div class="aspect-ratio-container A9-20">
+                        <div class="frame">
+                            <img id="Home-Banner-L" src="https://via.placeholder.com/1000x450.png" class="img-fluid">
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 px-2">
-                <div class="aspect-ratio-container A1-5">
-                    <div class="frame">
-                        <img id="Home-Banner-I" src="https://via.placeholder.com/1500x300.png" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mb-3 mx-n1">
-            <div class="col-lg-4 px-2">
-                <div class="aspect-ratio-container A9-20">
-                    <div class="frame">
-                        <img id="Home-Banner-J" src="https://via.placeholder.com/1000x450.png" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 px-2">
-                <div class="aspect-ratio-container A9-20">
-                    <div class="frame">
-                        <img id="Home-Banner-K" src="https://via.placeholder.com/1000x450.png" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 px-2">
-                <div class="aspect-ratio-container A9-20">
-                    <div class="frame">
-                        <img id="Home-Banner-L" src="https://via.placeholder.com/1000x450.png" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-</div>
+        </main>
+    </div>
+</ng-container>

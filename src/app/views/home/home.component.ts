@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.category$ = this._cat.getTree();
+    this.home1$ = this.getAdvertsByPage('slidebar');
   }
 
   getAdvertsByPage(id: string) {
