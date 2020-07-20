@@ -17,7 +17,7 @@ import { AlertModule } from './core/modules/alert/alert.module';
   ],
 
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

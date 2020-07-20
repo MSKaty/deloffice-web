@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { filter, map, mergeMap, tap, delay } from 'rxjs/operators';
+import { Router, ActivatedRoute, NavigationEnd, Data } from '@angular/router';
+import { filter, map, mergeMap, tap, delay, switchMap } from 'rxjs/operators';
 import { TitleService } from './common/services/title.service';
 import { Observable } from 'rxjs';
 import { LoadingService } from './common/services/loading.service';
@@ -59,6 +59,26 @@ export class AppComponent implements OnInit {
         }
       })
 
+    )
+  }
+
+  public getMetadata(): Observable<any> {
+    return this._router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+      map(() => this._route),
+      map((route) => {
+        while (route.firstChild) {
+          route = route.firstChild;
+        }
+        return route;
+      }),
+      filter(route => route.outlet === 'primary'),
+      mergeMap(route => route.data),
+      switchMap((event: Data) => {
+        if (event && event.state) {
+          return this._seo.ssrFirestoreDoc(event.state)
+        }
+      })
     )
   }
 }
