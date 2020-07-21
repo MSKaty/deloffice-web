@@ -100,50 +100,52 @@
                 </div>
 
             </div>
-            <div class="row mb-3 mx-n1">
-                <div class="col-lg-6 px-2">
-                    <div class="aspect-ratio-container A2-5">
-                        <div class="frame">
-                            <img id="Category-Banner-A" src="https://via.placeholder.com/1500x600.png"
-                                class="img-fluid">
+            <ng-container *ngIf="prodlistAdvert$ | async as advertProd">
+                <div class="row mb-3 mx-n1">
+                    <div class="col-lg-6 px-2">
+                        <div class="aspect-ratio-container A2-5">
+                            <div class="frame">
+                                <img id="Category-Banner-A" src="https://via.placeholder.com/1500x600.png"
+                                    class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 px-2">
+                        <div class="aspect-ratio-container A2-5">
+                            <div class="frame">
+                                <img id="Category-Banner-B" src="https://via.placeholder.com/1500x600.png"
+                                    class="img-fluid">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 px-2">
-                    <div class="aspect-ratio-container A2-5">
-                        <div class="frame">
-                            <img id="Category-Banner-B" src="https://via.placeholder.com/1500x600.png"
-                                class="img-fluid">
+                <div class="row mb-3 mx-n1">
+                    <div class="col-lg-4 px-2">
+                        <div class="aspect-ratio-container HB-C3">
+                            <div class="frame">
+                                <img id="Category-Banner-C" src="https://via.placeholder.com/1000x300.png"
+                                    class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 px-2">
+                        <div class="aspect-ratio-container HB-C3">
+                            <div class="frame">
+                                <img id="Category-Banner-D" src="https://via.placeholder.com/1000x300.png"
+                                    class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 px-2">
+                        <div class="aspect-ratio-container HB-C3">
+                            <div class="frame">
+                                <img id="Category-Banner-E" src="https://via.placeholder.com/1000x300.png"
+                                    class="img-fluid">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row mb-3 mx-n1">
-                <div class="col-lg-4 px-2">
-                    <div class="aspect-ratio-container HB-C3">
-                        <div class="frame">
-                            <img id="Category-Banner-C" src="https://via.placeholder.com/1000x300.png"
-                                class="img-fluid">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 px-2">
-                    <div class="aspect-ratio-container HB-C3">
-                        <div class="frame">
-                            <img id="Category-Banner-D" src="https://via.placeholder.com/1000x300.png"
-                                class="img-fluid">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 px-2">
-                    <div class="aspect-ratio-container HB-C3">
-                        <div class="frame">
-                            <img id="Category-Banner-E" src="https://via.placeholder.com/1000x300.png"
-                                class="img-fluid">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </ng-container>
         </main>
     </div>
 </ng-container>

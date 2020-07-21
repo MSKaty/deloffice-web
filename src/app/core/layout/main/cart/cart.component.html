@@ -1,4 +1,4 @@
-<ng-container>
+<ng-container *ngIf="cartad$ | async as cartAd;">
     <div id="wrapper" class="container-fluid">
         <main id="content" class="row d-flex flex-column flex-nowrap">
             <div class="container-fluid">
@@ -121,7 +121,8 @@
                         <div class="col-lg-6 col-md-6 pr-2">
                             <div class="aspect-ratio-container HB-C3">
                                 <div class="frame">
-                                    <img id="Cart-Banner-A" src="https://via.placeholder.com/1000x300.png"
+                                    <img id="Cart-Banner-A"
+                                        src="https://api.deloffice.mu/images/product/{{cartAd.CartBannerA}}"
                                         class="img-fluid">
                                 </div>
                             </div>
@@ -130,7 +131,8 @@
                         <div class="col-lg-6 col-md-6 pl-2">
                             <div class="aspect-ratio-container HB-C3">
                                 <div class="frame">
-                                    <img id="Cart-Banner-B" src="https://via.placeholder.com/1000x300.png"
+                                    <img id="Cart-Banner-B"
+                                        src="https://api.deloffice.mu/images/product/{{cartAd.CartBannerB}}"
                                         class="img-fluid">
                                 </div>
                             </div>
@@ -138,7 +140,8 @@
                     </div>
                     <div class="row mb-3 mx-n4">
                         <div class="col-12 ">
-                            <img id="Cart-Banner-C" src="https://via.placeholder.com/1600x300.png" class="img-fluid">
+                            <img id="Cart-Banner-C" src="https://api.deloffice.mu/images/product/{{cartAd.CartBannerC}}"
+                                class="img-fluid">
                         </div>
                     </div>
                 </div>

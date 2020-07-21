@@ -8,6 +8,7 @@ import { OrderService } from 'src/app/common/services/order.service';
 import { Observable } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 import { AlertService } from 'src/app/common/services/alert.service';
+import { AdvertService } from 'src/app/common/services/advert.service';
 
 @Component({
   selector: 'app-search-results',
@@ -24,6 +25,7 @@ export class SearchResultsComponent implements OnInit {
   searchQuery = null;
 
   result$: Observable<any>;
+  searchAd$: Observable<any>;
 
   constructor(
     private _route: ActivatedRoute,
@@ -31,11 +33,13 @@ export class SearchResultsComponent implements OnInit {
     private _cat: CategoryService,
     private _title: TitleService,
     private _order: OrderService,
-    private _alert: AlertService
+    private _alert: AlertService,
+    private _ads: AdvertService
   ) { }
 
   ngOnInit() {
     this.result$ = this.get();
+    this.searchAd$ = this.getAdvertsByPage('home');
   }
 
   get() {
@@ -52,6 +56,11 @@ export class SearchResultsComponent implements OnInit {
       })
     )
   }
+
+  getAdvertsByPage(id: string) {
+    return this._ads.getAdvertsByPage(id).valueChanges();
+  }
+
   pagecount(result) {
     return Math.ceil(result.count / 20)
   }

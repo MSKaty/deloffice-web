@@ -8,11 +8,14 @@ import { Observable, combineLatest, BehaviorSubject } from 'rxjs';
 import { OrderService } from 'src/app/common/services/order.service';
 import { switchMap, tap, map } from 'rxjs/operators';
 import { AlertService } from 'src/app/common/services/alert.service';
+import { AdvertService } from 'src/app/common/services/advert.service';
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
+
 export class ProductListComponent implements OnInit {
   private _prodList$ = new BehaviorSubject<any[]>([]);
   public prodList$: Observable<any[]> = this._prodList$.asObservable();
@@ -21,6 +24,7 @@ export class ProductListComponent implements OnInit {
 
   currentPage = 1;
   category$: Observable<any>;
+  prodlistAdvert$: Observable<any>;
 
   constructor(
     private _route: ActivatedRoute,
@@ -28,10 +32,13 @@ export class ProductListComponent implements OnInit {
     private _cat: CategoryService,
     private _title: TitleService,
     private _order: OrderService,
-    private _alert: AlertService
+    private _alert: AlertService,
+    private _ads: AdvertService
   ) { }
 
   ngOnInit() {
+    this.prodlistAdvert$ = this.getAdvertsByPage('home');
+
     this.category$ = this.get().pipe(
       map(([category, productdata]) => {
         this._title.changeTitle(category.description);
@@ -43,6 +50,11 @@ export class ProductListComponent implements OnInit {
       // tap((category) => { this._title.changeTitle(category.des1) })
     )
   }
+
+  getAdvertsByPage(id: string) {
+    return this._ads.getAdvertsByPage(id).valueChanges();
+  }
+
   get() {
     return combineLatest(
       this._route.params,
@@ -61,6 +73,7 @@ export class ProductListComponent implements OnInit {
       })
     )
   }
+
   public addToCart(item, qty) {
     const postData = {
       cusid: this.userdata.uid,
@@ -132,7 +145,7 @@ export class ProductListComponent implements OnInit {
     if (array.includes(num)) {
       return true;
     }
-
     return false;
   }
+
 }

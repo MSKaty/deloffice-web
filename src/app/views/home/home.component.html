@@ -1,4 +1,4 @@
-<ng-container *ngIf="home1$ | async as sliderbar;">
+<ng-container *ngIf="home1$ | async as homeadvert;">
     <div id="wrapper" class="container-fluid">
         <main id="content" class="row d-flex flex-column flex-nowrap">
             <div class="aspect-ratio-container A653-234 mb-3">
@@ -106,7 +106,9 @@
                     <div class="" style="width: 100%; position: relative; overflow: hidden; padding-top: 12%;">
                         <div class="d-flex align-items-center"
                             style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
-                            <img id="Full-Width-Banner" src="\assets\img\products.jpg" alt="" class="img-fluid w-100 ">
+                            <img id="Full-Width-Banner"
+                                src="https://api.deloffice.mu/images/product/{{homeadvert.FullWidthBanner}}" alt=""
+                                class="img-fluid w-100 ">
                         </div>
                     </div>
                 </div>

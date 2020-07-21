@@ -3,6 +3,7 @@ import { Validators, FormBuilder, FormGroup, FormControl, FormArray } from '@ang
 import { BehaviorSubject, Observable } from 'rxjs';
 import { OrderService } from 'src/app/common/services/order.service';
 import { tap } from 'rxjs/operators';
+import { AdvertService } from 'src/app/common/services/advert.service';
 
 @Component({
   selector: 'app-cart',
@@ -12,6 +13,7 @@ import { tap } from 'rxjs/operators';
 
 export class CartComponent implements OnInit {
   private _prodList$ = new BehaviorSubject<any[]>([]);
+  cartad$: Observable<any>;
   public prodList$: Observable<any[]> = this._prodList$.asObservable();
 
   public userdata: any = JSON.parse(window.localStorage.getItem('user'));
@@ -19,10 +21,12 @@ export class CartComponent implements OnInit {
   public cartList$;
 
   constructor(
-    private _order: OrderService
+    private _order: OrderService,
+    private _ads: AdvertService
   ) { }
 
   ngOnInit() {
+    this.cartad$ = this.getAdvertsByPage('cart');
     this.cartList$ = this._order.getCartContents().pipe(
       tap((items: any) => {
         this._prodList$.next(items);
@@ -30,8 +34,11 @@ export class CartComponent implements OnInit {
     );
   }
 
-  // Utils functions
+  getAdvertsByPage(id: string) {
+    return this._ads.getAdvertsByPage(id).valueChanges();
+  }
 
+  // Utils functions
   public updateQtyInCart(event, index) {
     let tempArray = this._prodList$.value;
     tempArray[index].quantity = event.target.value;

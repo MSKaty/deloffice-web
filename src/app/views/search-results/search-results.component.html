@@ -5,8 +5,11 @@
                 <section class="col-12">
                     <div class="aspect-ratio-container catBanner-R">
                         <div class="frame">
-                            <img id="Search Banner" src="https://via.placeholder.com/1600x250.png" alt=""
-                                class="img-fluid w-100">
+                            <ng-container *ngIf="searchAd$ | async as searchAd">
+                                <img id="Search Banner"
+                                    src="https://api.deloffice.mu/images/product/{{searchAd.searchBanner}}" alt=""
+                                    class="img-fluid w-100">
+                            </ng-container>
                         </div>
                     </div>
                 </section>
