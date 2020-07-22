@@ -9,6 +9,7 @@
                             [attr.aria-controls]="'category1' + i">
                             {{cat.description}}
                             <i *ngIf="cat.subcategories.length > 0" class="fas fa-plus"></i>
+                            <i *ngIf="cat.subcategories.length > 0" class="fas fa-minus"></i>
                         </span>
                         <ul *ngIf="cat.subcategories.length > 0" class="collapse" id="category1{{i}}">
                             <li *ngFor="let subcat of cat.subcategories; index as j;">
@@ -17,6 +18,7 @@
                                         aria-expanded="false" [attr.aria-controls]="'category2' + j">
                                         {{subcat.description}}
                                         <i *ngIf="subcat.subcategories.length > 0" class="fas fa-plus"></i>
+                                        <i *ngIf="subcat.subcategories.length > 0" class="fas fa-minus"></i>
                                     </a>
                                     <ul *ngIf="subcat.subcategories.length > 0" class="collapse" id="category2{{j}}">
                                         <li *ngFor="let subcat2 of subcat.subcategories; index as k;">
@@ -25,6 +27,7 @@
                                                     aria-expanded="false" [attr.aria-controls]="'category3' + k">
                                                     {{subcat2.description}}
                                                     <i class="fas fa-plus"></i>
+                                                    <i class="fas fa-minus"></i>
                                                 </a>
                                                 <ul *ngIf="subcat2.subcategories.length > 0" class="collapse"
                                                     id="category3{{k}}">
