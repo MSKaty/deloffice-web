@@ -39,7 +39,7 @@ export class SearchResultsComponent implements OnInit {
 
   ngOnInit() {
     this.result$ = this.get();
-    this.searchAd$ = this.getAdvertsByPage('home');
+    this.searchAd$ = this.getAdvertsByPage('search');
   }
 
   get() {
@@ -58,7 +58,13 @@ export class SearchResultsComponent implements OnInit {
   }
 
   getAdvertsByPage(id: string) {
-    return this._ads.getAdvertsByPage(id).valueChanges();
+    return this._ads.getAdvertsByPage(id).valueChanges()
+      .pipe(
+        map((array) => {
+          return array[0];
+        })
+      )
+      ;
   }
 
   pagecount(result) {

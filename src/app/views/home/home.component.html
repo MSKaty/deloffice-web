@@ -8,23 +8,18 @@
 
                             <div id="sliderElement" class="carousel slide h-100" data-ride="carousel">
                                 <ol class="carousel-indicators">
-                                    <li data-target="#sliderElement" data-slide-to="0" class="active"></li>
-                                    <li data-target="#sliderElement" data-slide-to="1"></li>
-                                    <li data-target="#sliderElement" data-slide-to="2"></li>
+                                    <ng-container *ngFor="let carouselH of homeadvert['homeCarousel']; index as i;">
+                                        <li data-target="#sliderElement" [attr.data-slide-to]="i"
+                                            [class.active]="i === 0"></li>
+                                    </ng-container>
                                 </ol>
                                 <div class="carousel-inner h-100">
-                                    <div class="carousel-item  h-100  active">
-                                        <img src="https://via.placeholder.com/1500x717.png"
-                                            class="d-block w-100 h-100 img-fluid" alt="...">
-                                    </div>
-                                    <div class="carousel-item  h-100 ">
-                                        <img src="https://via.placeholder.com/1500x717.png"
-                                            class="d-block w-100 h-100 img-fluid" alt="...">
-                                    </div>
-                                    <div class="carousel-item  h-100 ">
-                                        <img src="https://via.placeholder.com/1500x717.png"
-                                            class="d-block w-100 h-100 img-fluid" alt="...">
-                                    </div>
+                                    <ng-container *ngFor="let carouselH of homeadvert['homeCarousel']; index as i;">
+                                        <div class="carousel-item  h-100" [class.active]="i === 0">
+                                            <img src="https://api.deloffice.mu/images/product/{{carouselH}}"
+                                                class="d-block w-100 h-100 img-fluid" alt="...">
+                                        </div>
+                                    </ng-container>
                                 </div>
                                 <a class="carousel-control-prev" href="#sliderElement" role="button" data-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -290,7 +285,8 @@
                 <div class="col-lg-9 px-2">
                     <div class="aspect-ratio-container HB-A">
                         <div class="frame">
-                            <img id="Home-Banner-A" src="\assets\img\One-stop-solution-2200x600px.jpg"
+                            <img id="Home-Banner-A"
+                                src="https://api.deloffice.mu/images/product/{{homeadvert.HomeBannerA}}"
                                 class=" img-fluid">
                         </div>
                     </div>
@@ -298,14 +294,17 @@
                 <div class="col-lg-3 px-2">
                     <div class="aspect-ratio-container HB-B">
                         <div class="frame">
-                            <img id="Home-Banner-B" src="\assets\img\DELOFFICE-730X609PX.jpg" class="img-fluid">
+                            <img id="Home-Banner-B"
+                                src="https://api.deloffice.mu/images/product/{{homeadvert.HomeBannerB}}"
+                                class="img-fluid">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row mb-3 mx-n1">
                 <div class="col-lg-4 px-2 h-100">
-                    <img id="Home-Banner-C" src="\assets\img\printnpack 1000 x 300 px.jpg" class="img-fluid">
+                    <img id="Home-Banner-C" src="https://api.deloffice.mu/images/product/{{homeadvert.HomeBannerC}}"
+                        class="img-fluid">
 
                 </div>
                 <div class="col-lg-4 px-2">
@@ -332,7 +331,8 @@
                     </div>
                 </div>
                 <div class="col-lg-6 px-2">
-                    <img id="Home-Banner-G" src="\assets\img\1500 x 450 px.jpg" class="img-fluid">
+                    <img id="Home-Banner-G" src="https://api.deloffice.mu/images/product/{{homeadvert.HomeBannerG}}"
+                        class="img-fluid">
                 </div>
             </div>
             <div class="row mb-3 mx-0">
@@ -363,7 +363,9 @@
                 <div class="col-lg-6 px-2">
                     <div class="aspect-ratio-container A1-5">
                         <div class="frame">
-                            <img id="Home-Banner-H" src="https://via.placeholder.com/1500x300.png" class="img-fluid">
+                            <img id="Home-Banner-H"
+                                src="https://api.deloffice.mu/images/product/{{homeadvert.HomeBannerH}}"
+                                class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -386,7 +388,9 @@
                 <div class="col-lg-4 px-2">
                     <div class="aspect-ratio-container A9-20">
                         <div class="frame">
-                            <img id="Home-Banner-K" src="https://via.placeholder.com/1000x450.png" class="img-fluid">
+                            <img id="Home-Banner-K"
+                                src="https://api.deloffice.mu/images/product/{{homeadvert.HomeBannerK}}"
+                                class="img-fluid">
                         </div>
                     </div>
                 </div>

@@ -37,7 +37,7 @@ export class ProductListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.prodlistAdvert$ = this.getAdvertsByPage('home');
+    this.prodlistAdvert$ = this.getAdvertsByPage('paper');
 
     this.category$ = this.get().pipe(
       map(([category, productdata]) => {

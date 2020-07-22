@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../common/services/category.service';
 import { Observable } from 'rxjs';
 import { AdvertService } from 'src/app/common/services/advert.service';
+import { tap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,13 @@ export class HomeComponent implements OnInit {
   }
 
   getAdvertsByPage(id: string) {
-    return this._ads.getAdvertsByPage(id).valueChanges();
+    return this._ads.getAdvertsByPage(id).valueChanges()
+      .pipe(
+        map((array) => {
+          return array[0];
+        })
+      );
+    ;
   }
 
 }
