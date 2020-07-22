@@ -137,6 +137,9 @@ nav.card {
             &:not(:nth-of-type(4n)) {
                 border-right: 1px solid rgba(black, 0.3);
             }
+            &:last-child {
+                border-right: 0px;
+            }
         }
 
         .card {
