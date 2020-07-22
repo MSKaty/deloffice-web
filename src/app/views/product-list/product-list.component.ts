@@ -9,6 +9,7 @@ import { OrderService } from 'src/app/common/services/order.service';
 import { switchMap, tap, map } from 'rxjs/operators';
 import { AlertService } from 'src/app/common/services/alert.service';
 import { AdvertService } from 'src/app/common/services/advert.service';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-product-list',
@@ -25,6 +26,7 @@ export class ProductListComponent implements OnInit {
   currentPage = 1;
   category$: Observable<any>;
   prodlistAdvert$: Observable<any>;
+  advertcat: Observable<string>;
 
   constructor(
     private _route: ActivatedRoute,
@@ -37,8 +39,6 @@ export class ProductListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.prodlistAdvert$ = this.getAdvertsByPage('paper');
-
     this.category$ = this.get().pipe(
       map(([category, productdata]) => {
         this._title.changeTitle(category.description);
@@ -49,10 +49,20 @@ export class ProductListComponent implements OnInit {
       })
       // tap((category) => { this._title.changeTitle(category.des1) })
     )
+
+    // this.advertcat = this.category$.pipe(
+    //   map(cat => { return this.category$.catgory.id })
+    // );
+    // this.prodlistAdvert$ = this.getAdvertsByPage(this.advertcat);
   }
 
   getAdvertsByPage(id: string) {
-    return this._ads.getAdvertsByPage(id).valueChanges();
+    return this._ads.getAdvertsByPage(id).valueChanges()
+      .pipe(
+        map((array) => {
+          return array[0];
+        })
+      );
   }
 
   get() {
