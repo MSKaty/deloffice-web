@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../../../common/services/category.service';
 import { Observable } from 'rxjs';
 import { AdvertService } from 'src/app/common/services/advert.service';
+import { tap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-slidebar',
@@ -20,10 +21,21 @@ export class SlidebarComponent implements OnInit {
   ngOnInit() {
     this.category$ = this._cat.getTree();
     this.slidebar$ = this.getAdvertsByPage('slidebar');
+
+
+    // this.slidebar$.pipe(tap(console.log));
+
+    const newLocal = this.slidebar$.pipe(tap(console.log));
+    newLocal.subscribe(res => console.log(res));
   }
 
   getAdvertsByPage(id: string) {
-    return this._ads.getAdvertsByPage(id).valueChanges();
+    return this._ads.getAdvertsByPage(id).valueChanges()
+      .pipe(
+        map((array) => {
+          return array[0];
+        })
+      );
   }
 
 }
