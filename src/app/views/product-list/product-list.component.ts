@@ -53,7 +53,7 @@ export class ProductListComponent implements OnInit {
     // this.advertcat = this.category$.pipe(
     //   map(cat => { return this.category$.catgory.id })
     // );
-    this.prodlistAdvert$ = this.getAdvertsByPage(this.advertcat);
+    this.prodlistAdvert$ = this.getAdvertsByPage('paper');
   }
 
   getAdvertsByPage(id: string) {
