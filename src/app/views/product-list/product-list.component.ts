@@ -18,6 +18,7 @@ import { stringify } from 'querystring';
 })
 
 export class ProductListComponent implements OnInit {
+  private _categoryId: any;
   private _prodList$ = new BehaviorSubject<any[]>([]);
   public prodList$: Observable<any[]> = this._prodList$.asObservable();
 
@@ -45,19 +46,16 @@ export class ProductListComponent implements OnInit {
         return { category, productdata: productdata[0] };
       }),
       tap((data) => {
+        this._categoryId = data.category.id;
         console.log(data);
       })
       // tap((category) => { this._title.changeTitle(category.des1) })
     )
-
-    // this.advertcat = this.category$.pipe(
-    //   map(cat => { return this.category$.catgory.id })
-    // );
-    this.prodlistAdvert$ = this.getAdvertsByPage('paper');
+    this.prodlistAdvert$ = this.getAdvertsByCategoryId(this._categoryId);
   }
 
-  getAdvertsByPage(id: string) {
-    return this._ads.getAdvertsByPage(id).valueChanges()
+  getAdvertsByCategoryId(id: number) {
+    return this._ads.getAdvertsByCategoryId(id).valueChanges()
       .pipe(
         map((array) => {
           return array[0];

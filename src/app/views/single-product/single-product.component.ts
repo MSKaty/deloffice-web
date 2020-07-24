@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../common/services/product.service';
 import { CategoryService } from '../../common/services/category.service';
 import { TitleService } from '../../common/services/title.service';
 
-import { Observable, combineLatest, of} from 'rxjs';
+import { Observable, combineLatest, of } from 'rxjs';
 import { switchMap, tap, map } from 'rxjs/operators';
 import { OrderService } from '../../common/services/order.service';
 import { AlertService } from 'src/app/common/services/alert.service';
+import { Lightbox } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-single-product',
@@ -15,6 +16,7 @@ import { AlertService } from 'src/app/common/services/alert.service';
   styleUrls: ['./single-product.component.scss']
 })
 export class SingleProductComponent implements OnInit {
+  private _album: any[] = [];
   product$: Observable<any>;
   category$: Observable<any>;
   public userdata: any = JSON.parse(window.localStorage.getItem('user'));
@@ -28,8 +30,33 @@ export class SingleProductComponent implements OnInit {
     private _cat: CategoryService,
     private _title: TitleService,
     private _order: OrderService,
-    private _alert: AlertService
-  ) { }
+    private _alert: AlertService,
+    private _lightbox: Lightbox
+  ) {
+    for (let i = 1; i <= 4; i++) {
+      const src = 'demo/img/image' + i + '.jpg';
+      const caption = 'Image ' + i + ' caption here';
+      const thumb = 'demo/img/image' + i + '-thumb.jpg';
+      const album = {
+        src: src,
+        caption: caption,
+        thumb: thumb
+      };
+
+      this._album.push(album);
+    }
+  }
+
+  //lightbox functions
+  open(index: number): void {
+    // open lightbox
+    this._lightbox.open(this._album, index);
+  }
+
+  close(): void {
+    // close lightbox programmatically
+    this._lightbox.close();
+  }
 
   ngOnInit() {
     this.product$ = this.get().pipe(
@@ -78,26 +105,26 @@ export class SingleProductComponent implements OnInit {
     };
     // console.log(postData)
 
-    if (this.userdata != null)
-    {
+    if (this.userdata != null) {
       this._order.addToCart(postData)
-      .subscribe(
-        (data) => {
-          console.log(data)
-          this._alert.success('Product Added To Cart!');
-        },
-        (err) => {
-          console.log(err)
-          this._alert.error('Product NOT Added To Cart!');
-        },
-        () => {
-          console.log('done');
-        }
-      )}
+        .subscribe(
+          (data) => {
+            console.log(data)
+            this._alert.success('Product Added To Cart!');
+          },
+          (err) => {
+            console.log(err)
+            this._alert.error('Product NOT Added To Cart!');
+          },
+          () => {
+            console.log('done');
+          }
+        )
+    }
 
-      else{
-      return ;
-      }
+    else {
+      return;
+    }
   }
 
   public addToWishlist(item, qty) {

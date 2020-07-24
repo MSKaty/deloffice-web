@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SlidebarComponent } from './slidebar/slidebar.component';
 import { HomeComponent } from '../../../views/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LightboxModule } from 'ngx-lightbox';
 
 import { SearchResultsComponent } from '../../../views/search-results/search-results.component';
 import { SingleProductComponent } from 'src/app/views/single-product/single-product.component';
@@ -194,7 +195,8 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forChild(routes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LightboxModule
   ]
 })
 export class MainModule { }

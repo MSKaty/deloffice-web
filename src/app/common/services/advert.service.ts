@@ -14,4 +14,10 @@ export class AdvertService {
             return ref.where('page', '==', page);
         })
     }
+
+    getAdvertsByCategoryId(id: number) {
+        return this._afs.collection('adverts', ref => {
+            return ref.where('categoryId', '==', id);
+        })
+    }
 }
