@@ -32,20 +32,7 @@ export class SingleProductComponent implements OnInit {
     private _order: OrderService,
     private _alert: AlertService,
     private _lightbox: Lightbox
-  ) {
-    for (let i = 1; i <= 4; i++) {
-      const src = 'demo/img/image' + i + '.jpg';
-      const caption = 'Image ' + i + ' caption here';
-      const thumb = 'demo/img/image' + i + '-thumb.jpg';
-      const album = {
-        src: src,
-        caption: caption,
-        thumb: thumb
-      };
-
-      this._album.push(album);
-    }
-  }
+  ) { }
 
   //lightbox functions
   open(index: number): void {
@@ -62,6 +49,13 @@ export class SingleProductComponent implements OnInit {
     this.product$ = this.get().pipe(
       tap((product) => {
         this._title.changeTitle(product.des1);
+        for (const img of product.prod_images) {
+          this._album.push({
+            src: 'https://api.deloffice.mu/images/product/' + img,
+            caption: '',
+            thumb: 'https://api.deloffice.mu/images/product/' + img
+          });
+        }
       })
     );
   }
