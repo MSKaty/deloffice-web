@@ -51,9 +51,9 @@ export class SingleProductComponent implements OnInit {
         this._title.changeTitle(product.des1);
         for (const img of product.prod_images) {
           this._album.push({
-            src: 'https://api.deloffice.mu/images/product/' + img,
+            src: 'https://api.deloffice.mu/images/product/' + img.imgid,
             caption: '',
-            thumb: 'https://api.deloffice.mu/images/product/' + img
+            thumb: 'https://api.deloffice.mu/images/product/' + img.imgid
           });
         }
       })
