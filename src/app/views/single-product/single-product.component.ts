@@ -37,7 +37,13 @@ export class SingleProductComponent implements OnInit {
   //lightbox functions
   open(index: number): void {
     // open lightbox
-    this._lightbox.open(this._album, index);
+    this._lightbox.open(this._album, index, {
+      wrapAround: true,
+      disableScrolling: true,
+      centerVertically: true,
+      showZoom: true,
+      fitImageInViewPort: true
+    });
   }
 
   close(): void {
