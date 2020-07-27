@@ -42,8 +42,7 @@
                                                 <p class="m-0">Discover them all year round</p>
                                             </div>
                                         </div>
-                                        <img style="width: 80px;"
-                                            src="https://api.deloffice.mu/images/product/{{homeadvert.newarrival}}"
+                                        <img src="https://api.deloffice.mu/images/product/{{homeadvert.newarrival}}"
                                             alt="" class="img-fluid">
                                     </li>
                                     <li class="list-group-item p-0 d-flex justify-content-between">
@@ -54,8 +53,8 @@
 
                                             </div>
                                         </div>
-                                        <img style="width: 80px;" src="https://via.placeholder.com/300x200.png" alt=""
-                                            class="img-fluid">
+                                        <img src="https://api.deloffice.mu/images/product/{{homeadvert.newarrival}}"
+                                            alt="" class="img-fluid">
                                     </li>
                                     <li class="list-group-item p-0 d-flex justify-content-between">
                                         <div class="d-flex align-items-center">
@@ -65,8 +64,8 @@
 
                                             </div>
                                         </div>
-                                        <img style="width: 80px;" src="https://via.placeholder.com/300x200.png" alt=""
-                                            class="img-fluid">
+                                        <img src="https://api.deloffice.mu/images/product/{{homeadvert.newarrival}}"
+                                            alt="" class="img-fluid">
                                     </li>
                                     <li class="list-group-item p-0 d-flex justify-content-between">
                                         <div class="d-flex align-items-center">
@@ -76,19 +75,21 @@
 
                                             </div>
                                         </div>
-                                        <img style="width: 80px;" src="https://via.placeholder.com/300x200.png" alt=""
-                                            class="img-fluid">
+                                        <img src="https://api.deloffice.mu/images/product/{{homeadvert.newarrival}}"
+                                            alt="" class="img-fluid">
                                     </li>
                                     <li class="list-group-item p-0 d-flex justify-content-between">
                                         <div class="d-flex align-items-center">
                                             <div class="span p-3">
-                                                <h6>Something Else</h6>
-                                                <p class="m-0">Fast track. Tell us what you need.</p>
-
+                                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                    data-target="#somethingElseModal">
+                                                    <h6>Something Else</h6>
+                                                    <p class="m-0">Fast track. Tell us what you need.</p>
+                                                </button>
                                             </div>
                                         </div>
-                                        <img style="width: 80px;" src="https://via.placeholder.com/300x200.png" alt=""
-                                            class="img-fluid">
+                                        <img src="https://api.deloffice.mu/images/product/{{homeadvert.newarrival}}"
+                                            alt="" class="img-fluid">
                                     </li>
                                 </ul>
                             </div>
@@ -422,5 +423,78 @@
 
             </div>
         </main>
+    </div>
+
+    <!-- subscribe Modal -->
+    <div class="modal fade text-center py-5 subscribeModal-lg" id="somethingElseModal" tabindex="-1" role="dialog"
+        aria-labelledby="somethingElseModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="top-strip"></div>
+                    <h2 class="pt-5 mb-0">Product Inquiry</h2>
+                    <p class="pb-1 text-muted">
+                        Need something that you can't find in our store?<br>
+                        Leave us a message here. Our Team will be happy to assist.
+                    </p>
+                    <form class="justify-content-center">
+                        <div class="form-group row">
+                            <label for="name" class="col-2 col-form-label">Name:</label>
+                            <div class="col-6">
+                                <input id="name" name="name" placeholder="Enter Name" type="text" class="form-control"
+                                    required="required">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="email" class="col-2 col-form-label">Email:</label>
+                            <div class="col-10">
+                                <input id="email" name="email" placeholder="Enter Email" type="text"
+                                    class="form-control" required="required">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="phone" class="col-2 col-form-label">Phone:</label>
+                            <div class="col-10">
+                                <input id="phone" name="phone" placeholder="Enter Phone" type="text"
+                                    class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="subject" class="col-2 col-form-label">Subject:</label>
+                            <div class="col-10">
+                                <input id="subject" name="subject" placeholder="Enter Subject" type="text"
+                                    class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="msg" class="col-2 col-form-label">Message:</label>
+                            <div class="col-10">
+                                <textarea id="msg" name="msg" cols="40" rows="5" class="form-control"
+                                    aria-describedby="msgHelpBlock"></textarea>
+                                <span id="msgHelpBlock" class="form-text text-muted">Type your message here</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="offset-2 col-10">
+                                <button name="submit" type="submit" class="btn btn-primary text-center">
+                                    Submit <i class="fa fa-paper-plane pl-3"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3 w-75 mx-auto">
+                            <input type="email" class="form-control" placeholder="sunlimetech@gmail.com"
+                                aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" id="button-addon2"><i
+                                        class="fa fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                    <p class="pb-1 text-muted"><small>Your email is safe with us. We won't spam.</small></p>
+                    <div class="bottom-strip"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </ng-container>
