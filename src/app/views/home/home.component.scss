@@ -93,47 +93,6 @@ nav.card {
         }
     }
 }
-footer#main-footer {
-    background-image: url('/assets/img/banner.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-color: blue;
-    color: white;
-
-    > * {
-        padding: 5px 30px;
-    }
-
-    #top-footer {
-        padding: 20px 30px;
-        .footer-link-section {
-            flex: 0 1 25%;
-            max-height: 200px;
-
-            h6 {
-                font-weight: bold;
-                text-transform: uppercase;
-            }
-
-            ul {
-                list-style: none;
-                li {
-                    a {
-                        display: block;
-                        padding: 3px 0px;
-                        color: white;
-                    }
-                }
-            }
-        }
-    }
-
-    #bottom-footer {
-        padding: 10px 30px;
-        font-size: 13px;
-    }
-}
 .useful-links {
     ul {
         li {
@@ -159,12 +118,70 @@ footer#main-footer {
 
             p {
                 font-size: .9rem;
-            }
-
-            img {
-                
-            }
+            }          
+            
         }
+    }
+}
+
+.modal#somethingElseModal {
+    .modal-body{
+        z-index: 100;
+    }
+    .modal-content{
+        overflow:hidden;
+    }
+    .form-control {
+        height: 55px;
+        border-radius: 10px;
+        padding-left:15px;
+        z-index: 80;
+        &:focus {
+            color: #495057;
+            background-color: #fff;
+            border-color: #007b5e;
+            outline: 0;
+            box-shadow: none;
+        }
+        > .row{
+            margin-left: 0;
+            margin-right: 0;
+        }
+        > .col-form-label{
+            text-align: right !important;
+            padding-right: 8px;
+        }
+        textarea #msg{
+            height: 100px;
+            min-height: 100px;
+        }
+    }
+    .btn {
+        border-radius: 10px;
+        padding-right:20px;
+        background:darkblue;
+        border-color:darkblue;
+    }
+    
+    .modal-lg .top-strip {
+        height: 155px;
+        background: #1518b3;
+        transform: rotate(141deg);
+        margin-top: -106px;
+        margin-right: 457px;
+        margin-left: -130px;
+        border-bottom: 65px solid lightgrey;
+        border-top: 10px solid darkgrey;
+    }
+    .modal-lg .bottom-strip {
+        height: 155px;
+        background: darkblue;
+        transform: rotate(135deg);
+        margin-top: -90px;
+        margin-right: -339px;
+        margin-left: 421px;
+        border-bottom: 65px solid lightgray;
+        border-top: 10px solid lightgray;
     }
 }
 

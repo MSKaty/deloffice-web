@@ -4,6 +4,7 @@ import { AlertService } from '../../../common/services/alert.service';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { PlatformService } from 'src/app/common/services/platform.service';
 
 @Component({
   selector: 'app-alert',
@@ -18,7 +19,10 @@ export class AlertComponent implements OnInit, OnDestroy {
 
   alerts: Alert[] = [];
 
-  constructor(private _alert: AlertService) { }
+  constructor(
+    private _alert: AlertService,
+    private _plateform: PlatformService
+  ) { }
 
   ngOnInit(): void {
     this._alert.onAlert(this.id)
@@ -40,11 +44,18 @@ export class AlertComponent implements OnInit, OnDestroy {
         // add alert to array
         this.alerts.push(alert);
 
+        if (this._plateform.isBrowser) {
+          const body = document.querySelector('body');
+          body.classList.add('overflow-fixed');
+          // body.classList.remove('overflow-fixed');
+        }
+
         // auto close alert if required
         if (alert.autoClose) {
-          setTimeout(() => this.removeAlert(alert), 3000);
+          setTimeout(() => this.removeAlert(alert), 10000);
         }
       });
+
   }
 
   ngOnDestroy() {
@@ -90,6 +101,5 @@ export class AlertComponent implements OnInit, OnDestroy {
 
     return classes.join(' ');
   }
-
 
 }

@@ -16,8 +16,9 @@ export class AdvertService {
     }
 
     getAdvertsByCategoryId(id: number) {
+        console.log(id);
         return this._afs.collection('adverts', ref => {
-            return ref.where('categoryId', '==', id);
+            return ref.where('categoryID', '==', id);
         })
     }
 }

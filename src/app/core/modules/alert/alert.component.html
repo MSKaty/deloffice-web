@@ -1,4 +1,6 @@
-<div class="p-2" *ngFor="let alert of alerts" class="{{cssClass(alert)}}">
-    <a class="close pl-2" (click)="removeAlert(alert)">&times;</a>
-    <span [innerHTML]="alert.message"></span>
+<div class="alertBox d-flex w-100 h-100 justify-content-center align-items-center">
+    <div class="p-5" *ngFor="let alert of alerts" class="{{cssClass(alert)}}">
+        <a class="close pl-2" (click)="removeAlert(alert)">&times;</a>
+        <span [innerHTML]="alert.message"></span>
+    </div>
 </div>

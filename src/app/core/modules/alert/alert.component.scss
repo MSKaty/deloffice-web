@@ -1,7 +1,16 @@
 :host {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 3;
+    //display: block;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    position: fixed;    
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column !important;
+}
+.overflow-fixed{
+    overflow: hidden;
 }
