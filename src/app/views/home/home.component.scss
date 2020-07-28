@@ -125,6 +125,9 @@ nav.card {
 }
 
 .modal#somethingElseModal {
+    .modal-body{
+        z-index: 100;
+    }
     .modal-content{
         overflow:hidden;
     }
@@ -132,13 +135,25 @@ nav.card {
         height: 55px;
         border-radius: 10px;
         padding-left:15px;
-
+        z-index: 80;
         &:focus {
             color: #495057;
             background-color: #fff;
             border-color: #007b5e;
             outline: 0;
             box-shadow: none;
+        }
+        > .row{
+            margin-left: 0;
+            margin-right: 0;
+        }
+        > .col-form-label{
+            text-align: right !important;
+            padding-right: 8px;
+        }
+        textarea #msg{
+            height: 100px;
+            min-height: 100px;
         }
     }
     .btn {
@@ -147,46 +162,26 @@ nav.card {
         background:darkblue;
         border-color:darkblue;
     }
-    .top-strip{
-        height: 155px;
-        background: #007b5e;
-        transform: rotate(141deg);
-        margin-top: -94px;
-        margin-right: 190px;
-        margin-left: -130px;
-        border-bottom: 65px solid #4CAF50;
-        border-top: 10px solid #4caf50;
-    }
-    .bottom-strip{
-        height: 155px;
-        background: #007b5e;
-        transform: rotate(112deg);
-        margin-top: -110px;
-        margin-right: -215px;
-        margin-left: 300px;
-        border-bottom: 65px solid #4CAF50;
-        border-top: 10px solid #4caf50;
-        z-index:  1050 !important;
-    }
+    
     .modal-lg .top-strip {
         height: 155px;
-        background: #007b5e;
+        background: #1518b3;
         transform: rotate(141deg);
         margin-top: -106px;
         margin-right: 457px;
         margin-left: -130px;
-        border-bottom: 65px solid #4CAF50;
-        border-top: 10px solid #4caf50;
+        border-bottom: 65px solid darkblue;
+        border-top: 10px solid rgba(12, 12, 211, 0.479);
     }
     .modal-lg .bottom-strip {
         height: 155px;
-        background: #007b5e;
+        background: darkblue;
         transform: rotate(135deg);
-        margin-top: -115px;
+        margin-top: -90px;
         margin-right: -339px;
         margin-left: 421px;
-        border-bottom: 65px solid #4CAF50;
-        border-top: 10px solid #4caf50;
+        border-bottom: 65px solid rgba(12, 12, 211, 0.479);
+        border-top: 10px solid #1518b3;
     }
 }
 

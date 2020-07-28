@@ -1,7 +1,8 @@
 :host {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 3;
+    //display: block;
+    position: fixed;    
+    z-index: 5;
+}
+.overflow-fixed{
+    overflow: hidden;
 }
