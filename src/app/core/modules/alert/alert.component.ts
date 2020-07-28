@@ -56,7 +56,6 @@ export class AlertComponent implements OnInit, OnDestroy {
         }
       });
 
-
   }
 
   ngOnDestroy() {
@@ -102,6 +101,5 @@ export class AlertComponent implements OnInit, OnDestroy {
 
     return classes.join(' ');
   }
-
 
 }

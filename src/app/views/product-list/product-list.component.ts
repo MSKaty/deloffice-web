@@ -59,19 +59,10 @@ export class ProductListComponent implements OnInit, AfterViewInit {
   }
 
   getAdvertsByCategoryId(id: number) {
-    // return timer(2000)
-    //   .pipe(
-    //     switchMap((t) => {
     return this._ads.getAdvertsByCategoryId(id).valueChanges().pipe(
       map(data => data[0]),
       tap(console.log),
     )
-    //   }),
-    //   // map((array) => {
-    //   //   return array[0];
-    //   // }),
-    //   tap(console.log)
-    // );
   }
 
   get() {
