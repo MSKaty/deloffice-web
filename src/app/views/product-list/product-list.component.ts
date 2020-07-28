@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../common/services/product.service';
 import { CategoryService } from '../../common/services/category.service';
 import { TitleService } from '../../common/services/title.service';
 
-import { Observable, combineLatest, BehaviorSubject } from 'rxjs';
+import { Observable, combineLatest, BehaviorSubject, timer } from 'rxjs';
 import { OrderService } from 'src/app/common/services/order.service';
 import { switchMap, tap, map } from 'rxjs/operators';
 import { AlertService } from 'src/app/common/services/alert.service';
@@ -17,7 +17,7 @@ import { stringify } from 'querystring';
   styleUrls: ['./product-list.component.scss']
 })
 
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, AfterViewInit {
   private _categoryId: any;
   private _prodList$ = new BehaviorSubject<any[]>([]);
   public prodList$: Observable<any[]> = this._prodList$.asObservable();
@@ -46,21 +46,32 @@ export class ProductListComponent implements OnInit {
         return { category, productdata: productdata[0] };
       }),
       tap((data) => {
-        this._categoryId = data.category.id;
-        console.log(data);
+        this._categoryId = +data.category.id;
+        this.prodlistAdvert$ = this.getAdvertsByCategoryId(this._categoryId);
       })
       // tap((category) => { this._title.changeTitle(category.des1) })
     )
-    this.prodlistAdvert$ = this.getAdvertsByCategoryId(this._categoryId);
+
+  }
+
+  ngAfterViewInit() {
+
   }
 
   getAdvertsByCategoryId(id: number) {
-    return this._ads.getAdvertsByCategoryId(id).valueChanges()
-      .pipe(
-        map((array) => {
-          return array[0];
-        })
-      );
+    // return timer(2000)
+    //   .pipe(
+    //     switchMap((t) => {
+    return this._ads.getAdvertsByCategoryId(id).valueChanges().pipe(
+      map(data => data[0]),
+      tap(console.log),
+    )
+    //   }),
+    //   // map((array) => {
+    //   //   return array[0];
+    //   // }),
+    //   tap(console.log)
+    // );
   }
 
   get() {

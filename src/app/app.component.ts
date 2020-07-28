@@ -5,6 +5,7 @@ import { TitleService } from './common/services/title.service';
 import { Observable } from 'rxjs';
 import { LoadingService } from './common/services/loading.service';
 import { SEOService } from './common/services/seo.service';
+import { PlatformService } from './common/services/platform.service';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,8 @@ export class AppComponent implements OnInit {
     private _router: Router,
     private _title: TitleService,
     private _loading: LoadingService,
-    private _seo: SEOService
+    private _seo: SEOService,
+    private _platform: PlatformService
   ) {
     this.title$ = this.setTitle();
   }
@@ -29,6 +31,15 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.listenToLoading();
     this.getMetadata().subscribe();
+
+    this._router.events.subscribe((evt) => {
+      if (this._platform.isBrowser) {
+        if (!(evt instanceof NavigationEnd)) {
+          return;
+        }
+        window.scrollTo(0, 0)
+      }
+    });
   }
 
   /**
