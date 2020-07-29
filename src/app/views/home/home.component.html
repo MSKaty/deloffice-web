@@ -6,7 +6,7 @@
                     <div class="row  w-100 mx-0 h-100">
                         <div class="col-lg-9 col-md-9 col-12 px-lg-0">
 
-                            <div id="sliderElement" class="carousel slide h-100" data-ride="carousel">
+                            <div id="sliderElement" class="carousel slide w-100" data-ride="carousel">
                                 <ol class="carousel-indicators">
                                     <ng-container *ngFor="let carouselH of homeadvert['homeCarousel']; index as i;">
                                         <li data-target="#sliderElement" [attr.data-slide-to]="i"
@@ -15,9 +15,9 @@
                                 </ol>
                                 <div class="carousel-inner h-100">
                                     <ng-container *ngFor="let carouselH of homeadvert['homeCarousel']; index as i;">
-                                        <div class="carousel-item  h-100" [class.active]="i === 0">
+                                        <div class="carousel-item  w-100" [class.active]="i === 0">
                                             <img src="https://api.deloffice.mu/images/product/{{carouselH}}"
-                                                class="d-block w-100 h-100 img-fluid" alt="...">
+                                                class="d-block w-100 img-fluid" alt="...">
                                         </div>
                                     </ng-container>
                                 </div>
@@ -43,7 +43,7 @@
                                             </div>
                                         </div>
                                         <img src="https://api.deloffice.mu/images/product/{{homeadvert.newarrival}}"
-                                            alt="" class="img-fluid">
+                                            alt="" class="img-fluid h-100">
                                     </li>
                                     <li class="list-group-item p-0 d-flex justify-content-between">
                                         <div class="d-flex align-items-center">
@@ -54,7 +54,7 @@
                                             </div>
                                         </div>
                                         <img src="https://api.deloffice.mu/images/product/{{homeadvert.specialoffer}}"
-                                            alt="" class="img-fluid">
+                                            alt="" class="img-fluid h-100">
                                     </li>
                                     <li class="list-group-item p-0 d-flex justify-content-between">
                                         <div class="d-flex align-items-center">
@@ -65,7 +65,7 @@
                                             </div>
                                         </div>
                                         <img src="https://api.deloffice.mu/images/product/{{homeadvert.clearancesale}}"
-                                            alt="" class="img-fluid">
+                                            alt="" class="img-fluid h-100">
                                     </li>
                                     <li class="list-group-item p-0 d-flex justify-content-between">
                                         <div class="d-flex align-items-center">
@@ -76,7 +76,7 @@
                                             </div>
                                         </div>
                                         <img src="https://api.deloffice.mu/images/product/{{homeadvert.bestseller}}"
-                                            alt="" class="img-fluid">
+                                            alt="" class="img-fluid h-100">
                                     </li>
                                     <li class="list-group-item p-0 d-flex justify-content-between">
                                         <div class="d-flex align-items-center">
@@ -88,7 +88,7 @@
                                             </div>
                                         </div>
                                         <img src="https://api.deloffice.mu/images/product/{{homeadvert.somethingelse}}"
-                                            alt="" class="img-fluid">
+                                            alt="" class="img-fluid h-100">
                                     </li>
                                 </ul>
                             </div>
