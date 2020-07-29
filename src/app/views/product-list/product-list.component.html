@@ -44,11 +44,12 @@
                                                 <strong [class.discountedPrice]="cat.spprice > 0">Rs.
                                                     {{cat.mainprice | number:'1.2-2'}}
                                                 </strong>
-                                                <ng-container *ngIf="cat.spprice > 0">
+                                                <ng-container *ngIf="cat.spprice > 0; else elseBlock3">
                                                     <br><strong>Rs.
                                                         {{cat.spprice | number:'1.2-2'}}
                                                     </strong>
                                                 </ng-container>
+                                                <ng-template #elseBlock3><p>&nbsp;</p></ng-template>
                                             </h3>
                                             <h5 class="card-title text-center">
                                                 {{cat.des1}}<br>
