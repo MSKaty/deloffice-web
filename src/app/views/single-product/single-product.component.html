@@ -92,7 +92,14 @@
                             {{product.des3}}
                         </ng-template>
                         <h3 class="my-4 price">
-                            <strong>Rs. {{product.mainprice | number:'1.2-2'}}</strong>
+                            <strong [class.discountedPrice]="product.spprice > 0">Rs.
+                                {{product.mainprice | number:'1.2-2'}}
+                            </strong>
+                            <ng-container *ngIf="product.spprice > 0">
+                                <br><strong>Rs.
+                                    {{product.spprice | number:'1.2-2'}}
+                                </strong>
+                            </ng-container>
                         </h3>
                         <span id="cart" class="d-flex">
                             <input type="number" #qty name="qty{{product.id}}" id="qty" value="1" class="text-center">

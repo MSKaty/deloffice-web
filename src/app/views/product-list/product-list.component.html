@@ -41,9 +41,14 @@
                                         </a> -->
                                         <div class="card-body">
                                             <h3 class="text-center">
-                                                <strong>Rs.
+                                                <strong [class.discountedPrice]="cat.spprice > 0">Rs.
                                                     {{cat.mainprice | number:'1.2-2'}}
                                                 </strong>
+                                                <ng-container *ngIf="cat.spprice > 0">
+                                                    <br><strong>Rs.
+                                                        {{cat.spprice | number:'1.2-2'}}
+                                                    </strong>
+                                                </ng-container>
                                             </h3>
                                             <h5 class="card-title text-center">
                                                 {{cat.des1}}<br>

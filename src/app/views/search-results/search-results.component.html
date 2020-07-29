@@ -37,8 +37,15 @@
                                         </button>
                                         <div class="card-body">
 
-                                            <h3 class="text-center"><strong>Rs.
-                                                    {{res.mainprice | number:'1.2-2'}}</strong>
+                                            <h3 class="text-center">
+                                                <strong [class.discountedPrice]="res.spprice > 0">Rs.
+                                                    {{res.mainprice | number:'1.2-2'}}
+                                                </strong>
+                                                <ng-container *ngIf="res.spprice > 0">
+                                                    <br><strong>Rs.
+                                                        {{res.spprice | number:'1.2-2'}}
+                                                    </strong>
+                                                </ng-container>
                                             </h3>
 
                                             <h5 class="card-title text-center">
