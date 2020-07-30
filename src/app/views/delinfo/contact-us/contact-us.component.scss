@@ -29,20 +29,20 @@ main#content {
                 ) !important;
         }
     form {
-        .form-group {
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-        }
+        // .form-group {
+        //     display: -ms-flexbox;
+        //     display: flex;
+        //     -ms-flex-wrap: wrap;
+        //     flex-wrap: wrap;
+        // }
         >div label{
             font-weight: 700!important;
             color:darkblue;
-            width: 45%!important;
+            // width: 45%!important;
         }
-        >div input, div select, div textarea{
-            width: 55%!important;
-        }
+        // >div input, div select, div textarea{
+        //     width: 55%!important;
+        // }
 
         .formContentWhite{
             background: #fff;

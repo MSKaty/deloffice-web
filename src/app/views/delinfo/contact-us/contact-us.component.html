@@ -76,46 +76,54 @@
                             <i class="fas fa-paper-plane border p-4 rounded-circle fa-3x"></i>
                             <h2 class="font-weight-bold">Inquiry Form</h2>
                         </div>
-                        <div class="form-group">
-                            <label for="FormToEmail">
-                                To :
-                            </label>
-                            <select class="form-control" id="FormToEmail" formControlName="to">
-                                <option value="HR Department <hr@deloffice.mu>">
-                                    hr@deloffice.mu</option>
-                                <option value="Marketing Department <marketing@deloffice.mu>">
-                                    marketing@deloffice.mu</option>
-                                <option value="Procurement Department <procurement@deloffice.mu>">
-                                    procurement@deloffice.mu </option>
-                                <option value="Sales Department <sales@deloffice.mu>">
-                                    sales@deloffice.mu</option>
-                            </select>
+                        <div class="row mx-0">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="FormToEmail">
+                                        To :
+                                    </label>
+                                    <select class="form-control" id="FormToEmail" formControlName="to">
+                                        <option value="HR Department <hr@deloffice.mu>">
+                                            hr@deloffice.mu</option>
+                                        <option value="Marketing Department <marketing@deloffice.mu>">
+                                            marketing@deloffice.mu</option>
+                                        <option value="Procurement Department <procurement@deloffice.mu>">
+                                            procurement@deloffice.mu </option>
+                                        <option value="Sales Department <sales@deloffice.mu>">
+                                            sales@deloffice.mu</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">                           
+                                        <label for="FormName">Name :</label>
+                                        <input type="text" formControlName="name" class="form-control" id="FormName"
+                                            placeholder="Enter Your Name">
+                                </div>
+                                <div class="form-group">
+                                        <label for="FormEmailSender">E-Mail :</label>
+                                        <input type="email" formControlName="from" class="form-control" id="FormEmailSender"
+                                            aria-describedby="emailHelp" placeholder="Enter E-mail">
+                                   
+                                </div>
+                                <div class="form-group">
+                                    <label for="FormPhone">Phone :</label>
+                                    <input type="number" formControlName="phone" class="form-control" id="FormPhone"
+                                        aria-describedby="emailHelp" placeholder="Enter Phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="FormSubject">Subject :</label>
+                                    <input type="text" formControlName="subject" class="form-control" id="FormSubject"
+                                        placeholder="Enter Your Subject">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="FormMsg">Message :</label>
+                                    <textarea class="form-control" formControlName="text" id="FormMsg" rows="15"></textarea>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">                           
-                                <label for="FormName">Name :</label>
-                                <input type="text" formControlName="name" class="form-control" id="FormName"
-                                    placeholder="Enter Your Name">
-                        </div>
-                        <div class="form-group">
-                                <label for="FormEmailSender">E-Mail :</label>
-                                <input type="email" formControlName="from" class="form-control" id="FormEmailSender"
-                                    aria-describedby="emailHelp" placeholder="Enter E-mail">
-                           
-                        </div>
-                        <div class="form-group">
-                            <label for="FormPhone">Phone :</label>
-                            <input type="number" formControlName="phone" class="form-control" id="FormPhone"
-                                aria-describedby="emailHelp" placeholder="Enter Phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="FormSubject">Subject :</label>
-                            <input type="text" formControlName="subject" class="form-control" id="FormSubject"
-                                placeholder="Enter Your Subject">
-                        </div>
-                        <div class="form-group">
-                            <label for="FormMsg">Message :</label>
-                            <textarea class="form-control" formControlName="text" id="FormMsg" rows="5"></textarea>
-                        </div>
+                        
+                        
                         <div class="g-recaptcha" data-sitekey="6LfewmwUAAAAADfCuS1MzYnP0MSfMgxKfBT2d3D9">
                         </div>
                         <div class="text-center">

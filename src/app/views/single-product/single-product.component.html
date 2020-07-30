@@ -129,6 +129,10 @@
                                             src="https://api.deloffice.mu/images/product/{{related.id}}.jpg"
                                             class="card-img-top img-fluid" alt="...">
                                     </a>
+                                    <a (click)="addToWishlist(related, qty.value)"
+                                        class="btn btn-gray btn-circle btn-lg">
+                                        <i class="fas fa-heart"></i>
+                                    </a>
                                     <div class="card-body">
                                         <h5 class="card-title">
                                             {{related.des1}}<br>
@@ -150,9 +154,7 @@
                                             <a (click)="addToCart(related, qty.value)" class="btn btn-primary">
                                                 <i class="fas fa-shopping-cart"></i>
                                             </a>
-                                            <a (click)="addToWishlist(related, qty.value)" class="btn btn-primary">
-                                                <i class="fas fa-heart"></i>
-                                            </a>
+                                            
                                         </span>
                                     </div>
                                 </div>
