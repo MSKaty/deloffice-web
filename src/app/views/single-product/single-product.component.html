@@ -68,10 +68,10 @@
                         </div>
                     </div>
                     <div class="entry-summary col-7">
-                        <a (click)="addToWishlist(product, qty.value)"
-                            class="btn btn-gray btn-circle btn-lg float-right">
+                        <button (click)="addToWishlist(product, qty.value)" type="button"
+                            class="btn btn-gray btn-lg float-right">
                             <i class="fas fa-heart"></i>
-                        </a>
+                    </button>
                         <h1>{{product.des1}}</h1>
                         <h3><strong>{{product.des2}}</strong></h3>
                         <p><strong>Brand: </strong>{{product.des3}}</p>

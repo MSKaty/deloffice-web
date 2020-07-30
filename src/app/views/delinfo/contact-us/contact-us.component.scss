@@ -18,6 +18,36 @@ main#content {
         color:darkblue;
         text-decoration: underline;
     }
+.imageRepeatMail{
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 20px;
+            background-image: repeating-linear-gradient(
+                    135deg, red 0px, rgb(241, 12, 12) 30px, transparent 30px, transparent 50px,
+                    darkblue 50px, rgb(2, 2, 170) 80px, transparent 80px, transparent 100px
+                ) !important;
+        }
+    form {
+        .form-group {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+        >div label{
+            font-weight: 700!important;
+            color:darkblue;
+            width: 45%!important;
+        }
+        >div input, div select, div textarea{
+            width: 55%!important;
+        }
+
+        .formContentWhite{
+            background: #fff;
+        }
+    }
 }
 
 h2.background {
