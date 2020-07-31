@@ -10,17 +10,17 @@
         </div>
 
         <div class="row mb-2">
-            <div class="col-12 d-flex justify-content-around">
-                <button class="btn btn-primary border btnSize p-3 active" data-toggle="button" aria-pressed="true"
-                    type="button" (click)="type=3">
+            <div class="col-12 d-flex justify-content-around" id="selectionReg">
+                <button #corpBtn class="btn btn-primary border btnSize p-3 active" data-toggle="button" aria-pressed="true"
+                    type="button" (click)="type=3;registInver(corpBtn)">
                     <img src="\assets\img\corporate.svg" class="logosvg"><b>Corporate</b>
                 </button>
-                <button class="btn btn-primary border btnSize p-3 active" data-toggle="button" aria-pressed="false"
-                    type="button" (click)="type=2">
+                <button #reselBtn class="btn btn-primary border btnSize p-3 " data-toggle="button" aria-pressed="false"
+                    type="button" (click)="type=2;registInver(reselBtn)">
                     <img src="\assets\img\reseller.svg" class="logosvg"><b>Reseller</b>
                 </button>
-                <button class="btn btn-primary border btnSize p-3 active" data-toggle="button" aria-pressed="false"
-                    type="button" (click)="type=1">
+                <button #indiBtn class="btn btn-primary border btnSize p-3 " data-toggle="button" aria-pressed="false"
+                    type="button" (click)="type=1;registInver(indiBtn)">
                     <img src="\assets\img\individual.svg" class="logosvg"><b>Individual</b>
                 </button>
             </div>

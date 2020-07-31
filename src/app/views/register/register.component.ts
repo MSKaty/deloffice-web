@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 
 import { AuthService } from '../../common/services/auth.service';
@@ -36,12 +36,44 @@ export class RegisterComponent implements OnInit {
     validator: MustMatch('password', 'confirmPassword')
   })
 
+  @ViewChild('corpBtn', { static: true }) corpBtn: ElementRef;
+  @ViewChild('reselBtn', { static: true }) reselBtn: ElementRef;
+  @ViewChild('indiBtn', { static: true }) indiBtn: ElementRef;
+
   constructor(
     private fb: FormBuilder,
     private _auth: AuthService,
     private _router: Router,
     private _alert: AlertService
   ) { }
+  ngAfterViewInit() {
+   
+  }
+  
+  registInver(name){
+    (this.corpBtn.nativeElement as HTMLElement).classList.remove("active");
+    (this.reselBtn.nativeElement as HTMLElement).classList.remove("active");
+    (this.indiBtn.nativeElement as HTMLElement).classList.remove("active");
+
+    switch(name){
+      case 'corpBtn':
+        (this.corpBtn.nativeElement as HTMLElement).classList.add("active");
+        (this.reselBtn.nativeElement as HTMLElement).classList.remove("active");
+        (this.indiBtn.nativeElement as HTMLElement).classList.remove("active");
+      break;
+      case 'reselBtn':
+        (this.corpBtn.nativeElement as HTMLElement).classList.remove("active");
+        (this.reselBtn.nativeElement as HTMLElement).classList.add("active");
+        (this.indiBtn.nativeElement as HTMLElement).classList.remove("active");
+      break;
+      case 'indiBtn':
+        (this.corpBtn.nativeElement as HTMLElement).classList.remove("active");
+        (this.reselBtn.nativeElement as HTMLElement).classList.remove("active");
+        (this.indiBtn.nativeElement as HTMLElement).classList.add("active");
+      break;
+    }
+    
+  }
 
   ngOnInit(): void { }
 

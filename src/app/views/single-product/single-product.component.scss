@@ -3,7 +3,10 @@
 * {
     font-family: 'Roboto', sans-serif;
 }
-
+:host{
+    display: block;
+    padding-top: 169px;
+}
 a, a:focus, a:active, a:hover {
     text-decoration: none;
 }

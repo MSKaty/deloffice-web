@@ -25,6 +25,8 @@ $('#carousel-example').on('slide.bs.carousel', function (e) {
     }
 });
 
-$( "button#jQueryColorChange" ).click(function() {
-    $(this).toggleClass( "selected" );
-  });
+// // register
+// $( "#selectionReg .btn" ).click(function() {
+//     jQuery("#selectionReg .btn").removeClass( "active" );
+//     $(this).toggleClass( "active" );
+//   });

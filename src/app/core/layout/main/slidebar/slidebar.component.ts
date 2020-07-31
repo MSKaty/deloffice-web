@@ -13,6 +13,8 @@ export class SlidebarComponent implements OnInit {
   category$: Observable<any>;
   slidebar$: Observable<any>;
 
+  selCat : string;
+
   constructor(
     private _ads: AdvertService,
     private _cat: CategoryService

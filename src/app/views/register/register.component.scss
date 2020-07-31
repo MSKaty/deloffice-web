@@ -5,10 +5,16 @@ main#content {
             filter: invert(1);
         }
         &:active{
-            background-color:red;
-        }
+            background-color:red!important;
+        }        
     }
-
+}
+.active{
+    background:red!important;
+}
+:host{
+    display: block;
+    padding-top: 169px;
 }
 form{
     padding:70px;
