@@ -15,6 +15,20 @@ div#bannerImage.container-fluid{
         background-color: gainsboro;
     }
 }
+.col-4dot5 {
+    -ms-flex: 0 0 37.5%;
+    flex: 0 0 37.5%;
+    max-width: 37.5%;
+    width: 37.5%;
+}
+.col-7dot5 {
+    -ms-flex: 0 0 62.5%;
+    flex: 0 0 62.5%;
+    max-width: 62.5%;
+    width: 62.5%;
+}
+
+
 main#content {    
     padding: 20px 30px;
     .product{

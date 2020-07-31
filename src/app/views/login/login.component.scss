@@ -8,7 +8,15 @@ a, a:focus, a:active, a:hover {
     text-decoration: none;
 }
 main#content {
-    padding: 20px 30px;
+  padding: 20px 30px;
+
+  .form-group{
+    button #submit{
+      :hover{
+        background-color: #32CD32;
+      }
+    }
+  }
 }
 .fa, .far, .fas {
     font-family: "Font Awesome 5 Free";
@@ -23,19 +31,6 @@ main#content {
     border: 1px solid #ccc;
     box-sizing: border-box;
   }
-  
-  /* Set a style for all buttons */
-  button {
-    background-color: blue;
-    color: white;
-    padding: 10px 15px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 30%;
-    
-  }
-
   
   /* Add padding to containers */
   .container {
@@ -55,4 +50,5 @@ main#content {
       float: none;
     }
   }
+  
   

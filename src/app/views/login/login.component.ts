@@ -5,6 +5,7 @@ import { AuthService } from '../../common/services/auth.service';
 import { Router } from '@angular/router';
 import { tap, switchMap } from 'rxjs/operators';
 import { AlertService } from 'src/app/common/services/alert.service';
+import { error } from 'console';
 
 @Component({
   selector: 'app-login',
@@ -50,13 +51,13 @@ export class LoginComponent implements OnInit {
           this._router.navigate(['/']);
           this._alert.success('Welcome Back');
         },
-        err => {
-          console.log(err);
+        error => {
+          console.log(error);
           this.loginForm.reset();
           this._alert.error('Login Error');
         },
         () => {
-          console.log('done');
+          console.log('HTTP request completed');
 
         }
       );

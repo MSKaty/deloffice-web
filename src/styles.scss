@@ -94,11 +94,14 @@ li{
   z-index: 5;
 }
 .btn-gray{
-    color: gray!important;
+    color: #E6E6FA!important;
     
     &:hover {
-        color: red!important;
+        color: blue!important;
     }
+}
+.btn-limeG{
+    background-color: #32CD32;
 }
 .btn-circle.btn-lg {
     position: absolute;    

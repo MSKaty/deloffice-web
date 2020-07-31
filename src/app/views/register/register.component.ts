@@ -14,7 +14,7 @@ import { MustMatch } from 'src/app/common/utils/must-match.validator';
 })
 export class RegisterComponent implements OnInit {
   submitted = false;
-  type = 1;
+  type = 3;
 
   public registerForm: FormGroup = this.fb.group({
     fname: ['', Validators.required],
@@ -107,12 +107,12 @@ export class RegisterComponent implements OnInit {
     }
     return invalid;
   }
-
+  // Type {{ findInvalidControls() | json }}
   public removeValidators(form: FormGroup) {
     for (const key in form.controls) {
       form.get(key).clearValidators();
       form.get(key).updateValueAndValidity();
     }
   }
-
+  // [disabled]="!registerForm.valid"
 }

@@ -4,7 +4,11 @@ main#content {
         >img{
             filter: invert(1);
         }
+        &:active{
+            background-color:red;
+        }
     }
+
 }
 form{
     padding:70px;
@@ -17,6 +21,14 @@ form{
     }
     textarea {
         max-width: 100%;
+    }
+    label{
+        margin-bottom:-7px;
+    }
+    input[type="checkbox"]{
+        -ms-transform: scale(1.5); /* IE 9 */
+        -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
+        transform: scale(1.5);
     }
    
 }

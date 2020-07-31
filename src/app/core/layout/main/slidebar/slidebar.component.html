@@ -3,7 +3,7 @@
         <h5 class="custom-heading">Product Categories</h5>
         <nav class="card mb-3">
             <div class="card-body p-0">
-                <ul>
+                <ul id="accordian">
                     <li *ngFor="let cat of category$ | async; index as i;">
                         <span data-toggle="collapse" [attr.href]="'#category1' + i" role="button" aria-expanded="false"
                             [attr.aria-controls]="'category1' + i">
@@ -11,7 +11,7 @@
                             <i *ngIf="cat.subcategories.length > 0" class="fas fa-plus"></i>
                             <i *ngIf="cat.subcategories.length > 0" class="fas fa-minus"></i>
                         </span>
-                        <ul *ngIf="cat.subcategories.length > 0" class="collapse" id="category1{{i}}">
+                        <ul *ngIf="cat.subcategories.length > 0" class="collapse" id="category1{{i}}" data-parent="#accordian">
                             <li *ngFor="let subcat of cat.subcategories; index as j;">
                                 <ng-container *ngIf="subcat.subcategories.length > 0; else noCat">
                                     <a data-toggle="collapse" [attr.href]="'#category2' + j" role="button"
@@ -20,7 +20,7 @@
                                         <i *ngIf="subcat.subcategories.length > 0" class="fas fa-plus"></i>
                                         <i *ngIf="subcat.subcategories.length > 0" class="fas fa-minus"></i>
                                     </a>
-                                    <ul *ngIf="subcat.subcategories.length > 0" class="collapse" id="category2{{j}}">
+                                    <ul *ngIf="subcat.subcategories.length > 0" class="collapse" id="category2{{j}}" >
                                         <li *ngFor="let subcat2 of subcat.subcategories; index as k;">
                                             <ng-container *ngIf="subcat2.subcategories.length > 0; else noSubCat">
                                                 <a data-toggle="collapse" [attr.href]="'#category3' + k" role="button"

@@ -62,18 +62,17 @@
             <div class="w-100">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3745.8803325641015!2d57.53059761546418!3d-20.139039450045598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217c51128da0dcf3%3A0x31de5ffbeeb8a1c0!2sDelOffice%20Ltd!5e0!3m2!1sen!2smu!4v1592905551112!5m2!1sen!2smu"
-                    width="100%" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                    width="100%" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
                     tabindex="0">
                 </iframe>
             </div>
         </div>
         <div class="row mb-3 mx-0">
             <form [formGroup]="contactForm" (ngSubmit)="inquirySend()"
-                class="w-100 p-4  rounded d-flex flex-column imageRepeatMail">
-                <div class="formContentWhite p-5">
-                    <div class="container">
-                        <div class="text-center textDarkblue mb-5">
-                            <i class="fas fa-paper-plane border p-4 rounded-circle fa-3x"></i>
+                class="w-100 p-4 border border-primary rounded d-flex flex-column">                
+                    
+                        <div class="text-center textDarkblue mb-4">
+                            <i class="fas fa-paper-plane border p-3 border-primary rounded-circle fa-2x"></i>
                             <h2 class="font-weight-bold">Inquiry Form</h2>
                         </div>
                         <div class="row mx-0">
@@ -93,7 +92,7 @@
                                             sales@deloffice.mu</option>
                                     </select>
                                 </div>
-                                <div class="form-group">                           
+                                <div class="form-group">
                                         <label for="FormName">Name :</label>
                                         <input type="text" formControlName="name" class="form-control" id="FormName"
                                             placeholder="Enter Your Name">
@@ -102,38 +101,33 @@
                                         <label for="FormEmailSender">E-Mail :</label>
                                         <input type="email" formControlName="from" class="form-control" id="FormEmailSender"
                                             aria-describedby="emailHelp" placeholder="Enter E-mail">
-                                   
                                 </div>
                                 <div class="form-group">
                                     <label for="FormPhone">Phone :</label>
                                     <input type="number" formControlName="phone" class="form-control" id="FormPhone"
                                         aria-describedby="emailHelp" placeholder="Enter Phone">
-                                </div>
+                                </div>                                
+                            </div>
+                            <div class="col-6">
                                 <div class="form-group">
                                     <label for="FormSubject">Subject :</label>
                                     <input type="text" formControlName="subject" class="form-control" id="FormSubject"
                                         placeholder="Enter Your Subject">
                                 </div>
-                            </div>
-                            <div class="col-6">
                                 <div class="form-group">
                                     <label for="FormMsg">Message :</label>
-                                    <textarea class="form-control" formControlName="text" id="FormMsg" rows="15"></textarea>
+                                    <textarea class="form-control" formControlName="text" id="formMsg"
+                                    rows="15" style="height: 195px;"></textarea>
                                 </div>
                             </div>
                         </div>
-                        
-                        
-                        <div class="g-recaptcha" data-sitekey="6LfewmwUAAAAADfCuS1MzYnP0MSfMgxKfBT2d3D9">
-                        </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary btn-lg my-3" name="sendForm">
+                            <div class="g-recaptcha" data-sitekey="6LfewmwUAAAAADfCuS1MzYnP0MSfMgxKfBT2d3D9">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg my-1" name="sendForm">
                                 <i class="fas fa-paper-plane pr-3"></i>Send Form
                             </button>
                         </div>
-                    </div>
-                    
-                </div>
                 
             </form>
         </div>
