@@ -6,6 +6,7 @@ import { Observable, combineLatest, BehaviorSubject, timer, of } from 'rxjs';
 import { OrderService } from 'src/app/common/services/order.service';
 import { switchMap, tap, map } from 'rxjs/operators';
 import { AlertService } from 'src/app/common/services/alert.service';
+import { ProductService } from 'src/app/common/services/product.service';
 
 @Component({
   selector: 'app-useful-list',
@@ -14,6 +15,7 @@ import { AlertService } from 'src/app/common/services/alert.service';
 })
 export class UsefulListComponent implements OnInit {
 
+  promo$: Observable<any>;
   public userdata: any = JSON.parse(window.localStorage.getItem('user'));
 
   constructor(
@@ -21,9 +23,39 @@ export class UsefulListComponent implements OnInit {
     private _title: TitleService,
     private _order: OrderService,
     private _alert: AlertService,
+    private _product : ProductService
   ) { }
 
   ngOnInit() {
+
+    this.promo$ = this.get().pipe(
+      map(
+        (data:any) =>{
+            this._title.changeTitle(data.description);
+        }
+      ),
+      tap(
+        (data) =>{
+          
+        }
+      )
+    );
+
+  }
+
+  get(){
+    return combineLatest(
+      this._route.params,
+      this._route.queryParams
+    ).pipe(
+      switchMap(
+          (data)=>{
+            return combineLatest(
+              this._product.findNew()
+            )
+          }
+      )
+    )
   }
 
   public addToCart(item, qty) {
