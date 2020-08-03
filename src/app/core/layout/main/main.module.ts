@@ -31,6 +31,7 @@ import { ReturnsPolicyComponent } from '../../../views/delinfo/returns-policy/re
 import { MembershipPolicyComponent } from '../../../views/delinfo/membership-policy/membership-policy.component';
 import { TermsnconditionsComponent } from '../../../views/delinfo/termsnconditions/termsnconditions.component';
 import { PrivacynsecurityComponent } from '../../../views/delinfo/privacynsecurity/privacynsecurity.component';
+import { UsefulListComponent } from 'src/app/views/useful-list/useful-list.component';
 
 
 
@@ -47,11 +48,7 @@ const routes: Routes = [
       },
       {
         path: 'product',
-        children: [
-          {
-            path: 'new',
-            component: ProductListComponent
-          },
+        children: [          
           {
             path: ':id',
             component: SingleProductComponent
@@ -59,6 +56,19 @@ const routes: Routes = [
 
         ]
 
+      },
+      {
+        path: 'promo',
+        children: [
+            {
+                path: 'new-arrival',
+                component: UsefulListComponent
+            },
+            {
+                path: 'special-offers',
+                component: UsefulListComponent
+            }
+        ]
       },
       {
         path: 'category',
@@ -192,7 +202,7 @@ const routes: Routes = [
   declarations: [MainComponent, HeaderComponent, CartComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent,
     RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent, AboutComponent, WishlistComponent, CorporateValuesComponent,
     ContactUsComponent, JobOpportunitiesComponent, AntiBriberyPolicyComponent, FAQComponent, DeliveryPolicyComponent, MyaccountsComponent,
-    UpdatePassComponent, ReturnsPolicyComponent, MembershipPolicyComponent, TermsnconditionsComponent, PrivacynsecurityComponent],
+    UpdatePassComponent, ReturnsPolicyComponent, MembershipPolicyComponent, TermsnconditionsComponent, PrivacynsecurityComponent, UsefulListComponent],
 
   imports: [
     CommonModule,

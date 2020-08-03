@@ -4,7 +4,7 @@ import { ProductService } from '../../common/services/product.service';
 import { CategoryService } from '../../common/services/category.service';
 import { TitleService } from '../../common/services/title.service';
 
-import { Observable, combineLatest, BehaviorSubject, timer } from 'rxjs';
+import { Observable, combineLatest, BehaviorSubject, timer, of } from 'rxjs';
 import { OrderService } from 'src/app/common/services/order.service';
 import { switchMap, tap, map } from 'rxjs/operators';
 import { AlertService } from 'src/app/common/services/alert.service';
@@ -41,13 +41,20 @@ export class ProductListComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.category$ = this.get().pipe(
-      map(([category, productdata]) => {
-        this._title.changeTitle(category.description);
-        return { category, productdata: productdata[0] };
+      map((data: any) => {
+        if (data.length == 2) {
+          const [category, productdata] = data;
+          this._title.changeTitle(category.description);
+          return { category, productdata: productdata[0] };
+        } else {
+          return data;
+        }
       }),
       tap((data) => {
-        this._categoryId = +data.category.id;
-        this.prodlistAdvert$ = this.getAdvertsByCategoryId(this._categoryId);
+        if (data && data.category) {
+          this._categoryId = +data.category.id;
+          this.prodlistAdvert$ = this.getAdvertsByCategoryId(this._categoryId);
+        }
       })
       // tap((category) => { this._title.changeTitle(category.des1) })
     )
@@ -71,16 +78,19 @@ export class ProductListComponent implements OnInit, AfterViewInit {
       this._route.queryParams
     ).pipe(
       switchMap(([param, query]) => {
-        if (query['p']) {
-          this.currentPage = +query['p'];
+        if (param.id) {
+          if (query['p']) {
+            this.currentPage = +query['p'];
+          } else {
+            this.currentPage = 1;
+          }
+          return combineLatest(
+            this._cat.getCat(param['id']),
+            this._prod.findAll(param['id'], this.currentPage)
+          )
         } else {
-          this.currentPage = 1;
+          return this._prod.findNew();
         }
-        return combineLatest(
-          this._cat.getCat(param['id']),
-          this._prod.findAll(param['id'], this.currentPage),
-          this._prod.findNew(),
-        )
       })
     )
   }

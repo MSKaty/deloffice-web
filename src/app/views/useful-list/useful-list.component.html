@@ -1,0 +1,77 @@
+<ng-container>
+<div id="wrapper" class="container-fluid">
+    <div id="wrapper" class="container-fluid">
+        <main id="content" class="row d-flex flex-column flex-nowrap">
+            <div class="row mb-3 ">
+                <section class="col-12">
+                    <!-- <ng-container *ngIf="let banner of data.productdata.products> -->
+                    <div class="aspect-ratio-container catBanner-R">
+                        <div class="frame">
+                            <img onerror="this.src='/assets/img/category-not-found.jpg'"
+                                src="https://api.deloffice.mu/images/category/"
+                                alt="" class="img-fluid w-100">
+                        </div>
+                    </div>
+                    <!-- </ng-container> -->
+                </section>
+            </div>
+            <div class="row mb-3">
+                <div class="col-lg-3 col-md-3 d-none d-md-block">
+                    <app-slidebar></app-slidebar>
+                </div>
+                <div class="col-lg-9 col-md-9 col-12" style="overflow: hidden;">
+                    <h5 class="custom-heading">
+                    </h5>
+                    <div id="products" class="row ">
+                        <ng-container>
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
+                                <div class="card">
+                                    <!-- <a routerLink="/product/{{cat.id}}">
+                                        <img onerror="this.src='/assets/img/product-not-found.jpg'"
+                                            src="https://api.deloffice.mu/images/product/{{cat.id}}.jpg" class="card-img-top
+                    img-fluid" alt="...">
+                                    </a> -->
+                                    <!-- <button (click)="addToWishlist(cat, qty.value)" type="button"
+                                        class="btn btn-gray btn-circle btn-lg">
+                                        <i class="fas fa-heart"></i>
+                                    </button> -->
+                                    <!-- <a (click)="addToWishlist(cat, qty.value)" class="">
+                                        <i class="fas fa-heart"></i>
+                                    </a> -->
+                                    <div class="card-body">
+                                        <h3 class="text-center">
+                                            <!-- <strong [class.discountedPrice]="cat.spprice > 0">Rs. -->
+                                                <!-- {{cat.mainprice | number:'1.2-2'}} -->
+                                            <!-- </strong>
+                                            <ng-container *ngIf="cat.spprice > 0; else elseBlock3"> -->
+                                                <!-- <br><strong>Rs. -->
+                                                    <!-- {{cat.spprice | number:'1.2-2'}} -->
+                                                <!-- </strong> -->
+                                            <!-- </ng-container>
+                                            <ng-template #elseBlock3><p>&nbsp;</p></ng-template> -->
+                                        </h3>
+                                        <h5 class="card-title text-center">
+                                            <!-- {{cat.des1}}<br>
+                                            {{cat.des2}}<br>
+                                            {{cat.des3}}<br>
+                                            <b>Product code :</b> {{cat.id}} -->
+                                        </h5>
+                                        <span id="cart" class="d-flex justify-content-around">
+                                            <!-- <input type="number" #qty name="qty{{cat.id}}" id="qty" value="1"
+                                                class="text-center">
+                                            <a (click)="addToCart(cat, qty.value)" class="btn btn-primary"><i
+                                                    class="fas fa-shopping-cart"></i>
+                                            </a> -->
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</div>
+</ng-container>

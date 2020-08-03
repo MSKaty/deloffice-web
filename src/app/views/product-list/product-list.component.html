@@ -1,163 +1,168 @@
 <ng-container *ngIf="category$ | async as data">
-    <div id="wrapper" class="container-fluid">
-        <main id="content" class="row d-flex flex-column flex-nowrap">
-            <div class="row mb-3 ">
-                <section class="col-12">
-                    <!-- <ng-container *ngIf="let banner of data.productdata.products> -->
-                    <div class="aspect-ratio-container catBanner-R">
-                        <div class="frame">
-                            <img onerror="this.src='/assets/img/category-not-found.jpg'"
-                                src="https://api.deloffice.mu/images/category/{{data?.category?.categoryImg?.imgid}}"
-                                alt="" class="img-fluid w-100">
+    <ng-container *ngIf="data?.category; else otherNew">
+        <div id="wrapper" class="container-fluid">
+            <main id="content" class="row d-flex flex-column flex-nowrap">
+                <div class="row mb-3 ">
+                    <section class="col-12">
+                        <!-- <ng-container *ngIf="let banner of data.productdata.products> -->
+                        <div class="aspect-ratio-container catBanner-R">
+                            <div class="frame">
+                                <img onerror="this.src='/assets/img/category-not-found.jpg'"
+                                    src="https://api.deloffice.mu/images/category/{{data?.category?.categoryImg?.imgid}}"
+                                    alt="" class="img-fluid w-100">
+                            </div>
                         </div>
-                    </div>
-                    <!-- </ng-container> -->
-                </section>
-            </div>
-            <div class="row mb-3">
-                <div class="col-lg-3 col-md-3 d-none d-md-block">
-                    <app-slidebar></app-slidebar>
+                        <!-- </ng-container> -->
+                    </section>
                 </div>
-                <div class="col-lg-9 col-md-9 col-12" style="overflow: hidden;">
-                    <h5 class="custom-heading">
-                        {{data.category.description}}
-                    </h5>
-                    <div id="products" class="row ">
-                        <ng-container *ngIf="data.productdata.count > 0">
-                            <ng-container *ngFor="let cat of data.productdata.products; index as i;">
-                                <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
-                                    <div class="card">
-                                        <a routerLink="/product/{{cat.id}}">
-                                            <img onerror="this.src='/assets/img/product-not-found.jpg'"
-                                                src="https://api.deloffice.mu/images/product/{{cat.id}}.jpg" class="card-img-top
-                        img-fluid" alt="...">
-                                        </a>
-                                        <button (click)="addToWishlist(cat, qty.value)" type="button"
-                                            class="btn btn-gray btn-circle btn-lg">
-                                            <i class="fas fa-heart"></i>
-                                        </button>
-                                        <!-- <a (click)="addToWishlist(cat, qty.value)" class="">
-                                            <i class="fas fa-heart"></i>
-                                        </a> -->
-                                        <div class="card-body">
-                                            <h3 class="text-center">
-                                                <strong [class.discountedPrice]="cat.spprice > 0">Rs.
-                                                    {{cat.mainprice | number:'1.2-2'}}
-                                                </strong>
-                                                <ng-container *ngIf="cat.spprice > 0; else elseBlock3">
-                                                    <br><strong>Rs.
-                                                        {{cat.spprice | number:'1.2-2'}}
+                <div class="row mb-3">
+                    <div class="col-lg-3 col-md-3 d-none d-md-block">
+                        <app-slidebar></app-slidebar>
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-12" style="overflow: hidden;">
+                        <h5 class="custom-heading">
+                            {{data.category.description}}
+                        </h5>
+                        <div id="products" class="row ">
+                            <ng-container *ngIf="data.productdata.count > 0">
+                                <ng-container *ngFor="let cat of data.productdata.products; index as i;">
+                                    <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
+                                        <div class="card">
+                                            <a routerLink="/product/{{cat.id}}">
+                                                <img onerror="this.src='/assets/img/product-not-found.jpg'"
+                                                    src="https://api.deloffice.mu/images/product/{{cat.id}}.jpg" class="card-img-top
+                            img-fluid" alt="...">
+                                            </a>
+                                            <button (click)="addToWishlist(cat, qty.value)" type="button"
+                                                class="btn btn-gray btn-circle btn-lg">
+                                                <i class="fas fa-heart"></i>
+                                            </button>
+                                            <!-- <a (click)="addToWishlist(cat, qty.value)" class="">
+                                                <i class="fas fa-heart"></i>
+                                            </a> -->
+                                            <div class="card-body">
+                                                <h3 class="text-center">
+                                                    <strong [class.discountedPrice]="cat.spprice > 0">Rs.
+                                                        {{cat.mainprice | number:'1.2-2'}}
                                                     </strong>
-                                                </ng-container>
-                                                <ng-template #elseBlock3><p>&nbsp;</p></ng-template>
-                                            </h3>
-                                            <h5 class="card-title text-center">
-                                                {{cat.des1}}<br>
-                                                {{cat.des2}}<br>
-                                                {{cat.des3}}<br>
-                                                <b>Product code :</b> {{cat.id}}
-                                            </h5>
-                                            <span id="cart" class="d-flex justify-content-around">
-                                                <input type="number" #qty name="qty{{cat.id}}" id="qty" value="1"
-                                                    class="text-center">
-                                                <a (click)="addToCart(cat, qty.value)" class="btn btn-primary"><i
-                                                        class="fas fa-shopping-cart"></i>
-                                                </a>
-                                            </span>
+                                                    <ng-container *ngIf="cat.spprice > 0; else elseBlock3">
+                                                        <br><strong>Rs.
+                                                            {{cat.spprice | number:'1.2-2'}}
+                                                        </strong>
+                                                    </ng-container>
+                                                    <ng-template #elseBlock3><p>&nbsp;</p></ng-template>
+                                                </h3>
+                                                <h5 class="card-title text-center">
+                                                    {{cat.des1}}<br>
+                                                    {{cat.des2}}<br>
+                                                    {{cat.des3}}<br>
+                                                    <b>Product code :</b> {{cat.id}}
+                                                </h5>
+                                                <span id="cart" class="d-flex justify-content-around">
+                                                    <input type="number" #qty name="qty{{cat.id}}" id="qty" value="1"
+                                                        class="text-center">
+                                                    <a (click)="addToCart(cat, qty.value)" class="btn btn-primary"><i
+                                                            class="fas fa-shopping-cart"></i>
+                                                    </a>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
+                                    <hr *ngIf="(i+1)%4==0 && i+1 < data.productdata.products.length" class="col-12">
+                                </ng-container>
+                            </ng-container>
+                            <hr class="col-12">
+                        </div>
+                        <nav aria-label="pagination-search">
+                            <ul class="pagination">
+                                <li class="page-item text-dark" [class.disabled]="+currentPage - 1 == 0">
+                                    <a routerLink="/category/{{data.category.id}}" [queryParams]="{p: +currentPage - 1}"
+                                        class="page-link" style="cursor: pointer;" tabindex="-1">Previous</a>
+                                </li>
+                                <ng-container *ngFor="let pageNum of tempArray(data.productdata.count); index as i;">
+                                    <li class="page-item" [class.active]="currentPage == pageNum">
+                                        <a routerLink="/category/{{data.category.id}}" [queryParams]="{p: +pageNum}"
+                                            class="page-link" style="cursor: pointer;"
+                                            [class.text-white]="currentPage == pageNum"
+                                            [class.text-dark]="currentPage != pageNum">{{pageNum}} <span
+                                                *ngIf="+currentPage == +pageNum" class="sr-only">(current)</span></a>
+                                    </li>
+                                </ng-container>
+                                <ng-container
+                                    *ngIf="!isIncluded(pagecount(data.productdata), tempArray(data.productdata.count))">
+                                    <li class="page-item disabled">
+                                        <a class="page-link">...</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link text-dark" routerLink="/category/{{data.category.id}}"
+                                            [queryParams]="{p: pagecount(data.productdata)}">{{pagecount(data.productdata)}}</a>
+                                    </li>
+                                </ng-container>
+                                <li class="page-item text-dark"
+                                    [class.disabled]="+currentPage + 1 > pagecount(data.productdata)">
+                                    <a routerLink="/category/{{data.category.id}}" [queryParams]="{p: +currentPage + 1}"
+                                        class="page-link" style="cursor: pointer;">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+    
+                </div>
+                <ng-container *ngIf="prodlistAdvert$ | async as advertProd">
+                    <div class="row mb-3 mx-n1">
+                        <div class="col-lg-6 px-2">
+                            <div class="aspect-ratio-container A2-5">
+                                <div class="frame">
+                                    <img id="Category-Banner-A"
+                                        src="https://api.deloffice.mu/images/product/{{advertProd.categoryBannerA}}"
+                                        class="img-fluid">
                                 </div>
-                                <hr *ngIf="(i+1)%4==0 && i+1 < data.productdata.products.length" class="col-12">
-                            </ng-container>
-                        </ng-container>
-                        <hr class="col-12">
-                    </div>
-                    <nav aria-label="pagination-search">
-                        <ul class="pagination">
-                            <li class="page-item text-dark" [class.disabled]="+currentPage - 1 == 0">
-                                <a routerLink="/category/{{data.category.id}}" [queryParams]="{p: +currentPage - 1}"
-                                    class="page-link" style="cursor: pointer;" tabindex="-1">Previous</a>
-                            </li>
-                            <ng-container *ngFor="let pageNum of tempArray(data.productdata.count); index as i;">
-                                <li class="page-item" [class.active]="currentPage == pageNum">
-                                    <a routerLink="/category/{{data.category.id}}" [queryParams]="{p: +pageNum}"
-                                        class="page-link" style="cursor: pointer;"
-                                        [class.text-white]="currentPage == pageNum"
-                                        [class.text-dark]="currentPage != pageNum">{{pageNum}} <span
-                                            *ngIf="+currentPage == +pageNum" class="sr-only">(current)</span></a>
-                                </li>
-                            </ng-container>
-                            <ng-container
-                                *ngIf="!isIncluded(pagecount(data.productdata), tempArray(data.productdata.count))">
-                                <li class="page-item disabled">
-                                    <a class="page-link">...</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link text-dark" routerLink="/category/{{data.category.id}}"
-                                        [queryParams]="{p: pagecount(data.productdata)}">{{pagecount(data.productdata)}}</a>
-                                </li>
-                            </ng-container>
-                            <li class="page-item text-dark"
-                                [class.disabled]="+currentPage + 1 > pagecount(data.productdata)">
-                                <a routerLink="/category/{{data.category.id}}" [queryParams]="{p: +currentPage + 1}"
-                                    class="page-link" style="cursor: pointer;">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-
-            </div>
-            <ng-container *ngIf="prodlistAdvert$ | async as advertProd">
-                <div class="row mb-3 mx-n1">
-                    <div class="col-lg-6 px-2">
-                        <div class="aspect-ratio-container A2-5">
-                            <div class="frame">
-                                <img id="Category-Banner-A"
-                                    src="https://api.deloffice.mu/images/product/{{advertProd.categoryBannerA}}"
-                                    class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 px-2">
+                            <div class="aspect-ratio-container A2-5">
+                                <div class="frame">
+                                    <img id="Category-Banner-B"
+                                        src="https://api.deloffice.mu/images/product/{{advertProd.categoryBannerB}}"
+                                        class="img-fluid">
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 px-2">
-                        <div class="aspect-ratio-container A2-5">
-                            <div class="frame">
-                                <img id="Category-Banner-B"
-                                    src="https://api.deloffice.mu/images/product/{{advertProd.categoryBannerB}}"
-                                    class="img-fluid">
+                    <div class="row mb-3 mx-n1">
+                        <div class="col-lg-4 px-2">
+                            <div class="aspect-ratio-container HB-C3">
+                                <div class="frame">
+                                    <img id="Category-Banner-C"
+                                        src="https://api.deloffice.mu/images/product/{{advertProd.categoryBannerC}}"
+                                        class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 px-2">
+                            <div class="aspect-ratio-container HB-C3">
+                                <div class="frame">
+                                    <img id="Category-Banner-D"
+                                        src="https://api.deloffice.mu/images/product/{{advertProd.categoryBannerD}}"
+                                        class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 px-2">
+                            <div class="aspect-ratio-container HB-C3">
+                                <div class="frame">
+                                    <img id="Category-Banner-E"
+                                        src="https://api.deloffice.mu/images/product/{{advertProd.categoryBannerE}}"
+                                        class="img-fluid">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row mb-3 mx-n1">
-                    <div class="col-lg-4 px-2">
-                        <div class="aspect-ratio-container HB-C3">
-                            <div class="frame">
-                                <img id="Category-Banner-C"
-                                    src="https://api.deloffice.mu/images/product/{{advertProd.categoryBannerC}}"
-                                    class="img-fluid">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 px-2">
-                        <div class="aspect-ratio-container HB-C3">
-                            <div class="frame">
-                                <img id="Category-Banner-D"
-                                    src="https://api.deloffice.mu/images/product/{{advertProd.categoryBannerD}}"
-                                    class="img-fluid">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 px-2">
-                        <div class="aspect-ratio-container HB-C3">
-                            <div class="frame">
-                                <img id="Category-Banner-E"
-                                    src="https://api.deloffice.mu/images/product/{{advertProd.categoryBannerE}}"
-                                    class="img-fluid">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </ng-container>
-        </main>
-    </div>
+                </ng-container>
+            </main>
+        </div>
+    </ng-container>
+    <ng-template #otherNew>
+        Other
+    </ng-template>
 </ng-container>
