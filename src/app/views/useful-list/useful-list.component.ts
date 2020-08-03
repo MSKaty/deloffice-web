@@ -15,7 +15,8 @@ import { ProductService } from 'src/app/common/services/product.service';
 })
 export class UsefulListComponent implements OnInit {
 
-  promo$: Observable<any>;
+  private _promo$ = new BehaviorSubject<any[]>([]);
+  public promo$: Observable<any[]> = this._promo$.asObservable();
   public userdata: any = JSON.parse(window.localStorage.getItem('user'));
 
   constructor(
