@@ -13,7 +13,31 @@ import { PlatformService } from 'src/app/common/services/platform.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit { 
+  // const header = document.querySelector('.header');
+  // const headerPositionNotifier = document.createElement('div');
+  // (this.headerPositionNotifier as HTMLElement).classList.add('.header-position-notifier');
+  // (this.header as HTMLElement).parentNode.insertBefore(
+  //     (this.headerPositionNotifier as HTMLElement), (this.header as HTMLElement)
+  //   );
+
+  // const options = {
+  //   threshold: [0]
+  // };
+  // const callback = (entries) => {
+  //   entries.forEach(({
+  //     intersectionRatio
+  //   }) => {
+  //     if (intersectionRatio == 0) {
+  //       this.header.classList.add("fixed")
+  //     } else {
+  //       this.header.classList.remove("fixed")
+  //     }
+  //   })
+  // }
+  // const io = new IntersectionObserver(callback, options);
+  // io.observe( (this.headerPositionNotifier as HTMLElement) );
+
   public userdata = null;
   category$: Observable<any>;
   searchKeyword: string;

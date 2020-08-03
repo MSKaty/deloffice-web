@@ -74,6 +74,29 @@ export class ProductService {
       })
     );
   }
+
+  public findNew(): Observable<Partial<Product>> {
+    const userdata = window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null;
+    return this.http.get<Product>(this.apiUrl + '/product/new').pipe(
+      map(product => {
+        let mainprice = product.puprice;
+        if (userdata) {
+          switch (userdata.utype) {
+            case 'Individual':
+              mainprice = product.puprice;
+              break;
+            case 'Corporate':
+              mainprice = product.coprice;
+              break;
+            case 'Reseller':
+              mainprice = product.wsprice;
+              break;
+          }
+        }
+        return { ...product, mainprice };
+      })
+    );
+  }
 }
 
 

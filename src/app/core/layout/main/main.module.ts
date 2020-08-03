@@ -49,6 +49,10 @@ const routes: Routes = [
         path: 'product',
         children: [
           {
+            path: 'new',
+            component: ProductListComponent
+          },
+          {
             path: ':id',
             component: SingleProductComponent
           }

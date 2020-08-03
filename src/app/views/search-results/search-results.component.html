@@ -79,7 +79,10 @@
                             <ng-container *ngFor="let pageNum of tempArray(result.count); index as i;">
                                 <li class="page-item" [class.active]="currentPage == pageNum">
                                     <a routerLink="/search" [queryParams]="{s: searchQuery, p: +pageNum}"
-                                        class="page-link text-dark" style="cursor: pointer;">{{pageNum}} <span
+                                        class="page-link" 
+                                        [class.text-white]="currentPage == pageNum"
+                                        [class.text-dark]="currentPage != pageNum"
+                                        style="cursor: pointer;">{{pageNum}} <span
                                             *ngIf="+currentPage == +pageNum" class="sr-only">(current)</span></a>
                                 </li>
                             </ng-container>

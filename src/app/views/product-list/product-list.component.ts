@@ -78,7 +78,8 @@ export class ProductListComponent implements OnInit, AfterViewInit {
         }
         return combineLatest(
           this._cat.getCat(param['id']),
-          this._prod.findAll(param['id'], this.currentPage)
+          this._prod.findAll(param['id'], this.currentPage),
+          this._prod.findNew(),
         )
       })
     )

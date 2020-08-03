@@ -3,7 +3,7 @@ a, a:focus, a:active, a:hover {
 }
 :host{
     display: block;
-    padding-top: 169px;
+    padding-top: 145px;
 }
 h5 {
     &.custom-heading {
@@ -108,6 +108,8 @@ nav.card {
             border-bottom: 1px;
             border-color: white;
             flex: 1;
+            height: 10vh;
+            max-height: 20%!important;
 
             &:hover {
                 color: red;
@@ -115,16 +117,16 @@ nav.card {
             }
 
             h6 {
-                font-size: 1.5rem;
-                
+                font-size: 1.5rem;                
             }
 
             p {
                 font-size: .9rem;
             }
-            // img{
-            //     height: 70px;
-            // }
+            img{
+                max-width: auto;
+	            height: 100% !important;                
+            }
             
         }
     }

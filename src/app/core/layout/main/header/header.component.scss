@@ -24,7 +24,16 @@ h5 {
         border: 1px solid rgb(11, 11, 88);
     }
 }
-
+.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .header-position-notifier {
+    height: 1px;
+  }
 main#content {
     padding: 20px 30px;
 }
@@ -62,15 +71,15 @@ header#main-header {
         background: linear-gradient(234deg, rgba(208,208,208,1) 0%, rgba(255,255,255,1) 25%, rgba(208,208,208,1) 50%, rgba(255,255,255,1) 75%, rgba(208,208,208,1) 100%);
 
         a#logo {
-            margin: 18px 0;
+            margin: 8px 0;
             display: block;
-            width: 220px;
+            width: 200px;
         }
 
         form#search-form {
             border-radius: 7px;
             border: 1px solid #a1a1a1;
-            padding: 7px 30px;
+            padding: 6px 30px;
             background-color: white;
             opacity: 0.9;
             input[type=search] {
