@@ -17,6 +17,7 @@ export class UsefulListComponent implements OnInit {
 
   private _promo$ = new BehaviorSubject<any[]>([]);
   public promo$: Observable<any[]> = this._promo$.asObservable();
+  
   public userdata: any = JSON.parse(window.localStorage.getItem('user'));
 
   constructor(
@@ -31,12 +32,14 @@ export class UsefulListComponent implements OnInit {
 
     this.promo$ = this.get().pipe(
       map(
-        (data:any) =>{
-            this._title.changeTitle(data.description);
+        (data:any) => {
+          // console.log(data);
+          this._title.changeTitle(data.description);
+          return data;
         }
       ),
       tap(
-        (data) =>{
+        (data) => {
           
         }
       )
@@ -50,11 +53,11 @@ export class UsefulListComponent implements OnInit {
       this._route.queryParams
     ).pipe(
       switchMap(
-          (data)=>{
-            return combineLatest(
-              this._product.findNew()
-            )
-          }
+        (data) => {
+          return combineLatest(
+            this._product.findNew()
+          )
+        }
       )
     )
   }
@@ -107,5 +110,13 @@ export class UsefulListComponent implements OnInit {
         }
       )
   }
+
+  //promo title
+  promoType = {
+    1: 'New Arrival',
+    2: 'Special Offers',
+    3: 'Clearance Sales',
+    4: 'Best Sellers'
+  };
 
 }

@@ -94,7 +94,8 @@ export class ProductService {
           }
         }
         return { ...product, mainprice };
-      })
+      }),
+      tap(console.log)
     );
   }
 }
