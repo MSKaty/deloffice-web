@@ -79,27 +79,23 @@ export class ProductService {
     const userdata = window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null;
     return this.http.get<Product>(this.apiUrl + '/product/new').pipe(
       map((data: any) => {
+        console.log(data);
         return data.map(dataItem => {
-          console.log
-          dataItem = dataItem.map(prod => {
-            const userdata = window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null;
-            let mainprice = prod.puprice;
+            let mainprice = dataItem.puprice;
             if (userdata) {
               switch (userdata.utype) {
                 case 'Individual':
-                  mainprice = prod.puprice;
+                  mainprice = dataItem.puprice;
                   break;
                 case 'Corporate':
-                  mainprice = prod.coprice;
+                  mainprice = dataItem.coprice;
                   break;
                 case 'Reseller':
-                  mainprice = prod.wsprice;
+                  mainprice = dataItem.wsprice;
                   break;
               }
             }
-            return { ...prod, mainprice }
-          });
-          return dataItem;
+            return { ...dataItem, mainprice }
         });
       }),
       tap(console.log)
