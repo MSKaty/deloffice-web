@@ -35,7 +35,7 @@ export class UsefulListComponent implements OnInit {
         (data:any) => {
           // console.log(data);
           this._title.changeTitle(data.description);
-          data=data[0];
+          
           return data;
         }
       ),
@@ -49,15 +49,10 @@ export class UsefulListComponent implements OnInit {
   }
 
   get(){
-    return combineLatest(
-      this._route.params,
-      this._route.queryParams
-    ).pipe(
+    return this._route.params.pipe(
       switchMap(
         (data) => {
-          return combineLatest(
-            this._product.findNew()
-          )
+          return this._product.findNew();          
         }
       )
     )
