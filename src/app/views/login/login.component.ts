@@ -13,7 +13,7 @@ import { error } from 'console';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  submitted = false;
   form: FormGroup;
 
   uid: number;
@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
   pswd: string;
 
   public loginForm: FormGroup = this._fb.group({
-    email: [null, Validators.required],
-    password: [null, Validators.required]
+    email: ['', [Validators.required, Validators.email]],
+    password: [null, [Validators.required, Validators.minLength(6)]]
   })
 
   constructor(
@@ -34,7 +34,16 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  // convenience getter for easy access to form fields
+  get f() { return this.loginForm.controls; }
+
   public login() {
+    this.submitted = true;
+    // stop here if form is invalid
+    if (this.loginForm.invalid) {
+      return;
+    }
+
     this._auth.login(this.loginForm.value).pipe(
       switchMap(data => {
         return this._auth.getProfile()

@@ -6,12 +6,21 @@
                 <form [formGroup]="loginForm" (ngSubmit)="login()">
                     <div class="form-group">
                         <input type="email" class="form-control" placeholder="Email Address" formControlName="email"
-                            required>
+                            required [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">Email is required</div>
+                                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                            </div>
                     </div>
 
                     <div class="form-group">
                         <input type="password" class="form-control" placeholder="Password" formControlName="password"
-                            required>
+                            required [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters
+                                </div>
+                            </div>
                     </div>
                     <div class="form-group">
                         <button type="submit" id="submit" class="btn btn-primary">Login</button>

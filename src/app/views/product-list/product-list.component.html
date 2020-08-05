@@ -30,16 +30,13 @@
                                         <div class="card">
                                             <a routerLink="/product/{{cat.id}}">
                                                 <img onerror="this.src='/assets/img/product-not-found.jpg'"
-                                                    src="https://api.deloffice.mu/images/product/{{cat.id}}.jpg" class="card-img-top
-                            img-fluid" alt="...">
+                                                    src="https://api.deloffice.mu/images/product/{{cat.id}}.jpg"
+                                                    class="card-img-top img-fluid" alt="...">
                                             </a>
                                             <button (click)="addToWishlist(cat, qty.value)" type="button"
                                                 class="btn btn-gray btn-circle btn-lg">
                                                 <i class="fas fa-heart"></i>
-                                            </button>
-                                            <!-- <a (click)="addToWishlist(cat, qty.value)" class="">
-                                                <i class="fas fa-heart"></i>
-                                            </a> -->
+                                            </button>                                            
                                             <div class="card-body">
                                                 <h3 class="text-center">
                                                     <strong [class.discountedPrice]="cat.spprice > 0">Rs.

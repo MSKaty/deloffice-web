@@ -17,19 +17,20 @@
             <div class="row mb-3">
                 <div class="col-lg-3 col-md-3 d-none d-md-block">
                     <app-slidebar></app-slidebar>
+                    
                 </div>
                 <div class="col-lg-9 col-md-9 col-12" style="overflow: hidden;">
                     <h5 class="custom-heading">
                     </h5>
                     <div id="products" class="row ">
-                        <ng-container *ngIf="promo.count > 0">
-                            <ng-container *ngFor="let promoItem of promo; index as i;">
+                        <ng-container >
+                            <ng-container *ngFor="let promoItem of promo.promo; index as i;">
                                 <div class="col-lg-3 col-md-6 col-sm-6 col-6  mb-3">
                                     <div class="card">
                                         <a routerLink="/product/{{promoItem.id}}">
                                             <img onerror="this.src='/assets/img/product-not-found.jpg'"
-                                                src="https://api.deloffice.mu/images/product/{{promoItem.id}}.jpg" class="card-img-top
-                        img-fluid" alt="...">
+                                                src="https://api.deloffice.mu/images/product/{{promoItem.id}}.jpg"
+                                                class="card-img-top img-fluid" alt="...">
                                         </a>
                                         <button (click)="addToWishlist(promoItem, qty.value)" type="button"
                                             class="btn btn-gray btn-circle btn-lg">

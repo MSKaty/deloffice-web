@@ -35,12 +35,13 @@ export class UsefulListComponent implements OnInit {
         (data:any) => {
           // console.log(data);
           this._title.changeTitle(data.description);
+          data=data[0];
           return data;
         }
       ),
       tap(
         (data) => {
-          
+          console.log(data);
         }
       )
     );
