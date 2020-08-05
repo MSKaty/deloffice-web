@@ -34,7 +34,7 @@ export class UsefulListComponent implements OnInit {
       map(
         (data:any) => {
           // console.log(data);
-          this._title.changeTitle(data.description);
+          this._title.changeTitle("New Arrival");
           
           return data;
         }

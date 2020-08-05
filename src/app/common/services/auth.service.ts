@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable, BehaviorSubject, of, throwError } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map, switchMap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,10 @@ export class AuthService {
         } else {
           return throwError(data);
         }
+      }),
+      catchError(err => {
+        console.log(err.message);
+        return throwError("Login Error thrown from catchError");
       })
     );
   }
