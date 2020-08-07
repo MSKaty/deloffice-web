@@ -62,7 +62,7 @@ export class UsefulListComponent implements OnInit {
               urlBit = 'special';
               break;
           }
-          return this._product.findExtra(param.id);
+          return this._product.findExtra(urlBit);
         }
       )
     );

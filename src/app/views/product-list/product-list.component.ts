@@ -89,7 +89,7 @@ export class ProductListComponent implements OnInit, AfterViewInit {
             this._prod.findAll(param['id'], this.currentPage)
           )
         } else {
-          return this._prod.findNew();
+          return this._prod.findExtra('new');
         }
       })
     )
