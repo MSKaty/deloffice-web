@@ -7,6 +7,7 @@ import { OrderService } from 'src/app/common/services/order.service';
 import { switchMap, tap, map } from 'rxjs/operators';
 import { AlertService } from 'src/app/common/services/alert.service';
 import { ProductService } from 'src/app/common/services/product.service';
+import { AdvertService } from 'src/app/common/services/advert.service';
 
 @Component({
   selector: 'app-useful-list',
@@ -20,12 +21,16 @@ export class UsefulListComponent implements OnInit {
 
   public userdata: any = JSON.parse(window.localStorage.getItem('user'));
 
+  promoTitle: string;
+  promoBanner$: Observable<any>;
+
   constructor(
     private _route: ActivatedRoute,
     private _title: TitleService,
     private _order: OrderService,
     private _alert: AlertService,
-    private _product: ProductService
+    private _product: ProductService,
+    private _ads: AdvertService
   ) { }
 
   ngOnInit() {
@@ -48,24 +53,43 @@ export class UsefulListComponent implements OnInit {
             case 'new-arrival':
               this._title.changeTitle('New Arrival');
               urlBit = 'new';
+              this.promoTitle ='New Arrival';
+              this.promoBanner$ = this.getPromoBannerByPage('New');
               break;
             case 'best-sellers':
               this._title.changeTitle('Best Sellers');
               urlBit = 'best';
+              this.promoTitle ='Best Sellers';
+              this.promoBanner$ = this.getPromoBannerByPage('Best');
               break;
             case 'clearance-sales':
               this._title.changeTitle('Clearance Sales');
               urlBit = 'clearance';
+              this.promoTitle ='Clearance Sales';
+              this.promoBanner$ = this.getPromoBannerByPage('Clearance');
               break;
             case 'special-offers':
               this._title.changeTitle('Special Offers');
               urlBit = 'special';
+              this.promoTitle ='Special Offers';
+              this.promoBanner$ = this.getPromoBannerByPage('Special');
               break;
           }
           return this._product.findExtra(urlBit);
         }
       )
     );
+  }
+
+  ///banner
+  getPromoBannerByPage(id: string) {
+    return this._ads.getAdvertsByPage(id).valueChanges()
+      .pipe(
+        map((array) => {
+          return array[0];
+        })
+      );
+    ;
   }
 
   public addToCart(item, qty) {

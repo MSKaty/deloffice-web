@@ -6,9 +6,11 @@
                     <!-- <ng-container *ngIf="let banner of data.productdata.products> -->
                     <div class="aspect-ratio-container catBanner-R">
                         <div class="frame">
-                            <img onerror="this.src='/assets/img/category-not-found.jpg'"
-                                src="https://api.deloffice.mu/images/category/"
-                                alt="" class="img-fluid w-100">
+                            <ng-container *ngIf="promoBanner$ | async as promoBanner">
+                                <img onerror="this.src='/assets/img/category-not-found.jpg'"
+                                    src="https://api.deloffice.mu/images/product/{{promoBanner.banner}}"
+                                    alt="" class="img-fluid w-100">
+                            </ng-container>
                         </div>
                     </div>
                     <!-- </ng-container> -->
@@ -21,7 +23,7 @@
                 </div>
                 <div class="col-lg-9 col-md-9 col-12" style="overflow: hidden;">
                     <h5 class="custom-heading">
-                        NEW ARRIVAL
+                        {{promoTitle}}
                     </h5>
                     <div id="products" class="row ">
                         <ng-container >
