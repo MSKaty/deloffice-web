@@ -17,7 +17,7 @@ export class UsefulListComponent implements OnInit {
 
   private _promo$ = new BehaviorSubject<any[]>([]);
   public promo$: Observable<any[]> = this._promo$.asObservable();
-  
+
   public userdata: any = JSON.parse(window.localStorage.getItem('user'));
 
   constructor(
@@ -25,20 +25,11 @@ export class UsefulListComponent implements OnInit {
     private _title: TitleService,
     private _order: OrderService,
     private _alert: AlertService,
-    private _product : ProductService
+    private _product: ProductService
   ) { }
 
   ngOnInit() {
-
     this.promo$ = this.get().pipe(
-      map(
-        (data:any) => {
-          // console.log(data);
-          this._title.changeTitle("New Arrival");
-          
-          return data;
-        }
-      ),
       tap(
         (data) => {
           console.log(data);
@@ -51,11 +42,30 @@ export class UsefulListComponent implements OnInit {
   get(){
     return this._route.params.pipe(
       switchMap(
-        (data) => {
-          return this._product.findNew();          
+        (param) => {
+          let urlBit;
+          switch (param.id) {
+            case 'new-arrival':
+              this._title.changeTitle('New Arrival');
+              urlBit = 'new';
+              break;
+            case 'best-sellers':
+              this._title.changeTitle('Best Sellers');
+              urlBit = 'best';
+              break;
+            case 'clearance-sales':
+              this._title.changeTitle('Clearance Sales');
+              urlBit = 'clearance';
+              break;
+            case 'special-offers':
+              this._title.changeTitle('Special Offers');
+              urlBit = 'special';
+              break;
+          }
+          return this._product.findExtra(param.id);
         }
       )
-    )
+    );
   }
 
   public addToCart(item, qty) {

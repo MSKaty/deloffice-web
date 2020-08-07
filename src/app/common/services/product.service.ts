@@ -75,9 +75,9 @@ export class ProductService {
     );
   }
 
-  public findNew(): Observable<any> {
+  public findExtra(criteria: string): Observable<any> {
     const userdata = window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null;
-    return this.http.get<Product>(this.apiUrl + '/product/new').pipe(
+    return this.http.get<Product>(this.apiUrl + '/product/' + criteria).pipe(
       map((data: any) => {
         console.log(data);
         return data.map(dataItem => {
@@ -95,7 +95,7 @@ export class ProductService {
                   break;
               }
             }
-            return { ...dataItem, mainprice }
+            return { ...dataItem, mainprice };
         });
       }),
       tap(console.log)

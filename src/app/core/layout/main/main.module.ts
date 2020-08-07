@@ -61,11 +61,7 @@ const routes: Routes = [
         path: 'promo',
         children: [
             {
-                path: 'new-arrival',
-                component: UsefulListComponent
-            },
-            {
-                path: 'special-offers',
+                path: ':id',
                 component: UsefulListComponent
             }
         ]
