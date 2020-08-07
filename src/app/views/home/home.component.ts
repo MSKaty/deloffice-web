@@ -3,6 +3,9 @@ import { CategoryService } from '../../common/services/category.service';
 import { Observable } from 'rxjs';
 import { AdvertService } from 'src/app/common/services/advert.service';
 import { tap, map } from 'rxjs/operators';
+import { AuthService } from 'src/app/common/services/contact.service';
+import { AlertService } from 'src/app/common/services/alert.service';
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -14,9 +17,21 @@ export class HomeComponent implements OnInit {
 
   home1$: Observable<any>;
 
+  inquiryForm: FormGroup = this.fb.group({
+    to: ['', Validators.required],
+    name: ['', Validators.required],
+    from: ['', Validators.required],
+    phone: ['', Validators.required],
+    subject: ['', Validators.required],
+    text: ['', Validators.required],
+  })
+
   constructor(
     private _ads: AdvertService,
-    private _cat: CategoryService
+    private _cat: CategoryService,
+    private contactF: AuthService,
+    private _alert: AlertService,
+    private fb: FormBuilder,
   ) { }
 
   ngOnInit() {
@@ -32,6 +47,28 @@ export class HomeComponent implements OnInit {
         })
       );
     ;
+  }
+
+  public inquirySend() {
+    const { name, from, phone, subject, text } = this.inquiryForm.value;
+    const postObject = {
+      to: 'Sales Department <sales@deloffice.mu>',
+      from: `${name} <${from}>`,
+      subject,
+      text: `${text} <br> Phone: ${phone}`
+    }
+    this.contactF.sendMail(postObject)
+      .subscribe(
+        (data) => {
+          this._alert.success('Inquiry has been Sent !');
+        },
+        (err) => {
+          this._alert.error('Inquiry has NOT been Sent !');
+        },
+        () => {
+
+        }
+      );
   }
 
 }

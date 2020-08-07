@@ -6,7 +6,8 @@
       <span class="d-none d-lg-block flex-fill"><i class="fas fa-phone-alt mr-2"></i>+230 249 3200</span>
       <span class="d-block text-center flex-fill"><i class="fas fa-envelope mr-2"></i><a href="mailto:sales@deloffice.mu"></a>sales@deloffice.mu</span>
     </div>
-    <div id="bottom-header" class=" w-100 d-flex justify-content-between align-items-center flex-column flex-lg-row">
+    <div class="header px-0">
+      <div id="bottom-header" class=" w-100 d-flex justify-content-between align-items-center flex-column flex-lg-row">
       <a routerLink="/" id="logo">
         <img src="\assets\img\logo.svg" alt="deloffice_logo" class="img-fluid">
       </a>
@@ -49,7 +50,8 @@
 
 
         <span routerLink="/cart" id="cart">
-          <!-- <button id="modalActivate" type="button" class="btn" data-toggle="modal" data-target="#exampleModalPreview"> -->
+          <!-- <button id="modalActivate" type="button" class="btn"
+            data-toggle="modal" data-target="#exampleModalPreview"> -->
           <i class="fas fa-shopping-cart"></i>
           <!-- </button> -->
 
@@ -75,6 +77,8 @@
 
       <a href="#"><img src="\assets\img\claro.gif" height="30px"></a>
     </nav>
+    </div>
+    
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModalPreview" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
@@ -93,29 +97,35 @@
               </button>
             </div>
 
-            <div class="modal-body">
-              <ng-container>
+            <div class="modal-body pre-scrollable">
+              <ng-container *ngFor="let prod of prodList$ | async; index as i;">
                 <div class="row">
                   <div class="col-4">
-                    <img src="https://via.placeholder.com/300x300" alt="" class="img-fluid">
+                    <a routerLink="/product/{{prod.product.id}}">
+                      <img onerror="this.src='/assets/img/product-not-found.jpg'"
+                      src="https://api.deloffice.mu/images/product/{{prod.product.id}}.jpg"
+                      class="d-block img-fluid"/>
+                  </a>
                   </div>
                   <div class="col-8">
                     <div class="row">
                       <p>
-                        Gel Pen Expert Ref AGP13672 -description1<br>
-                        description2
+                        {{prod.product.des2}}<br>
+                        {{prod.product.des3}}<br>
+                        <strong>Product Code : </strong>{{prod.product.id}}
                       </p>
                     </div>
                     <div class="row d-flex justify-content-around mt-3">
                       <div>
-                        <input class="form-control text-center Cartqty" type="number" value="1" id="productID-qty">
+                        <input (change)="updateQtyInCart($event, i)" class="form-control text-center"
+                          type="number" value="{{prod.quantity}}">
                       </div>
                       <div class="font-weight-bold h5">
-                        Rs 49.00
+                        Rs {{prod.product.mainprice*prod.quantity | number: '1.2-2'}}
                       </div>
                       <div class="cart_delete">
-                        <a class="btn btn-primary cart_quantity_delete">
-                          <i class="far fa-trash-alt"></i>
+                        <a (click)="removeFromCart(i)" class="btn btn-primary cart_quantity_delete">
+                          <i class="far fa-trash-alt">&nbsp;&nbsp;Remove</i>
                         </a>
                       </div>
                     </div>
@@ -128,30 +138,16 @@
             <div class="modal-footer h-auto">
               <div class="row h5">
                 <div class="col-6">
-                  Subtotal:
+                  Purchase Total (excl. VAT):
                 </div>
                 <div class="col-6 text-right font-weight-bold">
-                  Rs 200.00
+                  Rs. {{purchaseTotal | number:'1.2-2'}}
                 </div>
-              </div>
-              <div class="row h5">
-                <div class="col-6">
-                  Vat:
-                </div>
-                <div class="col-6 text-right font-weight-bold">
-                  Rs 200.00
-                </div>
-              </div>
-              <hr>
-              <div class="row font-weight-bold h4">
-                <div class="col-6">
-                  Order Total
-                </div>
-                <div class="col-6 text-right">
-                  Rs 200.00
-                </div>
-              </div>
-              <button type="button" class="btn btn-primary w-100 font-weight-bold">To Cart</button>
+              </div>              
+              <button type="button"  routerLink="/cart"
+                class="btn btn-primary w-100 font-weight-bold">
+                To Cart
+              </button>
             </div>
           </div>
         </ng-container>

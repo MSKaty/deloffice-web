@@ -29,11 +29,14 @@ h5 {
     top: 0;
     left: 0;
     right: 0;
-  }
+}
   
-  .header-position-notifier {
+.header-position-notifier {
     height: 1px;
-  }
+}
+#bottom-header{
+    padding: 0px 30px;
+}
 main#content {
     padding: 20px 30px;
 }

@@ -439,43 +439,50 @@
                         Need something that you can't find in our store?<br>
                         Leave us a message here. Our Team will be happy to assist.
                     </p>
-                    <form class="justify-content-center mb-1">
+                    <form [formGroup]="inquiryForm" class="justify-content-center mb-1">
                         <div class="form-group row">
                             <label for="name" class="col-2 col-form-label">Name:</label>
                             <div class="col-9">
-                                <input id="name" name="name" placeholder="Enter Name" type="text" class="form-control"
-                                    required="required">
+                                <input id="name" name="name" placeholder="Enter Your Name" type="text" class="form-control"
+                                    required="required" formControlName="name">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="email" class="col-2 col-form-label">Email:</label>
                             <div class="col-9">
                                 <input id="email" name="email" placeholder="Enter Email" type="text"
-                                    class="form-control" required="required">
+                                    class="form-control" required="required" formControlName="from">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="phone" class="col-2 col-form-label">Phone:</label>
                             <div class="col-9">
                                 <input id="phone" name="phone" placeholder="Enter Phone" type="text"
-                                    class="form-control">
+                                    class="form-control" formControlName="phone">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="subject" class="col-2 col-form-label">Subject:</label>
                             <div class="col-9">
                                 <input id="subject" name="subject" placeholder="Enter Subject" type="text"
-                                    class="form-control">
+                                    class="form-control" formControlName="subject">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="msg" class="col-2 col-form-label">Message:</label>
                             <div class="col-9">
                                 <textarea id="msg" name="msg" rows="5" class="form-control"
-                                    aria-describedby="msgHelpBlock" style="height: 100px;"></textarea>
+                                    aria-describedby="msgHelpBlock" style="height: 100px;"
+                                    formControlName="text"></textarea>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="form-group">
+                            <div class="mx-auto">
+                                <div class="g-recaptcha" data-sitekey="6LfewmwUAAAAADfCuS1MzYnP0MSfMgxKfBT2d3D9">
+                                </div>
+                            </div>
+                        </div>                        
+                        <div class="form-group row">                            
                             <div class="mx-auto">
                                 <button name="submit" type="submit" class="btn btn-primary text-center">
                                     Submit <i class="fa fa-paper-plane pl-3"></i>
