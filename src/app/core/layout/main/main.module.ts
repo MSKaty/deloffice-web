@@ -32,6 +32,7 @@ import { MembershipPolicyComponent } from '../../../views/delinfo/membership-pol
 import { TermsnconditionsComponent } from '../../../views/delinfo/termsnconditions/termsnconditions.component';
 import { PrivacynsecurityComponent } from '../../../views/delinfo/privacynsecurity/privacynsecurity.component';
 import { UsefulListComponent } from 'src/app/views/useful-list/useful-list.component';
+import { Error404Component } from '../../../views/error404/error404.component';
 
 
 
@@ -183,6 +184,11 @@ const routes: Routes = [
         data: { title: 'Update Password' },
         canActivate: [AuthGuard]
       },
+      {
+        path: 'error-404',
+        component: Error404Component,
+        data: { title: 'Error 404' }
+      },
 
 
     ]
@@ -198,7 +204,7 @@ const routes: Routes = [
   declarations: [MainComponent, HeaderComponent, CartComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent,
     RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent, AboutComponent, WishlistComponent, CorporateValuesComponent,
     ContactUsComponent, JobOpportunitiesComponent, AntiBriberyPolicyComponent, FAQComponent, DeliveryPolicyComponent, MyaccountsComponent,
-    UpdatePassComponent, ReturnsPolicyComponent, MembershipPolicyComponent, TermsnconditionsComponent, PrivacynsecurityComponent, UsefulListComponent],
+    UpdatePassComponent, ReturnsPolicyComponent, MembershipPolicyComponent, TermsnconditionsComponent, PrivacynsecurityComponent, UsefulListComponent, Error404Component],
 
   imports: [
     CommonModule,

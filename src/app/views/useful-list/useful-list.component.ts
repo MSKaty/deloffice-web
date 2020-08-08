@@ -139,14 +139,6 @@ export class UsefulListComponent implements OnInit {
           console.log(postWishData)
         }
       )
-  }
-
-  //promo title
-  promoType = {
-    1: 'New Arrival',
-    2: 'Special Offers',
-    3: 'Clearance Sales',
-    4: 'Best Sellers'
-  };
+  }  
 
 }
