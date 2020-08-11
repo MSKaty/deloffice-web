@@ -54,13 +54,14 @@ export class HomeComponent implements OnInit {
     const postObject = {
       to: 'Sales Department <sales@deloffice.mu>',
       from: `${name} <${from}>`,
-      subject,
-      text: `${text} <br> Phone: ${phone}`
+      subject: `Product Inquiry: ${subject}`,
+      text: `Phone: ${phone}<br>${text}`
     }
     this.contactF.sendMail(postObject)
       .subscribe(
         (data) => {
           this._alert.success('Inquiry has been Sent !');
+          this.inquiryForm.reset();
         },
         (err) => {
           this._alert.error('Inquiry has NOT been Sent !');

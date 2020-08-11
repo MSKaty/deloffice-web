@@ -113,9 +113,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-3">
-                        <label for="commentArea font-weight-bold">Any comments:</label>
-                        <textarea class="form-control" id="commentArea" rows="5"></textarea>
+                    <div class="row mt-3" [formGroup]="commentGrp">
+                        <div class="form-group w-100">
+                            <label for="commentArea font-weight-bold">Any comments:</label>
+                            <textarea class="form-control" id="commentArea" rows="5" formControlName="commentArea"></textarea>
+                        </div>                        
                     </div>
                     <div class="row mt-5 my-3 mx-n4">
                         <div class="col-lg-6 col-md-6 pr-2">
@@ -194,27 +196,20 @@
                                         </tr>
                                         <tr class="cart-order-total">
                                             <td class="pr-3">Order Total (incl. VAT)</td>
-                                            <td class="total text-right"><span class="cart_total">Rs.
+                                            <td class="total text-right">
+                                                <span class="cart_total">Rs.
                                                     {{orderTotalIncl | number:'1.2-2'}}
-                                                    <!--v-html--></span></td>
+                                                    </span></td>
                                         </tr>
                                     </tbody>
                                 </table>
-
-
                                 <button type="button" class="btn btn-primary btn-sm btn-block my-3"
-                                    name="show-save-cart" data-toggle="modal" data-target="#savecartmodal">
+                                    (click)="sendCartOrder(commentGrp.value)">
                                     <i class="fa fa-shopping-cart mr-3"></i>Send Order
                                 </button>
-                                <!--v-if-->
-
-                                <!--v-if-->
-                                <!--fragment-end-->
-                                <!--v-if-->
-                                <!--v-if-->
                             </div>
                             <div class="my-3">
-                                <img src="assets\img\delivery.svg" align="right" class="">
+                                <img src="assets\img\delivery.svg" class="">
                             </div>
                         </form>
                     </div>

@@ -35,12 +35,13 @@ export class ContactUsComponent implements OnInit {
       to: to,
       from: `${name} <${from}>`,
       subject,
-      text
+      text: `${text} <br> Phone: ${phone}`
     }
     this.contactF.sendMail(postObject)
       .subscribe(
         (data) => {
           this._alert.success('Inquiry has been Sent !');
+          this.contactForm.reset();
         },
         (err) => {
           this._alert.error('Inquiry has NOT been Sent !');

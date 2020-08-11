@@ -193,3 +193,15 @@ nav.card {
         }
     }
 }
+
+a.product-img-container {
+    display: block;
+    overflow: hidden;
+
+    img {
+        transition: all ease-in-out 1s;
+        &:hover {
+            transform: scale(1.3);
+        }
+    }
+}

@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { OrderService } from 'src/app/common/services/order.service';
 import { tap } from 'rxjs/operators';
 import { AdvertService } from 'src/app/common/services/advert.service';
+import { AlertService } from 'src/app/common/services/alert.service';
 
 @Component({
   selector: 'app-cart',
@@ -20,9 +21,15 @@ export class CartComponent implements OnInit {
 
   public cartList$;
 
+  public commentGrp: FormGroup = this.fb.group({
+    commentArea:[''],
+  })
+
   constructor(
     private _order: OrderService,
-    private _ads: AdvertService
+    private fb: FormBuilder,
+    private _ads: AdvertService,
+    private _alert: AlertService
   ) { }
 
   ngOnInit() {
@@ -103,5 +110,21 @@ export class CartComponent implements OnInit {
 
   public get orderTotalIncl() {
     return this.orderTotalExcl * 1.15;
+  }
+
+  public sendCartOrder(body:any){
+    this._order.sendCartOrder(body).subscribe(
+      (data) => {
+        console.log(data);
+        this._alert.success('Cart Order Sent!');
+      },
+      (err) => {
+        console.log(err)
+        this._alert.error('Cart Order NOT Sent!');
+      },
+      () => {
+        console.log('done');
+      }
+    );
   }
 }

@@ -126,7 +126,7 @@
                     <div class="row mx-lg-n2">
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
                             <a routerLink="/category/1003">
-                                <img src="\assets\img\features\1003.jpg" alt="paper" class="img-fluid border w-100">
+                                <img src="https://api.deloffice.mu/images/product/1003.jpg" alt="paper" class="img-fluid border w-100">
                             </a>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6 col-6 px-lg-2 mb-3 ">
@@ -444,7 +444,7 @@
                         Need something that you can't find in our store?<br>
                         Leave us a message here. Our Team will be happy to assist.
                     </p>
-                    <form [formGroup]="inquiryForm" class="justify-content-center mb-1">
+                    <form (ngSubmit)="inquirySend()" [formGroup]="inquiryForm" class="justify-content-center mb-1">
                         <div class="form-group row">
                             <label for="name" class="col-2 col-form-label">Name:</label>
                             <div class="col-9">

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpHeaders, HttpRequest, HttpHandler, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { PlatformService } from '../services/platform.service';
 
@@ -30,20 +30,25 @@ export class RequestInterceptorService implements HttpInterceptor {
                 return next.handle(authReq).pipe(
                     catchError((err: any) => {
                         if (err instanceof HttpErrorResponse) {
-                            this._router.navigate(['/login']);
+                            if (err.status === 401) {
+                                window.localStorage.clear();
+                                this._router.navigate(['/login']);
+                            }
                             console.log(err);
                         }
-                        return of(err);
+                        return throwError(err);
                     })
                 );
             } else {
                 return next.handle(request).pipe(
                     catchError((err: any) => {
                         if (err instanceof HttpErrorResponse) {
-                            this._router.navigate(['/login']);
+                            if (err.status === 401) {
+                                this._router.navigate(['/login']);
+                            }
                             console.log(err);
                         }
-                        return of(err);
+                        return throwError(err);
                     })
                 );
             }

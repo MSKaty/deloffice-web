@@ -35,10 +35,10 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/js/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "src/assets/js/relatedproductCarousel.js",
-              "src/assets/js/error404animate.js",
-              "src/assets/js/popper.min.js"
+              "src/assets/js/error404animate.js"
             ]
           },
           "configurations": {

@@ -33,6 +33,7 @@ import { TermsnconditionsComponent } from '../../../views/delinfo/termsnconditio
 import { PrivacynsecurityComponent } from '../../../views/delinfo/privacynsecurity/privacynsecurity.component';
 import { UsefulListComponent } from 'src/app/views/useful-list/useful-list.component';
 import { Error404Component } from '../../../views/error404/error404.component';
+import { HeaderScrollDirective } from './header/header-scroll.directive';
 
 
 
@@ -201,7 +202,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [MainComponent, HeaderComponent, CartComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent,
+  declarations: [MainComponent, HeaderComponent, HeaderScrollDirective, CartComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent,
     RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent, AboutComponent, WishlistComponent, CorporateValuesComponent,
     ContactUsComponent, JobOpportunitiesComponent, AntiBriberyPolicyComponent, FAQComponent, DeliveryPolicyComponent, MyaccountsComponent,
     UpdatePassComponent, ReturnsPolicyComponent, MembershipPolicyComponent, TermsnconditionsComponent, PrivacynsecurityComponent, UsefulListComponent, Error404Component],

@@ -1,4 +1,4 @@
-<div id="wrapper" class="container-fluid fixed-top">
+<div id="wrapper" class="container-fluid" headerScroll>
   <header id="main-header" class="row d-flex flex-column">
     <div id="top-header" class="w-100 d-flex justify-content-between align-items-center">
       <span class="d-none d-lg-block flex-fill"><i class="fas fa-map-marker-alt mr-2"></i>Le Hochet, Terre
@@ -6,7 +6,7 @@
       <span class="d-none d-lg-block flex-fill"><i class="fas fa-phone-alt mr-2"></i>+230 249 3200</span>
       <span class="d-block text-center flex-fill"><i class="fas fa-envelope mr-2"></i><a href="mailto:sales@deloffice.mu"></a>sales@deloffice.mu</span>
     </div>
-    <div class="header px-0">
+    <div id="section-header" class="header px-0">
       <div id="bottom-header" class=" w-100 d-flex justify-content-between align-items-center flex-column flex-lg-row">
       <a routerLink="/" id="logo">
         <img src="\assets\img\logo.svg" alt="deloffice_logo" class="img-fluid">
@@ -60,7 +60,7 @@
     </div>
     <nav id="main" class="d-flex justify-content-between align-items-center">
       <ul class="d-none d-lg-block">
-        <li *ngFor="let cat of category$ | async; index as i;" [class.disabled]="cat.id == 996">
+        <li *ngFor="let cat of category$ | async; index as i;" [hidden]="cat.id == 996">
           <a routerLink="/category/{{cat.id}}">
             {{cat.description}}
           </a>
@@ -73,9 +73,13 @@
             <img src="" alt="">
           </div>
         </li>
+        <li>
+          <a href="#">Printing Services</a>
+        </li>
       </ul>
 
-      <a href="#"><img src="\assets\img\claro.gif" height="30px"></a>
+      <!-- <a href="#"><img src="\assets\img\claro.gif" height="30px"></a> -->
+      <a href="#" class="text-white">Catalogues</a>
     </nav>
     </div>
     

@@ -115,4 +115,9 @@ export class OrderService {
         return this._http.post(this.apiUrl + '/order/wishlist/batch', body);
     }
 
+    ///send cart order
+    public sendCartOrder(body:any){
+        return this._http.post(this.apiUrl + '/order', body);
+    }
+
 }
