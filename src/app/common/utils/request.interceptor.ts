@@ -34,7 +34,7 @@ export class RequestInterceptorService implements HttpInterceptor {
                                 window.localStorage.clear();
                                 this._router.navigate(['/login']);
                             }
-                            console.log(err);
+                            // console.log(err);
                         }
                         return throwError(err);
                     })
@@ -46,7 +46,7 @@ export class RequestInterceptorService implements HttpInterceptor {
                             if (err.status === 401) {
                                 this._router.navigate(['/login']);
                             }
-                            console.log(err);
+                            // console.log(err);
                         }
                         return throwError(err);
                     })

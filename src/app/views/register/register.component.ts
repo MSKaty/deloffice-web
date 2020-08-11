@@ -103,20 +103,20 @@ export class RegisterComponent implements OnInit {
     }
 
     this.registerForm.controls['utype'].setValue(this.type);
-    console.log(this.registerForm.value);
+    // console.log(this.registerForm.value);
     this._auth.register(this.registerForm.value).subscribe(
       data => {
-        console.log(data);
+        // console.log(data);
         this._router.navigate(['/login'])
         this._alert.success('Registration Done');
       },
       err => {
-        console.log(err);
+        // console.log(err);
         this.registerForm.reset();
         this._alert.error('Please input your details correctly');
       },
       () => {
-        console.log('done');
+        // console.log('done');
       }
     );
   }

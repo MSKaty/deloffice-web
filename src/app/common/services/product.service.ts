@@ -48,7 +48,7 @@ export class ProductService {
           return dataItem;
         });
       }),
-      tap(console.log)
+      // tap(console.log)
     );
   }
 
@@ -79,7 +79,7 @@ export class ProductService {
     const userdata = window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null;
     return this.http.get<Product>(this.apiUrl + '/product/' + criteria).pipe(
       map((data: any) => {
-        console.log(data);
+        // console.log(data);
         return data.map(dataItem => {
             let mainprice = dataItem.puprice;
             if (userdata) {
@@ -98,7 +98,7 @@ export class ProductService {
             return { ...dataItem, mainprice };
         });
       }),
-      tap(console.log)
+      // tap(console.log)
     );
   }
 }

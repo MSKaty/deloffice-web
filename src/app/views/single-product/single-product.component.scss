@@ -1,11 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-
-* {
-    font-family: 'Roboto', sans-serif;
-}
 :host{
     display: block;
-    padding-top: 145px;
 }
 a, a:focus, a:active, a:hover {
     text-decoration: none;
@@ -18,57 +12,38 @@ div#bannerImage.container-fluid{
         background-color: gainsboro;
     }
 }
-.col-4dot5 {
-    -ms-flex: 0 0 37.5%;
-    flex: 0 0 37.5%;
-    max-width: 37.5%;
-    width: 37.5%;
-}
-.col-7dot5 {
-    -ms-flex: 0 0 62.5%;
-    flex: 0 0 62.5%;
-    max-width: 62.5%;
-    width: 62.5%;
-}
-
 
 main#content {    
     padding: 20px 30px;
     .product{
-        position:relative;
-        .wrap-sticky-content-block{
-            width: 100%;
-            display: inline-block;
-            .wrap-single-product-images{
-                float:left;
-                #carouselExampleControls{
-                    .carousel-indicators {
-                        position: static;
-                        margin-top: 0px;
-                        >li {
-                            width: 100px;
-                            img {
-                                display: block;
-                                opacity: 0.5;
-                                border-width: medium;
-                                border-style: 1px black;
-                            }
-                            &.active img {
-                                opacity: 1
-                            }
-                            &:hover img {
-                                opacity: 0.75
-                            }
+        .wrap-single-product-images{
+            
+            #carouselExampleControls{
+                .carousel-indicators {
+                    position: static;
+                    margin-top: 0px;
+                    >li {
+                        width: 100px;
+                        opacity: 1!important;
+                        img {
+                            display: block;
+                            border-width: medium;
+                            border-style: 1px black;
+                        }
+                        &.active img {
+                            border: 2px solid red!important;
+                        }
+                        &:hover img {
+                            border: 2px solid red;
                         }
                     }
-                    
                 }
                 
-            }
+            } 
 
         }
         .entry-summary{
-            float:right;            
+                        
             h1{
                 font-weight: 700 !important;
             }

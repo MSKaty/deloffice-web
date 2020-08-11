@@ -6,17 +6,15 @@
                     src="https://api.deloffice.mu/images/category/{{product?.categoryImg?.imgid}}" alt=""
                     class="img-fluid w-100">
             </div>
-        </div>
-        <!-- <img id="category_banner" src="https://via.placeholder.com/1600x250.png" alt="" class="img-fluid w-100"> -->
-        <div class="py-1 text-center">
-            <h2 class="font-weight-bold">{{product.des1}}</h2>
-        </div>
+        </div>        
     </div>
     <div id="wrapper" class="container-fluid">
         <main id="content" class="row d-flex flex-column flex-nowrap">
-            <div id="productID-{{product.id}}" class="product row">
-                <div class="wrap-sticky-content-block col-12">
-                    <div class="wrap-single-product-images col-4dot5">
+            <div id="productID-{{product.id}}" class="product row">                
+                    <div class="col-lg-3 col-md-4 d-none d-md-block">
+                        <app-slidebar></app-slidebar>
+                    </div>
+                    <div class="wrap-single-product-images col-lg-4 col-md-4">
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
@@ -51,7 +49,7 @@
                                         data-target="#carouselExampleControls">
                                         <img onerror="this.src='/assets/img/product-not-found.jpg'"
                                             src="https://img.youtube.com/vi/M7lc1UVf-VE/hqdefault.jpg"
-                                            class="d-block w-75 img-fluid" alt="...">
+                                            class="d-block w-100 img-fluid border" alt="...">
                                     </a>
                                 </li>
                                 <ng-container *ngFor="let images of product.prod_images; index as i">
@@ -60,20 +58,20 @@
                                             data-target="#carouselExampleControls">
                                             <img onerror="this.src='/assets/img/product-not-found.jpg'"
                                                 src="https://api.deloffice.mu/images/product/{{images.imgid}}"
-                                                class="d-block w-75 img-fluid" alt="...">
+                                                class="d-block w-75 img-fluid border" alt="...">
                                         </a>
                                     </li>
                                 </ng-container>
                             </ul>
                         </div>
                     </div>
-                    <div class="entry-summary col-7dot5 pl-4    ">
+                    <div class="entry-summary col-lg-5 col-md-4">
                         <button (click)="addToWishlist(product, qty.value)" type="button"
                             class="btn btn-gray btn-lg float-right">
                             <i class="fas fa-heart"></i>
                     </button>
-                        <h1>{{product.des1}}</h1>
-                        <h3><strong>{{product.des2}}</strong></h3>
+                        <h3>{{product.des1}}</h3>
+                        <h4><strong>{{product.des2}}</strong></h4>
                         <p><strong>Brand: </strong>{{product.des3}}</p>
                         <p><strong>Product Code: </strong>{{product.id}}</p>
                         <p><strong>Description:</strong></p>
@@ -108,7 +106,6 @@
                             </a>
                         </span>
                     </div>
-                </div>
             </div>
             <!-- related products section -->
             <ng-container *ngIf="product.related_products.length > 0">

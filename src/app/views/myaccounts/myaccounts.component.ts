@@ -58,7 +58,9 @@ export class MyaccountsComponent implements OnInit {
   ngOnInit() {
     ///get user data from DB upon loading
     this.userAccount$ = this.get().pipe(
-      tap((data) => { console.log(data) })
+      tap((data) => { 
+        // console.log(data);
+      })
     )
   }
 
@@ -78,15 +80,15 @@ export class MyaccountsComponent implements OnInit {
   public updateuser() {
     this._user.updateUser(this.userForm.value).subscribe(
       (data) => {
-        console.log(data);
+        // console.log(data);
         this._alert.success('Your New Information has been Updated.');
       },
       (err) => {
-        console.log(err);
+        // console.log(err);
         this._alert.error('Your New Information has NOT been Updated!');
       },
       () => {
-        console.log('done');
+        // console.log('done');
       }
     )
   }

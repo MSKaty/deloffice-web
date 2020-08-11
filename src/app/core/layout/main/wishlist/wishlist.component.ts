@@ -31,7 +31,7 @@ export class WishlistComponent implements OnInit {
     this.WishList$ = this._order.getWishlistContents().pipe(
       tap((items: any) => {
         this._wishList$.next(items);
-        console.log(items);
+        // console.log(items);
       })
     );
   }
@@ -48,25 +48,25 @@ export class WishlistComponent implements OnInit {
     this._order.addToCart(postData)
       .subscribe(
         (data) => {
-          console.log(data);
+          // console.log(data);
           this._alert.success('Wishlist Product added To Cart');
         },
         (err) => {
-          console.log(err);
+          // console.log(err);
           this._alert.error('Wishlist Product NOT added To Cart!');
         },
         () => {
-          console.log('done')
+          // console.log('done')
         }
       )
     //delete wishlist item after adding to cart
     let tempArray = this._wishList$.value;
     this._order.deleteWishlistItem(tempArray[i].wishlistId).subscribe(
       (data) => {
-        console.log(data)
+        // console.log(data)
       },
       (err) => {
-        console.log(err)
+        // console.log(err)
       },
       () => {
         tempArray.splice(item, 1);
@@ -80,11 +80,11 @@ export class WishlistComponent implements OnInit {
     tempArray[index].quantity = event.target.value;
     this._order.updateQty(tempArray[index].wishlistId, tempArray[index]).subscribe(
       (data) => {
-        console.log(data);
+        // console.log(data);
         this._alert.success('Wishlist Product has been Updated');
       },
       (err) => {
-        console.log(err)
+        // console.log(err)
         this._alert.error('Wishlist Product has NOT been Updated!');
       },
       () => {
@@ -98,11 +98,11 @@ export class WishlistComponent implements OnInit {
     let tempArray = this._wishList$.value;
     this._order.deleteWishlistItem(tempArray[index].wishlistId).subscribe(
       (data) => {
-        console.log(data);
+        // console.log(data);
         this._alert.success('Wishlist Product Removed');
       },
       (err) => {
-        console.log(err)
+        // console.log(err)
         this._alert.error('Wishlist Product NOT Removed!');
       },
       () => {
@@ -132,7 +132,7 @@ export class WishlistComponent implements OnInit {
     } else {
       this._selectedItems.splice(index, 1);
     }
-    console.log(this._selectedItems);
+    // console.log(this._selectedItems);
   }
 
   public findItemInArray(wishlistId) {
@@ -152,11 +152,11 @@ export class WishlistComponent implements OnInit {
     })
     this._order.batchAddToCart(this._selectedItems).subscribe(
       (data) => {
-        console.log(data);
+        // console.log(data);
         this._alert.success('All Wishlist Items Added to Cart');
       },
       (err) => {
-        console.log(err)
+        // console.log(err)
         this._alert.error('All Wishlist Items NOT Added to Cart!');
       },
       () => {

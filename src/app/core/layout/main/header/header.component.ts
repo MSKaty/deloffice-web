@@ -41,7 +41,9 @@ export class HeaderComponent implements OnInit {
 
 
     this.userAccount$ = this.get().pipe(
-      tap((data) => { console.log(data) })
+      tap((data) => { 
+        // console.log(data) 
+      })
     )
 
     ////cart
@@ -87,10 +89,10 @@ export class HeaderComponent implements OnInit {
     tempArray[index].quantity = event.target.value;
     this._order.updateQty(tempArray[index].wishboxid, tempArray[index]).subscribe(
       (data) => {
-        console.log(data)
+        // console.log(data)
       },
       (err) => {
-        console.log(err)
+        // console.log(err)
       },
       () => {
         this._prodList$.next(tempArray);
@@ -102,10 +104,10 @@ export class HeaderComponent implements OnInit {
     let tempArray = this._prodList$.value;
     this._order.deleteCartItem(tempArray[index].wishboxid).subscribe(
       (data) => {
-        console.log(data)
+        // console.log(data)
       },
       (err) => {
-        console.log(err)
+        // console.log(err)
       },
       () => {
         tempArray.splice(index, 1);

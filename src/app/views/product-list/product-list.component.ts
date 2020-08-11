@@ -68,7 +68,7 @@ export class ProductListComponent implements OnInit, AfterViewInit {
   getAdvertsByCategoryId(id: number) {
     return this._ads.getAdvertsByCategoryId(id).valueChanges().pipe(
       map(data => data[0]),
-      tap(console.log),
+      // tap(console.log),
     )
   }
 
@@ -107,15 +107,15 @@ export class ProductListComponent implements OnInit, AfterViewInit {
     this._order.addToCart(postData)
       .subscribe(
         (data) => {
-          console.log(data)
+          // console.log(data)
           this._alert.success('Product Added To Cart!');
         },
         (err) => {
-          console.log(err)
+          // console.log(err)
           this._alert.error('Product NOT Added To Cart!');
         },
         () => {
-          console.log('done')
+          // console.log('done')
         }
       )
   }
@@ -130,16 +130,16 @@ export class ProductListComponent implements OnInit, AfterViewInit {
     this._order.addToWishlist(postWishData)
       .subscribe(
         (data) => {
-          console.log(data);
+          // console.log(data);
           this._alert.success('Product Added To Wishlist!');
         },
         (err) => {
-          console.log(err);
+          // console.log(err);
           this._alert.error('Product NOT Added To Wishlist!');
         },
         () => {
-          console.log('done')
-          console.log(postWishData)
+          // console.log('done')
+          // console.log(postWishData)
         }
       )
   }

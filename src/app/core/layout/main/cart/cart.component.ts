@@ -51,10 +51,10 @@ export class CartComponent implements OnInit {
     tempArray[index].quantity = event.target.value;
     this._order.updateQty(tempArray[index].wishboxid, tempArray[index]).subscribe(
       (data) => {
-        console.log(data)
+        // console.log(data)
       },
       (err) => {
-        console.log(err)
+        // console.log(err)
       },
       () => {
         this._prodList$.next(tempArray);
@@ -66,10 +66,10 @@ export class CartComponent implements OnInit {
     let tempArray = this._prodList$.value;
     this._order.deleteCartItem(tempArray[index].wishboxid).subscribe(
       (data) => {
-        console.log(data)
+        // console.log(data)
       },
       (err) => {
-        console.log(err)
+        // console.log(err)
       },
       () => {
         tempArray.splice(index, 1);
@@ -115,15 +115,15 @@ export class CartComponent implements OnInit {
   public sendCartOrder(body:any){
     this._order.sendCartOrder(body).subscribe(
       (data) => {
-        console.log(data);
+        // console.log(data);
         this._alert.success('Cart Order Sent!');
       },
       (err) => {
-        console.log(err)
+        // console.log(err)
         this._alert.error('Cart Order NOT Sent!');
       },
       () => {
-        console.log('done');
+        // console.log('done');
       }
     );
   }

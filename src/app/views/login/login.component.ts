@@ -56,17 +56,17 @@ export class LoginComponent implements OnInit {
     )
       .subscribe(
         data => {
-          console.log(data);
+          // console.log(data);
           this._router.navigate(['/']);
           this._alert.success('Welcome Back');
         },
         error => {
-          console.log(error);
+          // console.log(error);
           this.loginForm.reset();
           this._alert.error('Login Error');
         },
         () => {
-          console.log('HTTP request completed');
+          // console.log('HTTP request completed');
 
         }
       );
