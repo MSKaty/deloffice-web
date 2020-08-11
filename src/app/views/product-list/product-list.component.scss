@@ -81,43 +81,10 @@ nav.card {
                 list-style: none;
                 margin: 0;
                 
-                li {
-                    a {
-                    }
-                }
-            }
-        }
-    }
-}
-
-.useful-links {
-    ul {
-        li {
-            background-image: url('/assets/img/banner.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
-            background-color: white;
-            color: white;
-            border-bottom: 1px;
-            border-color: white;
-
-            &:hover {
-                color: red;
-                cursor: pointer;
-            }
-
-            h6 {
-                font-size: 1.5rem;
-                
-            }
-
-            p {
-                font-size: .9rem;
-            }
-
-            img {
-                
+                // li {
+                //     a {
+                //     }
+                // }
             }
         }
     }

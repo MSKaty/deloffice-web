@@ -432,49 +432,57 @@
     </div>
 
     <!-- subscribe Modal -->
-    <div class="modal fade text-center py-5 subscribeModal-lg" id="somethingElseModal" tabindex="-1" role="dialog"
+    <div class="modal fade text-center subscribeModal-lg" id="somethingElseModal" tabindex="-1" role="dialog"
         aria-labelledby="somethingElseModal" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-body align-middle">
                     <div class="top-strip"></div>
-                    <img src="\assets\img\logo.svg" alt="deloffice_logo" class="img-fluid mt-n3" width="350px">
+                    <img src="\assets\img\logo.svg" alt="deloffice_logo" class="img-fluid mt-2" width="300px">
                     <h2 class="mb-0">Product Inquiry</h2>
-                    <p class="pb-1 text-muted">
+                    <p class="text-muted">
                         Need something that you can't find in our store?<br>
                         Leave us a message here. Our Team will be happy to assist.
                     </p>
-                    <form (ngSubmit)="inquirySend()" [formGroup]="inquiryForm" class="justify-content-center mb-1">
+                    <form (ngSubmit)="inquirySend()" [formGroup]="inquiryForm" class="justify-content-center">
                         <div class="form-group row">
-                            <label for="name" class="col-2 col-form-label">Name:</label>
+                            <label for="name" class="col-1 offset-1 col-form-label">Name:</label>
                             <div class="col-9">
                                 <input id="name" name="name" placeholder="Enter Your Name" type="text" class="form-control"
                                     required="required" formControlName="name">
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="email" class="col-2 col-form-label">Email:</label>
-                            <div class="col-9">
-                                <input id="email" name="email" placeholder="Enter Email" type="text"
-                                    class="form-control" required="required" formControlName="from">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group row">
+                                    <label for="email" class="col-2 offset-2 col-form-label">Email:</label>
+                                    <div class="col-8">
+                                        <input id="email" name="email" placeholder="Enter Email" type="text"
+                                        class="form-control" required="required" formControlName="from">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group row">
+                                    <label for="subject" class="col-2 col-form-label">Subject:</label>
+                                    <div class="col-8">
+                                        <input id="subject" name="subject" placeholder="Enter Subject" type="text"
+                                            class="form-control" formControlName="subject">
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        
+                        
                         <div class="form-group row">
-                            <label for="phone" class="col-2 col-form-label">Phone:</label>
+                            <label for="phone" class="col-1 offset-1 col-form-label">Phone:</label>
                             <div class="col-9">
                                 <input id="phone" name="phone" placeholder="Enter Phone" type="text"
                                     class="form-control" formControlName="phone">
                             </div>
-                        </div>
+                        </div>                        
                         <div class="form-group row">
-                            <label for="subject" class="col-2 col-form-label">Subject:</label>
-                            <div class="col-9">
-                                <input id="subject" name="subject" placeholder="Enter Subject" type="text"
-                                    class="form-control" formControlName="subject">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="msg" class="col-2 col-form-label">Message:</label>
+                            <label for="msg" class="col-1 offset-1 col-form-label">Message:</label>
                             <div class="col-9">
                                 <textarea id="msg" name="msg" rows="5" class="form-control"
                                     aria-describedby="msgHelpBlock" style="height: 100px;"

@@ -27,12 +27,12 @@ export class SlidebarComponent implements OnInit {
 
     // this.slidebar$.pipe(tap(console.log));
 
-    const newLocal = this.slidebar$.pipe(tap(
+    // const newLocal = this.slidebar$.pipe(tap(
       // console.log
-      ));
-    newLocal.subscribe(res => 
+      // ));
+    // newLocal.subscribe(res => 
       // console.log(res)
-      );
+      // );
   }
 
   getAdvertsByPage(id: string) {

@@ -138,8 +138,12 @@ nav.card {
     .modal-content{
         overflow:hidden;
     }
+    label{
+        text-align: left!important;
+        padding-left: 0px!important;
+    }
     .form-control {
-        height: 55px;
+        // height: 55px;
         border-radius: 10px;
         padding-left:15px;
         z-index: 80;
@@ -171,7 +175,7 @@ nav.card {
     }
     
     .modal-lg .top-strip {
-        height: 155px;
+        height: 100px;
         background: #1518b3;
         transform: rotate(141deg);
         margin-top: -106px;
@@ -181,7 +185,7 @@ nav.card {
         border-top: 10px solid darkgrey;
     }
     .modal-lg .bottom-strip {
-        height: 155px;
+        height: 100px;
         background: darkblue;
         transform: rotate(135deg);
         margin-top: -90px;

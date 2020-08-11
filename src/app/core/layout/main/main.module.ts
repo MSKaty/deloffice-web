@@ -34,6 +34,8 @@ import { PrivacynsecurityComponent } from '../../../views/delinfo/privacynsecuri
 import { UsefulListComponent } from 'src/app/views/useful-list/useful-list.component';
 import { Error404Component } from '../../../views/error404/error404.component';
 import { HeaderScrollDirective } from './header/header-scroll.directive';
+import { PrintingComponent } from '../../../views/printing/printing.component';
+import { CataloguesComponent } from '../../../views/catalogues/catalogues.component';
 
 
 
@@ -190,6 +192,16 @@ const routes: Routes = [
         component: Error404Component,
         data: { title: 'Error 404' }
       },
+      {
+        path: 'printing-services',
+        component: PrintingComponent,
+        data: { title: 'Printing Services' }
+      },
+      {
+        path: 'catalogues',
+        component: CataloguesComponent,
+        data: { title: 'Catalogues' }
+      },
 
 
     ]
@@ -205,7 +217,7 @@ const routes: Routes = [
   declarations: [MainComponent, HeaderComponent, HeaderScrollDirective, CartComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent,
     RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent, AboutComponent, WishlistComponent, CorporateValuesComponent,
     ContactUsComponent, JobOpportunitiesComponent, AntiBriberyPolicyComponent, FAQComponent, DeliveryPolicyComponent, MyaccountsComponent,
-    UpdatePassComponent, ReturnsPolicyComponent, MembershipPolicyComponent, TermsnconditionsComponent, PrivacynsecurityComponent, UsefulListComponent, Error404Component],
+    UpdatePassComponent, ReturnsPolicyComponent, MembershipPolicyComponent, TermsnconditionsComponent, PrivacynsecurityComponent, UsefulListComponent, Error404Component, PrintingComponent, CataloguesComponent],
 
   imports: [
     CommonModule,
