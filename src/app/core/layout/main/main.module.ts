@@ -36,6 +36,7 @@ import { Error404Component } from '../../../views/error404/error404.component';
 import { HeaderScrollDirective } from './header/header-scroll.directive';
 import { PrintingComponent } from '../../../views/printing/printing.component';
 import { CataloguesComponent } from '../../../views/catalogues/catalogues.component';
+import { SlideCarouselComponent } from './slide-carousel/slide-carousel.component';
 
 
 
@@ -217,7 +218,7 @@ const routes: Routes = [
   declarations: [MainComponent, HeaderComponent, HeaderScrollDirective, CartComponent, FooterComponent, HomeComponent, SearchResultsComponent, SingleProductComponent,
     RegisterComponent, LoginComponent, ProductListComponent, SlidebarComponent, AboutComponent, WishlistComponent, CorporateValuesComponent,
     ContactUsComponent, JobOpportunitiesComponent, AntiBriberyPolicyComponent, FAQComponent, DeliveryPolicyComponent, MyaccountsComponent,
-    UpdatePassComponent, ReturnsPolicyComponent, MembershipPolicyComponent, TermsnconditionsComponent, PrivacynsecurityComponent, UsefulListComponent, Error404Component, PrintingComponent, CataloguesComponent],
+    UpdatePassComponent, ReturnsPolicyComponent, MembershipPolicyComponent, TermsnconditionsComponent, PrivacynsecurityComponent, UsefulListComponent, Error404Component, PrintingComponent, CataloguesComponent, SlideCarouselComponent],
 
   imports: [
     CommonModule,

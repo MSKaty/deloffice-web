@@ -1,0 +1,49 @@
+<ng-container *ngIf="slidebar$ | async as sliderbar;">
+    <div id="Rotate-A-Group" class="carousel slide d-block mb-3" data-ride="carousel">
+        <div class="carousel-inner">
+            <ng-container *ngFor="let advert1 of sliderbar['RotateA']; index as i;">
+                <div class="carousel-item" [class.active]="i === 0">
+                    <img id="RA-1" src="https://api.deloffice.mu/images/product/{{advert1}}"
+                        class="d-block w-100" alt="...">
+                </div>
+            </ng-container>
+        </div>
+        <ol class="carousel-indicators">
+            <ng-container *ngFor="let advert1 of sliderbar['RotateA']; index as i;">
+                <li data-target="#Rotate-A-Group" [attr.data-slide-to]="i" [class.active]="i === 0"></li>
+            </ng-container>
+        </ol>
+    </div>
+
+    <div id="Rotate-B-Group" class="carousel slide d-block mb-3" data-ride="carousel">
+        <div class="carousel-inner">
+            <ng-container *ngFor="let advert2 of sliderbar['RotateB']; index as i;">
+                <div class="carousel-item" [class.active]="i === 0">
+                    <img src="https://api.deloffice.mu/images/product/{{advert2}}" class="d-block w-100"
+                        alt="...">
+                </div>
+            </ng-container>
+        </div>
+        <ol class="carousel-indicators">
+            <ng-container *ngFor="let advert2 of sliderbar['RotateB']; index as i;">
+                <li data-target="#Rotate-B-Group" [attr.data-slide-to]="i" [class.active]="i === 0"></li>
+            </ng-container>
+        </ol>
+    </div>
+
+    <div id="Rotate-C-Group" class="carousel slide d-block mb-3" data-ride="carousel">
+        <div class="carousel-inner">
+            <ng-container *ngFor="let advert3 of sliderbar['RotateC']; index as i;">
+                <div class="carousel-item" [class.active]="i === 0">
+                    <img src="https://api.deloffice.mu/images/product/{{advert3}}" class="d-block w-100"
+                        alt="...">
+                </div>
+            </ng-container>
+        </div>
+        <ol class="carousel-indicators">
+            <ng-container *ngFor="let advert3 of sliderbar['RotateC']; index as i;">
+                <li data-target="#Rotate-C-Group" [attr.data-slide-to]="i" [class.active]="i === 0"></li>
+            </ng-container>
+        </ol>
+    </div>
+</ng-container>
